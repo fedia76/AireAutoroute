@@ -1,0 +1,549 @@
+[
+  {
+    "id": "a1-vemars",
+    "autorouteId": "A1",
+    "nom": "Aire de Vémars",
+    "pk": 23.1,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 49.07,
+    "lon": 2.56,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a1-ressons",
+    "autorouteId": "A1",
+    "nom": "Aire de Ressons",
+    "pk": 80.7,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 49.55,
+    "lon": 2.86,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a1-assevillers",
+    "autorouteId": "A1",
+    "nom": "Aire d'Assevillers",
+    "pk": 120.2,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 49.9,
+    "lon": 2.83,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a1-phalempin",
+    "autorouteId": "A1",
+    "nom": "Aire de Phalempin",
+    "pk": 198.6,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 50.52,
+    "lon": 3.02,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a10-limours",
+    "autorouteId": "A10",
+    "nom": "Aire de Limours",
+    "pk": 21.6,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 48.63,
+    "lon": 2.13,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a10-orleans-saran",
+    "autorouteId": "A10",
+    "nom": "Aire d'Orléans-Saran",
+    "pk": 108.1,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 47.95,
+    "lon": 1.88,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a10-beaugency",
+    "autorouteId": "A10",
+    "nom": "Aire de Beaugency",
+    "pk": 138.8,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 47.77,
+    "lon": 1.63,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a10-blois-villerbon",
+    "autorouteId": "A10",
+    "nom": "Aire de Blois-Villerbon",
+    "pk": 163.9,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 47.65,
+    "lon": 1.38,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a10-poitiers-chincé",
+    "autorouteId": "A10",
+    "nom": "Aire de Poitiers-Chincé",
+    "pk": 323.8,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 46.63,
+    "lon": 0.33,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a10-saintes",
+    "autorouteId": "A10",
+    "nom": "Aire de Saintes",
+    "pk": 438.1,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.75,
+    "lon": -0.05,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-guerville",
+    "autorouteId": "A13",
+    "nom": "Aire de Guerville",
+    "pk": 42.8,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 48.966,
+    "lon": 1.79,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-rosny",
+    "autorouteId": "A13",
+    "nom": "Aire de Rosny-sur-Seine",
+    "pk": 52.0,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 48.993,
+    "lon": 1.68,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-bouafles",
+    "autorouteId": "A13",
+    "nom": "Aire de Bouafles",
+    "pk": 83.9,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.16,
+    "lon": 1.36,
+    "equipements": [
+      "TOILETTES",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-heudebouville-n",
+    "autorouteId": "A13",
+    "nom": "Aire de Heudebouville Nord",
+    "pk": 98.6,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 49.205,
+    "lon": 1.19,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE"
+    ]
+  },
+  {
+    "id": "a13-vironvay",
+    "autorouteId": "A13",
+    "nom": "Aire de Vironvay",
+    "pk": 98.9,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 49.195,
+    "lon": 1.175,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-bosgouet-n",
+    "autorouteId": "A13",
+    "nom": "Aire de Bosgouet Nord",
+    "pk": 129.2,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 49.335,
+    "lon": 0.855,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-bosgouet-s",
+    "autorouteId": "A13",
+    "nom": "Aire de Bosgouet Sud",
+    "pk": 129.4,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 49.33,
+    "lon": 0.85,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-bourneville",
+    "autorouteId": "A13",
+    "nom": "Aire de Bourneville",
+    "pk": 149.6,
+    "sens": "LES_DEUX",
+    "type": "REPOS",
+    "lat": 49.365,
+    "lon": 0.6,
+    "equipements": [
+      "TOILETTES",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-beuzeville",
+    "autorouteId": "A13",
+    "nom": "Aire de Beuzeville",
+    "pk": 168.2,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 49.34,
+    "lon": 0.37,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-le-torquesne",
+    "autorouteId": "A13",
+    "nom": "Aire du Pays d'Auge",
+    "pk": 188.3,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 49.27,
+    "lon": 0.14,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a13-dozule",
+    "autorouteId": "A13",
+    "nom": "Aire de Dozulé",
+    "pk": 203.3,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.23,
+    "lon": -0.04,
+    "equipements": [
+      "TOILETTES",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE"
+    ]
+  },
+  {
+    "id": "a13-giberville",
+    "autorouteId": "A13",
+    "nom": "Aire de Giberville",
+    "pk": 224.6,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 49.185,
+    "lon": -0.3,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a6-nemours",
+    "autorouteId": "A6",
+    "nom": "Aire de Nemours",
+    "pk": 67.1,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 48.26,
+    "lon": 2.66,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a6-venoy-soleil",
+    "autorouteId": "A6",
+    "nom": "Aire de Venoy-Grosse Pierre",
+    "pk": 158.1,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 47.81,
+    "lon": 3.61,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a6-beaune-tailly",
+    "autorouteId": "A6",
+    "nom": "Aire de Beaune-Tailly",
+    "pk": 304.5,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 46.97,
+    "lon": 4.77,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a6-dommartin",
+    "autorouteId": "A6",
+    "nom": "Aire de Dommartin (Poulet de Bresse)",
+    "pk": 379.3,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 46.3,
+    "lon": 4.85,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a6-dracé",
+    "autorouteId": "A6",
+    "nom": "Aire de Dracé",
+    "pk": 400.2,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 46.13,
+    "lon": 4.75,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a7-vienne-reventin",
+    "autorouteId": "A7",
+    "nom": "Aire de Vienne-Reventin",
+    "pk": 30.2,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.48,
+    "lon": 4.81,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a7-latitude-45",
+    "autorouteId": "A7",
+    "nom": "Aire de Latitude 45",
+    "pk": 84.4,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 45.03,
+    "lon": 4.83,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a7-montelimar",
+    "autorouteId": "A7",
+    "nom": "Aire de Montélimar",
+    "pk": 147.2,
+    "sens": "LES_DEUX",
+    "type": "SERVICE",
+    "lat": 44.53,
+    "lon": 4.76,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE",
+      "AIRE_JEUX_INTERIEURE"
+    ]
+  },
+  {
+    "id": "a7-mornas-village",
+    "autorouteId": "A7",
+    "nom": "Aire de Mornas-Village",
+    "pk": 187.9,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.2,
+    "lon": 4.73,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  },
+  {
+    "id": "a7-lancon",
+    "autorouteId": "A7",
+    "nom": "Aire de Lançon",
+    "pk": 270.2,
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.6,
+    "lon": 5.13,
+    "equipements": [
+      "TOILETTES",
+      "STATION_SERVICE",
+      "TABLE_A_LANGER",
+      "APPRECIATION_GENERALE",
+      "AIRE_JEUX_EXTERIEURE"
+    ]
+  }
+]
