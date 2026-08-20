@@ -27,7 +27,7 @@ data class Catalogue(
  * Accès aux données de l'application.
  *
  * Tant qu'il n'y a pas de base de données :
- *  - le catalogue (autoroutes, aires, enseignes, liaisons) est lu dans `assets/seed/*.json` ;
+ *  - le catalogue (autoroutes, aires, enseignes, liaisons) est lu dans les fichiers JSON de `assets/seed/` ;
  *  - les contributions de l'utilisateur (notations, enseignes ajoutées) sont écrites dans
  *    `filesDir/donnees_utilisateur.json`.
  *
