@@ -1,0 +1,103 @@
+name: Build APK
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Tests + APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installation du JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Configuration du SDK Android
+        uses: android-actions/setup-android@v3
+
+      - name: Configuration de Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Tests unitaires
+        run: ./gradlew testDebugUnitTest --stacktrace
+
+      - name: Construction des APK
+        run: ./gradlew assembleDebug assembleRelease --stacktrace
+
+      - name: Renommage des APK
+        run: |
+          mkdir -p apk
+          cp app/build/outputs/apk/debug/app-debug.apk \
+             "apk/aire-autoroute-debug-${GITHUB_SHA::7}.apk"
+          cp app/build/outputs/apk/release/app-release-unsigned.apk \
+             "apk/aire-autoroute-release-non-signe-${GITHUB_SHA::7}.apk"
+
+      - name: Publication de l'APK de debug
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-debug
+          path: apk/aire-autoroute-debug-*.apk
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publication de l'APK de release (non signé)
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-release-non-signe
+          path: apk/aire-autoroute-release-non-signe-*.apk
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publication des rapports de test en cas d'échec
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapports-tests
+          path: app/build/reports/tests/
+          retention-days: 7
+
+      - name: Résumé
+        run: |
+          {
+            echo "### APK construits"
+            echo ""
+            for fichier in apk/*.apk; do
+              echo "- \`$(basename "$fichier")\` ($(du -h "$fichier" | cut -f1))"
+            done
+            echo ""
+            echo "Téléchargeables dans les artefacts de ce run."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  publication:
+    name: Release sur tag
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Récupération des APK
+        uses: actions/download-artifact@v4
+        with:
+          pattern: apk-*
+          merge-multiple: true
+          path: apk
+
+      - name: Création de la release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: apk/*.apk
