@@ -108,7 +108,7 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
         jobLocalisation?.cancel()
         positionChoisie.value = PositionUtilisateur(
             autoroute = autoroute,
-            pk = pk.coerceIn(0.0, autoroute.longueurKm),
+            pk = pk.coerceIn(autoroute.pkDebut, autoroute.pkFin),
             sens = sens,
             source = SourcePosition.MANUELLE,
         )

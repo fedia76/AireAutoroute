@@ -44,9 +44,18 @@ object LocalisateurPk {
         var meilleur: ResultatLocalisation? = null
         for (autoroute in autoroutes) {
             val geometrie = autoroute.geometrie
+            // Le réseau complet représente des dizaines de milliers de segments : un rejet
+            // grossier sur les coordonnées évite d'en projeter la quasi-totalité.
+            val margeLat = ecartMaxMetres / 111_320.0
+            val margeLon = margeLat / cos(Math.toRadians(lat)).coerceAtLeast(0.1)
+
             for (i in 1 until geometrie.size) {
                 val depart = geometrie[i - 1]
                 val arrivee = geometrie[i]
+                if (lat < minOf(depart.lat, arrivee.lat) - margeLat) continue
+                if (lat > maxOf(depart.lat, arrivee.lat) + margeLat) continue
+                if (lon < minOf(depart.lon, arrivee.lon) - margeLon) continue
+                if (lon > maxOf(depart.lon, arrivee.lon) + margeLon) continue
                 // Repère plan local centré sur le début du segment (en mètres).
                 val (bx, by) = versPlan(arrivee.lat, arrivee.lon, depart.lat, depart.lon)
                 val (px, py) = versPlan(lat, lon, depart.lat, depart.lon)

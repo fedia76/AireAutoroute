@@ -1,0 +1,56 @@
+name: Régénérer les données
+
+# Déclenchement manuel uniquement : les données changent lentement, et le diff de la pull
+# request est ce qui permet de refuser un import qui aurait mal tourné.
+on:
+  workflow_dispatch:
+    inputs:
+      rafraichir_wikisara:
+        description: "Relancer le scraping de WikiSara avant de régénérer (sinon, on repart du CSV versionné)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  regenerer:
+    name: Import des données ouvertes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installation de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rafraîchissement du catalogue WikiSara
+        if: ${{ inputs.rafraichir_wikisara }}
+        working-directory: donnees/sources
+        run: |
+          pip install requests beautifulsoup4
+          python3 ../../tools/scrapper_wikisara.py
+
+      - name: Génération des fichiers de données
+        run: python3 tools/generer_donnees.py
+
+      - name: Rapport dans le résumé du run
+        if: always()
+        run: cat donnees/rapport_import.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Ouverture de la pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: donnees/import-automatique
+          delete-branch: true
+          commit-message: |
+            Régénère les données à partir des sources ouvertes
+
+            Import produit par le workflow « Régénérer les données ».
+          title: "Données : régénération depuis le bornage et WikiSara"
+          body-path: donnees/rapport_import.md
+          labels: donnees

@@ -44,6 +44,12 @@ data class Autoroute(
     val longueurKm: Double,
     val geometrie: List<PointReference> = emptyList(),
 ) {
+    /** Premier point kilométrique couvert par le tracé. */
+    val pkDebut: Double get() = geometrie.firstOrNull()?.pk ?: 0.0
+
+    /** Dernier point kilométrique couvert par le tracé. */
+    val pkFin: Double get() = geometrie.lastOrNull()?.pk ?: longueurKm
+
     /** Terminus vers lequel on roule dans le sens donné. */
     fun terminus(sens: Sens): String = when (sens) {
         Sens.CROISSANT -> terminusFin

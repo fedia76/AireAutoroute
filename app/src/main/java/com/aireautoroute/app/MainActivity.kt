@@ -20,6 +20,7 @@ import androidx.navigation.compose.rememberNavController
 import com.aireautoroute.app.ui.EcranAccueil
 import com.aireautoroute.app.ui.EcranDetail
 import com.aireautoroute.app.ui.EcranNotation
+import com.aireautoroute.app.ui.EcranSources
 import com.aireautoroute.app.ui.theme.AireAutorouteTheme
 import com.aireautoroute.app.ui.theme.ThemeApp
 
@@ -36,6 +37,7 @@ private object Routes {
     const val ACCUEIL = "accueil"
     const val DETAIL = "aire/{aireId}"
     const val NOTATION = "noter/{aireId}"
+    const val SOURCES = "sources"
 
     fun detail(aireId: String) = "aire/$aireId"
     fun notation(aireId: String) = "noter/$aireId"
@@ -70,6 +72,7 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
                 onPositionManuelle = vm::definirPositionManuelle,
                 onInverserSens = vm::inverserSens,
                 onAire = { aireId -> navController.navigate(Routes.detail(aireId)) },
+                onSources = { navController.navigate(Routes.SOURCES) },
                 onLocaliser = {
                     val accordee = ContextCompat.checkSelfPermission(
                         contexte,
@@ -87,6 +90,10 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
                     }
                 },
             )
+        }
+
+        composable(Routes.SOURCES) {
+            EcranSources(onRetour = { navController.popBackStack() })
         }
 
         composable(Routes.DETAIL) { entree ->

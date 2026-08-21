@@ -95,23 +95,45 @@ Le **sens** est modélisé par le PK : `CROISSANT` = les PK augmentent = on va v
 d'arrivée (pour l'A13 : vers Caen), `DECROISSANT` = l'inverse, `LES_DEUX` pour une aire accessible
 depuis les deux chaussées.
 
-### Données livrées
+### D'où viennent les données
 
-`tools/generer_donnees.py` régénère les fichiers JSON à partir des tracés et des listes d'aires
-qu'il contient :
+**89 autoroutes, 11 000 km de tracé et 1 092 aires**, importés de deux sources ouvertes
+versionnées dans `donnees/sources/` :
+
+| Source | Licence | Ce qu'elle apporte |
+| --- | --- | --- |
+| [Bornage du réseau routier national](https://www.data.gouv.fr/datasets/bornage-du-reseau-routier-national/) (data.gouv.fr) | Licence Ouverte | le tracé de chaque autoroute — une borne par kilomètre — et le PK **affiché sur les panneaux** |
+| [WikiSara](https://routes.fandom.com) | CC BY-SA | la liste des aires : nom, sens, type, point kilométrique |
+| `donnees/sources/enseignes.json` | — | référentiel de saisie des enseignes, tenu à la main |
+
+Le bornage donne, pour chaque borne, deux abscisses : la distance depuis l'origine du tracé et le
+numéro inscrit sur la borne. Les deux ne coïncident pas — une autoroute peut prolonger le
+kilométrage d'une autre, ou décaler son origine — et c'est le **numéro de borne** qui est retenu,
+puisque c'est celui que lit l'automobiliste. Chaque aire est ensuite placée sur le tracé en
+interpolant son PK entre les deux bornes qui l'encadrent : les deux sources parlent la même langue,
+celle des panneaux.
+
+Pour régénérer :
 
 ```bash
-python3 tools/generer_donnees.py
+python3 tools/generer_donnees.py            # écrit les fichiers et donnees/rapport_import.md
+python3 tools/generer_donnees.py --verifier  # contrôle sans rien écrire
+python3 tools/tests_import.py                # tests de la chaîne d'import
 ```
 
-Le script calcule les PK cumulés le long du tracé (mis à l'échelle de la longueur officielle de
-l'autoroute) puis projette chaque aire sur ce tracé pour en déduire son PK. Géométrie et PK restent
-ainsi toujours cohérents.
+Le script refuse d'écrire si un contrôle échoue : identifiants en double, aire sans position, PK
+hors tracé, kilométrage non croissant, ou chute de plus de 20 % du nombre d'aires. Ce qui est
+écarté est listé dans [`donnees/rapport_import.md`](donnees/rapport_import.md) — aujourd'hui
+275 km de tracé (là où le bornage décrit une autoroute en tronçons dont le kilométrage repart) et
+33 aires dont le PK ne tombe pas sur le tracé retenu.
 
-⚠️ Le jeu de données actuel (A13, A10, A6, A7, A1) est une **amorce indicative** : les tracés sont
-simplifiés à une vingtaine de points et les PK sont donc approchés (quelques kilomètres d'écart avec
-les bornes réelles). Il est fait pour être corrigé fichier par fichier, ou remplacé par un import
-de données ouvertes.
+`tools/scrapper_wikisara.py` sert à rafraîchir le CSV des aires ; il n'est pas rejoué à chaque
+import, le CSV versionné fait foi.
+
+**Ce que les données ne disent pas encore** : aucune enseigne n'est rattachée à une aire, et les
+seuls équipements annoncés sont la station-service et les sanitaires des aires de service — parce
+que c'est ce qui définit ce type d'aire, pas parce qu'on les a vérifiés. Ils restent « annoncés »
+jusqu'à ce que deux visiteurs les confirment. La passe OpenStreetMap viendra combler ce manque.
 
 ## Du GPS au point kilométrique
 
@@ -119,7 +141,8 @@ C'est la question centrale du mode automatique. La conversion se fait dans
 [`LocalisateurPk`](app/src/main/java/com/aireautoroute/app/geo/LocalisateurPk.kt) :
 
 1. Chaque autoroute est décrite par une **poly-ligne** de points de référence portant chacun leur
-   PK (table `autoroute`, champ `geometrie`).
+   PK — ce sont les bornes du bord de route, une par kilomètre (table `autoroute`, champ
+   `geometrie`).
 2. Le point GPS est **projeté orthogonalement** sur chaque segment de chaque poly-ligne. Le calcul
    se fait dans un repère plan local (projection équirectangulaire centrée sur le segment) : à
    l'échelle de quelques kilomètres, l'erreur est négligeable et c'est beaucoup moins coûteux
@@ -132,9 +155,14 @@ C'est la question centrale du mode automatique. La conversion se fait dans
    qu'en mouvement, il est ignoré sous ~10 km/h ; dans ce cas l'application le signale et le sens
    reste corrigeable d'un bouton (« Inverser »).
 
-Deux limites assumées : la précision du PK dépend de la finesse du tracé, et deux autoroutes
-parallèles à moins de quelques centaines de mètres peuvent être confondues. Un tracé plus fin (par
-exemple issu d'OpenStreetMap) améliore les deux points sans changer une ligne d'algorithme.
+Comme le PK de l'utilisateur et celui des aires sont mesurés sur le même ruban et avec la même
+méthode, la distance affichée (« dans 5 km ») reste juste même là où le tracé est grossier. Et
+puisque l'échelle est celle des bornes officielles, la saisie manuelle « je suis au PK 55 »
+correspond bien au panneau que l'automobiliste a sous les yeux.
+
+Deux limites assumées : entre deux bornes, la position est interpolée en ligne droite, donc
+imprécise de quelques dizaines de mètres dans les courbes ; et deux autoroutes parallèles séparées
+de moins de quelques centaines de mètres peuvent être confondues.
 
 ## Construction
 
@@ -160,9 +188,27 @@ push** (toutes branches), sur les pull requests et à la demande :
 3. publication des deux APK en artefacts (`apk-debug`, `apk-release-non-signe`), téléchargeables
    depuis l'onglet *Actions* du dépôt.
 
+Un second workflow, [`donnees.yml`](.github/workflows/donnees.yml), régénère les données **à la
+demande** (déclenchement manuel, avec une option pour rejouer d'abord le scraping de WikiSara) et
+ouvre une pull request portant le rapport d'import en description : le diff est ce qui permet de
+refuser un import qui aurait mal tourné. Les données ne sont jamais régénérées pendant un build.
+
 L'APK de debug est directement installable sur un téléphone. L'APK de release est **non signé** :
 il faut le signer avec sa propre clé (`apksigner`) avant installation. Un push de tag `v*` crée en
 plus une release GitHub contenant les APK.
+
+## Structure du dépôt
+
+```
+donnees/
+├── sources/                 les données d'entrée, versionnées (bornage, WikiSara, enseignes)
+└── rapport_import.md        ce que le dernier import a retenu et écarté
+tools/
+├── generer_donnees.py       point d'entrée de l'import
+├── tests_import.py          tests de la chaîne d'import
+├── scrapper_wikisara.py     rafraîchissement du catalogue des aires
+└── import/                  lecture des sources, conversion Lambert 93, construction
+```
 
 ## Structure du code
 
@@ -184,6 +230,7 @@ app/src/main/java/com/aireautoroute/app/
 
 - Remplacer les fichiers par Room, en gardant les mêmes tables.
 - Partager les notations entre utilisateurs (API + synchronisation).
-- Importer des tracés et des aires depuis OpenStreetMap pour couvrir tout le réseau.
+- Enrichir les aires depuis OpenStreetMap : équipements réellement présents, aires de jeux,
+  tables à langer et enseignes.
 - Filtrer la liste (« seulement les aires avec jeux intérieurs notés 4+ pour les 3-6 ans »).
 - Pondérer le consensus par l'ancienneté des déclarations (un équipement peut fermer).

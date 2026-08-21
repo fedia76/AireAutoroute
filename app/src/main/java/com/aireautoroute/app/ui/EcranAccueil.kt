@@ -23,6 +23,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.SwapHoriz
@@ -81,6 +82,7 @@ fun EcranAccueil(
     onInverserSens: () -> Unit,
     onAire: (String) -> Unit,
     onLocaliser: () -> Unit,
+    onSources: () -> Unit,
 ) {
     var dialogueTheme by remember { mutableStateOf(false) }
 
@@ -92,6 +94,9 @@ fun EcranAccueil(
                 actions = {
                     IconButton(onClick = { dialogueTheme = true }) {
                         Icon(Icons.Filled.Palette, contentDescription = "Changer d'apparence")
+                    }
+                    IconButton(onClick = onSources) {
+                        Icon(Icons.Filled.Info, contentDescription = "Sources et licences")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -281,12 +286,12 @@ private fun CartePosition(
 
             Box {
                 OutlinedButton(onClick = { menuOuvert = true }, modifier = Modifier.fillMaxWidth()) {
-                    Text(autoroute?.let { "${it.nom} — ${it.libelle}" } ?: "Choisir une autoroute")
+                    Text(autoroute?.let { "${it.nom} · ${it.libelle}" } ?: "Choisir une autoroute")
                 }
                 DropdownMenu(expanded = menuOuvert, onDismissRequest = { menuOuvert = false }) {
                     etat.autoroutes.forEach { candidate ->
                         DropdownMenuItem(
-                            text = { Text("${candidate.nom} — ${candidate.terminusDebut} / ${candidate.terminusFin}") },
+                            text = { Text("${candidate.nom} · ${candidate.libelle}") },
                             onClick = {
                                 autoroute = candidate
                                 menuOuvert = false
@@ -300,7 +305,9 @@ private fun CartePosition(
                 value = pkTexte,
                 onValueChange = { saisie -> pkTexte = saisie.filter { it.isDigit() || it == '.' || it == ',' } },
                 label = { Text("Point kilométrique") },
-                suffix = { Text(autoroute?.let { "/ %.0f km".format(it.longueurKm) } ?: "") },
+                suffix = {
+                    Text(autoroute?.let { "PK %.0f à %.0f".format(it.pkDebut, it.pkFin) } ?: "")
+                },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.fillMaxWidth(),
