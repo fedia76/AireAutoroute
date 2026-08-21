@@ -100,11 +100,22 @@
     "equipements": []
   },
   {
-    "id": "a1-chamant",
+    "id": "a1-chamant-croissant",
     "autorouteId": "A1",
     "nom": "Chamant",
     "pk": 44.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.21508,
+    "lon": 2.62655,
+    "equipements": []
+  },
+  {
+    "id": "a1-chamant-decroissant",
+    "autorouteId": "A1",
+    "nom": "Chamant",
+    "pk": 44.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.21508,
     "lon": 2.62655,
@@ -382,11 +393,22 @@
     "equipements": []
   },
   {
-    "id": "a1-fresnes-les-montauban",
+    "id": "a1-fresnes-les-montauban-croissant",
     "autorouteId": "A1",
     "nom": "Fresnes-lès-Montauban",
     "pk": 173.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 50.32591,
+    "lon": 2.91304,
+    "equipements": []
+  },
+  {
+    "id": "a1-fresnes-les-montauban-decroissant",
+    "autorouteId": "A1",
+    "nom": "Fresnes-lès-Montauban",
+    "pk": 173.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 50.32591,
     "lon": 2.91304,
@@ -471,11 +493,22 @@
     ]
   },
   {
-    "id": "a2-hordain",
+    "id": "a2-hordain-croissant",
     "autorouteId": "A2",
     "nom": "Hordain",
     "pk": 38.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 50.22986,
+    "lon": 3.27382,
+    "equipements": []
+  },
+  {
+    "id": "a2-hordain-decroissant",
+    "autorouteId": "A2",
+    "nom": "Hordain",
+    "pk": 38.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 50.22986,
     "lon": 3.27382,
@@ -521,11 +554,22 @@
     "equipements": []
   },
   {
-    "id": "a2-hensies-saint-aybert",
+    "id": "a2-hensies-saint-aybert-croissant",
     "autorouteId": "A2",
     "nom": "Hensies Saint-Aybert",
     "pk": 76.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 50.42546,
+    "lon": 3.64119,
+    "equipements": []
+  },
+  {
+    "id": "a2-hensies-saint-aybert-decroissant",
+    "autorouteId": "A2",
+    "nom": "Hensies Saint-Aybert",
+    "pk": 76.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 50.42546,
     "lon": 3.64119,
@@ -585,11 +629,22 @@
     "equipements": []
   },
   {
-    "id": "a4-coutevroult",
+    "id": "a4-coutevroult-croissant",
     "autorouteId": "A4",
     "nom": "Coutevroult",
     "pk": 35.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.85309,
+    "lon": 2.83821,
+    "equipements": []
+  },
+  {
+    "id": "a4-coutevroult-decroissant",
+    "autorouteId": "A4",
+    "nom": "Coutevroult",
+    "pk": 35.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.85309,
     "lon": 2.83821,
@@ -646,11 +701,22 @@
     ]
   },
   {
-    "id": "a4-montreuil",
+    "id": "a4-montreuil-croissant",
     "autorouteId": "A4",
     "nom": "Montreuil",
     "pk": 64.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.00787,
+    "lon": 3.14198,
+    "equipements": []
+  },
+  {
+    "id": "a4-montreuil-decroissant",
+    "autorouteId": "A4",
+    "nom": "Montreuil",
+    "pk": 64.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.00787,
     "lon": 3.14198,
@@ -679,11 +745,25 @@
     "equipements": []
   },
   {
-    "id": "a4-tardenois",
+    "id": "a4-tardenois-croissant",
     "autorouteId": "A4",
     "nom": "Tardenois",
     "pk": 97.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 49.12639,
+    "lon": 3.53745,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a4-tardenois-decroissant",
+    "autorouteId": "A4",
+    "nom": "Tardenois",
+    "pk": 97.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 49.12639,
     "lon": 3.53745,
@@ -765,11 +845,25 @@
     "equipements": []
   },
   {
-    "id": "a4-reims-champagne",
+    "id": "a4-reims-champagne-croissant",
     "autorouteId": "A4",
     "nom": "Reims - Champagne",
     "pk": 159.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 49.12481,
+    "lon": 4.23623,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a4-reims-champagne-decroissant",
+    "autorouteId": "A4",
+    "nom": "Reims - Champagne",
+    "pk": 159.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 49.12481,
     "lon": 4.23623,
@@ -829,11 +923,22 @@
     ]
   },
   {
-    "id": "a4-la-fontaine-d-olive",
+    "id": "a4-la-fontaine-d-olive-croissant",
     "autorouteId": "A4",
     "nom": "La Fontaine d'Olive",
     "pk": 219.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.08363,
+    "lon": 4.96008,
+    "equipements": []
+  },
+  {
+    "id": "a4-la-fontaine-d-olive-decroissant",
+    "autorouteId": "A4",
+    "nom": "La Fontaine d'Olive",
+    "pk": 219.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.08363,
     "lon": 4.96008,
@@ -884,11 +989,25 @@
     "equipements": []
   },
   {
-    "id": "a4-verdun-saint-nicolas",
+    "id": "a4-verdun-saint-nicolas-croissant",
     "autorouteId": "A4",
     "nom": "Verdun - Saint-Nicolas",
     "pk": 261.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 49.11942,
+    "lon": 5.50009,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a4-verdun-saint-nicolas-decroissant",
+    "autorouteId": "A4",
+    "nom": "Verdun - Saint-Nicolas",
+    "pk": 261.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 49.11942,
     "lon": 5.50009,
@@ -942,22 +1061,47 @@
     "equipements": []
   },
   {
-    "id": "a4-beaumont",
+    "id": "a4-beaumont-croissant",
     "autorouteId": "A4",
     "nom": "Beaumont",
     "pk": 295.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.19897,
     "lon": 5.92587,
     "equipements": []
   },
   {
-    "id": "a4-metz-saint-privat",
+    "id": "a4-beaumont-decroissant",
+    "autorouteId": "A4",
+    "nom": "Beaumont",
+    "pk": 295.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.19897,
+    "lon": 5.92587,
+    "equipements": []
+  },
+  {
+    "id": "a4-metz-saint-privat-croissant",
     "autorouteId": "A4",
     "nom": "Metz - Saint-Privat",
     "pk": 305.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 49.1795,
+    "lon": 6.04949,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a4-metz-saint-privat-decroissant",
+    "autorouteId": "A4",
+    "nom": "Metz - Saint-Privat",
+    "pk": 305.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 49.1795,
     "lon": 6.04949,
@@ -978,14 +1122,25 @@
     "equipements": []
   },
   {
-    "id": "a4-landonvillers",
+    "id": "a4-landonvillers-croissant",
     "autorouteId": "A4",
     "nom": "Landonvillers",
-    "pk": 339.5,
-    "sens": "LES_DEUX",
+    "pk": 339.0,
+    "sens": "CROISSANT",
     "type": "REPOS",
-    "lat": 49.13782,
-    "lon": 6.41099,
+    "lat": 49.13706,
+    "lon": 6.40434,
+    "equipements": []
+  },
+  {
+    "id": "a4-landonvillers-decroissant",
+    "autorouteId": "A4",
+    "nom": "Landonvillers",
+    "pk": 340.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.13857,
+    "lon": 6.41764,
     "equipements": []
   },
   {
@@ -1011,11 +1166,11 @@
     "equipements": []
   },
   {
-    "id": "a4-longeville",
+    "id": "a4-longeville-croissant",
     "autorouteId": "A4",
     "nom": "Longeville",
     "pk": 358.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 49.13374,
     "lon": 6.65619,
@@ -1025,22 +1180,58 @@
     ]
   },
   {
-    "id": "a4-saint-avold",
+    "id": "a4-longeville-decroissant",
+    "autorouteId": "A4",
+    "nom": "Longeville",
+    "pk": 358.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 49.13374,
+    "lon": 6.65619,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a4-saint-avold-croissant",
     "autorouteId": "A4",
     "nom": "Saint-Avold",
     "pk": 361.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.13587,
     "lon": 6.69574,
     "equipements": []
   },
   {
-    "id": "a4-loupershouse",
+    "id": "a4-saint-avold-decroissant",
+    "autorouteId": "A4",
+    "nom": "Saint-Avold",
+    "pk": 361.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.13587,
+    "lon": 6.69574,
+    "equipements": []
+  },
+  {
+    "id": "a4-loupershouse-croissant",
     "autorouteId": "A4",
     "nom": "Loupershouse",
     "pk": 380.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.0743,
+    "lon": 6.90027,
+    "equipements": []
+  },
+  {
+    "id": "a4-loupershouse-decroissant",
+    "autorouteId": "A4",
+    "nom": "Loupershouse",
+    "pk": 380.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.0743,
     "lon": 6.90027,
@@ -1069,11 +1260,25 @@
     "equipements": []
   },
   {
-    "id": "a4-keskastel",
+    "id": "a4-keskastel-croissant",
     "autorouteId": "A4",
     "nom": "Keskastel",
     "pk": 400.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 48.97689,
+    "lon": 7.06419,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a4-keskastel-decroissant",
+    "autorouteId": "A4",
+    "nom": "Keskastel",
+    "pk": 400.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 48.97689,
     "lon": 7.06419,
@@ -1199,22 +1404,33 @@
     "equipements": []
   },
   {
-    "id": "a4-schwindratzheim",
+    "id": "a4-schwindratzheim-croissant",
     "autorouteId": "A4",
     "nom": "Schwindratzheim",
     "pk": 456.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 48.76945,
     "lon": 7.60128,
     "equipements": []
   },
   {
-    "id": "a4-brumath",
+    "id": "a4-schwindratzheim-decroissant",
+    "autorouteId": "A4",
+    "nom": "Schwindratzheim",
+    "pk": 456.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.76945,
+    "lon": 7.60128,
+    "equipements": []
+  },
+  {
+    "id": "a4-brumath-croissant",
     "autorouteId": "A4",
     "nom": "Brumath",
     "pk": 466.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.72208,
     "lon": 7.69372,
@@ -1224,11 +1440,36 @@
     ]
   },
   {
-    "id": "a5-les-eprunes",
+    "id": "a4-brumath-decroissant",
+    "autorouteId": "A4",
+    "nom": "Brumath",
+    "pk": 466.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 48.72208,
+    "lon": 7.69372,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a5-les-eprunes-croissant",
     "autorouteId": "A5",
     "nom": "Les Eprunes",
     "pk": 1.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.59004,
+    "lon": 2.65041,
+    "equipements": []
+  },
+  {
+    "id": "a5-les-eprunes-decroissant",
+    "autorouteId": "A5",
+    "nom": "Les Eprunes",
+    "pk": 1.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.59004,
     "lon": 2.65041,
@@ -1521,11 +1762,22 @@
     ]
   },
   {
-    "id": "a6-fleury-en-biere",
+    "id": "a6-fleury-en-biere-croissant",
     "autorouteId": "A6",
     "nom": "Fleury-en-Bière",
     "pk": 50.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.42868,
+    "lon": 2.53899,
+    "equipements": []
+  },
+  {
+    "id": "a6-fleury-en-biere-decroissant",
+    "autorouteId": "A6",
+    "nom": "Fleury-en-Bière",
+    "pk": 50.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.42868,
     "lon": 2.53899,
@@ -2313,22 +2565,33 @@
     "equipements": []
   },
   {
-    "id": "a6-villefranche-limas",
+    "id": "a6-villefranche-limas-croissant",
     "autorouteId": "A6",
     "nom": "Villefranche - Limas",
     "pk": 427.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.97512,
     "lon": 4.73353,
     "equipements": []
   },
   {
-    "id": "a6-les-cheres",
+    "id": "a6-villefranche-limas-decroissant",
+    "autorouteId": "A6",
+    "nom": "Villefranche - Limas",
+    "pk": 427.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.97512,
+    "lon": 4.73353,
+    "equipements": []
+  },
+  {
+    "id": "a6-les-cheres-croissant",
     "autorouteId": "A6",
     "nom": "Les Chères",
     "pk": 436.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.90036,
     "lon": 4.7299,
@@ -2338,11 +2601,36 @@
     ]
   },
   {
-    "id": "a7-vienne",
+    "id": "a6-les-cheres-decroissant",
+    "autorouteId": "A6",
+    "nom": "Les Chères",
+    "pk": 436.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 45.90036,
+    "lon": 4.7299,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a7-vienne-croissant",
     "autorouteId": "A7",
     "nom": "Vienne",
     "pk": 6.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.47597,
+    "lon": 4.83378,
+    "equipements": []
+  },
+  {
+    "id": "a7-vienne-decroissant",
+    "autorouteId": "A7",
+    "nom": "Vienne",
+    "pk": 6.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.47597,
     "lon": 4.83378,
@@ -2413,11 +2701,25 @@
     ]
   },
   {
-    "id": "a7-saint-rambert-d-albon",
+    "id": "a7-saint-rambert-d-albon-croissant",
     "autorouteId": "A7",
     "nom": "Saint-Rambert-d'Albon",
     "pk": 29.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.27878,
+    "lon": 4.82535,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a7-saint-rambert-d-albon-decroissant",
+    "autorouteId": "A7",
+    "nom": "Saint-Rambert-d'Albon",
+    "pk": 29.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.27878,
     "lon": 4.82535,
@@ -2488,11 +2790,25 @@
     ]
   },
   {
-    "id": "a7-portes-les-valence",
+    "id": "a7-portes-les-valence-croissant",
     "autorouteId": "A7",
     "nom": "Portes-lès-Valence",
     "pk": 78.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 44.86736,
+    "lon": 4.86552,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a7-portes-les-valence-decroissant",
+    "autorouteId": "A7",
+    "nom": "Portes-lès-Valence",
+    "pk": 78.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 44.86736,
     "lon": 4.86552,
@@ -2593,11 +2909,25 @@
     "equipements": []
   },
   {
-    "id": "a7-montelimar",
+    "id": "a7-montelimar-croissant",
     "autorouteId": "A7",
     "nom": "Montélimar",
     "pk": 120.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 44.51808,
+    "lon": 4.78669,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a7-montelimar-decroissant",
+    "autorouteId": "A7",
+    "nom": "Montélimar",
+    "pk": 120.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 44.51808,
     "lon": 4.78669,
@@ -2751,22 +3081,44 @@
     "equipements": []
   },
   {
-    "id": "a7-cavaillon-plan-d-orgon",
+    "id": "a7-cavaillon-plan-d-orgon-decroissant",
     "autorouteId": "A7",
     "nom": "Cavaillon - Plan d'Orgon",
-    "pk": 209.5,
-    "sens": "LES_DEUX",
+    "pk": 209.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 43.83053,
-    "lon": 5.01366,
+    "lat": 43.83234,
+    "lon": 5.00797,
     "equipements": []
   },
   {
-    "id": "a7-senas",
+    "id": "a7-cavaillon-plan-d-orgon-croissant",
+    "autorouteId": "A7",
+    "nom": "Cavaillon - Plan d'Orgon",
+    "pk": 210.0,
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.82873,
+    "lon": 5.01936,
+    "equipements": []
+  },
+  {
+    "id": "a7-senas-croissant",
     "autorouteId": "A7",
     "nom": "Sénas",
     "pk": 219.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.76188,
+    "lon": 5.07732,
+    "equipements": []
+  },
+  {
+    "id": "a7-senas-decroissant",
+    "autorouteId": "A7",
+    "nom": "Sénas",
+    "pk": 219.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.76188,
     "lon": 5.07732,
@@ -2784,22 +3136,33 @@
     "equipements": []
   },
   {
-    "id": "a7-lancon-provence-bpv",
+    "id": "a7-lancon-provence-bpv-croissant",
     "autorouteId": "A7",
     "nom": "Lançon-Provence (BPV)",
     "pk": 240.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.59514,
     "lon": 5.17018,
     "equipements": []
   },
   {
-    "id": "a7-lancon-provence",
+    "id": "a7-lancon-provence-bpv-decroissant",
+    "autorouteId": "A7",
+    "nom": "Lançon-Provence (BPV)",
+    "pk": 240.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.59514,
+    "lon": 5.17018,
+    "equipements": []
+  },
+  {
+    "id": "a7-lancon-provence-croissant",
     "autorouteId": "A7",
     "nom": "Lançon-Provence",
     "pk": 242.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.58911,
     "lon": 5.19335,
@@ -2809,22 +3172,58 @@
     ]
   },
   {
-    "id": "a8-ventabren",
+    "id": "a7-lancon-provence-decroissant",
+    "autorouteId": "A7",
+    "nom": "Lançon-Provence",
+    "pk": 242.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.58911,
+    "lon": 5.19335,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a8-ventabren-croissant",
     "autorouteId": "A8",
     "nom": "Ventabren",
     "pk": 8.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.55195,
     "lon": 5.31554,
     "equipements": []
   },
   {
-    "id": "a8-la-barque",
+    "id": "a8-ventabren-decroissant",
+    "autorouteId": "A8",
+    "nom": "Ventabren",
+    "pk": 8.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.55195,
+    "lon": 5.31554,
+    "equipements": []
+  },
+  {
+    "id": "a8-la-barque-croissant",
     "autorouteId": "A8",
     "nom": "La Barque",
     "pk": 29.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.48222,
+    "lon": 5.54211,
+    "equipements": []
+  },
+  {
+    "id": "a8-la-barque-decroissant",
+    "autorouteId": "A8",
+    "nom": "La Barque",
+    "pk": 29.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.48222,
     "lon": 5.54211,
@@ -2984,11 +3383,22 @@
     ]
   },
   {
-    "id": "a8-le-capitou",
+    "id": "a8-le-capitou-croissant",
     "autorouteId": "A8",
     "nom": "Le Capitou",
     "pk": 133.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.46906,
+    "lon": 6.73064,
+    "equipements": []
+  },
+  {
+    "id": "a8-le-capitou-decroissant",
+    "autorouteId": "A8",
+    "nom": "Le Capitou",
+    "pk": 133.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.46906,
     "lon": 6.73064,
@@ -3059,11 +3469,22 @@
     ]
   },
   {
-    "id": "a8-antibes",
+    "id": "a8-antibes-croissant",
     "autorouteId": "A8",
     "nom": "Antibes",
     "pk": 172.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.60252,
+    "lon": 7.07785,
+    "equipements": []
+  },
+  {
+    "id": "a8-antibes-decroissant",
+    "autorouteId": "A8",
+    "nom": "Antibes",
+    "pk": 172.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.60252,
     "lon": 7.07785,
@@ -3081,11 +3502,22 @@
     "equipements": []
   },
   {
-    "id": "a8-la-turbie",
+    "id": "a8-la-turbie-croissant",
     "autorouteId": "A8",
     "nom": "La Turbie",
     "pk": 208.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.7437,
+    "lon": 7.37844,
+    "equipements": []
+  },
+  {
+    "id": "a8-la-turbie-decroissant",
+    "autorouteId": "A8",
+    "nom": "La Turbie",
+    "pk": 208.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.7437,
     "lon": 7.37844,
@@ -3192,22 +3624,33 @@
     "equipements": []
   },
   {
-    "id": "a9-ledenon",
+    "id": "a9-ledenon-croissant",
     "autorouteId": "A9",
     "nom": "Lédenon",
     "pk": 36.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.90238,
     "lon": 4.53635,
     "equipements": []
   },
   {
-    "id": "a9-nimes-marguerittes",
+    "id": "a9-ledenon-decroissant",
+    "autorouteId": "A9",
+    "nom": "Lédenon",
+    "pk": 36.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.90238,
+    "lon": 4.53635,
+    "equipements": []
+  },
+  {
+    "id": "a9-nimes-marguerittes-croissant",
     "autorouteId": "A9",
     "nom": "Nîmes-Marguerittes",
     "pk": 45.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.86843,
     "lon": 4.43741,
@@ -3217,33 +3660,69 @@
     ]
   },
   {
-    "id": "a9-milhaud",
+    "id": "a9-nimes-marguerittes-decroissant",
+    "autorouteId": "A9",
+    "nom": "Nîmes-Marguerittes",
+    "pk": 45.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.86843,
+    "lon": 4.43741,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a9-milhaud-croissant",
     "autorouteId": "A9",
     "nom": "Milhaud",
     "pk": 60.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.78694,
     "lon": 4.29762,
     "equipements": []
   },
   {
-    "id": "a9-vergeze",
+    "id": "a9-milhaud-decroissant",
     "autorouteId": "A9",
-    "nom": "Vergèze",
-    "pk": 68.5,
-    "sens": "LES_DEUX",
+    "nom": "Milhaud",
+    "pk": 60.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 43.75052,
-    "lon": 4.21702,
+    "lat": 43.78694,
+    "lon": 4.29762,
     "equipements": []
   },
   {
-    "id": "a9-ambrussum",
+    "id": "a9-vergeze-croissant",
+    "autorouteId": "A9",
+    "nom": "Vergèze",
+    "pk": 68.0,
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.75098,
+    "lon": 4.22323,
+    "equipements": []
+  },
+  {
+    "id": "a9-vergeze-decroissant",
+    "autorouteId": "A9",
+    "nom": "Vergèze",
+    "pk": 69.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.75005,
+    "lon": 4.21082,
+    "equipements": []
+  },
+  {
+    "id": "a9-ambrussum-croissant",
     "autorouteId": "A9",
     "nom": "Ambrussum",
     "pk": 76.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.71956,
     "lon": 4.14203,
@@ -3253,11 +3732,39 @@
     ]
   },
   {
-    "id": "a9-lunel",
+    "id": "a9-ambrussum-decroissant",
+    "autorouteId": "A9",
+    "nom": "Ambrussum",
+    "pk": 76.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.71956,
+    "lon": 4.14203,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a9-lunel-croissant",
     "autorouteId": "A9",
     "nom": "Lunel",
     "pk": 78.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.7079,
+    "lon": 4.12311,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a9-lunel-decroissant",
+    "autorouteId": "A9",
+    "nom": "Lunel",
+    "pk": 78.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.7079,
     "lon": 4.12311,
@@ -3278,11 +3785,11 @@
     "equipements": []
   },
   {
-    "id": "a9-montpellier-fabregues",
+    "id": "a9-montpellier-fabregues-croissant",
     "autorouteId": "A9",
     "nom": "Montpellier-Fabrègues",
     "pk": 111.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.54701,
     "lon": 3.79562,
@@ -3292,11 +3799,36 @@
     ]
   },
   {
-    "id": "a9-gigean",
+    "id": "a9-montpellier-fabregues-decroissant",
+    "autorouteId": "A9",
+    "nom": "Montpellier-Fabrègues",
+    "pk": 111.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.54701,
+    "lon": 3.79562,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a9-gigean-croissant",
     "autorouteId": "A9",
     "nom": "Gigean",
     "pk": 120.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.49101,
+    "lon": 3.71628,
+    "equipements": []
+  },
+  {
+    "id": "a9-gigean-decroissant",
+    "autorouteId": "A9",
+    "nom": "Gigean",
+    "pk": 120.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.49101,
     "lon": 3.71628,
@@ -3325,22 +3857,33 @@
     "equipements": []
   },
   {
-    "id": "a9-florensac",
+    "id": "a9-florensac-croissant",
     "autorouteId": "A9",
     "nom": "Florensac",
     "pk": 143.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.39829,
     "lon": 3.47174,
     "equipements": []
   },
   {
-    "id": "a9-beziers-montblanc-boby-lapointe",
+    "id": "a9-florensac-decroissant",
+    "autorouteId": "A9",
+    "nom": "Florensac",
+    "pk": 143.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.39829,
+    "lon": 3.47174,
+    "equipements": []
+  },
+  {
+    "id": "a9-beziers-montblanc-boby-lapointe-croissant",
     "autorouteId": "A9",
     "nom": "Béziers-Montblanc-Boby Lapointe",
     "pk": 154.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.36189,
     "lon": 3.35199,
@@ -3350,22 +3893,61 @@
     ]
   },
   {
-    "id": "a9-lespignan",
+    "id": "a9-beziers-montblanc-boby-lapointe-decroissant",
+    "autorouteId": "A9",
+    "nom": "Béziers-Montblanc-Boby Lapointe",
+    "pk": 154.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.36189,
+    "lon": 3.35199,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a9-lespignan-croissant",
     "autorouteId": "A9",
     "nom": "Lespignan",
     "pk": 173.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.26329,
     "lon": 3.17265,
     "equipements": []
   },
   {
-    "id": "a9-narbonne-vinassan-charles-trenet",
+    "id": "a9-lespignan-decroissant",
+    "autorouteId": "A9",
+    "nom": "Lespignan",
+    "pk": 173.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.26329,
+    "lon": 3.17265,
+    "equipements": []
+  },
+  {
+    "id": "a9-narbonne-vinassan-charles-trenet-croissant",
     "autorouteId": "A9",
     "nom": "Narbonne-Vinassan-Charles Trenet",
     "pk": 182.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.21444,
+    "lon": 3.09083,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a9-narbonne-vinassan-charles-trenet-decroissant",
+    "autorouteId": "A9",
+    "nom": "Narbonne-Vinassan-Charles Trenet",
+    "pk": 182.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.21444,
     "lon": 3.09083,
@@ -3419,11 +4001,11 @@
     "equipements": []
   },
   {
-    "id": "a9-la-palme",
+    "id": "a9-la-palme-croissant",
     "autorouteId": "A9",
     "nom": "La Palme",
     "pk": 218.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 42.95018,
     "lon": 2.97071,
@@ -3433,22 +4015,58 @@
     ]
   },
   {
-    "id": "a9-fitou",
+    "id": "a9-la-palme-decroissant",
+    "autorouteId": "A9",
+    "nom": "La Palme",
+    "pk": 218.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 42.95018,
+    "lon": 2.97071,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a9-fitou-croissant",
     "autorouteId": "A9",
     "nom": "Fitou",
     "pk": 226.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 42.88418,
     "lon": 2.99251,
     "equipements": []
   },
   {
-    "id": "a9-le-chateau-de-salses",
+    "id": "a9-fitou-decroissant",
+    "autorouteId": "A9",
+    "nom": "Fitou",
+    "pk": 226.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 42.88418,
+    "lon": 2.99251,
+    "equipements": []
+  },
+  {
+    "id": "a9-le-chateau-de-salses-croissant",
     "autorouteId": "A9",
     "nom": "Le Château de Salses",
     "pk": 234.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 42.84491,
+    "lon": 2.91792,
+    "equipements": []
+  },
+  {
+    "id": "a9-le-chateau-de-salses-decroissant",
+    "autorouteId": "A9",
+    "nom": "Le Château de Salses",
+    "pk": 234.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 42.84491,
     "lon": 2.91792,
@@ -3477,22 +4095,33 @@
     "equipements": []
   },
   {
-    "id": "a9-les-pavillons",
+    "id": "a9-les-pavillons-croissant",
     "autorouteId": "A9",
     "nom": "Les Pavillons",
     "pk": 256.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 42.65619,
     "lon": 2.86128,
     "equipements": []
   },
   {
-    "id": "a9-le-village-catalan",
+    "id": "a9-les-pavillons-decroissant",
+    "autorouteId": "A9",
+    "nom": "Les Pavillons",
+    "pk": 256.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 42.65619,
+    "lon": 2.86128,
+    "equipements": []
+  },
+  {
+    "id": "a9-le-village-catalan-croissant",
     "autorouteId": "A9",
     "nom": "Le Village Catalan",
     "pk": 265.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 42.5767,
     "lon": 2.84431,
@@ -3502,11 +4131,36 @@
     ]
   },
   {
-    "id": "a9-le-boulou",
+    "id": "a9-le-village-catalan-decroissant",
+    "autorouteId": "A9",
+    "nom": "Le Village Catalan",
+    "pk": 265.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 42.5767,
+    "lon": 2.84431,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a9-le-boulou-croissant",
     "autorouteId": "A9",
     "nom": "Le Boulou",
     "pk": 271.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 42.53182,
+    "lon": 2.82579,
+    "equipements": []
+  },
+  {
+    "id": "a9-le-boulou-decroissant",
+    "autorouteId": "A9",
+    "nom": "Le Boulou",
+    "pk": 271.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 42.53182,
     "lon": 2.82579,
@@ -3541,11 +4195,22 @@
     ]
   },
   {
-    "id": "a10-saint-arnoult",
+    "id": "a10-saint-arnoult-croissant",
     "autorouteId": "A10",
     "nom": "Saint-Arnoult",
     "pk": 24.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.55352,
+    "lon": 1.92922,
+    "equipements": []
+  },
+  {
+    "id": "a10-saint-arnoult-decroissant",
+    "autorouteId": "A10",
+    "nom": "Saint-Arnoult",
+    "pk": 24.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.55352,
     "lon": 1.92922,
@@ -3796,11 +4461,22 @@
     "equipements": []
   },
   {
-    "id": "a10-monnaie",
+    "id": "a10-monnaie-croissant",
     "autorouteId": "A10",
     "nom": "Monnaie",
     "pk": 192.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 47.49176,
+    "lon": 0.82518,
+    "equipements": []
+  },
+  {
+    "id": "a10-monnaie-decroissant",
+    "autorouteId": "A10",
+    "nom": "Monnaie",
+    "pk": 192.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 47.49176,
     "lon": 0.82518,
@@ -3857,11 +4533,22 @@
     "equipements": []
   },
   {
-    "id": "a10-sorigny",
+    "id": "a10-sorigny-croissant",
     "autorouteId": "A10",
     "nom": "Sorigny",
     "pk": 228.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 47.21369,
+    "lon": 0.65647,
+    "equipements": []
+  },
+  {
+    "id": "a10-sorigny-decroissant",
+    "autorouteId": "A10",
+    "nom": "Sorigny",
+    "pk": 228.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 47.21369,
     "lon": 0.65647,
@@ -4018,11 +4705,22 @@
     "equipements": []
   },
   {
-    "id": "a10-coulombiers",
+    "id": "a10-coulombiers-croissant",
     "autorouteId": "A10",
     "nom": "Coulombiers",
     "pk": 324.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 46.51102,
+    "lon": 0.14263,
+    "equipements": []
+  },
+  {
+    "id": "a10-coulombiers-decroissant",
+    "autorouteId": "A10",
+    "nom": "Coulombiers",
+    "pk": 324.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 46.51102,
     "lon": 0.14263,
@@ -4057,33 +4755,69 @@
     ]
   },
   {
-    "id": "a10-sainte-eanne",
+    "id": "a10-sainte-eanne-croissant",
     "autorouteId": "A10",
     "nom": "Sainte-Eanne",
     "pk": 347.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 46.41543,
     "lon": -0.11791,
     "equipements": []
   },
   {
-    "id": "a10-sainte-neomaye",
+    "id": "a10-sainte-eanne-decroissant",
+    "autorouteId": "A10",
+    "nom": "Sainte-Eanne",
+    "pk": 347.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 46.41543,
+    "lon": -0.11791,
+    "equipements": []
+  },
+  {
+    "id": "a10-sainte-neomaye-croissant",
     "autorouteId": "A10",
     "nom": "Sainte-Néomaye",
     "pk": 362.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 46.35201,
     "lon": -0.28085,
     "equipements": []
   },
   {
-    "id": "a10-poitou-charentes",
+    "id": "a10-sainte-neomaye-decroissant",
+    "autorouteId": "A10",
+    "nom": "Sainte-Néomaye",
+    "pk": 362.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 46.35201,
+    "lon": -0.28085,
+    "equipements": []
+  },
+  {
+    "id": "a10-poitou-charentes-croissant",
     "autorouteId": "A10",
     "nom": "Poitou-Charentes",
     "pk": 372.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 46.29528,
+    "lon": -0.37864,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a10-poitou-charentes-decroissant",
+    "autorouteId": "A10",
+    "nom": "Poitou-Charentes",
+    "pk": 372.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 46.29528,
     "lon": -0.37864,
@@ -4115,11 +4849,22 @@
     "equipements": []
   },
   {
-    "id": "a10-doeuil-sur-le-mignon",
+    "id": "a10-doeuil-sur-le-mignon-croissant",
     "autorouteId": "A10",
     "nom": "Doeuil-sur-le-Mignon",
     "pk": 396.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 46.11314,
+    "lon": -0.53433,
+    "equipements": []
+  },
+  {
+    "id": "a10-doeuil-sur-le-mignon-decroissant",
+    "autorouteId": "A10",
+    "nom": "Doeuil-sur-le-Mignon",
+    "pk": 396.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 46.11314,
     "lon": -0.53433,
@@ -4176,22 +4921,44 @@
     ]
   },
   {
-    "id": "a10-port-d-envaux",
+    "id": "a10-port-d-envaux-croissant",
     "autorouteId": "A10",
     "nom": "Port-d'Envaux",
     "pk": 434.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.79799,
     "lon": -0.65895,
     "equipements": []
   },
   {
-    "id": "a10-chermignac",
+    "id": "a10-port-d-envaux-decroissant",
+    "autorouteId": "A10",
+    "nom": "Port-d'Envaux",
+    "pk": 434.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.79799,
+    "lon": -0.65895,
+    "equipements": []
+  },
+  {
+    "id": "a10-chermignac-croissant",
     "autorouteId": "A10",
     "nom": "Chermignac",
     "pk": 445.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.70329,
+    "lon": -0.6515,
+    "equipements": []
+  },
+  {
+    "id": "a10-chermignac-decroissant",
+    "autorouteId": "A10",
+    "nom": "Chermignac",
+    "pk": 445.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.70329,
     "lon": -0.6515,
@@ -4226,11 +4993,22 @@
     ]
   },
   {
-    "id": "a10-saint-palais-de-phiolin",
+    "id": "a10-saint-palais-de-phiolin-croissant",
     "autorouteId": "A10",
     "nom": "Saint-Palais-de-Phiolin",
     "pk": 468.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.50899,
+    "lon": -0.61316,
+    "equipements": []
+  },
+  {
+    "id": "a10-saint-palais-de-phiolin-decroissant",
+    "autorouteId": "A10",
+    "nom": "Saint-Palais-de-Phiolin",
+    "pk": 468.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.50899,
     "lon": -0.61316,
@@ -4331,11 +5109,22 @@
     "equipements": []
   },
   {
-    "id": "a10-virsac",
+    "id": "a10-virsac-croissant",
     "autorouteId": "A10",
     "nom": "Virsac",
     "pk": 525.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.02662,
+    "lon": -0.43745,
+    "equipements": []
+  },
+  {
+    "id": "a10-virsac-decroissant",
+    "autorouteId": "A10",
+    "nom": "Virsac",
+    "pk": 525.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.02662,
     "lon": -0.43745,
@@ -4630,11 +5419,11 @@
     "equipements": []
   },
   {
-    "id": "a11-la-sarthe-sarge-le-mans",
+    "id": "a11-la-sarthe-sarge-le-mans-croissant",
     "autorouteId": "A11",
     "nom": "La Sarthe - Sargé - Le Mans",
     "pk": 166.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.05633,
     "lon": 0.25042,
@@ -4644,33 +5433,69 @@
     ]
   },
   {
-    "id": "a11-pruille-le-chetif",
+    "id": "a11-la-sarthe-sarge-le-mans-decroissant",
+    "autorouteId": "A11",
+    "nom": "La Sarthe - Sargé - Le Mans",
+    "pk": 166.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 48.05633,
+    "lon": 0.25042,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a11-pruille-le-chetif-croissant",
     "autorouteId": "A11",
     "nom": "Pruillé-le-Chétif",
     "pk": 180.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 48.00437,
     "lon": 0.09662,
     "equipements": []
   },
   {
-    "id": "a11-pirmil",
+    "id": "a11-pruille-le-chetif-decroissant",
+    "autorouteId": "A11",
+    "nom": "Pruillé-le-Chétif",
+    "pk": 180.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.00437,
+    "lon": 0.09662,
+    "equipements": []
+  },
+  {
+    "id": "a11-pirmil-croissant",
     "autorouteId": "A11",
     "nom": "Pirmil",
     "pk": 197.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.91417,
     "lon": -0.08292,
     "equipements": []
   },
   {
-    "id": "a11-parce-sur-sarthe",
+    "id": "a11-pirmil-decroissant",
+    "autorouteId": "A11",
+    "nom": "Pirmil",
+    "pk": 197.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.91417,
+    "lon": -0.08292,
+    "equipements": []
+  },
+  {
+    "id": "a11-parce-sur-sarthe-croissant",
     "autorouteId": "A11",
     "nom": "Parcé-sur-Sarthe",
     "pk": 211.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.80548,
     "lon": -0.16741,
@@ -4680,47 +5505,108 @@
     ]
   },
   {
-    "id": "a11-la-chapelle-saint-laud",
+    "id": "a11-parce-sur-sarthe-decroissant",
+    "autorouteId": "A11",
+    "nom": "Parcé-sur-Sarthe",
+    "pk": 211.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 47.80548,
+    "lon": -0.16741,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a11-la-chapelle-saint-laud-croissant",
     "autorouteId": "A11",
     "nom": "La Chapelle-Saint-Laud",
     "pk": 234.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.62411,
     "lon": -0.28061,
     "equipements": []
   },
   {
-    "id": "a11-corze",
+    "id": "a11-la-chapelle-saint-laud-decroissant",
+    "autorouteId": "A11",
+    "nom": "La Chapelle-Saint-Laud",
+    "pk": 234.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.62411,
+    "lon": -0.28061,
+    "equipements": []
+  },
+  {
+    "id": "a11-corze-croissant",
     "autorouteId": "A11",
     "nom": "Corzé",
     "pk": 244.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.54891,
     "lon": -0.33795,
     "equipements": []
   },
   {
-    "id": "a11-baune",
+    "id": "a11-corze-decroissant",
+    "autorouteId": "A11",
+    "nom": "Corzé",
+    "pk": 244.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.54891,
+    "lon": -0.33795,
+    "equipements": []
+  },
+  {
+    "id": "a11-baune-croissant",
     "autorouteId": "A11",
     "nom": "Bauné",
     "pk": 248.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.52063,
     "lon": -0.36435,
     "equipements": []
   },
   {
-    "id": "a11-les-portes-d-angers",
+    "id": "a11-baune-decroissant",
+    "autorouteId": "A11",
+    "nom": "Bauné",
+    "pk": 248.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.52063,
+    "lon": -0.36435,
+    "equipements": []
+  },
+  {
+    "id": "a11-les-portes-d-angers-croissant",
     "autorouteId": "A11",
     "nom": "Les Portes d'Angers",
-    "pk": 258.5,
-    "sens": "LES_DEUX",
+    "pk": 258.0,
+    "sens": "CROISSANT",
     "type": "SERVICE",
-    "lat": 47.50147,
-    "lon": -0.49428,
+    "lat": 47.50058,
+    "lon": -0.48782,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a11-les-portes-d-angers-decroissant",
+    "autorouteId": "A11",
+    "nom": "Les Portes d'Angers",
+    "pk": 259.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 47.50237,
+    "lon": -0.50074,
     "equipements": [
       "STATION_SERVICE",
       "TOILETTES"
@@ -4777,11 +5663,22 @@
     ]
   },
   {
-    "id": "a11-ancenis",
+    "id": "a11-ancenis-croissant",
     "autorouteId": "A11",
     "nom": "Ancenis",
     "pk": 315.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 47.40168,
+    "lon": -1.19196,
+    "equipements": []
+  },
+  {
+    "id": "a11-ancenis-decroissant",
+    "autorouteId": "A11",
+    "nom": "Ancenis",
+    "pk": 315.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 47.40168,
     "lon": -1.19196,
@@ -4860,11 +5757,22 @@
     "equipements": []
   },
   {
-    "id": "a13-buchelay",
+    "id": "a13-buchelay-croissant",
     "autorouteId": "A13",
     "nom": "Buchelay",
     "pk": 49.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.98593,
+    "lon": 1.66994,
+    "equipements": []
+  },
+  {
+    "id": "a13-buchelay-decroissant",
+    "autorouteId": "A13",
+    "nom": "Buchelay",
+    "pk": 49.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.98593,
     "lon": 1.66994,
@@ -4965,11 +5873,22 @@
     "equipements": []
   },
   {
-    "id": "a13-heudebouville",
+    "id": "a13-heudebouville-croissant",
     "autorouteId": "A13",
     "nom": "Heudebouville",
     "pk": 90.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.1887,
+    "lon": 1.23442,
+    "equipements": []
+  },
+  {
+    "id": "a13-heudebouville-decroissant",
+    "autorouteId": "A13",
+    "nom": "Heudebouville",
+    "pk": 90.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.1887,
     "lon": 1.23442,
@@ -5098,11 +6017,22 @@
     "equipements": []
   },
   {
-    "id": "a13-beuzeville-bpv",
+    "id": "a13-beuzeville-bpv-croissant",
     "autorouteId": "A13",
     "nom": "Beuzeville (BPV)",
     "pk": 167.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.33815,
+    "lon": 0.37096,
+    "equipements": []
+  },
+  {
+    "id": "a13-beuzeville-bpv-decroissant",
+    "autorouteId": "A13",
+    "nom": "Beuzeville (BPV)",
+    "pk": 167.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.33815,
     "lon": 0.37096,
@@ -5159,11 +6089,22 @@
     "equipements": []
   },
   {
-    "id": "a13-dozule",
+    "id": "a13-dozule-croissant",
     "autorouteId": "A13",
     "nom": "Dozulé",
     "pk": 204.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.22811,
+    "lon": -0.08305,
+    "equipements": []
+  },
+  {
+    "id": "a13-dozule-decroissant",
+    "autorouteId": "A13",
+    "nom": "Dozulé",
+    "pk": 204.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.22811,
     "lon": -0.08305,
@@ -5223,11 +6164,22 @@
     ]
   },
   {
-    "id": "a16-amblainville",
+    "id": "a16-amblainville-croissant",
     "autorouteId": "A16",
     "nom": "Amblainville",
     "pk": 42.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.2033,
+    "lon": 2.17353,
+    "equipements": []
+  },
+  {
+    "id": "a16-amblainville-decroissant",
+    "autorouteId": "A16",
+    "nom": "Amblainville",
+    "pk": 42.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.2033,
     "lon": 2.17353,
@@ -5394,11 +6346,25 @@
     "equipements": []
   },
   {
-    "id": "a16-la-baie-de-somme",
+    "id": "a16-la-baie-de-somme-croissant",
     "autorouteId": "A16",
     "nom": "La Baie de Somme",
     "pk": 179.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 50.16715,
+    "lon": 1.75947,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a16-la-baie-de-somme-decroissant",
+    "autorouteId": "A16",
+    "nom": "La Baie de Somme",
+    "pk": 179.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 50.16715,
     "lon": 1.75947,
@@ -5452,22 +6418,33 @@
     "equipements": []
   },
   {
-    "id": "a16-herquelingue",
+    "id": "a16-herquelingue-croissant",
     "autorouteId": "A16",
     "nom": "Herquelingue",
     "pk": 242.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 50.69238,
     "lon": 1.63943,
     "equipements": []
   },
   {
-    "id": "a19-villeroy",
+    "id": "a16-herquelingue-decroissant",
+    "autorouteId": "A16",
+    "nom": "Herquelingue",
+    "pk": 242.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 50.69238,
+    "lon": 1.63943,
+    "equipements": []
+  },
+  {
+    "id": "a19-villeroy-croissant",
     "autorouteId": "A19",
     "nom": "Villeroy",
     "pk": 16.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.16287,
     "lon": 3.17564,
@@ -5477,15 +6454,18 @@
     ]
   },
   {
-    "id": "a19-philippe-rossi",
+    "id": "a19-villeroy-decroissant",
     "autorouteId": "A19",
-    "nom": "Philippe Rossi",
-    "pk": 42.0,
+    "nom": "Villeroy",
+    "pk": 16.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 48.04077,
-    "lon": 2.94461,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 48.16287,
+    "lon": 3.17564,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a19-chantecoq",
@@ -5499,14 +6479,14 @@
     "equipements": []
   },
   {
-    "id": "a19-cepoy",
+    "id": "a19-philippe-rossi",
     "autorouteId": "A19",
-    "nom": "Cepoy",
-    "pk": 58.0,
+    "nom": "Philippe Rossi",
+    "pk": 42.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 48.05881,
-    "lon": 2.73874,
+    "lat": 48.04077,
+    "lon": 2.94461,
     "equipements": []
   },
   {
@@ -5521,11 +6501,22 @@
     "equipements": []
   },
   {
-    "id": "a19-les-jardins-du-loiret",
+    "id": "a19-cepoy",
+    "autorouteId": "A19",
+    "nom": "Cepoy",
+    "pk": 58.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.05881,
+    "lon": 2.73874,
+    "equipements": []
+  },
+  {
+    "id": "a19-les-jardins-du-loiret-croissant",
     "autorouteId": "A19",
     "nom": "Les Jardins du Loiret",
     "pk": 80.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.08296,
     "lon": 2.46338,
@@ -5535,15 +6526,18 @@
     ]
   },
   {
-    "id": "a19-mauregard",
+    "id": "a19-les-jardins-du-loiret-decroissant",
     "autorouteId": "A19",
-    "nom": "Mauregard",
-    "pk": 111.0,
+    "nom": "Les Jardins du Loiret",
+    "pk": 80.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 48.09686,
-    "lon": 2.06891,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 48.08296,
+    "lon": 2.46338,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a19-teillay",
@@ -5557,22 +6551,58 @@
     "equipements": []
   },
   {
-    "id": "a20-vierzon-nord",
+    "id": "a19-mauregard",
+    "autorouteId": "A19",
+    "nom": "Mauregard",
+    "pk": 111.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.09686,
+    "lon": 2.06891,
+    "equipements": []
+  },
+  {
+    "id": "a20-vierzon-nord-croissant",
     "autorouteId": "A20",
     "nom": "Vierzon Nord",
     "pk": 1.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.24335,
     "lon": 2.04759,
     "equipements": []
   },
   {
-    "id": "a20-les-champs-d-amour",
+    "id": "a20-vierzon-nord-decroissant",
+    "autorouteId": "A20",
+    "nom": "Vierzon Nord",
+    "pk": 1.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.24335,
+    "lon": 2.04759,
+    "equipements": []
+  },
+  {
+    "id": "a20-les-champs-d-amour-croissant",
     "autorouteId": "A20",
     "nom": "Les Champs-d'Amour",
     "pk": 26.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 47.08895,
+    "lon": 1.84357,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a20-les-champs-d-amour-decroissant",
+    "autorouteId": "A20",
+    "nom": "Les Champs-d'Amour",
+    "pk": 26.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 47.08895,
     "lon": 1.84357,
@@ -5654,11 +6684,11 @@
     "equipements": []
   },
   {
-    "id": "a20-bois-mande",
+    "id": "a20-bois-mande-croissant",
     "autorouteId": "A20",
     "nom": "Bois Mandé",
     "pk": 125.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 46.31322,
     "lon": 1.41851,
@@ -5668,11 +6698,36 @@
     ]
   },
   {
-    "id": "a20-la-coulerouze",
+    "id": "a20-bois-mande-decroissant",
+    "autorouteId": "A20",
+    "nom": "Bois Mandé",
+    "pk": 125.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 46.31322,
+    "lon": 1.41851,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a20-la-coulerouze-croissant",
     "autorouteId": "A20",
     "nom": "La Coulerouze",
     "pk": 142.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 46.16468,
+    "lon": 1.37695,
+    "equipements": []
+  },
+  {
+    "id": "a20-la-coulerouze-decroissant",
+    "autorouteId": "A20",
+    "nom": "La Coulerouze",
+    "pk": 142.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 46.16468,
     "lon": 1.37695,
@@ -5707,22 +6762,33 @@
     ]
   },
   {
-    "id": "a20-briance-ligoure",
+    "id": "a20-briance-ligoure-croissant",
     "autorouteId": "A20",
     "nom": "Briance-Ligoure",
     "pk": 204.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.67916,
     "lon": 1.37106,
     "equipements": []
   },
   {
-    "id": "a20-la-porte-de-correze",
+    "id": "a20-briance-ligoure-decroissant",
+    "autorouteId": "A20",
+    "nom": "Briance-Ligoure",
+    "pk": 204.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.67916,
+    "lon": 1.37106,
+    "equipements": []
+  },
+  {
+    "id": "a20-la-porte-de-correze-croissant",
     "autorouteId": "A20",
     "nom": "La Porte de Corrèze",
     "pk": 224.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.53895,
     "lon": 1.51149,
@@ -5732,22 +6798,47 @@
     ]
   },
   {
-    "id": "a20-le-puy-de-grace",
+    "id": "a20-la-porte-de-correze-decroissant",
+    "autorouteId": "A20",
+    "nom": "La Porte de Corrèze",
+    "pk": 224.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 45.53895,
+    "lon": 1.51149,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a20-le-puy-de-grace-croissant",
     "autorouteId": "A20",
     "nom": "Le Puy de Grâce",
     "pk": 247.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.36547,
     "lon": 1.57101,
     "equipements": []
   },
   {
-    "id": "a20-pech-montat",
+    "id": "a20-le-puy-de-grace-decroissant",
+    "autorouteId": "A20",
+    "nom": "Le Puy de Grâce",
+    "pk": 247.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.36547,
+    "lon": 1.57101,
+    "equipements": []
+  },
+  {
+    "id": "a20-pech-montat-croissant",
     "autorouteId": "A20",
     "nom": "Pech Montat",
     "pk": 290.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.0278,
     "lon": 1.52938,
@@ -5757,22 +6848,47 @@
     ]
   },
   {
-    "id": "a20-gignac",
+    "id": "a20-pech-montat-decroissant",
+    "autorouteId": "A20",
+    "nom": "Pech Montat",
+    "pk": 290.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 45.0278,
+    "lon": 1.52938,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a20-gignac-croissant",
     "autorouteId": "A20",
     "nom": "Gignac",
     "pk": 294.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.99384,
     "lon": 1.52744,
     "equipements": []
   },
   {
-    "id": "a20-aire-jardin-des-causses-du-lot",
+    "id": "a20-gignac-decroissant",
+    "autorouteId": "A20",
+    "nom": "Gignac",
+    "pk": 294.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.99384,
+    "lon": 1.52744,
+    "equipements": []
+  },
+  {
+    "id": "a20-aire-jardin-des-causses-du-lot-croissant",
     "autorouteId": "A20",
     "nom": "Aire-Jardin des Causses du Lot",
     "pk": 334.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 44.66013,
     "lon": 1.56694,
@@ -5782,22 +6898,47 @@
     ]
   },
   {
-    "id": "a20-la-combe-du-treboulou",
+    "id": "a20-aire-jardin-des-causses-du-lot-decroissant",
+    "autorouteId": "A20",
+    "nom": "Aire-Jardin des Causses du Lot",
+    "pk": 334.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.66013,
+    "lon": 1.56694,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a20-la-combe-du-treboulou-croissant",
     "autorouteId": "A20",
     "nom": "La Combe du Tréboulou",
     "pk": 367.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.40118,
     "lon": 1.522,
     "equipements": []
   },
   {
-    "id": "a20-le-bois-de-dourre",
+    "id": "a20-la-combe-du-treboulou-decroissant",
+    "autorouteId": "A20",
+    "nom": "La Combe du Tréboulou",
+    "pk": 367.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.40118,
+    "lon": 1.522,
+    "equipements": []
+  },
+  {
+    "id": "a20-le-bois-de-dourre-croissant",
     "autorouteId": "A20",
     "nom": "Le Bois de Dourre",
     "pk": 387.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 44.2337,
     "lon": 1.52902,
@@ -5807,11 +6948,36 @@
     ]
   },
   {
-    "id": "a20-montauban-nord",
+    "id": "a20-le-bois-de-dourre-decroissant",
+    "autorouteId": "A20",
+    "nom": "Le Bois de Dourre",
+    "pk": 387.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.2337,
+    "lon": 1.52902,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a20-montauban-nord-croissant",
     "autorouteId": "A20",
     "nom": "Montauban-Nord",
     "pk": 411.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 44.05483,
+    "lon": 1.41612,
+    "equipements": []
+  },
+  {
+    "id": "a20-montauban-nord-decroissant",
+    "autorouteId": "A20",
+    "nom": "Montauban-Nord",
+    "pk": 411.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 44.05483,
     "lon": 1.41612,
@@ -5846,11 +7012,22 @@
     ]
   },
   {
-    "id": "a23-la-scarpe",
+    "id": "a23-la-scarpe-croissant",
     "autorouteId": "A23",
     "nom": "La Scarpe",
     "pk": 27.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 50.43692,
+    "lon": 3.36357,
+    "equipements": []
+  },
+  {
+    "id": "a23-la-scarpe-decroissant",
+    "autorouteId": "A23",
+    "nom": "La Scarpe",
+    "pk": 27.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 50.43692,
     "lon": 3.36357,
@@ -5871,14 +7048,25 @@
     ]
   },
   {
-    "id": "a25-steenwerck",
+    "id": "a25-steenwerck-croissant",
     "autorouteId": "A25",
     "nom": "Steenwerck",
-    "pk": 22.5,
-    "sens": "LES_DEUX",
+    "pk": 22.0,
+    "sens": "CROISSANT",
     "type": "REPOS",
-    "lat": 50.6921,
-    "lon": 2.81466,
+    "lat": 50.69006,
+    "lon": 2.82085,
+    "equipements": []
+  },
+  {
+    "id": "a25-steenwerck-decroissant",
+    "autorouteId": "A25",
+    "nom": "Steenwerck",
+    "pk": 23.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 50.69414,
+    "lon": 2.80847,
     "equipements": []
   },
   {
@@ -5932,11 +7120,22 @@
     "equipements": []
   },
   {
-    "id": "a26-setques",
+    "id": "a26-setques-croissant",
     "autorouteId": "A26",
     "nom": "Setques",
     "pk": 33.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 50.71722,
+    "lon": 2.17623,
+    "equipements": []
+  },
+  {
+    "id": "a26-setques-decroissant",
+    "autorouteId": "A26",
+    "nom": "Setques",
+    "pk": 33.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 50.71722,
     "lon": 2.17623,
@@ -6159,11 +7358,25 @@
     "equipements": []
   },
   {
-    "id": "a26-urvillers",
+    "id": "a26-urvillers-croissant",
     "autorouteId": "A26",
     "nom": "Urvillers",
     "pk": 178.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 49.79236,
+    "lon": 3.32119,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a26-urvillers-decroissant",
+    "autorouteId": "A26",
+    "nom": "Urvillers",
+    "pk": 178.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 49.79236,
     "lon": 3.32119,
@@ -6267,11 +7480,22 @@
     "equipements": []
   },
   {
-    "id": "a26-courcy",
+    "id": "a26-courcy-croissant",
     "autorouteId": "A26",
     "nom": "Courcy",
     "pk": 254.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.32044,
+    "lon": 3.98532,
+    "equipements": []
+  },
+  {
+    "id": "a26-courcy-decroissant",
+    "autorouteId": "A26",
+    "nom": "Courcy",
+    "pk": 254.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.32044,
     "lon": 3.98532,
@@ -6311,11 +7535,25 @@
     "equipements": []
   },
   {
-    "id": "a26-sommesous",
+    "id": "a26-sommesous-croissant",
     "autorouteId": "A26",
     "nom": "Sommesous",
     "pk": 336.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 48.73047,
+    "lon": 4.22377,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a26-sommesous-decroissant",
+    "autorouteId": "A26",
+    "nom": "Sommesous",
+    "pk": 336.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 48.73047,
     "lon": 4.22377,
@@ -6347,11 +7585,22 @@
     "equipements": []
   },
   {
-    "id": "a26-charmont-sous-barbuise",
+    "id": "a26-charmont-sous-barbuise-croissant",
     "autorouteId": "A26",
     "nom": "Charmont-sous-Barbuise",
     "pk": 373.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.41647,
+    "lon": 4.14571,
+    "equipements": []
+  },
+  {
+    "id": "a26-charmont-sous-barbuise-decroissant",
+    "autorouteId": "A26",
+    "nom": "Charmont-sous-Barbuise",
+    "pk": 373.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.41647,
     "lon": 4.14571,
@@ -6380,11 +7629,11 @@
     "equipements": []
   },
   {
-    "id": "a28-le-translay",
+    "id": "a28-le-translay-croissant",
     "autorouteId": "A28",
     "nom": "Le Translay",
     "pk": 24.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.481,
     "lon": 0.68563,
@@ -6394,15 +7643,18 @@
     ]
   },
   {
-    "id": "a28-chantemerle",
+    "id": "a28-le-translay-decroissant",
     "autorouteId": "A28",
-    "nom": "Chantemerle",
-    "pk": 32.0,
+    "nom": "Le Translay",
+    "pk": 24.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.53403,
-    "lon": 0.61931,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.481,
+    "lon": 0.68563,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a28-chenardiere",
@@ -6416,33 +7668,66 @@
     "equipements": []
   },
   {
-    "id": "a28-le-bois-du-coudroy",
+    "id": "a28-chantemerle",
+    "autorouteId": "A28",
+    "nom": "Chantemerle",
+    "pk": 32.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.53403,
+    "lon": 0.61931,
+    "equipements": []
+  },
+  {
+    "id": "a28-le-bois-du-coudroy-croissant",
     "autorouteId": "A28",
     "nom": "Le Bois du Coudroy",
     "pk": 46.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.6317,
     "lon": 0.50595,
     "equipements": []
   },
   {
-    "id": "a28-saint-christophe-sur-le-nais",
+    "id": "a28-le-bois-du-coudroy-decroissant",
+    "autorouteId": "A28",
+    "nom": "Le Bois du Coudroy",
+    "pk": 46.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.6317,
+    "lon": 0.50595,
+    "equipements": []
+  },
+  {
+    "id": "a28-saint-christophe-sur-le-nais-croissant",
     "autorouteId": "A28",
     "nom": "Saint-Christophe-sur-le-Nais",
     "pk": 47.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.63834,
     "lon": 0.49696,
     "equipements": []
   },
   {
-    "id": "a28-sarthe-touraine",
+    "id": "a28-saint-christophe-sur-le-nais-decroissant",
+    "autorouteId": "A28",
+    "nom": "Saint-Christophe-sur-le-Nais",
+    "pk": 47.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.63834,
+    "lon": 0.49696,
+    "equipements": []
+  },
+  {
+    "id": "a28-sarthe-touraine-croissant",
     "autorouteId": "A28",
     "nom": "Sarthe-Touraine",
     "pk": 50.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.65045,
     "lon": 0.4615,
@@ -6452,14 +7737,14 @@
     ]
   },
   {
-    "id": "a28-maucomble",
+    "id": "a28-sarthe-touraine-decroissant",
     "autorouteId": "A28",
-    "nom": "Maucomble",
-    "pk": 69.0,
+    "nom": "Sarthe-Touraine",
+    "pk": 50.0,
     "sens": "DECROISSANT",
     "type": "SERVICE",
-    "lat": 47.76403,
-    "lon": 0.31438,
+    "lat": 47.65045,
+    "lon": 0.4615,
     "equipements": [
       "STATION_SERVICE",
       "TOILETTES"
@@ -6480,15 +7765,18 @@
     ]
   },
   {
-    "id": "a28-les-perrieres",
+    "id": "a28-maucomble",
     "autorouteId": "A28",
-    "nom": "Les Perrières",
-    "pk": 83.0,
+    "nom": "Maucomble",
+    "pk": 69.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.88643,
-    "lon": 0.30501,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.76403,
+    "lon": 0.31438,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a28-croiselles",
@@ -6502,25 +7790,36 @@
     "equipements": []
   },
   {
-    "id": "a28-quincampoix",
+    "id": "a28-les-perrieres",
+    "autorouteId": "A28",
+    "nom": "Les Perrières",
+    "pk": 83.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.88643,
+    "lon": 0.30501,
+    "equipements": []
+  },
+  {
+    "id": "a28-quincampoix-croissant",
     "autorouteId": "A28",
     "nom": "Quincampoix",
     "pk": 90.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.94606,
     "lon": 0.31901,
     "equipements": []
   },
   {
-    "id": "a28-joel-boisgard",
+    "id": "a28-quincampoix-decroissant",
     "autorouteId": "A28",
-    "nom": "Joël Boisgard",
-    "pk": 134.0,
+    "nom": "Quincampoix",
+    "pk": 90.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 48.23801,
-    "lon": 0.16775,
+    "lat": 47.94606,
+    "lon": 0.31901,
     "equipements": []
   },
   {
@@ -6535,11 +7834,22 @@
     "equipements": []
   },
   {
-    "id": "a28-la-dentelle-d-alencon",
+    "id": "a28-joel-boisgard",
+    "autorouteId": "A28",
+    "nom": "Joël Boisgard",
+    "pk": 134.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.23801,
+    "lon": 0.16775,
+    "equipements": []
+  },
+  {
+    "id": "a28-la-dentelle-d-alencon-croissant",
     "autorouteId": "A28",
     "nom": "La Dentelle d'Alençon",
     "pk": 161.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.45848,
     "lon": 0.1264,
@@ -6549,22 +7859,47 @@
     ]
   },
   {
-    "id": "a28-les-sources-de-l-orne",
+    "id": "a28-la-dentelle-d-alencon-decroissant",
+    "autorouteId": "A28",
+    "nom": "La Dentelle d'Alençon",
+    "pk": 161.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 48.45848,
+    "lon": 0.1264,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a28-les-sources-de-l-orne-croissant",
     "autorouteId": "A28",
     "nom": "Les Sources de l'Orne",
     "pk": 184.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 48.64393,
     "lon": 0.21343,
     "equipements": []
   },
   {
-    "id": "a28-les-haras",
+    "id": "a28-les-sources-de-l-orne-decroissant",
+    "autorouteId": "A28",
+    "nom": "Les Sources de l'Orne",
+    "pk": 184.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.64393,
+    "lon": 0.21343,
+    "equipements": []
+  },
+  {
+    "id": "a28-les-haras-croissant",
     "autorouteId": "A28",
     "nom": "Les Haras",
     "pk": 210.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.84614,
     "lon": 0.37054,
@@ -6574,84 +7909,150 @@
     ]
   },
   {
-    "id": "a28-risle-et-charentonne",
+    "id": "a28-les-haras-decroissant",
+    "autorouteId": "A28",
+    "nom": "Les Haras",
+    "pk": 210.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 48.84614,
+    "lon": 0.37054,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a28-risle-et-charentonne-croissant",
     "autorouteId": "A28",
     "nom": "Risle et Charentonne",
     "pk": 249.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.14169,
     "lon": 0.58336,
     "equipements": []
   },
   {
-    "id": "a28-le-domaine-d-harcourt",
+    "id": "a28-risle-et-charentonne-decroissant",
+    "autorouteId": "A28",
+    "nom": "Risle et Charentonne",
+    "pk": 249.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.14169,
+    "lon": 0.58336,
+    "equipements": []
+  },
+  {
+    "id": "a28-le-domaine-d-harcourt-croissant",
     "autorouteId": "A28",
     "nom": "Le Domaine d'Harcourt",
     "pk": 271.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.24692,
     "lon": 0.77494,
     "equipements": []
   },
   {
-    "id": "a28-le-roumois",
+    "id": "a28-le-domaine-d-harcourt-decroissant",
+    "autorouteId": "A28",
+    "nom": "Le Domaine d'Harcourt",
+    "pk": 271.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.24692,
+    "lon": 0.77494,
+    "equipements": []
+  },
+  {
+    "id": "a28-le-roumois-croissant",
     "autorouteId": "A28",
     "nom": "Le Roumois",
     "pk": 284.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.34777,
     "lon": 0.83536,
     "equipements": []
   },
   {
-    "id": "a29-quetteville",
+    "id": "a28-le-roumois-decroissant",
+    "autorouteId": "A28",
+    "nom": "Le Roumois",
+    "pk": 284.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.34777,
+    "lon": 0.83536,
+    "equipements": []
+  },
+  {
+    "id": "a29-quetteville-croissant",
     "autorouteId": "A29",
     "nom": "Quetteville",
     "pk": 1.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.32408,
     "lon": 0.30278,
     "equipements": []
   },
   {
-    "id": "a29-la-baie-de-seine",
+    "id": "a29-quetteville-decroissant",
+    "autorouteId": "A29",
+    "nom": "Quetteville",
+    "pk": 1.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.32408,
+    "lon": 0.30278,
+    "equipements": []
+  },
+  {
+    "id": "a29-la-baie-de-seine-croissant",
     "autorouteId": "A29",
     "nom": "La Baie de Seine",
     "pk": 20.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.44355,
     "lon": 0.26628,
     "equipements": []
   },
   {
-    "id": "a29-saint-romain-de-colbosc",
+    "id": "a29-la-baie-de-seine-decroissant",
+    "autorouteId": "A29",
+    "nom": "La Baie de Seine",
+    "pk": 20.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.44355,
+    "lon": 0.26628,
+    "equipements": []
+  },
+  {
+    "id": "a29-saint-romain-de-colbosc-croissant",
     "autorouteId": "A29",
     "nom": "Saint-Romain de Colbosc",
     "pk": 34.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.55051,
     "lon": 0.33483,
     "equipements": []
   },
   {
-    "id": "a29-bolleville-nord",
+    "id": "a29-saint-romain-de-colbosc-decroissant",
     "autorouteId": "A29",
-    "nom": "Bolleville Nord",
-    "pk": 52.0,
+    "nom": "Saint-Romain de Colbosc",
+    "pk": 34.0,
     "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 49.61464,
-    "lon": 0.53823,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
+    "type": "REPOS",
+    "lat": 49.55051,
+    "lon": 0.33483,
+    "equipements": []
   },
   {
     "id": "a29-bolleville-sud",
@@ -6668,15 +8069,18 @@
     ]
   },
   {
-    "id": "a29-ecretteville-les-baons",
+    "id": "a29-bolleville-nord",
     "autorouteId": "A29",
-    "nom": "Ecretteville-lès-Baons",
-    "pk": 63.0,
+    "nom": "Bolleville Nord",
+    "pk": 52.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 49.63704,
-    "lon": 0.68474,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 49.61464,
+    "lon": 0.53823,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a29-ecretteville",
@@ -6690,36 +8094,58 @@
     "equipements": []
   },
   {
-    "id": "a29-saint-martin-aux-arbres",
+    "id": "a29-ecretteville-les-baons",
     "autorouteId": "A29",
-    "nom": "Saint-Martin-aux-Arbres",
+    "nom": "Ecretteville-lès-Baons",
+    "pk": 63.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.63704,
+    "lon": 0.68474,
+    "equipements": []
+  },
+  {
+    "id": "a29-saint-martin-aux-arbres-croissant",
+    "autorouteId": "A29",
+    "nom": "Saint Martin aux Arbres",
     "pk": 78.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.656,
     "lon": 0.88359,
     "equipements": []
   },
   {
-    "id": "a29-cottevrard",
+    "id": "a29-saint-martin-aux-arbres-decroissant",
+    "autorouteId": "A29",
+    "nom": "Saint-Martin-aux-Arbres",
+    "pk": 78.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.656,
+    "lon": 0.88359,
+    "equipements": []
+  },
+  {
+    "id": "a29-cottevrard-croissant",
     "autorouteId": "A29",
     "nom": "Cottévrard",
     "pk": 105.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.64568,
     "lon": 1.23763,
     "equipements": []
   },
   {
-    "id": "a29-le-moulin-de-pierre",
+    "id": "a29-cottevrard-decroissant",
     "autorouteId": "A29",
-    "nom": "Le Moulin de Pierre",
-    "pk": 143.0,
+    "nom": "Cottévrard",
+    "pk": 105.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 49.7538,
-    "lon": 1.69091,
+    "lat": 49.64568,
+    "lon": 1.23763,
     "equipements": []
   },
   {
@@ -6734,11 +8160,22 @@
     "equipements": []
   },
   {
-    "id": "a29-croixrault",
+    "id": "a29-le-moulin-de-pierre",
+    "autorouteId": "A29",
+    "nom": "Le Moulin de Pierre",
+    "pk": 143.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.7538,
+    "lon": 1.69091,
+    "equipements": []
+  },
+  {
+    "id": "a29-croixrault-croissant",
     "autorouteId": "A29",
     "nom": "Croixrault",
     "pk": 165.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 49.81058,
     "lon": 1.9659,
@@ -6748,11 +8185,36 @@
     ]
   },
   {
-    "id": "a29-dury",
+    "id": "a29-croixrault-decroissant",
+    "autorouteId": "A29",
+    "nom": "Croixrault",
+    "pk": 165.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 49.81058,
+    "lon": 1.9659,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a29-dury-croissant",
     "autorouteId": "A29",
     "nom": "Dury",
     "pk": 190.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.85364,
+    "lon": 2.24983,
+    "equipements": []
+  },
+  {
+    "id": "a29-dury-decroissant",
+    "autorouteId": "A29",
+    "nom": "Dury",
+    "pk": 190.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.85364,
     "lon": 2.24983,
@@ -6770,11 +8232,11 @@
     "equipements": []
   },
   {
-    "id": "a29-villers-bretonneux",
+    "id": "a29-villers-bretonneux-croissant",
     "autorouteId": "A29",
     "nom": "Villers-Bretonneux",
     "pk": 211.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 49.85421,
     "lon": 2.5248,
@@ -6784,11 +8246,36 @@
     ]
   },
   {
-    "id": "a29-athies",
+    "id": "a29-villers-bretonneux-decroissant",
+    "autorouteId": "A29",
+    "nom": "Villers-Bretonneux",
+    "pk": 211.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 49.85421,
+    "lon": 2.5248,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a29-athies-croissant",
     "autorouteId": "A29",
     "nom": "Athies",
     "pk": 245.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.83758,
+    "lon": 2.98438,
+    "equipements": []
+  },
+  {
+    "id": "a29-athies-decroissant",
+    "autorouteId": "A29",
+    "nom": "Athies",
+    "pk": 245.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.83758,
     "lon": 2.98438,
@@ -6861,11 +8348,25 @@
     "equipements": []
   },
   {
-    "id": "a31-gevrey-chambertin",
+    "id": "a31-gevrey-chambertin-croissant",
     "autorouteId": "A31",
     "nom": "Gevrey-Chambertin",
     "pk": 26.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 47.22275,
+    "lon": 5.00894,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a31-gevrey-chambertin-decroissant",
+    "autorouteId": "A31",
+    "nom": "Gevrey-Chambertin",
+    "pk": 26.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 47.22275,
     "lon": 5.00894,
@@ -7141,22 +8642,47 @@
     "equipements": []
   },
   {
-    "id": "a31-gye",
+    "id": "a31-gye-croissant",
     "autorouteId": "A31",
     "nom": "Gye",
     "pk": 225.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 48.62501,
     "lon": 5.88477,
     "equipements": []
   },
   {
-    "id": "a31-toul",
+    "id": "a31-gye-decroissant",
+    "autorouteId": "A31",
+    "nom": "Gye",
+    "pk": 225.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.62501,
+    "lon": 5.88477,
+    "equipements": []
+  },
+  {
+    "id": "a31-toul-croissant",
     "autorouteId": "A31",
     "nom": "Toul",
     "pk": 232.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 48.66362,
+    "lon": 5.91259,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a31-toul-decroissant",
+    "autorouteId": "A31",
+    "nom": "Toul",
+    "pk": 232.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 48.66362,
     "lon": 5.91259,
@@ -7299,11 +8825,11 @@
     "equipements": []
   },
   {
-    "id": "a34-ardennes-woinic",
+    "id": "a34-ardennes-woinic-croissant",
     "autorouteId": "A34",
     "nom": "Ardennes (Woinic)",
     "pk": 24.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 49.7265,
     "lon": 4.82815,
@@ -7313,22 +8839,47 @@
     ]
   },
   {
-    "id": "a34-la-chapelle",
+    "id": "a34-ardennes-woinic-decroissant",
+    "autorouteId": "A34",
+    "nom": "Ardennes (Woinic)",
+    "pk": 24.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 49.7265,
+    "lon": 4.82815,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a34-la-chapelle-croissant",
     "autorouteId": "A34",
     "nom": "La Chapelle",
     "pk": 58.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 49.59112,
     "lon": 4.49513,
     "equipements": []
   },
   {
-    "id": "a36-la-porte-d-alsace",
+    "id": "a34-la-chapelle-decroissant",
+    "autorouteId": "A34",
+    "nom": "La Chapelle",
+    "pk": 58.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 49.59112,
+    "lon": 4.49513,
+    "equipements": []
+  },
+  {
+    "id": "a36-la-porte-d-alsace-croissant",
     "autorouteId": "A36",
     "nom": "La Porte d'Alsace",
     "pk": 11.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.71643,
     "lon": 7.13718,
@@ -7338,15 +8889,18 @@
     ]
   },
   {
-    "id": "a36-le-haut-bois",
+    "id": "a36-la-porte-d-alsace-decroissant",
     "autorouteId": "A36",
-    "nom": "Le Haut Bois",
-    "pk": 20.0,
+    "nom": "La Porte d'Alsace",
+    "pk": 11.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.6996,
-    "lon": 7.02525,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.71643,
+    "lon": 7.13718,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a36-angeot",
@@ -7360,25 +8914,36 @@
     "equipements": []
   },
   {
-    "id": "a36-fontaine",
+    "id": "a36-le-haut-bois",
+    "autorouteId": "A36",
+    "nom": "Le Haut Bois",
+    "pk": 20.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.6996,
+    "lon": 7.02525,
+    "equipements": []
+  },
+  {
+    "id": "a36-fontaine-croissant",
     "autorouteId": "A36",
     "nom": "Fontaine",
     "pk": 24.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.67714,
     "lon": 6.98559,
     "equipements": []
   },
   {
-    "id": "a36-la-foret",
+    "id": "a36-fontaine-decroissant",
     "autorouteId": "A36",
-    "nom": "La Forêt",
-    "pk": 28.0,
+    "nom": "Fontaine",
+    "pk": 24.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 47.65733,
-    "lon": 6.9414,
+    "lat": 47.67714,
+    "lon": 6.98559,
     "equipements": []
   },
   {
@@ -7387,6 +8952,17 @@
     "nom": "Les Grands Prés",
     "pk": 28.0,
     "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 47.65733,
+    "lon": 6.9414,
+    "equipements": []
+  },
+  {
+    "id": "a36-la-foret",
+    "autorouteId": "A36",
+    "nom": "La Forêt",
+    "pk": 28.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 47.65733,
     "lon": 6.9414,
@@ -7404,11 +8980,11 @@
     "equipements": []
   },
   {
-    "id": "a36-ecot",
+    "id": "a36-ecot-croissant",
     "autorouteId": "A36",
     "nom": "Écot",
     "pk": 60.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.44404,
     "lon": 6.73364,
@@ -7418,25 +8994,39 @@
     ]
   },
   {
-    "id": "a36-saint-maurice",
+    "id": "a36-ecot-decroissant",
+    "autorouteId": "A36",
+    "nom": "Écot",
+    "pk": 60.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 47.44404,
+    "lon": 6.73364,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a36-saint-maurice-croissant",
     "autorouteId": "A36",
     "nom": "Saint-Maurice",
     "pk": 66.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.42633,
     "lon": 6.66912,
     "equipements": []
   },
   {
-    "id": "a36-charme",
+    "id": "a36-saint-maurice-decroissant",
     "autorouteId": "A36",
-    "nom": "Charme",
-    "pk": 75.0,
+    "nom": "Saint-Maurice",
+    "pk": 66.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 47.41218,
-    "lon": 6.5586,
+    "lat": 47.42633,
+    "lon": 6.66912,
     "equipements": []
   },
   {
@@ -7451,14 +9041,14 @@
     "equipements": []
   },
   {
-    "id": "a36-la-combe-de-fougere",
+    "id": "a36-charme",
     "autorouteId": "A36",
-    "nom": "La Combe de Fougère",
-    "pk": 84.0,
+    "nom": "Charme",
+    "pk": 75.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 47.40526,
-    "lon": 6.44534,
+    "lat": 47.41218,
+    "lon": 6.5586,
     "equipements": []
   },
   {
@@ -7473,14 +9063,14 @@
     "equipements": []
   },
   {
-    "id": "a36-chevaney",
+    "id": "a36-la-combe-de-fougere",
     "autorouteId": "A36",
-    "nom": "Chevaney",
-    "pk": 101.0,
+    "nom": "La Combe de Fougère",
+    "pk": 84.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 47.34445,
-    "lon": 6.26458,
+    "lat": 47.40526,
+    "lon": 6.44534,
     "equipements": []
   },
   {
@@ -7495,18 +9085,15 @@
     "equipements": []
   },
   {
-    "id": "a36-besancon-marchaux",
+    "id": "a36-chevaney",
     "autorouteId": "A36",
-    "nom": "Besançon Marchaux",
-    "pk": 112.0,
+    "nom": "Chevaney",
+    "pk": 101.0,
     "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 47.32734,
-    "lon": 6.12394,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
+    "type": "REPOS",
+    "lat": 47.34445,
+    "lon": 6.26458,
+    "equipements": []
   },
   {
     "id": "a36-besancon-champoux",
@@ -7523,15 +9110,18 @@
     ]
   },
   {
-    "id": "a36-le-bois-de-frachere",
+    "id": "a36-besancon-marchaux",
     "autorouteId": "A36",
-    "nom": "Le Bois de Frachère",
-    "pk": 129.0,
+    "nom": "Besançon Marchaux",
+    "pk": 112.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.26851,
-    "lon": 5.92604,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.32734,
+    "lon": 6.12394,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a36-pelousey",
@@ -7539,6 +9129,17 @@
     "nom": "Pelousey",
     "pk": 129.0,
     "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 47.26851,
+    "lon": 5.92604,
+    "equipements": []
+  },
+  {
+    "id": "a36-le-bois-de-frachere",
+    "autorouteId": "A36",
+    "nom": "Le Bois de Frachère",
+    "pk": 129.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 47.26851,
     "lon": 5.92604,
@@ -7567,20 +9168,6 @@
     "equipements": []
   },
   {
-    "id": "a36-dole-audelange",
-    "autorouteId": "A36",
-    "nom": "Dole Audelange",
-    "pk": 160.0,
-    "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 47.14885,
-    "lon": 5.58859,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
-  },
-  {
     "id": "a36-dole-romange",
     "autorouteId": "A36",
     "nom": "Dole Romange",
@@ -7595,15 +9182,18 @@
     ]
   },
   {
-    "id": "a36-sampans",
+    "id": "a36-dole-audelange",
     "autorouteId": "A36",
-    "nom": "Sampans",
-    "pk": 172.0,
+    "nom": "Dole Audelange",
+    "pk": 160.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.13042,
-    "lon": 5.43574,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.14885,
+    "lon": 5.58859,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a36-le-bois-des-potets",
@@ -7617,14 +9207,14 @@
     "equipements": []
   },
   {
-    "id": "a36-les-noues",
+    "id": "a36-sampans",
     "autorouteId": "A36",
-    "nom": "Les Noues",
-    "pk": 185.0,
+    "nom": "Sampans",
+    "pk": 172.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 47.06563,
-    "lon": 5.30182,
+    "lat": 47.13042,
+    "lon": 5.43574,
     "equipements": []
   },
   {
@@ -7639,18 +9229,15 @@
     "equipements": []
   },
   {
-    "id": "a36-le-bois-guillerot",
+    "id": "a36-les-noues",
     "autorouteId": "A36",
-    "nom": "Le Bois Guillerot",
-    "pk": 201.0,
+    "nom": "Les Noues",
+    "pk": 185.0,
     "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 47.03103,
-    "lon": 5.10323,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
+    "type": "REPOS",
+    "lat": 47.06563,
+    "lon": 5.30182,
+    "equipements": []
   },
   {
     "id": "a36-glanon",
@@ -7667,15 +9254,18 @@
     ]
   },
   {
-    "id": "a36-villy-le-moutier",
+    "id": "a36-le-bois-guillerot",
     "autorouteId": "A36",
-    "nom": "Villy-le-Moutier",
-    "pk": 209.0,
+    "nom": "Le Bois Guillerot",
+    "pk": 201.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.04506,
-    "lon": 5.00284,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.03103,
+    "lon": 5.10323,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a36-argilly",
@@ -7689,11 +9279,33 @@
     "equipements": []
   },
   {
-    "id": "a39-crimolois",
+    "id": "a36-villy-le-moutier",
+    "autorouteId": "A36",
+    "nom": "Villy-le-Moutier",
+    "pk": 209.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.04506,
+    "lon": 5.00284,
+    "equipements": []
+  },
+  {
+    "id": "a39-crimolois-croissant",
     "autorouteId": "A39",
     "nom": "Crimolois",
     "pk": 6.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 47.2763,
+    "lon": 5.13932,
+    "equipements": []
+  },
+  {
+    "id": "a39-crimolois-decroissant",
+    "autorouteId": "A39",
+    "nom": "Crimolois",
+    "pk": 6.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 47.2763,
     "lon": 5.13932,
@@ -7794,11 +9406,25 @@
     "equipements": []
   },
   {
-    "id": "a39-le-jura",
+    "id": "a39-le-jura-croissant",
     "autorouteId": "A39",
     "nom": "Le Jura",
     "pk": 79.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 46.77186,
+    "lon": 5.51587,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a39-le-jura-decroissant",
+    "autorouteId": "A39",
+    "nom": "Le Jura",
+    "pk": 79.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 46.77186,
     "lon": 5.51587,
@@ -7830,11 +9456,25 @@
     "equipements": []
   },
   {
-    "id": "a39-le-poulet-de-bresse",
+    "id": "a39-le-poulet-de-bresse-croissant",
     "autorouteId": "A39",
     "nom": "Le Poulet de Bresse",
     "pk": 115.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 46.49535,
+    "lon": 5.31381,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a39-le-poulet-de-bresse-decroissant",
+    "autorouteId": "A39",
+    "nom": "Le Poulet de Bresse",
+    "pk": 115.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 46.49535,
     "lon": 5.31381,
@@ -7877,22 +9517,33 @@
     "equipements": []
   },
   {
-    "id": "a40-cluses",
+    "id": "a40-cluses-croissant",
     "autorouteId": "A40",
     "nom": "Cluses",
     "pk": 20.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 46.04795,
     "lon": 6.59203,
     "equipements": []
   },
   {
-    "id": "a40-bonneville",
+    "id": "a40-cluses-decroissant",
+    "autorouteId": "A40",
+    "nom": "Cluses",
+    "pk": 20.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 46.04795,
+    "lon": 6.59203,
+    "equipements": []
+  },
+  {
+    "id": "a40-bonneville-croissant",
     "autorouteId": "A40",
     "nom": "Bonneville",
     "pk": 35.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 46.0653,
     "lon": 6.41247,
@@ -7902,11 +9553,36 @@
     ]
   },
   {
-    "id": "a40-nangy",
+    "id": "a40-bonneville-decroissant",
+    "autorouteId": "A40",
+    "nom": "Bonneville",
+    "pk": 35.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 46.0653,
+    "lon": 6.41247,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a40-nangy-croissant",
     "autorouteId": "A40",
     "nom": "Nangy",
     "pk": 49.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 46.15303,
+    "lon": 6.2956,
+    "equipements": []
+  },
+  {
+    "id": "a40-nangy-decroissant",
+    "autorouteId": "A40",
+    "nom": "Nangy",
+    "pk": 49.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 46.15303,
     "lon": 6.2956,
@@ -7924,22 +9600,33 @@
     "equipements": []
   },
   {
-    "id": "a40-viry",
+    "id": "a40-viry-croissant",
     "autorouteId": "A40",
     "nom": "Viry",
     "pk": 75.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 46.12022,
     "lon": 6.01206,
     "equipements": []
   },
   {
-    "id": "a40-valleiry",
+    "id": "a40-viry-decroissant",
+    "autorouteId": "A40",
+    "nom": "Viry",
+    "pk": 75.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 46.12022,
+    "lon": 6.01206,
+    "equipements": []
+  },
+  {
+    "id": "a40-valleiry-croissant",
     "autorouteId": "A40",
     "nom": "Valleiry",
     "pk": 80.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 46.09648,
     "lon": 5.96082,
@@ -7949,15 +9636,18 @@
     ]
   },
   {
-    "id": "a40-la-michaille",
+    "id": "a40-valleiry-decroissant",
     "autorouteId": "A40",
-    "nom": "La Michaille",
-    "pk": 103.0,
+    "nom": "Valleiry",
+    "pk": 80.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 46.15215,
-    "lon": 5.78945,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 46.09648,
+    "lon": 5.96082,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a40-la-semine",
@@ -7971,14 +9661,14 @@
     "equipements": []
   },
   {
-    "id": "a40-lac",
+    "id": "a40-la-michaille",
     "autorouteId": "A40",
-    "nom": "Lac",
-    "pk": 115.0,
+    "nom": "La Michaille",
+    "pk": 103.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 46.16178,
-    "lon": 5.65415,
+    "lat": 46.15215,
+    "lon": 5.78945,
     "equipements": []
   },
   {
@@ -7993,11 +9683,22 @@
     "equipements": []
   },
   {
-    "id": "a40-ceignes-cerdon",
+    "id": "a40-lac",
     "autorouteId": "A40",
-    "nom": "Ceignes-Cerdon",
-    "pk": 130.0,
+    "nom": "Lac",
+    "pk": 115.0,
     "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 46.16178,
+    "lon": 5.65415,
+    "equipements": []
+  },
+  {
+    "id": "a40-ceignes-haut-bugey",
+    "autorouteId": "A40",
+    "nom": "Ceignes - Haut Bugey",
+    "pk": 130.0,
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 46.12089,
     "lon": 5.49467,
@@ -8007,11 +9708,11 @@
     ]
   },
   {
-    "id": "a40-ceignes-haut-bugey",
+    "id": "a40-ceignes-cerdon",
     "autorouteId": "A40",
-    "nom": "Ceignes - Haut Bugey",
+    "nom": "Ceignes-Cerdon",
     "pk": 130.0,
-    "sens": "CROISSANT",
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 46.12089,
     "lon": 5.49467,
@@ -8032,17 +9733,6 @@
     "equipements": []
   },
   {
-    "id": "a40-certines",
-    "autorouteId": "A40",
-    "nom": "Certines",
-    "pk": 152.0,
-    "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 46.1083,
-    "lon": 5.29179,
-    "equipements": []
-  },
-  {
     "id": "a40-tossiat",
     "autorouteId": "A40",
     "nom": "Tossiat",
@@ -8054,18 +9744,15 @@
     "equipements": []
   },
   {
-    "id": "a40-bourg-teyssonge",
+    "id": "a40-certines",
     "autorouteId": "A40",
-    "nom": "Bourg-Teyssonge",
-    "pk": 163.0,
+    "nom": "Certines",
+    "pk": 152.0,
     "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 46.20237,
-    "lon": 5.2955,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
+    "type": "REPOS",
+    "lat": 46.1083,
+    "lon": 5.29179,
+    "equipements": []
   },
   {
     "id": "a40-bourg-jasseron",
@@ -8082,15 +9769,18 @@
     ]
   },
   {
-    "id": "a40-les-planons",
+    "id": "a40-bourg-teyssonge",
     "autorouteId": "A40",
-    "nom": "Les Planons",
-    "pk": 191.0,
+    "nom": "Bourg-Teyssonge",
+    "pk": 163.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 46.27847,
-    "lon": 4.98615,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 46.20237,
+    "lon": 5.2955,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a40-musee-de-la-bresse",
@@ -8098,6 +9788,17 @@
     "nom": "Musée de la Bresse",
     "pk": 191.0,
     "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 46.27847,
+    "lon": 4.98615,
+    "equipements": []
+  },
+  {
+    "id": "a40-les-planons",
+    "autorouteId": "A40",
+    "nom": "Les Planons",
+    "pk": 191.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 46.27847,
     "lon": 4.98615,
@@ -8132,11 +9833,22 @@
     ]
   },
   {
-    "id": "a41-crolles",
+    "id": "a41-crolles-croissant",
     "autorouteId": "A41",
     "nom": "Crolles",
     "pk": 14.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.27053,
+    "lon": 5.89955,
+    "equipements": []
+  },
+  {
+    "id": "a41-crolles-decroissant",
+    "autorouteId": "A41",
+    "nom": "Crolles",
+    "pk": 14.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.27053,
     "lon": 5.89955,
@@ -8331,29 +10043,26 @@
     "equipements": []
   },
   {
-    "id": "a42-beynost",
+    "id": "a42-beynost-croissant",
     "autorouteId": "A42",
     "nom": "Beynost",
     "pk": 10.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.82196,
     "lon": 4.99679,
     "equipements": []
   },
   {
-    "id": "a42-lyon-montluel",
+    "id": "a42-beynost-decroissant",
     "autorouteId": "A42",
-    "nom": "Lyon - Montluel",
-    "pk": 16.0,
+    "nom": "Beynost",
+    "pk": 10.0,
     "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 45.84335,
-    "lon": 5.06703,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
+    "type": "REPOS",
+    "lat": 45.82196,
+    "lon": 4.99679,
+    "equipements": []
   },
   {
     "id": "a42-lyon-dagneux",
@@ -8370,15 +10079,18 @@
     ]
   },
   {
-    "id": "a42-brotteaux",
+    "id": "a42-lyon-montluel",
     "autorouteId": "A42",
-    "nom": "Brotteaux",
-    "pk": 33.0,
+    "nom": "Lyon - Montluel",
+    "pk": 16.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 45.91184,
-    "lon": 5.24701,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 45.84335,
+    "lon": 5.06703,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a42-chazey-sur-ain",
@@ -8386,6 +10098,17 @@
     "nom": "Chazey-sur-Ain",
     "pk": 33.0,
     "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.91184,
+    "lon": 5.24701,
+    "equipements": []
+  },
+  {
+    "id": "a42-brotteaux",
+    "autorouteId": "A42",
+    "nom": "Brotteaux",
+    "pk": 33.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.91184,
     "lon": 5.24701,
@@ -8420,22 +10143,47 @@
     ]
   },
   {
-    "id": "a43-saint-quentin-fallavier",
+    "id": "a43-saint-quentin-fallavier-croissant",
     "autorouteId": "A43",
     "nom": "Saint-Quentin-Fallavier",
     "pk": 21.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.64809,
     "lon": 5.11988,
     "equipements": []
   },
   {
-    "id": "a43-l-isle-d-abeau",
+    "id": "a43-saint-quentin-fallavier-decroissant",
+    "autorouteId": "A43",
+    "nom": "Saint-Quentin-Fallavier",
+    "pk": 21.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.64809,
+    "lon": 5.11988,
+    "equipements": []
+  },
+  {
+    "id": "a43-l-isle-d-abeau-croissant",
     "autorouteId": "A43",
     "nom": "L'Isle-d'Abeau",
     "pk": 29.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.61332,
+    "lon": 5.20697,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a43-l-isle-d-abeau-decroissant",
+    "autorouteId": "A43",
+    "nom": "L'Isle-d'Abeau",
+    "pk": 29.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.61332,
     "lon": 5.20697,
@@ -8539,11 +10287,22 @@
     "equipements": []
   },
   {
-    "id": "a43-chambery-nord",
+    "id": "a43-chambery-nord-croissant",
     "autorouteId": "A43",
     "nom": "Chambéry Nord",
     "pk": 89.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.60153,
+    "lon": 5.8878,
+    "equipements": []
+  },
+  {
+    "id": "a43-chambery-nord-decroissant",
+    "autorouteId": "A43",
+    "nom": "Chambéry Nord",
+    "pk": 89.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.60153,
     "lon": 5.8878,
@@ -8578,11 +10337,22 @@
     ]
   },
   {
-    "id": "a43-chignin",
+    "id": "a43-chignin-croissant",
     "autorouteId": "A43",
     "nom": "Chignin",
     "pk": 103.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.5127,
+    "lon": 6.0017,
+    "equipements": []
+  },
+  {
+    "id": "a43-chignin-decroissant",
+    "autorouteId": "A43",
+    "nom": "Chignin",
+    "pk": 103.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.5127,
     "lon": 6.0017,
@@ -8686,11 +10456,11 @@
     ]
   },
   {
-    "id": "a43-saint-michel-de-maurienne",
+    "id": "a43-saint-michel-de-maurienne-croissant",
     "autorouteId": "A43",
     "nom": "Saint-Michel-de-Maurienne",
     "pk": 177.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.21853,
     "lon": 6.45998,
@@ -8698,6 +10468,17 @@
       "STATION_SERVICE",
       "TOILETTES"
     ]
+  },
+  {
+    "id": "a43-saint-michel-de-maurienne-decroissant",
+    "autorouteId": "A43",
+    "nom": "Saint-Michel-de-Maurienne",
+    "pk": 177.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.21853,
+    "lon": 6.45998,
+    "equipements": []
   },
   {
     "id": "a46-mionnay-saint-galmier",
@@ -8728,11 +10509,25 @@
     ]
   },
   {
-    "id": "a46-communay",
+    "id": "a46-communay-croissant",
     "autorouteId": "A46",
     "nom": "Communay",
     "pk": 60.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.58944,
+    "lon": 4.82371,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a46-communay-decroissant",
+    "autorouteId": "A46",
+    "nom": "Communay",
+    "pk": 60.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.58944,
     "lon": 4.82371,
@@ -8756,11 +10551,25 @@
     ]
   },
   {
-    "id": "a47-le-pays-de-gier",
+    "id": "a47-le-pays-de-gier-croissant",
     "autorouteId": "A47",
     "nom": "Le Pays de Gier",
     "pk": 25.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.49485,
+    "lon": 4.53202,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a47-le-pays-de-gier-decroissant",
+    "autorouteId": "A47",
+    "nom": "Le Pays de Gier",
+    "pk": 25.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.49485,
     "lon": 4.53202,
@@ -8836,11 +10645,22 @@
     "equipements": []
   },
   {
-    "id": "a48-peage-de-voreppe",
+    "id": "a48-peage-de-voreppe-croissant",
     "autorouteId": "A48",
     "nom": "Péage de Voreppe",
     "pk": 85.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.28168,
+    "lon": 5.62188,
+    "equipements": []
+  },
+  {
+    "id": "a48-peage-de-voreppe-decroissant",
+    "autorouteId": "A48",
+    "nom": "Péage de Voreppe",
+    "pk": 85.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.28168,
     "lon": 5.62188,
@@ -8986,11 +10806,22 @@
     ]
   },
   {
-    "id": "a49-chatuzange",
+    "id": "a49-chatuzange-croissant",
     "autorouteId": "A49",
     "nom": "Chatuzange",
     "pk": 56.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.02636,
+    "lon": 5.09946,
+    "equipements": []
+  },
+  {
+    "id": "a49-chatuzange-decroissant",
+    "autorouteId": "A49",
+    "nom": "Chatuzange",
+    "pk": 56.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.02636,
     "lon": 5.09946,
@@ -9022,11 +10853,22 @@
     "equipements": []
   },
   {
-    "id": "a50-la-ciotat",
+    "id": "a50-la-ciotat-croissant",
     "autorouteId": "A50",
     "nom": "La Ciotat",
     "pk": 35.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.20425,
+    "lon": 5.59223,
+    "equipements": []
+  },
+  {
+    "id": "a50-la-ciotat-decroissant",
+    "autorouteId": "A50",
+    "nom": "La Ciotat",
+    "pk": 35.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.20425,
     "lon": 5.59223,
@@ -9061,22 +10903,44 @@
     ]
   },
   {
-    "id": "a50-bandol",
+    "id": "a50-bandol-croissant",
     "autorouteId": "A50",
     "nom": "Bandol",
     "pk": 56.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.1473,
     "lon": 5.76827,
     "equipements": []
   },
   {
-    "id": "a50-sanary",
+    "id": "a50-bandol-decroissant",
+    "autorouteId": "A50",
+    "nom": "Bandol",
+    "pk": 56.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.1473,
+    "lon": 5.76827,
+    "equipements": []
+  },
+  {
+    "id": "a50-sanary-croissant",
     "autorouteId": "A50",
     "nom": "Sanary",
     "pk": 58.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.14189,
+    "lon": 5.791,
+    "equipements": []
+  },
+  {
+    "id": "a50-sanary-decroissant",
+    "autorouteId": "A50",
+    "nom": "Sanary",
+    "pk": 58.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.14189,
     "lon": 5.791,
@@ -9111,14 +10975,36 @@
     ]
   },
   {
-    "id": "a51-le-crozet",
+    "id": "a51-le-crozet-croissant",
     "autorouteId": "A51",
     "nom": "Le Crozet",
     "pk": 9.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.45912,
     "lon": 5.40335,
+    "equipements": []
+  },
+  {
+    "id": "a51-le-crozet-decroissant",
+    "autorouteId": "A51",
+    "nom": "Le Crozet",
+    "pk": 9.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.45912,
+    "lon": 5.40335,
+    "equipements": []
+  },
+  {
+    "id": "a51-les-marceaux",
+    "autorouteId": "A51",
+    "nom": "Les Marceaux",
+    "pk": 19.0,
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.53526,
+    "lon": 5.43783,
     "equipements": []
   },
   {
@@ -9133,14 +11019,14 @@
     "equipements": []
   },
   {
-    "id": "a51-les-marceaux",
+    "id": "a51-meyrargues",
     "autorouteId": "A51",
-    "nom": "Les Marceaux",
-    "pk": 19.0,
+    "nom": "Meyrargues",
+    "pk": 32.0,
     "sens": "CROISSANT",
     "type": "REPOS",
-    "lat": 43.53526,
-    "lon": 5.43783,
+    "lat": 43.63023,
+    "lon": 5.49379,
     "equipements": []
   },
   {
@@ -9158,22 +11044,22 @@
     ]
   },
   {
-    "id": "a51-meyrargues",
-    "autorouteId": "A51",
-    "nom": "Meyrargues",
-    "pk": 32.0,
-    "sens": "CROISSANT",
-    "type": "REPOS",
-    "lat": 43.63023,
-    "lon": 5.49379,
-    "equipements": []
-  },
-  {
-    "id": "a51-peage-de-meyrargues",
+    "id": "a51-peage-de-meyrargues-croissant",
     "autorouteId": "A51",
     "nom": "Péage de Meyrargues",
     "pk": 35.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.6566,
+    "lon": 5.49538,
+    "equipements": []
+  },
+  {
+    "id": "a51-peage-de-meyrargues-decroissant",
+    "autorouteId": "A51",
+    "nom": "Péage de Meyrargues",
+    "pk": 35.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.6566,
     "lon": 5.49538,
@@ -9202,20 +11088,6 @@
     "equipements": []
   },
   {
-    "id": "a51-volx",
-    "autorouteId": "A51",
-    "nom": "Volx",
-    "pk": 75.0,
-    "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 43.84057,
-    "lon": 5.84835,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
-  },
-  {
     "id": "a51-manosque",
     "autorouteId": "A51",
     "nom": "Manosque",
@@ -9230,11 +11102,36 @@
     ]
   },
   {
-    "id": "a51-ganagobie",
+    "id": "a51-volx",
+    "autorouteId": "A51",
+    "nom": "Volx",
+    "pk": 75.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.84057,
+    "lon": 5.84835,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a51-ganagobie-croissant",
     "autorouteId": "A51",
     "nom": "Ganagobie",
     "pk": 94.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.999,
+    "lon": 5.92086,
+    "equipements": []
+  },
+  {
+    "id": "a51-ganagobie-decroissant",
+    "autorouteId": "A51",
+    "nom": "Ganagobie",
+    "pk": 94.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.999,
     "lon": 5.92086,
@@ -9252,11 +11149,25 @@
     "equipements": []
   },
   {
-    "id": "a51-aubignosc",
+    "id": "a51-aubignosc-croissant",
     "autorouteId": "A51",
     "nom": "Aubignosc",
     "pk": 112.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 44.13609,
+    "lon": 5.97613,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a51-aubignosc-decroissant",
+    "autorouteId": "A51",
+    "nom": "Aubignosc",
+    "pk": 112.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 44.13609,
     "lon": 5.97613,
@@ -9294,11 +11205,22 @@
     ]
   },
   {
-    "id": "a52-le-pont-de-l-etoile",
+    "id": "a52-le-pont-de-l-etoile-croissant",
     "autorouteId": "A52",
     "nom": "Le Pont-de-l'Etoile",
     "pk": 20.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.32708,
+    "lon": 5.60018,
+    "equipements": []
+  },
+  {
+    "id": "a52-le-pont-de-l-etoile-decroissant",
+    "autorouteId": "A52",
+    "nom": "Le Pont-de-l'Etoile",
+    "pk": 20.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.32708,
     "lon": 5.60018,
@@ -9327,33 +11249,66 @@
     "equipements": []
   },
   {
-    "id": "a54-arles",
+    "id": "a54-arles-croissant",
     "autorouteId": "A54",
     "nom": "Arles",
     "pk": 23.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.68665,
     "lon": 4.54791,
     "equipements": []
   },
   {
-    "id": "a54-saint-martin-de-crau",
+    "id": "a54-arles-decroissant",
+    "autorouteId": "A54",
+    "nom": "Arles",
+    "pk": 23.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.68665,
+    "lon": 4.54791,
+    "equipements": []
+  },
+  {
+    "id": "a54-saint-martin-de-crau-croissant",
     "autorouteId": "A54",
     "nom": "Saint-Martin-de-Crau",
     "pk": 50.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.63784,
     "lon": 4.85283,
     "equipements": []
   },
   {
-    "id": "a54-le-merle",
+    "id": "a54-saint-martin-de-crau-decroissant",
+    "autorouteId": "A54",
+    "nom": "Saint-Martin-de-Crau",
+    "pk": 50.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.63784,
+    "lon": 4.85283,
+    "equipements": []
+  },
+  {
+    "id": "a54-le-merle-croissant",
     "autorouteId": "A54",
     "nom": "Le Merle",
     "pk": 61.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.63883,
+    "lon": 4.98886,
+    "equipements": []
+  },
+  {
+    "id": "a54-le-merle-decroissant",
+    "autorouteId": "A54",
+    "nom": "Le Merle",
+    "pk": 61.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.63883,
     "lon": 4.98886,
@@ -9402,20 +11357,6 @@
     ]
   },
   {
-    "id": "a57-la-garde",
-    "autorouteId": "A57",
-    "nom": "La Garde",
-    "pk": 7.0,
-    "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 43.14632,
-    "lon": 6.03178,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
-  },
-  {
     "id": "a57-la-bigue",
     "autorouteId": "A57",
     "nom": "La Bigue",
@@ -9430,11 +11371,36 @@
     ]
   },
   {
-    "id": "a57-puget-ville",
+    "id": "a57-la-garde",
+    "autorouteId": "A57",
+    "nom": "La Garde",
+    "pk": 7.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.14632,
+    "lon": 6.03178,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a57-puget-ville-croissant",
     "autorouteId": "A57",
     "nom": "Puget-Ville",
     "pk": 24.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.25732,
+    "lon": 6.12194,
+    "equipements": []
+  },
+  {
+    "id": "a57-puget-ville-decroissant",
+    "autorouteId": "A57",
+    "nom": "Puget-Ville",
+    "pk": 24.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.25732,
     "lon": 6.12194,
@@ -9463,17 +11429,6 @@
     "equipements": []
   },
   {
-    "id": "a57-gonfaron",
-    "autorouteId": "A57",
-    "nom": "Gonfaron",
-    "pk": 45.0,
-    "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 43.34464,
-    "lon": 6.32431,
-    "equipements": []
-  },
-  {
     "id": "a57-les-sigues",
     "autorouteId": "A57",
     "nom": "Les Sigues",
@@ -9485,22 +11440,44 @@
     "equipements": []
   },
   {
-    "id": "a61-toulouse-sud-bpv",
+    "id": "a57-gonfaron",
+    "autorouteId": "A57",
+    "nom": "Gonfaron",
+    "pk": 45.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.34464,
+    "lon": 6.32431,
+    "equipements": []
+  },
+  {
+    "id": "a61-toulouse-sud-bpv-croissant",
     "autorouteId": "A61",
     "nom": "Toulouse Sud (BPV)",
     "pk": 241.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.54244,
     "lon": 1.50346,
     "equipements": []
   },
   {
-    "id": "a61-toulouse-sud",
+    "id": "a61-toulouse-sud-bpv-decroissant",
+    "autorouteId": "A61",
+    "nom": "Toulouse Sud (BPV)",
+    "pk": 241.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.54244,
+    "lon": 1.50346,
+    "equipements": []
+  },
+  {
+    "id": "a61-toulouse-sud-croissant",
     "autorouteId": "A61",
     "nom": "Toulouse Sud",
     "pk": 248.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.48785,
     "lon": 1.54649,
@@ -9510,15 +11487,18 @@
     ]
   },
   {
-    "id": "a61-baziege",
+    "id": "a61-toulouse-sud-decroissant",
     "autorouteId": "A61",
-    "nom": "Baziège",
-    "pk": 256.0,
+    "nom": "Toulouse Sud",
+    "pk": 248.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 43.4376,
-    "lon": 1.61617,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 43.48785,
+    "lon": 1.54649,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a61-ayguesvives",
@@ -9526,6 +11506,17 @@
     "nom": "Ayguesvives",
     "pk": 256.0,
     "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.4376,
+    "lon": 1.61617,
+    "equipements": []
+  },
+  {
+    "id": "a61-baziege",
+    "autorouteId": "A61",
+    "nom": "Baziège",
+    "pk": 256.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.4376,
     "lon": 1.61617,
@@ -9554,11 +11545,25 @@
     "equipements": []
   },
   {
-    "id": "a61-port-lauragais",
+    "id": "a61-port-lauragais-croissant",
     "autorouteId": "A61",
     "nom": "Port-Lauragais",
     "pk": 274.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.35484,
+    "lon": 1.80357,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a61-port-lauragais-decroissant",
+    "autorouteId": "A61",
+    "nom": "Port-Lauragais",
+    "pk": 274.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.35484,
     "lon": 1.80357,
@@ -9590,17 +11595,6 @@
     "equipements": []
   },
   {
-    "id": "a61-bram",
-    "autorouteId": "A61",
-    "nom": "Bram",
-    "pk": 303.0,
-    "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 43.22972,
-    "lon": 2.11247,
-    "equipements": []
-  },
-  {
     "id": "a61-montreal",
     "autorouteId": "A61",
     "nom": "Montréal",
@@ -9612,11 +11606,22 @@
     "equipements": []
   },
   {
-    "id": "a61-carcassonne-arzens",
+    "id": "a61-bram",
     "autorouteId": "A61",
-    "nom": "Carcassonne-Arzens",
-    "pk": 312.0,
+    "nom": "Bram",
+    "pk": 303.0,
     "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.22972,
+    "lon": 2.11247,
+    "equipements": []
+  },
+  {
+    "id": "a61-carcassonne-arzens-sud",
+    "autorouteId": "A61",
+    "nom": "Carcassonne-Arzens Sud",
+    "pk": 312.0,
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.2181,
     "lon": 2.22058,
@@ -9626,11 +11631,11 @@
     ]
   },
   {
-    "id": "a61-carcassonne-arzens-sud",
+    "id": "a61-carcassonne-arzens",
     "autorouteId": "A61",
-    "nom": "Carcassonne-Arzens Sud",
+    "nom": "Carcassonne-Arzens",
     "pk": 312.0,
-    "sens": "CROISSANT",
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.2181,
     "lon": 2.22058,
@@ -9662,11 +11667,11 @@
     "equipements": []
   },
   {
-    "id": "a61-les-corbieres",
+    "id": "a61-les-corbieres-croissant",
     "autorouteId": "A61",
     "nom": "Les Corbières",
     "pk": 340.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.1775,
     "lon": 2.54102,
@@ -9676,15 +11681,18 @@
     ]
   },
   {
-    "id": "a61-la-peyriere",
+    "id": "a61-les-corbieres-decroissant",
     "autorouteId": "A61",
-    "nom": "La Peyrière",
-    "pk": 354.0,
+    "nom": "Les Corbières",
+    "pk": 340.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 43.16926,
-    "lon": 2.70673,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 43.1775,
+    "lon": 2.54102,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a61-fontcouverte",
@@ -9698,11 +11706,33 @@
     "equipements": []
   },
   {
-    "id": "a61-bizanet",
+    "id": "a61-la-peyriere",
+    "autorouteId": "A61",
+    "nom": "La Peyrière",
+    "pk": 354.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.16926,
+    "lon": 2.70673,
+    "equipements": []
+  },
+  {
+    "id": "a61-bizanet-croissant",
     "autorouteId": "A61",
     "nom": "Bizanet",
     "pk": 366.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.16041,
+    "lon": 2.85081,
+    "equipements": []
+  },
+  {
+    "id": "a61-bizanet-decroissant",
+    "autorouteId": "A61",
+    "nom": "Bizanet",
+    "pk": 366.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.16041,
     "lon": 2.85081,
@@ -9731,22 +11761,33 @@
     "equipements": []
   },
   {
-    "id": "a62-saint-selve",
+    "id": "a62-saint-selve-croissant",
     "autorouteId": "A62",
     "nom": "Saint-Selve",
     "pk": 15.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.66026,
     "lon": -0.45608,
     "equipements": []
   },
   {
-    "id": "a62-les-terres-de-graves",
+    "id": "a62-saint-selve-decroissant",
+    "autorouteId": "A62",
+    "nom": "Saint-Selve",
+    "pk": 15.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.66026,
+    "lon": -0.45608,
+    "equipements": []
+  },
+  {
+    "id": "a62-les-terres-de-graves-croissant",
     "autorouteId": "A62",
     "nom": "Les Terres de Graves",
     "pk": 17.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 44.64786,
     "lon": -0.43792,
@@ -9756,33 +11797,69 @@
     ]
   },
   {
-    "id": "a62-le-bazadais",
+    "id": "a62-les-terres-de-graves-decroissant",
+    "autorouteId": "A62",
+    "nom": "Les Terres de Graves",
+    "pk": 17.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.64786,
+    "lon": -0.43792,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a62-le-bazadais-croissant",
     "autorouteId": "A62",
     "nom": "Le Bazadais",
     "pk": 51.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.51988,
     "lon": -0.08321,
     "equipements": []
   },
   {
-    "id": "a62-cocumont",
+    "id": "a62-le-bazadais-decroissant",
+    "autorouteId": "A62",
+    "nom": "Le Bazadais",
+    "pk": 51.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.51988,
+    "lon": -0.08321,
+    "equipements": []
+  },
+  {
+    "id": "a62-cocumont-croissant",
     "autorouteId": "A62",
     "nom": "Cocumont",
     "pk": 62.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.47491,
     "lon": 0.03818,
     "equipements": []
   },
   {
-    "id": "a62-mas-d-agenais",
+    "id": "a62-cocumont-decroissant",
+    "autorouteId": "A62",
+    "nom": "Cocumont",
+    "pk": 62.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.47491,
+    "lon": 0.03818,
+    "equipements": []
+  },
+  {
+    "id": "a62-mas-d-agenais-croissant",
     "autorouteId": "A62",
     "nom": "Mas d'Agenais",
     "pk": 76.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 44.40876,
     "lon": 0.18268,
@@ -9792,44 +11869,105 @@
     ]
   },
   {
-    "id": "a62-queyran",
+    "id": "a62-mas-d-agenais-decroissant",
+    "autorouteId": "A62",
+    "nom": "Mas d'Agenais",
+    "pk": 76.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.40876,
+    "lon": 0.18268,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a62-queyran-croissant",
     "autorouteId": "A62",
     "nom": "Queyran",
     "pk": 85.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.34904,
     "lon": 0.24983,
     "equipements": []
   },
   {
-    "id": "a62-buzet",
+    "id": "a62-queyran-decroissant",
+    "autorouteId": "A62",
+    "nom": "Queyran",
+    "pk": 85.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.34904,
+    "lon": 0.24983,
+    "equipements": []
+  },
+  {
+    "id": "a62-buzet-croissant",
     "autorouteId": "A62",
     "nom": "Buzet",
     "pk": 97.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.25082,
     "lon": 0.29954,
     "equipements": []
   },
   {
-    "id": "a62-bruch",
+    "id": "a62-buzet-decroissant",
+    "autorouteId": "A62",
+    "nom": "Buzet",
+    "pk": 97.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.25082,
+    "lon": 0.29954,
+    "equipements": []
+  },
+  {
+    "id": "a62-bruch-croissant",
     "autorouteId": "A62",
     "nom": "Bruch",
     "pk": 106.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.21385,
     "lon": 0.39696,
     "equipements": []
   },
   {
-    "id": "a62-agen-porte-d-aquitaine",
+    "id": "a62-bruch-decroissant",
+    "autorouteId": "A62",
+    "nom": "Bruch",
+    "pk": 106.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.21385,
+    "lon": 0.39696,
+    "equipements": []
+  },
+  {
+    "id": "a62-agen-porte-d-aquitaine-croissant",
     "autorouteId": "A62",
     "nom": "Agen Porte d'Aquitaine",
     "pk": 115.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 44.19876,
+    "lon": 0.50487,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a62-agen-porte-d-aquitaine-decroissant",
+    "autorouteId": "A62",
+    "nom": "Agen Porte d'Aquitaine",
+    "pk": 115.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 44.19876,
     "lon": 0.50487,
@@ -9861,33 +11999,69 @@
     "equipements": []
   },
   {
-    "id": "a62-layrac",
+    "id": "a62-layrac-croissant",
     "autorouteId": "A62",
     "nom": "Layrac",
     "pk": 133.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.12708,
     "lon": 0.69268,
     "equipements": []
   },
   {
-    "id": "a62-dunes",
+    "id": "a62-layrac-decroissant",
+    "autorouteId": "A62",
+    "nom": "Layrac",
+    "pk": 133.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.12708,
+    "lon": 0.69268,
+    "equipements": []
+  },
+  {
+    "id": "a62-dunes-croissant",
     "autorouteId": "A62",
     "nom": "Dunes",
     "pk": 143.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.08282,
     "lon": 0.79672,
     "equipements": []
   },
   {
-    "id": "a62-garonne",
+    "id": "a62-dunes-decroissant",
+    "autorouteId": "A62",
+    "nom": "Dunes",
+    "pk": 143.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.08282,
+    "lon": 0.79672,
+    "equipements": []
+  },
+  {
+    "id": "a62-garonne-croissant",
     "autorouteId": "A62",
     "nom": "Garonne",
     "pk": 161.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 44.04258,
+    "lon": 1.00416,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a62-garonne-decroissant",
+    "autorouteId": "A62",
+    "nom": "Garonne",
+    "pk": 161.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 44.04258,
     "lon": 1.00416,
@@ -9991,58 +12165,105 @@
     ]
   },
   {
-    "id": "a62-toulouse-nord",
+    "id": "a62-toulouse-nord-croissant",
     "autorouteId": "A62",
     "nom": "Toulouse Nord",
     "pk": 225.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.65534,
     "lon": 1.42789,
     "equipements": []
   },
   {
-    "id": "a63-bordeaux-cestas",
+    "id": "a62-toulouse-nord-decroissant",
+    "autorouteId": "A62",
+    "nom": "Toulouse Nord",
+    "pk": 225.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.65534,
+    "lon": 1.42789,
+    "equipements": []
+  },
+  {
+    "id": "a63-bordeaux-cestas-croissant",
     "autorouteId": "A63",
     "nom": "Bordeaux-Cestas",
-    "pk": 7.5,
-    "sens": "LES_DEUX",
+    "pk": 7.0,
+    "sens": "CROISSANT",
     "type": "SERVICE",
-    "lat": 44.74634,
-    "lon": -0.70165,
+    "lat": 44.74923,
+    "lon": -0.69688,
     "equipements": [
       "STATION_SERVICE",
       "TOILETTES"
     ]
   },
   {
-    "id": "a63-les-gargails",
+    "id": "a63-bordeaux-cestas-decroissant",
+    "autorouteId": "A63",
+    "nom": "Bordeaux - Cestas",
+    "pk": 8.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.74346,
+    "lon": -0.70641,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a63-les-gargails-croissant",
     "autorouteId": "A63",
     "nom": "Les Gargails",
-    "pk": 18.5,
-    "sens": "LES_DEUX",
+    "pk": 18.0,
+    "sens": "CROISSANT",
     "type": "REPOS",
-    "lat": 44.67681,
-    "lon": -0.7987,
+    "lat": 44.67945,
+    "lon": -0.79372,
     "equipements": []
   },
   {
-    "id": "a63-lugos",
+    "id": "a63-les-gargails-decroissant",
+    "autorouteId": "A63",
+    "nom": "Les Gargails",
+    "pk": 19.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.67416,
+    "lon": -0.80368,
+    "equipements": []
+  },
+  {
+    "id": "a63-lugos-croissant",
     "autorouteId": "A63",
     "nom": "Lugos",
     "pk": 39.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.50815,
     "lon": -0.84248,
     "equipements": []
   },
   {
-    "id": "a63-porte-des-landes",
+    "id": "a63-lugos-decroissant",
+    "autorouteId": "A63",
+    "nom": "Lugos",
+    "pk": 39.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.50815,
+    "lon": -0.84248,
+    "equipements": []
+  },
+  {
+    "id": "a63-porte-des-landes-croissant",
     "autorouteId": "A63",
     "nom": "Porte des Landes",
     "pk": 56.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 44.3675,
     "lon": -0.84718,
@@ -10052,44 +12273,91 @@
     ]
   },
   {
-    "id": "a63-saugnac-et-muret",
+    "id": "a63-porte-des-landes-decroissant",
+    "autorouteId": "A63",
+    "nom": "Porte des Landes",
+    "pk": 56.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.3675,
+    "lon": -0.84718,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a63-saugnac-et-muret-croissant",
     "autorouteId": "A63",
     "nom": "Saugnac-et-Muret",
     "pk": 58.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.35112,
     "lon": -0.85779,
     "equipements": []
   },
   {
-    "id": "a63-labouheyre",
+    "id": "a63-saugnac-et-muret-decroissant",
+    "autorouteId": "A63",
+    "nom": "Saugnac-et-Muret",
+    "pk": 58.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.35112,
+    "lon": -0.85779,
+    "equipements": []
+  },
+  {
+    "id": "a63-labouheyre-croissant",
     "autorouteId": "A63",
     "nom": "Labouheyre",
     "pk": 69.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.25863,
     "lon": -0.90109,
     "equipements": []
   },
   {
-    "id": "a63-onesse-et-laharie",
+    "id": "a63-labouheyre-decroissant",
     "autorouteId": "A63",
-    "nom": "Onesse-et-Laharie",
-    "pk": 89.5,
-    "sens": "LES_DEUX",
+    "nom": "Labouheyre",
+    "pk": 69.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 44.09055,
-    "lon": -0.99876,
+    "lat": 44.25863,
+    "lon": -0.90109,
     "equipements": []
   },
   {
-    "id": "a63-l-ocean",
+    "id": "a63-onesse-et-laharie-decroissant",
+    "autorouteId": "A63",
+    "nom": "Onesse-et-Laharie",
+    "pk": 89.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.09484,
+    "lon": -0.9969,
+    "equipements": []
+  },
+  {
+    "id": "a63-onesse-et-laharie-croissant",
+    "autorouteId": "A63",
+    "nom": "Onesse-et-Laharie",
+    "pk": 90.0,
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 44.08626,
+    "lon": -1.00063,
+    "equipements": []
+  },
+  {
+    "id": "a63-l-ocean-croissant",
     "autorouteId": "A63",
     "nom": "L'Océan",
     "pk": 109.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.93671,
     "lon": -1.09215,
@@ -10099,55 +12367,113 @@
     ]
   },
   {
-    "id": "a63-castets",
+    "id": "a63-l-ocean-decroissant",
+    "autorouteId": "A63",
+    "nom": "L'Océan",
+    "pk": 109.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.93671,
+    "lon": -1.09215,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a63-castets-croissant",
     "autorouteId": "A63",
     "nom": "Castets",
     "pk": 123.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.83724,
     "lon": -1.17908,
     "equipements": []
   },
   {
-    "id": "a63-magescq",
+    "id": "a63-castets-decroissant",
+    "autorouteId": "A63",
+    "nom": "Castets",
+    "pk": 123.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.83724,
+    "lon": -1.17908,
+    "equipements": []
+  },
+  {
+    "id": "a63-magescq-croissant",
     "autorouteId": "A63",
     "nom": "Magescq",
     "pk": 127.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.80505,
     "lon": -1.20075,
     "equipements": []
   },
   {
-    "id": "a63-saubion",
+    "id": "a63-magescq-decroissant",
+    "autorouteId": "A63",
+    "nom": "Magescq",
+    "pk": 127.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.80505,
+    "lon": -1.20075,
+    "equipements": []
+  },
+  {
+    "id": "a63-saubion-croissant",
     "autorouteId": "A63",
     "nom": "Saubion",
     "pk": 146.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.67943,
     "lon": -1.30576,
     "equipements": []
   },
   {
-    "id": "a63-benesse-maremne",
+    "id": "a63-saubion-decroissant",
+    "autorouteId": "A63",
+    "nom": "Saubion",
+    "pk": 146.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.67943,
+    "lon": -1.30576,
+    "equipements": []
+  },
+  {
+    "id": "a63-benesse-maremne-croissant",
     "autorouteId": "A63",
     "nom": "Benesse-Maremne",
     "pk": 156.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.62561,
     "lon": -1.39915,
     "equipements": []
   },
   {
-    "id": "a63-labenne",
+    "id": "a63-benesse-maremne-decroissant",
+    "autorouteId": "A63",
+    "nom": "Benesse-Maremne",
+    "pk": 156.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.62561,
+    "lon": -1.39915,
+    "equipements": []
+  },
+  {
+    "id": "a63-labenne-croissant",
     "autorouteId": "A63",
     "nom": "Labenne",
     "pk": 161.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.58538,
     "lon": -1.42046,
@@ -10157,22 +12483,61 @@
     ]
   },
   {
-    "id": "a63-la-negresse",
+    "id": "a63-labenne-decroissant",
+    "autorouteId": "A63",
+    "nom": "Labenne",
+    "pk": 161.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.58538,
+    "lon": -1.42046,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a63-la-negresse-croissant",
     "autorouteId": "A63",
     "nom": "La Négresse",
     "pk": 183.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.44796,
     "lon": -1.54817,
     "equipements": []
   },
   {
-    "id": "a63-bidart",
+    "id": "a63-la-negresse-decroissant",
+    "autorouteId": "A63",
+    "nom": "La Négresse",
+    "pk": 183.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.44796,
+    "lon": -1.54817,
+    "equipements": []
+  },
+  {
+    "id": "a63-bidart-croissant",
     "autorouteId": "A63",
     "nom": "Bidart",
     "pk": 188.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.42441,
+    "lon": -1.59511,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a63-bidart-decroissant",
+    "autorouteId": "A63",
+    "nom": "Bidart",
+    "pk": 188.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.42441,
     "lon": -1.59511,
@@ -10193,33 +12558,69 @@
     "equipements": []
   },
   {
-    "id": "a63-biriatou",
+    "id": "a63-biriatou-croissant",
     "autorouteId": "A63",
     "nom": "Biriatou",
     "pk": 205.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.34169,
     "lon": -1.74738,
     "equipements": []
   },
   {
-    "id": "a64-sames",
+    "id": "a63-biriatou-decroissant",
+    "autorouteId": "A63",
+    "nom": "Biriatou",
+    "pk": 205.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.34169,
+    "lon": -1.74738,
+    "equipements": []
+  },
+  {
+    "id": "a64-sames-croissant",
     "autorouteId": "A64",
     "nom": "Sames",
     "pk": 27.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.52885,
     "lon": -1.19145,
     "equipements": []
   },
   {
-    "id": "a64-hastingues",
+    "id": "a64-sames-decroissant",
+    "autorouteId": "A64",
+    "nom": "Sames",
+    "pk": 27.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.52885,
+    "lon": -1.19145,
+    "equipements": []
+  },
+  {
+    "id": "a64-hastingues-croissant",
     "autorouteId": "A64",
     "nom": "Hastingues",
     "pk": 30.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.52973,
+    "lon": -1.15515,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a64-hastingues-decroissant",
+    "autorouteId": "A64",
+    "nom": "Hastingues",
+    "pk": 30.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.52973,
     "lon": -1.15515,
@@ -10251,11 +12652,11 @@
     "equipements": []
   },
   {
-    "id": "a64-lacq-audejos",
+    "id": "a64-lacq-audejos-croissant",
     "autorouteId": "A64",
     "nom": "Lacq-Audéjos",
     "pk": 80.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.42235,
     "lon": -0.59965,
@@ -10265,22 +12666,47 @@
     ]
   },
   {
-    "id": "a64-serres-morlaas",
+    "id": "a64-lacq-audejos-decroissant",
+    "autorouteId": "A64",
+    "nom": "Lacq-Audéjos",
+    "pk": 80.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.42235,
+    "lon": -0.59965,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a64-serres-morlaas-decroissant",
     "autorouteId": "A64",
     "nom": "Serres-Morlaàs",
-    "pk": 110.5,
-    "sens": "LES_DEUX",
+    "pk": 110.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 43.31318,
-    "lon": -0.2648,
+    "lat": 43.31437,
+    "lon": -0.27074,
     "equipements": []
   },
   {
-    "id": "a64-les-pyrenees",
+    "id": "a64-serres-morlaas-croissant",
+    "autorouteId": "A64",
+    "nom": "Serres-Morlaàs",
+    "pk": 111.0,
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.31199,
+    "lon": -0.25886,
+    "equipements": []
+  },
+  {
+    "id": "a64-les-pyrenees-croissant",
     "autorouteId": "A64",
     "nom": "Les Pyrénées",
     "pk": 129.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.2301,
     "lon": -0.07613,
@@ -10290,11 +12716,36 @@
     ]
   },
   {
-    "id": "a64-bordes",
+    "id": "a64-les-pyrenees-decroissant",
+    "autorouteId": "A64",
+    "nom": "Les Pyrénées",
+    "pk": 129.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.2301,
+    "lon": -0.07613,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a64-bordes-croissant",
     "autorouteId": "A64",
     "nom": "Bordes",
     "pk": 156.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.18563,
+    "lon": 0.2229,
+    "equipements": []
+  },
+  {
+    "id": "a64-bordes-decroissant",
+    "autorouteId": "A64",
+    "nom": "Bordes",
+    "pk": 156.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.18563,
     "lon": 0.2229,
@@ -10345,11 +12796,11 @@
     "equipements": []
   },
   {
-    "id": "a64-comminges",
+    "id": "a64-comminges-croissant",
     "autorouteId": "A64",
     "nom": "Comminges",
     "pk": 194.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.10825,
     "lon": 0.61246,
@@ -10359,11 +12810,36 @@
     ]
   },
   {
-    "id": "a64-lestelle",
+    "id": "a64-comminges-decroissant",
+    "autorouteId": "A64",
+    "nom": "Comminges",
+    "pk": 194.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.10825,
+    "lon": 0.61246,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a64-lestelle-croissant",
     "autorouteId": "A64",
     "nom": "Lestelle",
     "pk": 218.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.11925,
+    "lon": 0.89779,
+    "equipements": []
+  },
+  {
+    "id": "a64-lestelle-decroissant",
+    "autorouteId": "A64",
+    "nom": "Lestelle",
+    "pk": 218.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.11925,
     "lon": 0.89779,
@@ -10398,11 +12874,22 @@
     ]
   },
   {
-    "id": "a64-muret",
+    "id": "a64-muret-croissant",
     "autorouteId": "A64",
     "nom": "Muret",
     "pk": 278.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.50359,
+    "lon": 1.34852,
+    "equipements": []
+  },
+  {
+    "id": "a64-muret-decroissant",
+    "autorouteId": "A64",
+    "nom": "Muret",
+    "pk": 278.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.50359,
     "lon": 1.34852,
@@ -10431,33 +12918,69 @@
     "equipements": []
   },
   {
-    "id": "a66-pamiers",
+    "id": "a66-pamiers-croissant",
     "autorouteId": "A66",
     "nom": "Pamiers",
     "pk": 36.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.15452,
     "lon": 1.61571,
     "equipements": []
   },
   {
-    "id": "a68-toulouse-est",
+    "id": "a66-pamiers-decroissant",
+    "autorouteId": "A66",
+    "nom": "Pamiers",
+    "pk": 36.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.15452,
+    "lon": 1.61571,
+    "equipements": []
+  },
+  {
+    "id": "a68-toulouse-est-croissant",
     "autorouteId": "A68",
     "nom": "Toulouse Est",
     "pk": 3.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.64661,
     "lon": 1.50585,
     "equipements": []
   },
   {
-    "id": "a68-les-portes-du-tarn",
+    "id": "a68-toulouse-est-decroissant",
+    "autorouteId": "A68",
+    "nom": "Toulouse Est",
+    "pk": 3.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.64661,
+    "lon": 1.50585,
+    "equipements": []
+  },
+  {
+    "id": "a68-les-portes-du-tarn-croissant",
     "autorouteId": "A68",
     "nom": "Les Portes du Tarn",
     "pk": 23.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.75435,
+    "lon": 1.66112,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a68-les-portes-du-tarn-decroissant",
+    "autorouteId": "A68",
+    "nom": "Les Portes du Tarn",
+    "pk": 23.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.75435,
     "lon": 1.66112,
@@ -10783,11 +13306,25 @@
     "equipements": []
   },
   {
-    "id": "a71-les-volcans-d-auvergne",
+    "id": "a71-les-volcans-d-auvergne-croissant",
     "autorouteId": "A71",
     "nom": "Les Volcans d'Auvergne",
     "pk": 355.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 46.05755,
+    "lon": 3.11364,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a71-les-volcans-d-auvergne-decroissant",
+    "autorouteId": "A71",
+    "nom": "Les Volcans d'Auvergne",
+    "pk": 355.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 46.05755,
     "lon": 3.11364,
@@ -10819,22 +13356,47 @@
     "equipements": []
   },
   {
-    "id": "a71-clermont-barriere-gerzat",
+    "id": "a71-clermont-barriere-gerzat-croissant",
     "autorouteId": "A71",
     "nom": "Clermont-Barrière (Gerzat)",
     "pk": 381.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.84049,
     "lon": 3.16055,
     "equipements": []
   },
   {
-    "id": "a72-la-plaine-du-forez",
+    "id": "a71-clermont-barriere-gerzat-decroissant",
+    "autorouteId": "A71",
+    "nom": "Clermont-Barrière (Gerzat)",
+    "pk": 381.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.84049,
+    "lon": 3.16055,
+    "equipements": []
+  },
+  {
+    "id": "a72-la-plaine-du-forez-croissant",
     "autorouteId": "A72",
     "nom": "La Plaine du Forez",
     "pk": 102.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.68069,
+    "lon": 4.15551,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a72-la-plaine-du-forez-decroissant",
+    "autorouteId": "A72",
+    "nom": "La Plaine du Forez",
+    "pk": 102.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.68069,
     "lon": 4.15551,
@@ -10866,11 +13428,22 @@
     "equipements": []
   },
   {
-    "id": "a72-veauchette",
+    "id": "a72-veauchette-croissant",
     "autorouteId": "A72",
     "nom": "Veauchette",
     "pk": 118.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.55875,
+    "lon": 4.24703,
+    "equipements": []
+  },
+  {
+    "id": "a72-veauchette-decroissant",
+    "autorouteId": "A72",
+    "nom": "Veauchette",
+    "pk": 118.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.55875,
     "lon": 4.24703,
@@ -10938,11 +13511,25 @@
     "equipements": []
   },
   {
-    "id": "a75-lafayette-lorlanges",
+    "id": "a75-lafayette-lorlanges-croissant",
     "autorouteId": "A75",
     "nom": "Lafayette - Lorlanges",
     "pk": 58.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.31911,
+    "lon": 3.26039,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a75-lafayette-lorlanges-decroissant",
+    "autorouteId": "A75",
+    "nom": "Lafayette - Lorlanges",
+    "pk": 58.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.31911,
     "lon": 3.26039,
@@ -10974,22 +13561,33 @@
     "equipements": []
   },
   {
-    "id": "a75-garabit",
+    "id": "a75-garabit-croissant",
     "autorouteId": "A75",
     "nom": "Garabit",
     "pk": 103.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.98204,
     "lon": 3.18573,
     "equipements": []
   },
   {
-    "id": "a75-la-lozere",
+    "id": "a75-garabit-decroissant",
+    "autorouteId": "A75",
+    "nom": "Garabit",
+    "pk": 103.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.98204,
+    "lon": 3.18573,
+    "equipements": []
+  },
+  {
+    "id": "a75-la-lozere-croissant",
     "autorouteId": "A75",
     "nom": "La Lozère",
     "pk": 116.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 44.87658,
     "lon": 3.24637,
@@ -10999,11 +13597,36 @@
     ]
   },
   {
-    "id": "a75-l-aubrac",
+    "id": "a75-la-lozere-decroissant",
+    "autorouteId": "A75",
+    "nom": "La Lozère",
+    "pk": 116.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.87658,
+    "lon": 3.24637,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a75-l-aubrac-croissant",
     "autorouteId": "A75",
     "nom": "L'Aubrac",
     "pk": 133.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 44.7397,
+    "lon": 3.28867,
+    "equipements": []
+  },
+  {
+    "id": "a75-l-aubrac-decroissant",
+    "autorouteId": "A75",
+    "nom": "L'Aubrac",
+    "pk": 133.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 44.7397,
     "lon": 3.28867,
@@ -11032,11 +13655,11 @@
     "equipements": []
   },
   {
-    "id": "a75-l-aveyron",
+    "id": "a75-l-aveyron-croissant",
     "autorouteId": "A75",
     "nom": "L'Aveyron",
     "pk": 189.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 44.33931,
     "lon": 3.0829,
@@ -11046,44 +13669,91 @@
     ]
   },
   {
-    "id": "a75-la-garrigue",
+    "id": "a75-l-aveyron-decroissant",
+    "autorouteId": "A75",
+    "nom": "L'Aveyron",
+    "pk": 189.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 44.33931,
+    "lon": 3.0829,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a75-la-garrigue-croissant",
     "autorouteId": "A75",
     "nom": "La Garrigue",
     "pk": 210.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.17943,
     "lon": 3.0364,
     "equipements": []
   },
   {
-    "id": "a75-saint-germain",
+    "id": "a75-la-garrigue-decroissant",
+    "autorouteId": "A75",
+    "nom": "La Garrigue",
+    "pk": 210.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.17943,
+    "lon": 3.0364,
+    "equipements": []
+  },
+  {
+    "id": "a75-saint-germain-croissant",
     "autorouteId": "A75",
     "nom": "Saint-Germain",
     "pk": 215.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.13835,
     "lon": 3.02026,
     "equipements": []
   },
   {
-    "id": "a75-le-viaduc-de-millau",
+    "id": "a75-saint-germain-decroissant",
+    "autorouteId": "A75",
+    "nom": "Saint-Germain",
+    "pk": 215.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.13835,
+    "lon": 3.02026,
+    "equipements": []
+  },
+  {
+    "id": "a75-le-viaduc-de-millau-croissant",
     "autorouteId": "A75",
     "nom": "Le Viaduc de Millau",
     "pk": 219.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.09914,
     "lon": 3.0216,
     "equipements": []
   },
   {
-    "id": "a75-le-larzac",
+    "id": "a75-le-viaduc-de-millau-decroissant",
+    "autorouteId": "A75",
+    "nom": "Le Viaduc de Millau",
+    "pk": 219.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.09914,
+    "lon": 3.0216,
+    "equipements": []
+  },
+  {
+    "id": "a75-le-larzac-croissant",
     "autorouteId": "A75",
     "nom": "Le Larzac",
     "pk": 239.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 43.9858,
     "lon": 3.18148,
@@ -11093,11 +13763,39 @@
     ]
   },
   {
-    "id": "a75-le-caylar",
+    "id": "a75-le-larzac-decroissant",
+    "autorouteId": "A75",
+    "nom": "Le Larzac",
+    "pk": 239.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 43.9858,
+    "lon": 3.18148,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a75-le-caylar-croissant",
     "autorouteId": "A75",
     "nom": "Le Caylar",
     "pk": 262.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.83146,
+    "lon": 3.31241,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a75-le-caylar-decroissant",
+    "autorouteId": "A75",
+    "nom": "Le Caylar",
+    "pk": 262.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.83146,
     "lon": 3.31241,
@@ -11118,22 +13816,47 @@
     "equipements": []
   },
   {
-    "id": "a75-paulhan",
+    "id": "a75-paulhan-croissant",
     "autorouteId": "A75",
     "nom": "Paulhan",
     "pk": 303.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.54334,
     "lon": 3.44572,
     "equipements": []
   },
   {
-    "id": "a75-valros",
+    "id": "a75-paulhan-decroissant",
+    "autorouteId": "A75",
+    "nom": "Paulhan",
+    "pk": 303.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.54334,
+    "lon": 3.44572,
+    "equipements": []
+  },
+  {
+    "id": "a75-valros-croissant",
     "autorouteId": "A75",
     "nom": "Valros",
     "pk": 320.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 43.41473,
+    "lon": 3.38032,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a75-valros-decroissant",
+    "autorouteId": "A75",
+    "nom": "Valros",
+    "pk": 320.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 43.41473,
     "lon": 3.38032,
@@ -11154,11 +13877,22 @@
     "equipements": []
   },
   {
-    "id": "a77-val-de-loing",
+    "id": "a77-val-de-loing-croissant",
     "autorouteId": "A77",
     "nom": "Val-de-Loing",
     "pk": 6.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.17327,
+    "lon": 2.76679,
+    "equipements": []
+  },
+  {
+    "id": "a77-val-de-loing-decroissant",
+    "autorouteId": "A77",
+    "nom": "Val-de-Loing",
+    "pk": 6.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.17327,
     "lon": 2.76679,
@@ -11209,11 +13943,25 @@
     "equipements": []
   },
   {
-    "id": "a77-le-jardin-des-arbres",
+    "id": "a77-le-jardin-des-arbres-croissant",
     "autorouteId": "A77",
     "nom": "Le Jardin des Arbres",
     "pk": 45.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 47.84808,
+    "lon": 2.68805,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a77-le-jardin-des-arbres-decroissant",
+    "autorouteId": "A77",
+    "nom": "Le Jardin des Arbres",
+    "pk": 45.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 47.84808,
     "lon": 2.68805,
@@ -11278,22 +14026,33 @@
     "equipements": []
   },
   {
-    "id": "a77-myennes",
+    "id": "a77-myennes-croissant",
     "autorouteId": "A77",
     "nom": "Myennes",
     "pk": 97.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.44072,
     "lon": 2.94299,
     "equipements": []
   },
   {
-    "id": "a77-les-vignobles",
+    "id": "a77-myennes-decroissant",
+    "autorouteId": "A77",
+    "nom": "Myennes",
+    "pk": 97.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.44072,
+    "lon": 2.94299,
+    "equipements": []
+  },
+  {
+    "id": "a77-les-vignobles-croissant",
     "autorouteId": "A77",
     "nom": "Les Vignobles",
     "pk": 110.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.33162,
     "lon": 2.93001,
@@ -11303,7 +14062,21 @@
     ]
   },
   {
-    "id": "a77-pouilly-sur-loire-115",
+    "id": "a77-les-vignobles-decroissant",
+    "autorouteId": "A77",
+    "nom": "Les Vignobles",
+    "pk": 110.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 47.33162,
+    "lon": 2.93001,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a77-pouilly-sur-loire-croissant",
     "autorouteId": "A77",
     "nom": "Pouilly-sur-Loire",
     "pk": 115.0,
@@ -11314,7 +14087,7 @@
     "equipements": []
   },
   {
-    "id": "a77-pouilly-sur-loire-119",
+    "id": "a77-pouilly-sur-loire-decroissant",
     "autorouteId": "A77",
     "nom": "Pouilly-sur-Loire",
     "pk": 119.0,
@@ -11347,44 +14120,77 @@
     "equipements": []
   },
   {
-    "id": "a77-pougues-les-eaux",
+    "id": "a77-pougues-les-eaux-croissant",
     "autorouteId": "A77",
     "nom": "Pougues-les-Eaux",
-    "pk": 144.5,
-    "sens": "LES_DEUX",
+    "pk": 144.0,
+    "sens": "CROISSANT",
     "type": "REPOS",
-    "lat": 47.07283,
-    "lon": 3.12694,
+    "lat": 47.07719,
+    "lon": 3.12559,
     "equipements": []
   },
   {
-    "id": "a79-deux-chaises",
+    "id": "a77-pougues-les-eaux-decroissant",
+    "autorouteId": "A77",
+    "nom": "Pougues-les-Eaux",
+    "pk": 145.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.06847,
+    "lon": 3.12828,
+    "equipements": []
+  },
+  {
+    "id": "a79-deux-chaises-croissant",
     "autorouteId": "A79",
     "nom": "Deux-Chaises",
     "pk": 7.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 46.36606,
     "lon": 3.02502,
     "equipements": []
   },
   {
-    "id": "a79-cressanges",
+    "id": "a79-deux-chaises-decroissant",
+    "autorouteId": "A79",
+    "nom": "Deux-Chaises",
+    "pk": 7.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 46.36606,
+    "lon": 3.02502,
+    "equipements": []
+  },
+  {
+    "id": "a79-cressanges-croissant",
     "autorouteId": "A79",
     "nom": "Cressanges",
     "pk": 21.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 46.44152,
     "lon": 3.15415,
     "equipements": []
   },
   {
-    "id": "a79-bourbonnais",
+    "id": "a79-cressanges-decroissant",
+    "autorouteId": "A79",
+    "nom": "Cressanges",
+    "pk": 21.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 46.44152,
+    "lon": 3.15415,
+    "equipements": []
+  },
+  {
+    "id": "a79-bourbonnais-croissant",
     "autorouteId": "A79",
     "nom": "Bourbonnais",
     "pk": 38.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 46.49233,
     "lon": 3.35352,
@@ -11394,11 +14200,36 @@
     ]
   },
   {
-    "id": "a79-pierrefitte-sur-loire",
+    "id": "a79-bourbonnais-decroissant",
+    "autorouteId": "A79",
+    "nom": "Bourbonnais",
+    "pk": 38.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 46.49233,
+    "lon": 3.35352,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a79-pierrefitte-sur-loire-croissant",
     "autorouteId": "A79",
     "nom": "Pierrefitte-sur-Loire",
     "pk": 73.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 46.50458,
+    "lon": 3.77908,
+    "equipements": []
+  },
+  {
+    "id": "a79-pierrefitte-sur-loire-decroissant",
+    "autorouteId": "A79",
+    "nom": "Pierrefitte-sur-Loire",
+    "pk": 73.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 46.50458,
     "lon": 3.77908,
@@ -11499,11 +14330,25 @@
     "equipements": []
   },
   {
-    "id": "a81-la-mayenne",
+    "id": "a81-la-mayenne-croissant",
     "autorouteId": "A81",
     "nom": "La Mayenne",
     "pk": 241.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 48.09707,
+    "lon": -0.69838,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a81-la-mayenne-decroissant",
+    "autorouteId": "A81",
+    "nom": "La Mayenne",
+    "pk": 241.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 48.09707,
     "lon": -0.69838,
@@ -11546,22 +14391,33 @@
     "equipements": []
   },
   {
-    "id": "a81-la-gravelle",
+    "id": "a81-la-gravelle-croissant",
     "autorouteId": "A81",
     "nom": "La Gravelle",
     "pk": 267.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 48.08319,
     "lon": -1.02353,
     "equipements": []
   },
   {
-    "id": "a83-la-grassiniere",
+    "id": "a81-la-gravelle-decroissant",
+    "autorouteId": "A81",
+    "nom": "La Gravelle",
+    "pk": 267.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.08319,
+    "lon": -1.02353,
+    "equipements": []
+  },
+  {
+    "id": "a83-la-grassiniere-croissant",
     "autorouteId": "A83",
     "nom": "La Grassinière",
     "pk": 2.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.11744,
     "lon": -1.49451,
@@ -11571,22 +14427,58 @@
     ]
   },
   {
-    "id": "a83-le-bignon",
+    "id": "a83-la-grassiniere-decroissant",
+    "autorouteId": "A83",
+    "nom": "La Grassinière",
+    "pk": 2.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 47.11744,
+    "lon": -1.49451,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a83-le-bignon-croissant",
     "autorouteId": "A83",
     "nom": "Le Bignon",
     "pk": 3.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.10986,
     "lon": -1.48741,
     "equipements": []
   },
   {
-    "id": "a83-remouille",
+    "id": "a83-le-bignon-decroissant",
+    "autorouteId": "A83",
+    "nom": "Le Bignon",
+    "pk": 3.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.10986,
+    "lon": -1.48741,
+    "equipements": []
+  },
+  {
+    "id": "a83-remouille-croissant",
     "autorouteId": "A83",
     "nom": "Remouillé",
     "pk": 15.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 47.02244,
+    "lon": -1.39899,
+    "equipements": []
+  },
+  {
+    "id": "a83-remouille-decroissant",
+    "autorouteId": "A83",
+    "nom": "Remouillé",
+    "pk": 15.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 47.02244,
     "lon": -1.39899,
@@ -11643,11 +14535,11 @@
     "equipements": []
   },
   {
-    "id": "a83-la-vendee",
+    "id": "a83-la-vendee-croissant",
     "autorouteId": "A83",
     "nom": "La Vendée",
     "pk": 72.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 46.57143,
     "lon": -1.11263,
@@ -11657,14 +14549,39 @@
     ]
   },
   {
-    "id": "a83-auzay",
+    "id": "a83-la-vendee-decroissant",
+    "autorouteId": "A83",
+    "nom": "La Vendée",
+    "pk": 72.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 46.57143,
+    "lon": -1.11263,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a83-auzay-decroissant",
     "autorouteId": "A83",
     "nom": "Auzay",
-    "pk": 96.5,
-    "sens": "LES_DEUX",
+    "pk": 96.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 46.44961,
-    "lon": -0.85696,
+    "lat": 46.45266,
+    "lon": -0.86173,
+    "equipements": []
+  },
+  {
+    "id": "a83-auzay-croissant",
+    "autorouteId": "A83",
+    "nom": "Auzay",
+    "pk": 97.0,
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 46.44655,
+    "lon": -0.85218,
     "equipements": []
   },
   {
@@ -11696,22 +14613,22 @@
     ]
   },
   {
-    "id": "a84-la-lande",
+    "id": "a84-la-chaine",
     "autorouteId": "A84",
-    "nom": "La Lande",
+    "nom": "La Chaîne",
     "pk": 125.0,
-    "sens": "DECROISSANT",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 48.31635,
     "lon": -1.33437,
     "equipements": []
   },
   {
-    "id": "a84-la-chaine",
+    "id": "a84-la-lande",
     "autorouteId": "A84",
-    "nom": "La Chaîne",
+    "nom": "La Lande",
     "pk": 125.0,
-    "sens": "CROISSANT",
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.31635,
     "lon": -1.33437,
@@ -11740,11 +14657,11 @@
     "equipements": []
   },
   {
-    "id": "a84-le-mont-saint-michel",
+    "id": "a84-le-mont-saint-michel-croissant",
     "autorouteId": "A84",
     "nom": "Le Mont-Saint-Michel",
     "pk": 157.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.57756,
     "lon": -1.32866,
@@ -11754,22 +14671,47 @@
     ]
   },
   {
-    "id": "a84-baie-du-mont-saint-michel",
+    "id": "a84-le-mont-saint-michel-decroissant",
+    "autorouteId": "A84",
+    "nom": "Le Mont-Saint-Michel",
+    "pk": 157.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 48.57756,
+    "lon": -1.32866,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a84-baie-du-mont-saint-michel-croissant",
     "autorouteId": "A84",
     "nom": "Baie du Mont-Saint-Michel",
     "pk": 178.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 48.7432,
     "lon": -1.28756,
     "equipements": []
   },
   {
-    "id": "a84-la-vallee-de-la-vire-gouvets",
+    "id": "a84-baie-du-mont-saint-michel-decroissant",
+    "autorouteId": "A84",
+    "nom": "Baie du Mont-Saint-Michel",
+    "pk": 178.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.7432,
+    "lon": -1.28756,
+    "equipements": []
+  },
+  {
+    "id": "a84-la-vallee-de-la-vire-gouvets-croissant",
     "autorouteId": "A84",
     "nom": "La vallée de la Vire-Gouvets",
     "pk": 202.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.90074,
     "lon": -1.1132,
@@ -11779,15 +14721,18 @@
     ]
   },
   {
-    "id": "a84-cahagnes",
+    "id": "a84-la-vallee-de-la-vire-gouvets-decroissant",
     "autorouteId": "A84",
-    "nom": "Cahagnes",
-    "pk": 233.0,
+    "nom": "La vallée de la Vire-Gouvets",
+    "pk": 202.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 49.04769,
-    "lon": -0.77891,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 48.90074,
+    "lon": -1.1132,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a84-saint-jean-des-essartiers",
@@ -11795,6 +14740,17 @@
     "nom": "Saint-Jean-des-Essartiers",
     "pk": 233.0,
     "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 49.04769,
+    "lon": -0.77891,
+    "equipements": []
+  },
+  {
+    "id": "a84-cahagnes",
+    "autorouteId": "A84",
+    "nom": "Cahagnes",
+    "pk": 233.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 49.04769,
     "lon": -0.77891,
@@ -11812,20 +14768,6 @@
     "equipements": []
   },
   {
-    "id": "a85-longue-les-cossonnieres",
-    "autorouteId": "A85",
-    "nom": "Longué-les-Cossonnières",
-    "pk": 23.0,
-    "sens": "DECROISSANT",
-    "type": "SERVICE",
-    "lat": 47.41691,
-    "lon": -0.12956,
-    "equipements": [
-      "STATION_SERVICE",
-      "TOILETTES"
-    ]
-  },
-  {
     "id": "a85-longue-la-couaille",
     "autorouteId": "A85",
     "nom": "Longué-la-Couaille",
@@ -11840,15 +14782,18 @@
     ]
   },
   {
-    "id": "a85-saint-nicolas-de-bourgueil",
+    "id": "a85-longue-les-cossonnieres",
     "autorouteId": "A85",
-    "nom": "Saint-Nicolas-de-Bourgueil",
-    "pk": 53.0,
+    "nom": "Longué-les-Cossonnières",
+    "pk": 23.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.2606,
-    "lon": 0.13943,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.41691,
+    "lon": -0.12956,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a85-chouze-sur-loire",
@@ -11862,22 +14807,44 @@
     "equipements": []
   },
   {
-    "id": "a85-restigne",
+    "id": "a85-saint-nicolas-de-bourgueil",
+    "autorouteId": "A85",
+    "nom": "Saint-Nicolas-de-Bourgueil",
+    "pk": 53.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.2606,
+    "lon": 0.13943,
+    "equipements": []
+  },
+  {
+    "id": "a85-restigne-croissant",
     "autorouteId": "A85",
     "nom": "Restigné",
     "pk": 62.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.27039,
     "lon": 0.25462,
     "equipements": []
   },
   {
-    "id": "a85-les-jardins-de-villandry",
+    "id": "a85-restigne-decroissant",
+    "autorouteId": "A85",
+    "nom": "Restigné",
+    "pk": 62.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.27039,
+    "lon": 0.25462,
+    "equipements": []
+  },
+  {
+    "id": "a85-les-jardins-de-villandry-croissant",
     "autorouteId": "A85",
     "nom": "Les jardins de Villandry",
     "pk": 86.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.31238,
     "lon": 0.50849,
@@ -11887,22 +14854,47 @@
     ]
   },
   {
-    "id": "a85-veigne",
+    "id": "a85-les-jardins-de-villandry-decroissant",
+    "autorouteId": "A85",
+    "nom": "Les jardins de Villandry",
+    "pk": 86.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 47.31238,
+    "lon": 0.50849,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a85-veigne-croissant",
     "autorouteId": "A85",
     "nom": "Veigné",
     "pk": 103.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.31026,
     "lon": 0.72394,
     "equipements": []
   },
   {
-    "id": "a85-le-val-de-cher",
+    "id": "a85-veigne-decroissant",
+    "autorouteId": "A85",
+    "nom": "Veigné",
+    "pk": 103.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.31026,
+    "lon": 0.72394,
+    "equipements": []
+  },
+  {
+    "id": "a85-le-val-de-cher-croissant",
     "autorouteId": "A85",
     "nom": "Le Val de Cher",
     "pk": 116.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.30115,
     "lon": 0.89356,
@@ -11912,15 +14904,18 @@
     ]
   },
   {
-    "id": "a85-bois-de-faix",
+    "id": "a85-le-val-de-cher-decroissant",
     "autorouteId": "A85",
-    "nom": "Bois de Faix",
-    "pk": 142.0,
+    "nom": "Le Val de Cher",
+    "pk": 116.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.29985,
-    "lon": 1.2276,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.30115,
+    "lon": 0.89356,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a85-la-canarderie",
@@ -11934,11 +14929,22 @@
     "equipements": []
   },
   {
-    "id": "a85-romorantin",
+    "id": "a85-bois-de-faix",
+    "autorouteId": "A85",
+    "nom": "Bois de Faix",
+    "pk": 142.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.29985,
+    "lon": 1.2276,
+    "equipements": []
+  },
+  {
+    "id": "a85-romorantin-croissant",
     "autorouteId": "A85",
     "nom": "Romorantin",
     "pk": 176.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.33874,
     "lon": 1.66352,
@@ -11948,15 +14954,18 @@
     ]
   },
   {
-    "id": "a85-la-grange-rouge",
+    "id": "a85-romorantin-decroissant",
     "autorouteId": "A85",
-    "nom": "La Grange Rouge",
-    "pk": 197.0,
+    "nom": "Romorantin",
+    "pk": 176.0,
     "sens": "DECROISSANT",
-    "type": "REPOS",
-    "lat": 47.29459,
-    "lon": 1.92456,
-    "equipements": []
+    "type": "SERVICE",
+    "lat": 47.33874,
+    "lon": 1.66352,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
   },
   {
     "id": "a85-le-jarrier",
@@ -11970,11 +14979,36 @@
     "equipements": []
   },
   {
-    "id": "a86-pompadour",
+    "id": "a85-la-grange-rouge",
+    "autorouteId": "A85",
+    "nom": "La Grange Rouge",
+    "pk": 197.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.29459,
+    "lon": 1.92456,
+    "equipements": []
+  },
+  {
+    "id": "a86-pompadour-croissant",
     "autorouteId": "A86",
     "nom": "Pompadour",
     "pk": 40.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 48.78191,
+    "lon": 2.44083,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a86-pompadour-decroissant",
+    "autorouteId": "A86",
+    "nom": "Pompadour",
+    "pk": 40.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 48.78191,
     "lon": 2.44083,
@@ -12012,22 +15046,33 @@
     ]
   },
   {
-    "id": "a87-beaulieu",
+    "id": "a87-beaulieu-croissant",
     "autorouteId": "A87",
     "nom": "Beaulieu",
     "pk": 10.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 47.32875,
     "lon": -0.60337,
     "equipements": []
   },
   {
-    "id": "a87-trementines",
+    "id": "a87-beaulieu-decroissant",
+    "autorouteId": "A87",
+    "nom": "Beaulieu",
+    "pk": 10.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 47.32875,
+    "lon": -0.60337,
+    "equipements": []
+  },
+  {
+    "id": "a87-trementines-croissant",
     "autorouteId": "A87",
     "nom": "Trémentines",
     "pk": 42.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 47.13449,
     "lon": -0.82504,
@@ -12037,11 +15082,25 @@
     ]
   },
   {
-    "id": "a87-les-herbiers",
+    "id": "a87-trementines-decroissant",
+    "autorouteId": "A87",
+    "nom": "Trémentines",
+    "pk": 42.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 47.13449,
+    "lon": -0.82504,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a87-les-herbiers-croissant",
     "autorouteId": "A87",
     "nom": "Les Herbiers",
     "pk": 76.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 46.9049,
     "lon": -1.05227,
@@ -12051,25 +15110,39 @@
     ]
   },
   {
-    "id": "a87-la-roche-sur-yon",
+    "id": "a87-les-herbiers-decroissant",
+    "autorouteId": "A87",
+    "nom": "Les Herbiers",
+    "pk": 76.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 46.9049,
+    "lon": -1.05227,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a87-la-roche-sur-yon-croissant",
     "autorouteId": "A87",
     "nom": "La Roche-sur-Yon",
     "pk": 113.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 46.66917,
     "lon": -1.35579,
     "equipements": []
   },
   {
-    "id": "a88-sees-ouest",
-    "autorouteId": "A88",
-    "nom": "Sées-Ouest",
-    "pk": 1.0,
+    "id": "a87-la-roche-sur-yon-decroissant",
+    "autorouteId": "A87",
+    "nom": "La Roche-sur-Yon",
+    "pk": 113.0,
     "sens": "DECROISSANT",
     "type": "REPOS",
-    "lat": 48.63911,
-    "lon": 0.18117,
+    "lat": 46.66917,
+    "lon": -1.35579,
     "equipements": []
   },
   {
@@ -12084,22 +15157,44 @@
     "equipements": []
   },
   {
-    "id": "a88-soulangy",
+    "id": "a88-sees-ouest",
+    "autorouteId": "A88",
+    "nom": "Sées-Ouest",
+    "pk": 1.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.63911,
+    "lon": 0.18117,
+    "equipements": []
+  },
+  {
+    "id": "a88-soulangy-croissant",
     "autorouteId": "A88",
     "nom": "Soulangy",
     "pk": 13.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 48.68071,
     "lon": 0.03995,
     "equipements": []
   },
   {
-    "id": "a88-pays-d-argentan",
+    "id": "a88-soulangy-decroissant",
+    "autorouteId": "A88",
+    "nom": "Soulangy",
+    "pk": 13.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 48.68071,
+    "lon": 0.03995,
+    "equipements": []
+  },
+  {
+    "id": "a88-pays-d-argentan-croissant",
     "autorouteId": "A88",
     "nom": "Pays d'Argentan",
     "pk": 22.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.72096,
     "lon": -0.05784,
@@ -12109,11 +15204,36 @@
     ]
   },
   {
-    "id": "a88-ronai",
+    "id": "a88-pays-d-argentan-decroissant",
+    "autorouteId": "A88",
+    "nom": "Pays d'Argentan",
+    "pk": 22.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 48.72096,
+    "lon": -0.05784,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a88-ronai-croissant",
     "autorouteId": "A88",
     "nom": "Rônai",
     "pk": 34.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.81372,
+    "lon": -0.12764,
+    "equipements": []
+  },
+  {
+    "id": "a88-ronai-decroissant",
+    "autorouteId": "A88",
+    "nom": "Rônai",
+    "pk": 34.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.81372,
     "lon": -0.12764,
@@ -12134,33 +15254,55 @@
     ]
   },
   {
-    "id": "a89-arveyres",
+    "id": "a89-arveyres-croissant",
     "autorouteId": "A89",
     "nom": "Arveyres",
     "pk": 21.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.88706,
     "lon": -0.26853,
     "equipements": []
   },
   {
-    "id": "a89-les-vignes",
+    "id": "a89-arveyres-decroissant",
+    "autorouteId": "A89",
+    "nom": "Arveyres",
+    "pk": 21.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.88706,
+    "lon": -0.26853,
+    "equipements": []
+  },
+  {
+    "id": "a89-les-vignes-croissant",
     "autorouteId": "A89",
     "nom": "Les Vignes",
     "pk": 36.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 44.98081,
     "lon": -0.1765,
     "equipements": []
   },
   {
-    "id": "a89-les-palombieres",
+    "id": "a89-les-vignes-decroissant",
+    "autorouteId": "A89",
+    "nom": "Les Vignes",
+    "pk": 36.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 44.98081,
+    "lon": -0.1765,
+    "equipements": []
+  },
+  {
+    "id": "a89-les-palombieres-croissant",
     "autorouteId": "A89",
     "nom": "Les Palombières",
     "pk": 54.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.00107,
     "lon": 0.03327,
@@ -12170,22 +15312,47 @@
     ]
   },
   {
-    "id": "a89-mussidan",
+    "id": "a89-les-palombieres-decroissant",
+    "autorouteId": "A89",
+    "nom": "Les Palombières",
+    "pk": 54.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 45.00107,
+    "lon": 0.03327,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-mussidan-croissant",
     "autorouteId": "A89",
     "nom": "Mussidan",
     "pk": 90.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.06362,
     "lon": 0.4276,
     "equipements": []
   },
   {
-    "id": "a89-le-manoire",
+    "id": "a89-mussidan-decroissant",
+    "autorouteId": "A89",
+    "nom": "Mussidan",
+    "pk": 90.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.06362,
+    "lon": 0.4276,
+    "equipements": []
+  },
+  {
+    "id": "a89-le-manoire-croissant",
     "autorouteId": "A89",
     "nom": "Le Manoire",
     "pk": 125.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.14675,
     "lon": 0.80119,
@@ -12195,22 +15362,47 @@
     ]
   },
   {
-    "id": "a89-thenon",
+    "id": "a89-le-manoire-decroissant",
+    "autorouteId": "A89",
+    "nom": "Le Manoire",
+    "pk": 125.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 45.14675,
+    "lon": 0.80119,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-thenon-croissant",
     "autorouteId": "A89",
     "nom": "Thenon",
     "pk": 157.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.15191,
     "lon": 1.16629,
     "equipements": []
   },
   {
-    "id": "a89-le-pays-de-brive",
+    "id": "a89-thenon-decroissant",
+    "autorouteId": "A89",
+    "nom": "Thenon",
+    "pk": 157.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.15191,
+    "lon": 1.16629,
+    "equipements": []
+  },
+  {
+    "id": "a89-le-pays-de-brive-croissant",
     "autorouteId": "A89",
     "nom": "Le Pays de Brive",
     "pk": 162.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.16025,
     "lon": 1.22153,
@@ -12220,22 +15412,47 @@
     ]
   },
   {
-    "id": "a89-saint-germain-les-vergnes",
+    "id": "a89-le-pays-de-brive-decroissant",
+    "autorouteId": "A89",
+    "nom": "Le Pays de Brive",
+    "pk": 162.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 45.16025,
+    "lon": 1.22153,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-saint-germain-les-vergnes-croissant",
     "autorouteId": "A89",
     "nom": "Saint-Germain-les-Vergnes",
     "pk": 203.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.28218,
     "lon": 1.61576,
     "equipements": []
   },
   {
-    "id": "a89-la-correze",
+    "id": "a89-saint-germain-les-vergnes-decroissant",
+    "autorouteId": "A89",
+    "nom": "Saint-Germain-les-Vergnes",
+    "pk": 203.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.28218,
+    "lon": 1.61576,
+    "equipements": []
+  },
+  {
+    "id": "a89-la-correze-croissant",
     "autorouteId": "A89",
     "nom": "La Corrèze",
     "pk": 232.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.35359,
     "lon": 1.92505,
@@ -12245,22 +15462,61 @@
     ]
   },
   {
-    "id": "a89-la-loutre",
+    "id": "a89-la-correze-decroissant",
+    "autorouteId": "A89",
+    "nom": "La Corrèze",
+    "pk": 232.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 45.35359,
+    "lon": 1.92505,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-la-loutre-croissant",
     "autorouteId": "A89",
     "nom": "La Loutre",
     "pk": 271.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.51423,
     "lon": 2.31635,
     "equipements": []
   },
   {
-    "id": "a89-les-presidents",
+    "id": "a89-la-loutre-decroissant",
+    "autorouteId": "A89",
+    "nom": "La Loutre",
+    "pk": 271.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.51423,
+    "lon": 2.31635,
+    "equipements": []
+  },
+  {
+    "id": "a89-les-presidents-croissant",
     "autorouteId": "A89",
     "nom": "Les Présidents",
     "pk": 288.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.61887,
+    "lon": 2.45702,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-les-presidents-decroissant",
+    "autorouteId": "A89",
+    "nom": "Les Présidents",
+    "pk": 288.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.61887,
     "lon": 2.45702,
@@ -12292,11 +15548,25 @@
     "equipements": []
   },
   {
-    "id": "a89-manzat",
+    "id": "a89-manzat-croissant",
     "autorouteId": "A89",
     "nom": "Manzat",
     "pk": 350.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.95701,
+    "lon": 2.99214,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-manzat-decroissant",
+    "autorouteId": "A89",
+    "nom": "Manzat",
+    "pk": 350.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.95701,
     "lon": 2.99214,
@@ -12328,22 +15598,44 @@
     "equipements": []
   },
   {
-    "id": "a89-clermont-barriere-gerzat",
+    "id": "a89-clermont-barriere-gerzat-croissant",
     "autorouteId": "A89",
     "nom": "Clermont-Barrière (Gerzat)",
     "pk": 381.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.88211,
     "lon": 3.12334,
     "equipements": []
   },
   {
-    "id": "a89-les-martres-d-artiere",
+    "id": "a89-clermont-barriere-gerzat-decroissant",
+    "autorouteId": "A89",
+    "nom": "Clermont-Barrière (Gerzat)",
+    "pk": 381.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.88211,
+    "lon": 3.12334,
+    "equipements": []
+  },
+  {
+    "id": "a89-les-martres-d-artiere-croissant",
     "autorouteId": "A89",
     "nom": "Les Martres-d'Artière",
     "pk": 408.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.82779,
+    "lon": 3.24146,
+    "equipements": []
+  },
+  {
+    "id": "a89-les-martres-d-artiere-decroissant",
+    "autorouteId": "A89",
+    "nom": "Les Martres-d'Artière",
+    "pk": 408.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.82779,
     "lon": 3.24146,
@@ -12372,11 +15664,25 @@
     "equipements": []
   },
   {
-    "id": "a89-la-limagne",
+    "id": "a89-la-limagne-croissant",
     "autorouteId": "A89",
     "nom": "La Limagne",
     "pk": 421.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.85174,
+    "lon": 3.40244,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-la-limagne-decroissant",
+    "autorouteId": "A89",
+    "nom": "La Limagne",
+    "pk": 421.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.85174,
     "lon": 3.40244,
@@ -12419,11 +15725,25 @@
     "equipements": []
   },
   {
-    "id": "a89-le-haut-forez",
+    "id": "a89-le-haut-forez-croissant",
     "autorouteId": "A89",
     "nom": "Le Haut-Forez",
     "pk": 457.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "SERVICE",
+    "lat": 45.85505,
+    "lon": 3.80934,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-le-haut-forez-decroissant",
+    "autorouteId": "A89",
+    "nom": "Le Haut-Forez",
+    "pk": 457.0,
+    "sens": "DECROISSANT",
     "type": "SERVICE",
     "lat": 45.85505,
     "lon": 3.80934,
@@ -12455,11 +15775,11 @@
     "equipements": []
   },
   {
-    "id": "a89-la-loire",
+    "id": "a89-la-loire-croissant",
     "autorouteId": "A89",
     "nom": "La Loire",
     "pk": 494.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 45.84712,
     "lon": 4.21599,
@@ -12469,22 +15789,58 @@
     ]
   },
   {
-    "id": "a89-tarare",
+    "id": "a89-la-loire-decroissant",
+    "autorouteId": "A89",
+    "nom": "La Loire",
+    "pk": 494.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 45.84712,
+    "lon": 4.21599,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a89-tarare-croissant",
     "autorouteId": "A89",
     "nom": "Tarare",
     "pk": 520.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 45.87009,
     "lon": 4.49319,
     "equipements": []
   },
   {
-    "id": "a89-les-pierres-dorees",
+    "id": "a89-tarare-decroissant",
+    "autorouteId": "A89",
+    "nom": "Tarare",
+    "pk": 520.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 45.87009,
+    "lon": 4.49319,
+    "equipements": []
+  },
+  {
+    "id": "a89-les-pierres-dorees-croissant",
     "autorouteId": "A89",
     "nom": "Les Pierres Dorées",
     "pk": 527.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.86612,
+    "lon": 4.57888,
+    "equipements": []
+  },
+  {
+    "id": "a89-les-pierres-dorees-decroissant",
+    "autorouteId": "A89",
+    "nom": "Les Pierres Dorées",
+    "pk": 527.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.86612,
     "lon": 4.57888,
@@ -12533,7 +15889,7 @@
     ]
   },
   {
-    "id": "a104-les-quatre-chemins-7",
+    "id": "a104-les-quatre-chemins-decroissant",
     "autorouteId": "A104",
     "nom": "Les Quatre Chemins",
     "pk": 7.0,
@@ -12547,7 +15903,7 @@
     ]
   },
   {
-    "id": "a104-les-quatre-chemins-10",
+    "id": "a104-les-quatre-chemins-croissant",
     "autorouteId": "A104",
     "nom": "Les Quatre Chemins",
     "pk": 10.0,
@@ -12750,11 +16106,11 @@
     ]
   },
   {
-    "id": "a355-la-bruche",
+    "id": "a355-la-bruche-croissant",
     "autorouteId": "A355",
     "nom": "La Bruche",
     "pk": 4.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "SERVICE",
     "lat": 48.53356,
     "lon": 7.57981,
@@ -12764,11 +16120,36 @@
     ]
   },
   {
-    "id": "a355-ittenheim",
+    "id": "a355-la-bruche-decroissant",
+    "autorouteId": "A355",
+    "nom": "La Bruche",
+    "pk": 4.0,
+    "sens": "DECROISSANT",
+    "type": "SERVICE",
+    "lat": 48.53356,
+    "lon": 7.57981,
+    "equipements": [
+      "STATION_SERVICE",
+      "TOILETTES"
+    ]
+  },
+  {
+    "id": "a355-ittenheim-croissant",
     "autorouteId": "A355",
     "nom": "Ittenheim",
     "pk": 13.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 48.60007,
+    "lon": 7.6218,
+    "equipements": []
+  },
+  {
+    "id": "a355-ittenheim-decroissant",
+    "autorouteId": "A355",
+    "nom": "Ittenheim",
+    "pk": 13.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 48.60007,
     "lon": 7.6218,
@@ -13036,22 +16417,44 @@
     "equipements": []
   },
   {
-    "id": "a709-saint-jean-de-vedas",
+    "id": "a709-saint-jean-de-vedas-croissant",
     "autorouteId": "A709",
     "nom": "Saint-Jean-de-Védas",
     "pk": 4.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 43.64994,
     "lon": 3.98598,
     "equipements": []
   },
   {
-    "id": "a709-baillargues",
+    "id": "a709-saint-jean-de-vedas-decroissant",
+    "autorouteId": "A709",
+    "nom": "Saint-Jean-de-Védas",
+    "pk": 4.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 43.64994,
+    "lon": 3.98598,
+    "equipements": []
+  },
+  {
+    "id": "a709-baillargues-croissant",
     "autorouteId": "A709",
     "nom": "Baillargues",
     "pk": 15.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 43.58323,
+    "lon": 3.88837,
+    "equipements": []
+  },
+  {
+    "id": "a709-baillargues-decroissant",
+    "autorouteId": "A709",
+    "nom": "Baillargues",
+    "pk": 15.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 43.58323,
     "lon": 3.88837,
@@ -13080,22 +16483,44 @@
     "equipements": []
   },
   {
-    "id": "a719-gannat",
+    "id": "a719-gannat-croissant",
     "autorouteId": "A719",
     "nom": "Gannat",
     "pk": 1.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
     "type": "REPOS",
     "lat": 46.09808,
     "lon": 3.13573,
     "equipements": []
   },
   {
-    "id": "a719-vichy",
+    "id": "a719-gannat-decroissant",
+    "autorouteId": "A719",
+    "nom": "Gannat",
+    "pk": 1.0,
+    "sens": "DECROISSANT",
+    "type": "REPOS",
+    "lat": 46.09808,
+    "lon": 3.13573,
+    "equipements": []
+  },
+  {
+    "id": "a719-vichy-croissant",
     "autorouteId": "A719",
     "nom": "Vichy",
     "pk": 21.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 46.13816,
+    "lon": 3.35229,
+    "equipements": []
+  },
+  {
+    "id": "a719-vichy-decroissant",
+    "autorouteId": "A719",
+    "nom": "Vichy",
+    "pk": 21.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 46.13816,
     "lon": 3.35229,
@@ -13116,11 +16541,22 @@
     ]
   },
   {
-    "id": "a837-cabariot",
+    "id": "a837-cabariot-croissant",
     "autorouteId": "A837",
     "nom": "Cabariot",
     "pk": 13.0,
-    "sens": "LES_DEUX",
+    "sens": "CROISSANT",
+    "type": "REPOS",
+    "lat": 45.94067,
+    "lon": -0.84608,
+    "equipements": []
+  },
+  {
+    "id": "a837-cabariot-decroissant",
+    "autorouteId": "A837",
+    "nom": "Cabariot",
+    "pk": 13.0,
+    "sens": "DECROISSANT",
     "type": "REPOS",
     "lat": 45.94067,
     "lon": -0.84608,

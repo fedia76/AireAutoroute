@@ -99,7 +99,9 @@ def ecrire_rapport(rapport, anomalies: list[str]) -> str:
         "## Ce qui a été retenu",
         "",
         f"- **{rapport.autoroutes_retenues} autoroutes**, {rapport.km_traces:.0f} km de tracé",
-        f"- **{rapport.aires_retenues} aires**, dont {rapport.aires_deux_sens} accessibles dans les deux sens",
+        f"- **{rapport.aires_retenues} aires** — une par chaussée : les deux côtés d'un même lieu "
+        "sont deux aires distinctes, avec leurs propres équipements et leurs propres avis",
+        f"- {rapport.doublons_regroupes} redites de la source regroupées (même nom, même sens, même point)",
         "",
         "## Ce qui a été écarté",
         "",
@@ -146,8 +148,8 @@ def main() -> int:
     autoroutes, aires, rapport = construction.construire(traces, catalogue)
     anomalies = controler(autoroutes, aires)
 
-    print(f"{rapport.autoroutes_retenues} autoroutes · {rapport.aires_retenues} aires "
-          f"({rapport.aires_deux_sens} dans les deux sens) · {rapport.km_traces:.0f} km de tracé")
+    print(f"{rapport.autoroutes_retenues} autoroutes · {rapport.aires_retenues} aires · "
+          f"{rapport.km_traces:.0f} km de tracé")
     print(f"écartés : {rapport.aires_ecartees} aires, {rapport.km_ecartes:.0f} km de tracé")
 
     if anomalies:

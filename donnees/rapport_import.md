@@ -5,12 +5,13 @@ Généré par `python3 tools/generer_donnees.py`.
 ## Ce qui a été retenu
 
 - **89 autoroutes**, 10998 km de tracé
-- **1092 aires**, dont 284 accessibles dans les deux sens
+- **1376 aires** — une par chaussée : les deux côtés d'un même lieu sont deux aires distinctes, avec leurs propres équipements et leurs propres avis
+- 16 redites de la source regroupées (même nom, même sens, même point)
 
 ## Ce qui a été écarté
 
 - 275 km de tracé, là où le kilométrage repart en arrière (l'autoroute est décrite en plusieurs tronçons dans le bornage, on garde le plus long)
-- 33 aires dont le PK ne tombe pas sur le tracé retenu
+- 35 aires dont le PK ne tombe pas sur le tracé retenu
 - 3 autoroutes citées par WikiSara sans tracé dans le bornage : A35, A38, A701
 - 36 autoroutes bornées sans aire répertoriée
 
@@ -38,8 +39,10 @@ Généré par `python3 tools/generer_donnees.py`.
 - A34 · Taissy (PK 1, tracé 17-115)
 - A34 · Taissy (PK 1, tracé 17-115)
 - A43 · Plate-forme du tunnel du Fréjus (PK 195 hors bornes)
+- A43 · Plate-forme du tunnel du Fréjus (PK 195 hors bornes)
 - A430 · Sainte-Hélène-sur-Isère (PK 143, tracé 125-139)
 - A47 · La Chabure ( RN88 ) (PK 32, tracé 0-29)
+- A51 · La Saulce (PK 153 hors bornes)
 - A51 · La Saulce (PK 153 hors bornes)
 - A570 · Sans nom (PK 10, tracé 0-7)
 - A6 · Dardilly (PK 450, tracé 0-445)

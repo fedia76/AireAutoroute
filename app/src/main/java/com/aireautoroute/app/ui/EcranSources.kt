@@ -128,8 +128,9 @@ fun EcranSources(onRetour: () -> Unit) {
                             style = MaterialTheme.typography.bodySmall,
                         )
                         Text(
-                            "Les deux chaussées d'une même aire partagent la position calculée " +
-                                "depuis leur point kilométrique : à quelques dizaines de mètres près.",
+                            "Les deux côtés d'un même lieu sont deux aires distinctes, mais leur " +
+                                "position est calculée depuis le même point kilométrique : elles " +
+                                "se superposent sur la carte, à quelques dizaines de mètres près.",
                             style = MaterialTheme.typography.bodySmall,
                         )
                     }

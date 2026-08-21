@@ -115,7 +115,7 @@ depuis les deux chaussées.
 
 ### D'où viennent les données
 
-**89 autoroutes, 11 000 km de tracé et 1 092 aires**, importés de deux sources ouvertes
+**89 autoroutes, 11 000 km de tracé et 1 376 aires**, importés de deux sources ouvertes
 versionnées dans `donnees/sources/` :
 
 | Source | Licence | Ce qu'elle apporte |
@@ -131,6 +131,11 @@ puisque c'est celui que lit l'automobiliste. Chaque aire est ensuite placée sur
 interpolant son PK entre les deux bornes qui l'encadrent : les deux sources parlent la même langue,
 celle des panneaux.
 
+**Une ligne de WikiSara décrit une aire, sur une chaussée donnée** — et c'est ainsi qu'elles sont
+livrées. Les deux côtés d'un même lieu, « Vironvay Nord » et « Vironvay Sud », restent deux aires
+distinctes : ce sont deux parkings, deux jeux d'équipements, deux séries d'avis. Seules les redites
+de la source — deux lignes identiques, même nom, même sens, même point — sont regroupées.
+
 Pour régénérer :
 
 ```bash
@@ -143,7 +148,7 @@ Le script refuse d'écrire si un contrôle échoue : identifiants en double, air
 hors tracé, kilométrage non croissant, ou chute de plus de 20 % du nombre d'aires. Ce qui est
 écarté est listé dans [`donnees/rapport_import.md`](donnees/rapport_import.md) — aujourd'hui
 275 km de tracé (là où le bornage décrit une autoroute en tronçons dont le kilométrage repart) et
-33 aires dont le PK ne tombe pas sur le tracé retenu.
+35 aires dont le PK ne tombe pas sur le tracé retenu.
 
 `tools/scrapper_wikisara.py` sert à rafraîchir le CSV des aires ; il n'est pas rejoué à chaque
 import, le CSV versionné fait foi.
