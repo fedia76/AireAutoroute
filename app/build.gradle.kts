@@ -77,6 +77,13 @@ dependencies {
     implementation(platform(libs.supabase.bom))
     implementation(libs.supabase.postgrest)
     implementation(libs.supabase.auth)
+    // La bibliothèque d'authentification tire androidx.browser 1.10, qui réclame compileSdk 36
+    // et un plugin Android plus récent. Ces « Custom Tabs » ne servent qu'à la connexion via
+    // navigateur, dont l'application n'a pas l'usage : une session anonyme lui suffit. On fige
+    // donc la dernière version compatible avec l'outillage du projet.
+    implementation("androidx.browser:browser") {
+        version { strictly("1.8.0") }
+    }
     implementation(libs.ktor.client.okhttp)
     debugImplementation(libs.androidx.ui.tooling)
     testImplementation(libs.junit)
