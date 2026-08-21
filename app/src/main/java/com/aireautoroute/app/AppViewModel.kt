@@ -59,6 +59,8 @@ data class EtatUi(
     val autoroutes: List<Autoroute> = emptyList(),
     val position: PositionUtilisateur? = null,
     val prochainesAires: List<AireResume> = emptyList(),
+    /** Toutes les aires de l'autoroute courante, pour la vue carte. */
+    val airesAutoroute: List<Aire> = emptyList(),
     val localisation: EtatLocalisation = EtatLocalisation(),
 )
 
@@ -91,6 +93,11 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
             position = position,
             prochainesAires = if (catalogue != null && position != null) {
                 prochainesAires(catalogue, donnees, position)
+            } else {
+                emptyList()
+            },
+            airesAutoroute = if (catalogue != null && position != null) {
+                catalogue.aires.filter { it.autorouteId == position.autoroute.id }
             } else {
                 emptyList()
             },

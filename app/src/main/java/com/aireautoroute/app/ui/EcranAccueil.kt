@@ -24,6 +24,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.SwapHoriz
@@ -83,6 +84,7 @@ fun EcranAccueil(
     onAire: (String) -> Unit,
     onLocaliser: () -> Unit,
     onSources: () -> Unit,
+    onCarte: () -> Unit,
 ) {
     var dialogueTheme by remember { mutableStateOf(false) }
 
@@ -92,6 +94,11 @@ fun EcranAccueil(
             TopAppBar(
                 title = { Text("Aires d'autoroute") },
                 actions = {
+                    if (etat.position != null) {
+                        IconButton(onClick = onCarte) {
+                            Icon(Icons.Filled.Map, contentDescription = "Voir la carte")
+                        }
+                    }
                     IconButton(onClick = { dialogueTheme = true }) {
                         Icon(Icons.Filled.Palette, contentDescription = "Changer d'apparence")
                     }

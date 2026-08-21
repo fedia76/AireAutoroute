@@ -15,6 +15,10 @@ l'autoroute et les **noter**, en particulier quand on voyage avec des enfants.
    Seules les aires accessibles depuis la chaussée empruntée sont affichées.
 3. **Un clic ouvre le détail** : statut de chaque équipement, notes par critère, notes par tranche
    d'âge, commentaires, enseignes (qu'on peut compléter), et un formulaire de contribution.
+4. **Une vue carte** montre l'itinéraire et les aires autour de soi : la portion qui reste à
+   parcourir se détache de celle qui est derrière, un appui sur une aire l'ouvre. Elle est dessinée
+   à partir des tracés embarqués — **aucune tuile n'est téléchargée**, donc elle fonctionne sans
+   réseau, ce qui est la moindre des choses en voiture.
 
 ### Trois habillages au choix
 
@@ -222,6 +226,7 @@ app/src/main/java/com/aireautoroute/app/
 │   └── Vues.kt              consensus de présence, prochaines aires, moyennes par tranche d'âge
 ├── geo/
 │   ├── LocalisateurPk.kt    GPS → autoroute + PK + sens
+│   ├── ProjectionCarte.kt   projection locale et fenêtre d'affichage de la carte
 │   └── SuiviPosition.kt     flux de positions (LocationManager)
 └── ui/                      écrans Compose et composants (étoiles)
 ```
