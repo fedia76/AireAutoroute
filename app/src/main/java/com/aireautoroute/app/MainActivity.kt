@@ -51,7 +51,7 @@ fun ApplicationAires(vm: AppViewModel = viewModel()) {
     val demandePermission = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions(),
     ) { resultats ->
-        if (resultats.values.any { it }) vm.basculerModeAuto(true)
+        if (resultats.values.any { it }) vm.localiser()
     }
 
     NavHost(navController = navController, startDestination = Routes.ACCUEIL) {
@@ -59,16 +59,15 @@ fun ApplicationAires(vm: AppViewModel = viewModel()) {
             EcranAccueil(
                 etat = etat,
                 onPositionManuelle = vm::definirPositionManuelle,
-                onModeAuto = vm::basculerModeAuto,
                 onInverserSens = vm::inverserSens,
                 onAire = { aireId -> navController.navigate(Routes.detail(aireId)) },
-                onDemanderPermission = {
+                onLocaliser = {
                     val accordee = ContextCompat.checkSelfPermission(
                         contexte,
                         Manifest.permission.ACCESS_FINE_LOCATION,
                     ) == PackageManager.PERMISSION_GRANTED
                     if (accordee) {
-                        vm.basculerModeAuto(true)
+                        vm.localiser()
                     } else {
                         demandePermission.launch(
                             arrayOf(
@@ -100,7 +99,7 @@ fun ApplicationAires(vm: AppViewModel = viewModel()) {
                 detail = detail,
                 onRetour = { navController.popBackStack() },
                 onValider = { saisies, auteur ->
-                    vm.enregistrerNotes(aireId, saisies, auteur)
+                    vm.enregistrerContribution(aireId, saisies, auteur)
                     navController.popBackStack()
                 },
             )

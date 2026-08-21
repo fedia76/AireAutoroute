@@ -4,14 +4,19 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AssistChip
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -25,7 +30,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -41,13 +45,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.text.KeyboardOptions
 import com.aireautoroute.app.EtatUi
 import com.aireautoroute.app.data.AireResume
 import com.aireautoroute.app.data.Autoroute
-import com.aireautoroute.app.data.Critere
 import com.aireautoroute.app.data.Sens
 import com.aireautoroute.app.data.SourcePosition
+import com.aireautoroute.app.data.StatutEquipement
 import com.aireautoroute.app.data.TrancheAge
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,10 +58,9 @@ import com.aireautoroute.app.data.TrancheAge
 fun EcranAccueil(
     etat: EtatUi,
     onPositionManuelle: (Autoroute, Double, Sens) -> Unit,
-    onModeAuto: (Boolean) -> Unit,
     onInverserSens: () -> Unit,
     onAire: (String) -> Unit,
-    onDemanderPermission: () -> Unit,
+    onLocaliser: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -92,9 +94,8 @@ fun EcranAccueil(
                 CartePosition(
                     etat = etat,
                     onPositionManuelle = onPositionManuelle,
-                    onModeAuto = onModeAuto,
                     onInverserSens = onInverserSens,
-                    onDemanderPermission = onDemanderPermission,
+                    onLocaliser = onLocaliser,
                 )
             }
 
@@ -122,9 +123,8 @@ fun EcranAccueil(
 private fun CartePosition(
     etat: EtatUi,
     onPositionManuelle: (Autoroute, Double, Sens) -> Unit,
-    onModeAuto: (Boolean) -> Unit,
     onInverserSens: () -> Unit,
-    onDemanderPermission: () -> Unit,
+    onLocaliser: () -> Unit,
 ) {
     var autoroute by remember(etat.autoroutes) {
         mutableStateOf(etat.autoroutes.firstOrNull { it.id == "A13" } ?: etat.autoroutes.firstOrNull())
@@ -133,7 +133,7 @@ private fun CartePosition(
     var sens by remember { mutableStateOf(Sens.CROISSANT) }
     var menuOuvert by remember { mutableStateOf(false) }
 
-    // En mode automatique, on reflète l'autoroute détectée dans le formulaire manuel.
+    // Une localisation réussie remplit le formulaire manuel, qui reste corrigeable.
     LaunchedEffect(etat.position) {
         val position = etat.position ?: return@LaunchedEffect
         if (position.source == SourcePosition.GPS) {
@@ -145,88 +145,93 @@ private fun CartePosition(
 
     ElevatedCard(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            Row(
-                Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
+            Text("Ma position", style = MaterialTheme.typography.titleMedium)
+
+            Button(
+                onClick = onLocaliser,
+                enabled = !etat.localisation.enCours,
+                modifier = Modifier.fillMaxWidth(),
             ) {
-                Text("Ma position", style = MaterialTheme.typography.titleMedium)
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text("Mode auto", style = MaterialTheme.typography.bodySmall)
-                    Switch(
-                        checked = etat.modeAuto,
-                        onCheckedChange = { active ->
-                            // La demande de permission enclenche elle-même le mode automatique.
-                            if (active) onDemanderPermission() else onModeAuto(false)
+                if (etat.localisation.enCours) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(18.dp),
+                        strokeWidth = 2.dp,
+                        color = MaterialTheme.colorScheme.onPrimary,
+                    )
+                    Text("  Localisation en cours…")
+                } else {
+                    Text(
+                        if (etat.position?.source == SourcePosition.GPS) {
+                            "📍  Actualiser ma position"
+                        } else {
+                            "📍  Me localiser"
                         },
                     )
                 }
             }
 
-            if (etat.modeAuto) {
-                Text(
-                    text = "La position et le sens sont déduits du GPS.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            } else {
-                Box {
-                    OutlinedButton(onClick = { menuOuvert = true }, modifier = Modifier.fillMaxWidth()) {
-                        Text(autoroute?.let { "${it.nom} — ${it.libelle}" } ?: "Choisir une autoroute")
-                    }
-                    DropdownMenu(expanded = menuOuvert, onDismissRequest = { menuOuvert = false }) {
-                        etat.autoroutes.forEach { candidate ->
-                            DropdownMenuItem(
-                                text = { Text("${candidate.nom} — ${candidate.terminusDebut} / ${candidate.terminusFin}") },
-                                onClick = {
-                                    autoroute = candidate
-                                    menuOuvert = false
-                                },
-                            )
-                        }
-                    }
+            Text(
+                "…ou indiquez votre position à la main :",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+
+            Box {
+                OutlinedButton(onClick = { menuOuvert = true }, modifier = Modifier.fillMaxWidth()) {
+                    Text(autoroute?.let { "${it.nom} — ${it.libelle}" } ?: "Choisir une autoroute")
                 }
-
-                OutlinedTextField(
-                    value = pkTexte,
-                    onValueChange = { saisie -> pkTexte = saisie.filter { it.isDigit() || it == '.' || it == ',' } },
-                    label = { Text("Point kilométrique") },
-                    suffix = { Text(autoroute?.let { "/ %.0f km".format(it.longueurKm) } ?: "") },
-                    singleLine = true,
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                    modifier = Modifier.fillMaxWidth(),
-                )
-
-                autoroute?.let { choisie ->
-                    Text("Direction", style = MaterialTheme.typography.bodyMedium)
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        FilterChip(
-                            selected = sens == Sens.CROISSANT,
-                            onClick = { sens = Sens.CROISSANT },
-                            label = { Text(choisie.terminusFin) },
-                        )
-                        FilterChip(
-                            selected = sens == Sens.DECROISSANT,
-                            onClick = { sens = Sens.DECROISSANT },
-                            label = { Text(choisie.terminusDebut) },
+                DropdownMenu(expanded = menuOuvert, onDismissRequest = { menuOuvert = false }) {
+                    etat.autoroutes.forEach { candidate ->
+                        DropdownMenuItem(
+                            text = { Text("${candidate.nom} — ${candidate.terminusDebut} / ${candidate.terminusFin}") },
+                            onClick = {
+                                autoroute = candidate
+                                menuOuvert = false
+                            },
                         )
                     }
-                }
-
-                TextButton(
-                    onClick = {
-                        val choisie = autoroute ?: return@TextButton
-                        val pk = pkTexte.replace(',', '.').toDoubleOrNull() ?: return@TextButton
-                        onPositionManuelle(choisie, pk, sens)
-                    },
-                    enabled = autoroute != null && pkTexte.replace(',', '.').toDoubleOrNull() != null,
-                    modifier = Modifier.align(Alignment.End),
-                ) {
-                    Text("Voir les prochaines aires")
                 }
             }
 
-            etat.message?.let { texte ->
+            OutlinedTextField(
+                value = pkTexte,
+                onValueChange = { saisie -> pkTexte = saisie.filter { it.isDigit() || it == '.' || it == ',' } },
+                label = { Text("Point kilométrique") },
+                suffix = { Text(autoroute?.let { "/ %.0f km".format(it.longueurKm) } ?: "") },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                modifier = Modifier.fillMaxWidth(),
+            )
+
+            autoroute?.let { choisie ->
+                Text("Direction", style = MaterialTheme.typography.bodyMedium)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    FilterChip(
+                        selected = sens == Sens.CROISSANT,
+                        onClick = { sens = Sens.CROISSANT },
+                        label = { Text(choisie.terminusFin) },
+                    )
+                    FilterChip(
+                        selected = sens == Sens.DECROISSANT,
+                        onClick = { sens = Sens.DECROISSANT },
+                        label = { Text(choisie.terminusDebut) },
+                    )
+                }
+            }
+
+            TextButton(
+                onClick = {
+                    val choisie = autoroute ?: return@TextButton
+                    val pk = pkTexte.replace(',', '.').toDoubleOrNull() ?: return@TextButton
+                    onPositionManuelle(choisie, pk, sens)
+                },
+                enabled = autoroute != null && pkTexte.replace(',', '.').toDoubleOrNull() != null,
+                modifier = Modifier.align(Alignment.End),
+            ) {
+                Text("Voir les prochaines aires")
+            }
+
+            etat.localisation.message?.let { texte ->
                 Text(
                     text = texte,
                     style = MaterialTheme.typography.bodySmall,
@@ -265,6 +270,7 @@ private fun CartePosition(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun CarteAireResume(resume: AireResume, onClick: () -> Unit) {
     Card(
@@ -310,17 +316,27 @@ private fun CarteAireResume(resume: AireResume, onClick: () -> Unit) {
                 }
             }
 
-            val equipements = resume.aire.equipements.filter { it != Critere.APPRECIATION_GENERALE }
-            if (equipements.isNotEmpty()) {
-                Text(
-                    text = equipements.joinToString("  ") { "${it.emoji} ${it.libelle}" },
-                    style = MaterialTheme.typography.bodySmall,
-                )
+            // Un équipement confirmé par les visiteurs porte une coche ; les autres restent en gris.
+            if (resume.equipements.isNotEmpty()) {
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    resume.equipements.forEach { equipement ->
+                        Text(
+                            text = (if (equipement.presentAvere) "✓ " else "") +
+                                "${equipement.critere.emoji} ${equipement.critere.libelle}",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (equipement.statut == StatutEquipement.CONFIRME) {
+                                MaterialTheme.colorScheme.onSurface
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            },
+                        )
+                    }
+                }
             }
 
             if (resume.enseignes.isNotEmpty()) {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    resume.enseignes.take(4).forEach { enseigne ->
+                    resume.enseignes.take(3).forEach { enseigne ->
                         AssistChip(onClick = onClick, label = { Text(enseigne.nom) })
                     }
                 }

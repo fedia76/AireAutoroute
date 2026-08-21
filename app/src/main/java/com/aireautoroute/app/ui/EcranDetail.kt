@@ -38,9 +38,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.aireautoroute.app.data.AireDetail
-import com.aireautoroute.app.data.Critere
+import com.aireautoroute.app.data.ConsensusEquipement
 import com.aireautoroute.app.data.DetailCritere
 import com.aireautoroute.app.data.Notation
+import com.aireautoroute.app.data.StatutEquipement
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
@@ -201,16 +202,20 @@ private fun CarteCritere(detail: DetailCritere) {
                     text = "${detail.critere.emoji}  ${detail.critere.libelle}",
                     style = MaterialTheme.typography.titleSmall,
                 )
-                if (!detail.disponible) {
-                    Text(
-                        "Non annoncé",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
+                detail.consensus?.let { EtiquetteStatut(it) }
             }
 
-            NoteAvecDetail(detail.note)
+            detail.consensus?.let { consensus ->
+                Text(
+                    text = consensus.detailDeclarations,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+
+            if (detail.consensus?.statut != StatutEquipement.ABSENT) {
+                NoteAvecDetail(detail.note)
+            }
 
             if (detail.critere.parTrancheAge && detail.parTrancheAge.isNotEmpty()) {
                 detail.parTrancheAge.forEach { (tranche, note) ->
@@ -259,7 +264,18 @@ private fun LigneCommentaire(notation: Notation) {
     }
 }
 
-/** Critères effectivement proposés à la notation pour une aire donnée. */
-fun criteresANoter(detail: AireDetail): List<Critere> =
-    detail.criteres.filter { it.disponible || it.critere == Critere.APPRECIATION_GENERALE }
-        .map { it.critere }
+/** Pastille colorée résumant ce que l'on sait de la présence d'un équipement. */
+@Composable
+private fun EtiquetteStatut(consensus: ConsensusEquipement) {
+    val couleur = when (consensus.statut) {
+        StatutEquipement.CONFIRME -> MaterialTheme.colorScheme.primary
+        StatutEquipement.A_CONFIRMER, StatutEquipement.ANNONCE -> MaterialTheme.colorScheme.secondary
+        StatutEquipement.ABSENT -> MaterialTheme.colorScheme.error
+        StatutEquipement.INCONNU -> MaterialTheme.colorScheme.onSurfaceVariant
+    }
+    Text(
+        text = (if (consensus.presentAvere) "✓ " else "") + consensus.statut.libelle,
+        style = MaterialTheme.typography.labelSmall,
+        color = couleur,
+    )
+}

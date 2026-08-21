@@ -6,14 +6,15 @@ l'autoroute et les **noter**, en particulier quand on voyage avec des enfants.
 ## Ce que fait l'application
 
 1. **Je dis où je suis.**
-   - *Mode manuel* : « je suis sur l'A13, PK 55, en direction de Caen ».
-   - *Mode automatique* : la position et le sens sont déduits du GPS du téléphone
-     (voir « Du GPS au point kilométrique » plus bas).
+   - *À la main* : « je suis sur l'A13, PK 55, en direction de Caen ».
+   - *Bouton « Me localiser »* : une localisation ponctuelle déduit l'autoroute, le PK et le sens
+     du GPS du téléphone (voir « Du GPS au point kilométrique » plus bas), et remplit le
+     formulaire manuel, qui reste corrigeable.
 2. **Les prochaines aires sont listées** (200 km max) avec une vue résumée : distance, note
    générale, notes des aires de jeux par tranche d'âge, équipements, enseignes.
    Seules les aires accessibles depuis la chaussée empruntée sont affichées.
-3. **Un clic ouvre le détail** : notes par critère, notes par tranche d'âge, commentaires,
-   enseignes (qu'on peut compléter), et un formulaire de notation.
+3. **Un clic ouvre le détail** : statut de chaque équipement, notes par critère, notes par tranche
+   d'âge, commentaires, enseignes (qu'on peut compléter), et un formulaire de contribution.
 
 ### Critères
 
@@ -29,6 +30,28 @@ l'autoroute et les **noter**, en particulier quand on voyage avec des enfants.
 
 Chaque note peut porter un commentaire libre et un nom d'auteur.
 
+Pour chaque **équipement** (donc tout sauf l'appréciation générale), le formulaire demande d'abord
+« cet équipement existe-t-il ? » — **oui / non / ne sais pas**. Les étoiles n'apparaissent que si le
+contributeur répond *oui* : on ne note pas ce qu'on n'a pas vu.
+
+### L'algorithme de présence
+
+Une réponse isolée ne fait pas foi. L'application ne déclare un équipement présent que si
+**au moins 2 déclarations concordantes** (`SEUIL_CONFIRMATION`) le disent, et qu'elles sont
+majoritaires. Les « ne sais pas » ne comptent pas. D'où cinq statuts :
+
+| Statut | Quand |
+| --- | --- |
+| **Confirmé par les visiteurs** | ≥ 2 déclarations « présent », majoritaires — c'est le seul cas où l'app affirme la présence (coche ✓) |
+| **À confirmer** | au moins une déclaration « présent », mais pas encore le seuil |
+| **Annoncé, non vérifié** | présent dans les données livrées, jamais constaté sur place |
+| **Absent** | ≥ 2 déclarations « absent », majoritaires (ou une seule si rien ne le contredit) |
+| **Non renseigné** | ni donnée livrée, ni déclaration |
+
+Un équipement *Absent* disparaît de la vue résumée et ses notes ne sont plus mises en avant, même
+si l'exploitant l'annonçait : les visiteurs ont le dernier mot. Le seuil est une constante unique
+(`SEUIL_CONFIRMATION` dans `data/Vues.kt`), à relever quand il y aura plus de contributeurs.
+
 ## Modèle de données
 
 Pas de base de données pour l'instant : les données sont dans des fichiers JSON, mais **structurées
@@ -41,6 +64,7 @@ comme des tables**, pour que le passage à Room ne touche que `DepotDonnees`.
 | `enseigne` | `assets/seed/enseignes.json` | id, nom, catégorie (carburant, restauration, boutique, hôtel) |
 | `aire_enseigne` | `assets/seed/aire_enseignes.json` | table de liaison **many-to-many** aire ↔ enseigne |
 | `notation` | `filesDir/donnees_utilisateur.json` | id, aire, critère, tranche d'âge, note 1-5, commentaire, auteur, date |
+| `declaration_equipement` | `filesDir/donnees_utilisateur.json` | id, aire, critère, présence (oui/non), auteur, date |
 
 Les quatre premiers fichiers sont livrés dans l'APK (lecture seule). Le cinquième est écrit dans le
 stockage privé de l'application et contient aussi les enseignes ajoutées par l'utilisateur et leurs
@@ -129,7 +153,7 @@ app/src/main/java/com/aireautoroute/app/
 ├── data/
 │   ├── Modeles.kt           les « tables » et les énumérations (critères, tranches d'âge, sens)
 │   ├── DepotDonnees.kt      lecture des assets, lecture/écriture du fichier utilisateur
-│   └── Vues.kt              prochaines aires, moyennes par critère et par tranche d'âge
+│   └── Vues.kt              consensus de présence, prochaines aires, moyennes par tranche d'âge
 ├── geo/
 │   ├── LocalisateurPk.kt    GPS → autoroute + PK + sens
 │   └── SuiviPosition.kt     flux de positions (LocationManager)
@@ -142,3 +166,4 @@ app/src/main/java/com/aireautoroute/app/
 - Partager les notations entre utilisateurs (API + synchronisation).
 - Importer des tracés et des aires depuis OpenStreetMap pour couvrir tout le réseau.
 - Filtrer la liste (« seulement les aires avec jeux intérieurs notés 4+ pour les 3-6 ans »).
+- Pondérer le consensus par l'ancienneté des déclarations (un équipement peut fermer).

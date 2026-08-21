@@ -105,13 +105,19 @@ data class LienAireEnseigne(
 
 /** Critères notés (l'enseigne, elle, est listée et non notée). */
 @Serializable
-enum class Critere(val libelle: String, val parTrancheAge: Boolean, val emoji: String) {
+enum class Critere(
+    val libelle: String,
+    val parTrancheAge: Boolean,
+    val emoji: String,
+    /** `false` pour l'appréciation générale, qui n'est pas un équipement à déclarer. */
+    val estEquipement: Boolean = true,
+) {
     AIRE_JEUX_INTERIEURE("Aire de jeux intérieure", true, "🎠"),
     AIRE_JEUX_EXTERIEURE("Aire de jeux extérieure", true, "🛝"),
     TOILETTES("Toilettes", false, "🚻"),
     STATION_SERVICE("Station-service", false, "⛽"),
     TABLE_A_LANGER("Table à langer", false, "👶"),
-    APPRECIATION_GENERALE("Appréciation générale", false, "⭐");
+    APPRECIATION_GENERALE("Appréciation générale", false, "⭐", estEquipement = false);
 
     companion object {
         /** Ordre d'affichage dans le détail et le formulaire de notation. */
@@ -123,6 +129,9 @@ enum class Critere(val libelle: String, val parTrancheAge: Boolean, val emoji: S
             TABLE_A_LANGER,
             STATION_SERVICE,
         )
+
+        /** Les critères correspondant à un équipement, dont la présence se déclare. */
+        val equipements: List<Critere> = ordreAffichage.filter { it.estEquipement }
     }
 }
 
@@ -132,6 +141,32 @@ enum class TrancheAge(val libelle: String) {
     ANS_3_6("3-6 ans"),
     ANS_6_12("6-12 ans"),
 }
+
+/** Réponse d'un contributeur à la question « cet équipement existe-t-il sur l'aire ? ». */
+@Serializable
+enum class Presence(val libelle: String) {
+    OUI("Oui"),
+    NON("Non"),
+    NE_SAIS_PAS("Ne sais pas"),
+}
+
+/**
+ * Table `declaration_equipement`.
+ *
+ * Une ligne par contributeur et par équipement. C'est le cumul de ces déclarations qui décide si
+ * l'application affirme la présence d'un équipement (voir `consensus` dans Vues.kt) : une aire
+ * n'est jamais déclarée équipée sur la foi d'un seul avis.
+ */
+@Serializable
+data class DeclarationEquipement(
+    val id: String,
+    val aireId: String,
+    val critere: Critere,
+    val presence: Presence,
+    val auteur: String = "Moi",
+    /** Date ISO-8601 (UTC). */
+    val date: String,
+)
 
 /** Table `notation`. Une ligne par critère (et par tranche d'âge pour les aires de jeux). */
 @Serializable
@@ -153,6 +188,7 @@ data class Notation(
 data class DonneesUtilisateur(
     val version: Int = 1,
     val notations: List<Notation> = emptyList(),
+    val declarations: List<DeclarationEquipement> = emptyList(),
     val liensEnseignes: List<LienAireEnseigne> = emptyList(),
     /** Enseignes créées par l'utilisateur quand elle n'existait pas dans le catalogue livré. */
     val enseignes: List<Enseigne> = emptyList(),

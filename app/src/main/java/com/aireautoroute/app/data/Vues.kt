@@ -18,6 +18,81 @@ data class PositionUtilisateur(
 
 enum class SourcePosition { MANUELLE, GPS }
 
+/** Ce que l'application peut affirmer de la présence d'un équipement sur une aire. */
+enum class StatutEquipement(val libelle: String) {
+    /** Assez de contributeurs ont déclaré l'équipement présent. */
+    CONFIRME("Confirmé par les visiteurs"),
+
+    /** Des contributeurs l'ont vu, mais pas encore assez pour l'affirmer. */
+    A_CONFIRMER("À confirmer"),
+
+    /** Annoncé par l'exploitant dans les données livrées, jamais confirmé sur place. */
+    ANNONCE("Annoncé, non vérifié"),
+
+    /** Assez de contributeurs ont déclaré l'équipement absent. */
+    ABSENT("Absent"),
+
+    INCONNU("Non renseigné"),
+}
+
+/**
+ * Nombre de déclarations concordantes nécessaires pour qu'un équipement soit affirmé présent
+ * (ou absent). Un seul avis ne suffit jamais.
+ */
+const val SEUIL_CONFIRMATION = 2
+
+/** Résultat de l'algorithme de consensus pour un équipement d'une aire. */
+data class ConsensusEquipement(
+    val critere: Critere,
+    val statut: StatutEquipement,
+    val declarationsOui: Int,
+    val declarationsNon: Int,
+    /** L'équipement figure dans les données livrées avec l'application. */
+    val annonce: Boolean,
+) {
+    /** Vrai quand l'application peut affirmer que l'équipement existe. */
+    val presentAvere: Boolean get() = statut == StatutEquipement.CONFIRME
+
+    /** Vrai quand il vaut la peine de montrer l'équipement dans la vue résumée. */
+    val aMontrer: Boolean get() = statut != StatutEquipement.ABSENT && statut != StatutEquipement.INCONNU
+
+    val detailDeclarations: String
+        get() = when {
+            declarationsOui == 0 && declarationsNon == 0 -> "aucune déclaration"
+            declarationsNon == 0 -> "$declarationsOui déclaration(s) « présent »"
+            declarationsOui == 0 -> "$declarationsNon déclaration(s) « absent »"
+            else -> "$declarationsOui « présent » / $declarationsNon « absent »"
+        }
+}
+
+/**
+ * Décide du statut d'un équipement à partir des déclarations des contributeurs.
+ *
+ * Les avis « ne sais pas » ne comptent pas. Il faut [SEUIL_CONFIRMATION] déclarations
+ * concordantes, et majoritaires, pour trancher dans un sens ou dans l'autre ; en dessous,
+ * l'équipement reste « à confirmer », ou simplement « annoncé » s'il vient des données livrées.
+ */
+fun consensus(
+    aire: Aire,
+    declarations: List<DeclarationEquipement>,
+    critere: Critere,
+    seuil: Int = SEUIL_CONFIRMATION,
+): ConsensusEquipement {
+    val duCritere = declarations.filter { it.aireId == aire.id && it.critere == critere }
+    val oui = duCritere.count { it.presence == Presence.OUI }
+    val non = duCritere.count { it.presence == Presence.NON }
+    val annonce = critere in aire.equipements
+    val statut = when {
+        oui >= seuil && oui > non -> StatutEquipement.CONFIRME
+        non >= seuil && non >= oui -> StatutEquipement.ABSENT
+        oui > 0 -> StatutEquipement.A_CONFIRMER
+        annonce -> StatutEquipement.ANNONCE
+        non > 0 -> StatutEquipement.ABSENT
+        else -> StatutEquipement.INCONNU
+    }
+    return ConsensusEquipement(critere, statut, oui, non, annonce)
+}
+
 /** Moyenne d'un critère sur l'ensemble des avis. */
 data class NoteAgregee(val moyenne: Double, val nombre: Int)
 
@@ -28,13 +103,15 @@ data class AireResume(
     val noteGenerale: NoteAgregee?,
     val notesJeux: Map<TrancheAge, NoteAgregee>,
     val enseignes: List<Enseigne>,
+    /** Équipements dignes d'être affichés, les confirmés d'abord. */
+    val equipements: List<ConsensusEquipement>,
     val nombreAvis: Int,
 )
 
 /** Détail d'un critère pour une aire. */
 data class DetailCritere(
     val critere: Critere,
-    val disponible: Boolean,
+    val consensus: ConsensusEquipement?,
     val note: NoteAgregee?,
     val parTrancheAge: Map<TrancheAge, NoteAgregee>,
     val commentaires: List<Notation>,
@@ -107,6 +184,10 @@ fun prochainesAires(
                         ?.let { tranche to it }
                 }.toMap(),
                 enseignes = enseignesDeLAire(catalogue, donnees, aire.id),
+                equipements = Critere.equipements
+                    .map { consensus(aire, donnees.declarations, it) }
+                    .filter { it.aMontrer }
+                    .sortedBy { it.statut.ordinal },
                 nombreAvis = notations.size,
             )
         }
@@ -122,7 +203,11 @@ fun detailAire(catalogue: Catalogue, donnees: DonneesUtilisateur, aireId: String
         val duCritere = notations.filter { it.critere == critere }
         DetailCritere(
             critere = critere,
-            disponible = critere == Critere.APPRECIATION_GENERALE || critere in aire.equipements,
+            consensus = if (critere.estEquipement) {
+                consensus(aire, donnees.declarations, critere)
+            } else {
+                null
+            },
             note = duCritere.agreger(),
             parTrancheAge = if (!critere.parTrancheAge) {
                 emptyMap()
