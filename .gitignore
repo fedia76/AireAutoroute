@@ -9,3 +9,7 @@
 .cxx
 local.properties
 app/build/
+
+# Python
+__pycache__/
+*.py[cod]
