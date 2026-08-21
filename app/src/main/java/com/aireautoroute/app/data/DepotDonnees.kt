@@ -85,10 +85,21 @@ class DepotDonnees(private val context: Context) {
         }
     }
 
-    /** Enregistre une série de notes saisies en une fois pour une aire. */
-    suspend fun enregistrerNotations(nouvelles: List<Notation>) {
-        if (nouvelles.isEmpty()) return
-        modifier { donnees -> donnees.copy(notations = donnees.notations + nouvelles) }
+    /**
+     * Enregistre en une fois la contribution d'un utilisateur pour une aire : ce qu'il déclare
+     * présent ou absent, et les notes des équipements qu'il a déclarés présents.
+     */
+    suspend fun enregistrerContribution(
+        declarations: List<DeclarationEquipement>,
+        notations: List<Notation>,
+    ) {
+        if (declarations.isEmpty() && notations.isEmpty()) return
+        modifier { donnees ->
+            donnees.copy(
+                notations = donnees.notations + notations,
+                declarations = donnees.declarations + declarations,
+            )
+        }
     }
 
     suspend fun supprimerNotation(id: String) {
@@ -128,6 +139,21 @@ class DepotDonnees(private val context: Context) {
 
     companion object {
         private const val FICHIER_UTILISATEUR = "donnees_utilisateur.json"
+        private const val AUTEUR_PAR_DEFAUT = "Moi"
+
+        fun nouvelleDeclaration(
+            aireId: String,
+            critere: Critere,
+            presence: Presence,
+            auteur: String,
+        ) = DeclarationEquipement(
+            id = UUID.randomUUID().toString(),
+            aireId = aireId,
+            critere = critere,
+            presence = presence,
+            auteur = auteur.trim().takeIf { it.isNotEmpty() } ?: AUTEUR_PAR_DEFAUT,
+            date = Instant.now().toString(),
+        )
 
         fun nouvelleNotation(
             aireId: String,
@@ -143,7 +169,7 @@ class DepotDonnees(private val context: Context) {
             trancheAge = trancheAge,
             note = note,
             commentaire = commentaire?.trim()?.takeIf { it.isNotEmpty() },
-            auteur = auteur.trim().takeIf { it.isNotEmpty() } ?: "Moi",
+            auteur = auteur.trim().takeIf { it.isNotEmpty() } ?: AUTEUR_PAR_DEFAUT,
             date = Instant.now().toString(),
         )
     }

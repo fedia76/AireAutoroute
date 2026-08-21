@@ -18,17 +18,18 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.aireautoroute.app.ui.EcranAccueil
+import com.aireautoroute.app.ui.EcranCarte
 import com.aireautoroute.app.ui.EcranDetail
 import com.aireautoroute.app.ui.EcranNotation
+import com.aireautoroute.app.ui.EcranSources
 import com.aireautoroute.app.ui.theme.AireAutorouteTheme
+import com.aireautoroute.app.ui.theme.ThemeApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AireAutorouteTheme {
-                ApplicationAires()
-            }
+            ApplicationAires()
         }
     }
 }
@@ -37,6 +38,8 @@ private object Routes {
     const val ACCUEIL = "accueil"
     const val DETAIL = "aire/{aireId}"
     const val NOTATION = "noter/{aireId}"
+    const val SOURCES = "sources"
+    const val CARTE = "carte"
 
     fun detail(aireId: String) = "aire/$aireId"
     fun notation(aireId: String) = "noter/$aireId"
@@ -44,6 +47,14 @@ private object Routes {
 
 @Composable
 fun ApplicationAires(vm: AppViewModel = viewModel()) {
+    val theme by vm.theme.collectAsStateWithLifecycle()
+    AireAutorouteTheme(theme = theme) {
+        Navigation(vm = vm, themeCourant = theme)
+    }
+}
+
+@Composable
+private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
     val navController = rememberNavController()
     val etat by vm.etat.collectAsStateWithLifecycle()
     val contexte = LocalContext.current
@@ -51,24 +62,27 @@ fun ApplicationAires(vm: AppViewModel = viewModel()) {
     val demandePermission = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions(),
     ) { resultats ->
-        if (resultats.values.any { it }) vm.basculerModeAuto(true)
+        if (resultats.values.any { it }) vm.localiser()
     }
 
     NavHost(navController = navController, startDestination = Routes.ACCUEIL) {
         composable(Routes.ACCUEIL) {
             EcranAccueil(
                 etat = etat,
+                themeCourant = themeCourant,
+                onTheme = vm::definirTheme,
                 onPositionManuelle = vm::definirPositionManuelle,
-                onModeAuto = vm::basculerModeAuto,
                 onInverserSens = vm::inverserSens,
                 onAire = { aireId -> navController.navigate(Routes.detail(aireId)) },
-                onDemanderPermission = {
+                onSources = { navController.navigate(Routes.SOURCES) },
+                onCarte = { navController.navigate(Routes.CARTE) },
+                onLocaliser = {
                     val accordee = ContextCompat.checkSelfPermission(
                         contexte,
                         Manifest.permission.ACCESS_FINE_LOCATION,
                     ) == PackageManager.PERMISSION_GRANTED
                     if (accordee) {
-                        vm.basculerModeAuto(true)
+                        vm.localiser()
                     } else {
                         demandePermission.launch(
                             arrayOf(
@@ -79,6 +93,18 @@ fun ApplicationAires(vm: AppViewModel = viewModel()) {
                     }
                 },
             )
+        }
+
+        composable(Routes.CARTE) {
+            EcranCarte(
+                etat = etat,
+                onRetour = { navController.popBackStack() },
+                onAire = { aireId -> navController.navigate(Routes.detail(aireId)) },
+            )
+        }
+
+        composable(Routes.SOURCES) {
+            EcranSources(onRetour = { navController.popBackStack() })
         }
 
         composable(Routes.DETAIL) { entree ->
@@ -100,7 +126,7 @@ fun ApplicationAires(vm: AppViewModel = viewModel()) {
                 detail = detail,
                 onRetour = { navController.popBackStack() },
                 onValider = { saisies, auteur ->
-                    vm.enregistrerNotes(aireId, saisies, auteur)
+                    vm.enregistrerContribution(aireId, saisies, auteur)
                     navController.popBackStack()
                 },
             )

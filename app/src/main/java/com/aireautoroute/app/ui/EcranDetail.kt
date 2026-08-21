@@ -10,8 +10,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
@@ -19,6 +22,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.InputChip
 import androidx.compose.material3.MaterialTheme
@@ -38,9 +42,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.aireautoroute.app.data.AireDetail
-import com.aireautoroute.app.data.Critere
 import com.aireautoroute.app.data.DetailCritere
 import com.aireautoroute.app.data.Notation
+import com.aireautoroute.app.data.StatutEquipement
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
@@ -58,7 +62,9 @@ fun EcranDetail(
             TopAppBar(
                 title = { Text(detail?.aire?.nom ?: "Aire") },
                 navigationIcon = {
-                    IconButton(onClick = onRetour) { Text("←", style = MaterialTheme.typography.titleLarge) }
+                    IconButton(onClick = onRetour) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Retour")
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
@@ -197,20 +203,34 @@ private fun CarteCritere(detail: DetailCritere) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(
-                    text = "${detail.critere.emoji}  ${detail.critere.libelle}",
-                    style = MaterialTheme.typography.titleSmall,
-                )
-                if (!detail.disponible) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = detail.critere.icone,
+                        contentDescription = null,
+                        tint = detail.consensus
+                            ?.let { couleurStatut(it.statut) }
+                            ?: MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.size(20.dp),
+                    )
                     Text(
-                        "Non annoncé",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        text = "  " + detail.critere.libelle,
+                        style = MaterialTheme.typography.titleSmall,
                     )
                 }
+                detail.consensus?.let { EtiquetteStatut(it) }
             }
 
-            NoteAvecDetail(detail.note)
+            detail.consensus?.let { consensus ->
+                Text(
+                    text = consensus.detailDeclarations,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+
+            if (detail.consensus?.statut != StatutEquipement.ABSENT) {
+                NoteAvecDetail(detail.note)
+            }
 
             if (detail.critere.parTrancheAge && detail.parTrancheAge.isNotEmpty()) {
                 detail.parTrancheAge.forEach { (tranche, note) ->
@@ -220,7 +240,7 @@ private fun CarteCritere(detail: DetailCritere) {
                             style = MaterialTheme.typography.bodySmall,
                             modifier = Modifier.padding(end = 8.dp),
                         )
-                        EtoilesLecture(note.moyenne, taille = 14)
+                        EtoilesLecture(note.moyenne, taille = 14.dp)
                         Text(
                             text = " %.1f".format(note.moyenne),
                             style = MaterialTheme.typography.bodySmall,
@@ -242,7 +262,7 @@ private fun CarteCritere(detail: DetailCritere) {
 private fun LigneCommentaire(notation: Notation) {
     Column(Modifier.padding(vertical = 2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            EtoilesLecture(notation.note.toDouble(), taille = 12)
+            EtoilesLecture(notation.note.toDouble(), taille = 12.dp)
             Text(
                 text = " ${notation.auteur}" +
                     (notation.trancheAge?.let { " · ${it.libelle}" } ?: "") +
@@ -258,8 +278,3 @@ private fun LigneCommentaire(notation: Notation) {
         )
     }
 }
-
-/** Critères effectivement proposés à la notation pour une aire donnée. */
-fun criteresANoter(detail: AireDetail): List<Critere> =
-    detail.criteres.filter { it.disponible || it.critere == Critere.APPRECIATION_GENERALE }
-        .map { it.critere }

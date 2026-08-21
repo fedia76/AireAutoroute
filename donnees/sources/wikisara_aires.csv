@@ -1,0 +1,1443 @@
+﻿autoroute;sens;nom_aire;type;pk_texte;pk_km
+A1;Sens Paris - Lille;La Courneuve-Est;Service;Km 5;5
+A1;Sens Paris - Lille;Villeron;Repos;Km 24;24
+A1;Sens Paris - Lille;Vémars-Est;Service;Km 26;26
+A1;Sens Paris - Lille;Survilliers-Est;Repos;Km 30;30
+A1;Sens Paris - Lille;Chamant;Repos;Km 44;44
+A1;Sens Paris - Lille;Roberval;Repos;Km 53;53
+A1;Sens Paris - Lille;Chevrières;Repos;Km 60;60
+A1;Sens Paris - Lille;Remy;Repos;Km 68;68
+A1;Sens Paris - Lille;Ressons-Est;Service;Km 80;80
+A1;Sens Paris - Lille;Tilloloy-Est;Repos;Km 92;92
+A1;Sens Paris - Lille;Goyencourt-Est;Repos;Km 104;104
+A1;Sens Paris - Lille;Fonches;Repos;Km 110;110
+A1;Sens Paris - Lille;Cœur des Hauts-de-France-Est;Service;Km 122;122
+A1;Sens Paris - Lille;Feuillères;Repos;Km 129;129
+A1;Sens Paris - Lille;Beaulencourt;Repos;Km 144;144
+A1;Sens Paris - Lille;Croisilles;Repos;Km 157;157
+A1;Sens Paris - Lille;Wancourt-Est;Service;Km 165;165
+A1;Sens Paris - Lille;Fresnes-lès-Montauban;Repos;Km 173;173
+A1;Sens Paris - Lille;Phalempin-Est;Service;Km 200;200
+A1;Sens Lille - Paris;Phalempin-Ouest;Service;Km 200;200
+A1;Sens Lille - Paris;Fresnes-lès-Montauban;Repos;Km 173;173
+A1;Sens Lille - Paris;Wancourt-Ouest;Repos;Km 165;165
+A1;Sens Lille - Paris;Saint-Léger;Service;Km 155;155
+A1;Sens Lille - Paris;Maurepas;Repos;Km 131;131
+A1;Sens Lille - Paris;Cœur des Hauts-de-France-Ouest;Service;Km 122;122
+A1;Sens Lille - Paris;Hattencourt;Repos;Km 110;110
+A1;Sens Lille - Paris;Goyencourt-Ouest;Repos;Km 104;104
+A1;Sens Lille - Paris;Tilloloy-Ouest;Repos;Km 92;92
+A1;Sens Lille - Paris;Ressons-Ouest;Service;Km 80;80
+A1;Sens Lille - Paris;Bois d'Arsy;Repos;Km 68;68
+A1;Sens Lille - Paris;Longueil-Sainte-Marie;Repos;Km 61;61
+A1;Sens Lille - Paris;Roberval-Ouest;Repos;Km 54;54
+A1;Sens Lille - Paris;Chamant;Repos;Km 44;44
+A1;Sens Lille - Paris;Survilliers-Ouest;Repos;Km 30;30
+A1;Sens Lille - Paris;Vémars-Ouest;Service;Km 26;26
+A1;Sens Lille - Paris;Chennevières;Repos;Km 23;23
+A1;Sens Lille - Paris;La Courneuve-Ouest;Service;Km 5;5
+A2;Sens Combles - Belgique;Rocquigny;Repos;Km 6;6
+A2;Sens Combles - Belgique;Havrincourt;Service;Km 20;20
+A2;Sens Combles - Belgique;Hordain;Repos;Km 38;38
+A2;Sens Combles - Belgique;La Sentinelle Est;Service;Km 60;60
+A2;Sens Combles - Belgique;Hensies Saint-Aybert;Repos;Km 76;76
+A2;Sens Belgique - Combles;Hensies Saint-Aybert;Repos;Km 76;76
+A2;Sens Belgique - Combles;Les Enclosis;Repos;Km 74;74
+A2;Sens Belgique - Combles;La Sentinelle Ouest;Service;Km 60;60
+A2;Sens Belgique - Combles;Hordain;Repos;Km 38;38
+A2;Sens Belgique - Combles;Graincourt;Service;Km 20;20
+A2;Sens Belgique - Combles;Barastre;Repos;Km 7;7
+A3;Sens Paris - Roissy-en-France;Noisy-le-Sec;Service;Km 3;3
+A4;Sens Paris - Strasbourg;Ferrières;Service;Km 27;27
+A4;Sens Paris - Strasbourg;Coutevroult;Repos;Km 35;35
+A4;Sens Paris - Strasbourg;Vaucourtois;Repos;Km 46;46
+A4;Sens Paris - Strasbourg;Ussy-sur-Marne;Service;Km 57;57
+A4;Sens Paris - Strasbourg;Montreuil;Repos;Km 64;64
+A4;Sens Paris - Strasbourg;La Fontenelle;Repos;Km 76;76
+A4;Sens Paris - Strasbourg;Tardenois;Service;Km 97;97
+A4;Sens Paris - Strasbourg;Romigny;Repos;Km 115;115
+A4;Sens Paris - Strasbourg;Vrigny;Service;Km 129;129
+A4;Sens Paris - Strasbourg;L'Espérance;Repos;Km 151;151
+A4;Sens Paris - Strasbourg;Reims - Champagne;Service;Km 159;159
+A4;Sens Paris - Strasbourg;Le Mont de Charme;Repos;Km 185;185
+A4;Sens Paris - Strasbourg;Valmy - Orbeval;Service;Km 206;206
+A4;Sens Paris - Strasbourg;La Fontaine d'Olive;Repos;Km 219;219
+A4;Sens Paris - Strasbourg;Rarécourt;Repos;Km 233;233
+A4;Sens Paris - Strasbourg;La Rouge Haie;Repos;Km 245;245
+A4;Sens Paris - Strasbourg;Verdun - Saint-Nicolas;Service;Km 261;261
+A4;Sens Paris - Strasbourg;L'Épinotte;Repos;Km 276;276
+A4;Sens Paris - Strasbourg;Le Bois de Labry;Repos;Km 292;292
+A4;Sens Paris - Strasbourg;Beaumont;Repos;Km 295;295
+A4;Sens Paris - Strasbourg;Metz - Saint-Privat;Service;Km 305;305
+A4;Sens Paris - Strasbourg;La Crouée;Repos;Km 32;32
+A4;Sens Paris - Strasbourg;Landonvillers;Repos;Km 339;339
+A4;Sens Paris - Strasbourg;Brouck;Repos;Km 348;348
+A4;Sens Paris - Strasbourg;Longeville;Service;Km 358;358
+A4;Sens Paris - Strasbourg;Saint-Avold;Repos;Km 361;361
+A4;Sens Paris - Strasbourg;Loupershouse;Repos;Km 380;380
+A4;Sens Paris - Strasbourg;Grundviller;Repos;Km 388;388
+A4;Sens Paris - Strasbourg;Keskastel;Service;Km 400;400
+A4;Sens Paris - Strasbourg;Eywiller;Repos;Km 412;412
+A4;Sens Paris - Strasbourg;Katzenkopf;Repos;Km 419;419
+A4;Sens Paris - Strasbourg;Danne;Repos;Km 433;433
+A4;Sens Paris - Strasbourg;Saverne - Monswiller;Service;Km 437;437
+A4;Sens Paris - Strasbourg;Lienbach;Repos;Km 448;448
+A4;Sens Paris - Strasbourg;Schwindratzheim;Repos;Km 456;456
+A4;Sens Paris - Strasbourg;Brumath;Service;Km 466;466
+A4;Sens Strasbourg - Paris;Brumath;Service;Km 466;466
+A4;Sens Strasbourg - Paris;Schwindratzheim;Repos;Km 456;456
+A4;Sens Strasbourg - Paris;Gottesheim;Repos;Km 447;447
+A4;Sens Strasbourg - Paris;Saverne - Eckartswiller;Service;Km 437;437
+A4;Sens Strasbourg - Paris;Quatre-Vents;Repos;Km 433;433
+A4;Sens Strasbourg - Paris;Schalbach;Repos;Km 419;419
+A4;Sens Strasbourg - Paris;Berg;Repos;Km 412;412
+A4;Sens Strasbourg - Paris;Keskastel;Service;Km 400;400
+A4;Sens Strasbourg - Paris;Petit Hambach;Repos;Km 388;388
+A4;Sens Strasbourg - Paris;Loupershouse;Repos;Km 380;380
+A4;Sens Strasbourg - Paris;Saint-Avold;Repos;Km 361;361
+A4;Sens Strasbourg - Paris;Longeville;Service;Km 358;358
+A4;Sens Strasbourg - Paris;Narbéfontaine;Repos;Km 350;350
+A4;Sens Strasbourg - Paris;Landonvillers;Repos;Km 340;340
+A4;Sens Strasbourg - Paris;Charly-Oradour;Repos;Km 321;321
+A4;Sens Strasbourg - Paris;Metz - Saint-Privat;Service;Km 305;305
+A4;Sens Strasbourg - Paris;Beaumont;Repos;Km 295;295
+A4;Sens Strasbourg - Paris;Le Bois Saint-Martin;Repos;Km 291;291
+A4;Sens Strasbourg - Paris;Le Bois de la Ronce;Repos;Km 277;277
+A4;Sens Strasbourg - Paris;Verdun - Saint-Nicolas;Service;Km 261;261
+A4;Sens Strasbourg - Paris;Les Genièvres;Repos;Km 245;245
+A4;Sens Strasbourg - Paris;Jubécourt;Repos;Km 233;233
+A4;Sens Strasbourg - Paris;La Fontaine d'Olive;Repos;Km 219;219
+A4;Sens Strasbourg - Paris;Valmy - Le Moulin;Service;Km 206;206
+A4;Sens Strasbourg - Paris;La Noblette;Repos;Km 186;186
+A4;Sens Strasbourg - Paris;Reims - Champagne;Service;Km 159;159
+A4;Sens Strasbourg - Paris;La Vesle;Repos;Km 151;151
+A4;Sens Strasbourg - Paris;Gueux;Service;Km 130;130
+A4;Sens Strasbourg - Paris;Lhéry;Repos;Km 116;116
+A4;Sens Strasbourg - Paris;Tardenois;Service;Km 97;97
+A4;Sens Strasbourg - Paris;La Talmouse;Repos;Km 79;79
+A4;Sens Strasbourg - Paris;Montreuil;Repos;Km 64;64
+A4;Sens Strasbourg - Paris;Changis-sur-Marne;Service;Km 55;55
+A4;Sens Strasbourg - Paris;Prévilliers;Repos;Km 45;45
+A4;Sens Strasbourg - Paris;Coutevroult;Repos;Km 35;35
+A4;Sens Strasbourg - Paris;Bussy-Saint-Georges;Service;Km 27;27
+A5;Sens Paris - Langres;Les Eprunes;Repos;Km 1;1
+A5;Sens Paris - Langres;Jonchets - La Grande Paroisse;Service;Km 30;30
+A5;Sens Paris - Langres;Les Rasets;Repos;Km 47;47
+A5;Sens Paris - Langres;Montard;Repos;Km 68;68
+A5;Sens Paris - Langres;Villeneuve l'Archevêque;Service;Km 85;85
+A5;Sens Paris - Langres;Les Tomelles;Repos;Km 109;109
+A5;Sens Paris - Langres;Saint-Pouange;Repos;Km 124;124
+A5;Sens Paris - Langres;Troyes - Fresnoy-le-Château;Service;Km 140;140
+A5;Sens Paris - Langres;Mondeville;Repos;Km 175;175
+A5;Sens Paris - Langres;Châteauvillain - Val Marnay;Service;Km 200;200
+A5;Sens Paris - Langres;Le Bois Moyen;Repos;Km 219;219
+A5;Sens Langres - Paris;Le Champ à la Croix;Repos;Km 219;219
+A5;Sens Langres - Paris;Châteauvillain - Orges;Service;Km 200;200
+A5;Sens Langres - Paris;Champignol;Repos;Km 175;175
+A5;Sens Langres - Paris;Troyes - Le Plessis;Service;Km 140;140
+A5;Sens Langres - Paris;La Coloterie;Repos;Km 124;124
+A5;Sens Langres - Paris;Fontvannes;Repos;Km 109;109
+A5;Sens Langres - Paris;Villeneuve - Vauluisant;Service;Km 85;85
+A5;Sens Langres - Paris;Montaphilant;Repos;Km 68;68
+A5;Sens Langres - Paris;Gravon;Repos;Km 47;47
+A5;Sens Langres - Paris;Jonchets - Les Récompenses;Service;Km 30;30
+A5;Sens Langres - Paris;Les Eprunes;Repos;Km 1;1
+A5;Sens Langres - Paris;Le Plessis-Picard - Ourdy;Service;Km 5;5
+A6;Sens Paris - Lyon;Les Lisses;Service;Km 29;29
+A6;Sens Paris - Lyon;Fleury-en-Bière;Repos;Km 50;50
+A6;Sens Paris - Lyon;Achères-la-Forêt;Service;Km 57;57
+A6;Sens Paris - Lyon;Villiers;Repos;Km 65;65
+A6;Sens Paris - Lyon;Nemours;Service;Km 74;74
+A6;Sens Paris - Lyon;Sonville;Repos;Km 86;86
+A6;Sens Paris - Lyon;Le Liard;Repos;Km 91;91
+A6;Sens Paris - Lyon;Le Parc Thierry;Repos;Km 102;102
+A6;Sens Paris - Lyon;Les Châtaigniers;Repos;Km 117;117
+A6;Sens Paris - Lyon;La Réserve;Service;Km 123;123
+A6;Sens Paris - Lyon;La Racheuse;Repos;Km 132;132
+A6;Sens Paris - Lyon;La Biche;Repos;Km 148;148
+A6;Sens Paris - Lyon;Les Bois Impériaux;Repos;Km 158;158
+A6;Sens Paris - Lyon;Venoy Chablis;Service;Km 167;167
+A6;Sens Paris - Lyon;La Grosse Tour;Repos;Km 174;174
+A6;Sens Paris - Lyon;La Couée;Repos;Km 187;187
+A6;Sens Paris - Lyon;Montmorency;Repos;Km 198;198
+A6;Sens Paris - Lyon;La Chaponne;Service;Km 213;213
+A6;Sens Paris - Lyon;Époisses;Repos;Km 221;221
+A6;Sens Paris - Lyon;Ruffey;Repos;Km 233;233
+A6;Sens Paris - Lyon;Fermenot;Repos;Km 242;242
+A6;Sens Paris - Lyon;Le Chien Blanc;Service;Km 255;255
+A6;Sens Paris - Lyon;Le Chaignot;Repos;Km 269;269
+A6;Sens Paris - Lyon;La Garenne;Repos;Km 280;280
+A6;Sens Paris - Lyon;La Forêt;Service;Km 286;286
+A6;Sens Paris - Lyon;Le Rossignol;Repos;Km 297;297
+A6;Sens Paris - Lyon;Beaune Tailly;Service;Km 311;311
+A6;Sens Paris - Lyon;Le Curney;Repos;Km 323;323
+A6;Sens Paris - Lyon;La Ferté;Service;Km 342;342
+A6;Sens Paris - Lyon;Jugy;Repos;Km 352;352
+A6;Sens Paris - Lyon;Farges;Repos;Km 364;364
+A6;Sens Paris - Lyon;Mâcon Saint-Albain;Service;Km 375;375
+A6;Sens Paris - Lyon;Crêches;Repos;Km 397;397
+A6;Sens Paris - Lyon;Dracé;Service;Km 408;408
+A6;Sens Paris - Lyon;Pâtural;Repos;Km 419;419
+A6;Sens Paris - Lyon;Villefranche - Limas;Repos;Km 427;427
+A6;Sens Paris - Lyon;Les Chères;Service;Km 436;436
+A6;Sens Paris - Lyon;Dardilly;Service;Km 450;450
+A6;Sens Lyon - Paris;Les Bruyères - Paisy;Service;Km 450;450
+A6;Sens Lyon - Paris;Les Chères;Service;Km 436;436
+A6;Sens Lyon - Paris;Villefranche - Limas;Repos;Km 427;427
+A6;Sens Lyon - Paris;Boitray;Repos;Km 419;419
+A6;Sens Lyon - Paris;Taponas;Service;Km 408;408
+A6;Sens Lyon - Paris;Les Sablons;Repos;Km 397;397
+A6;Sens Lyon - Paris;Mâcon La Salle;Service;Km 375;375
+A6;Sens Lyon - Paris;Uchizy;Repos;Km 364;364
+A6;Sens Lyon - Paris;Boyer;Repos;Km 352;352
+A6;Sens Lyon - Paris;Saint-Ambreuil;Service;Km 342;342
+A6;Sens Lyon - Paris;La Loyère;Repos;Km 323;323
+A6;Sens Lyon - Paris;Beaune Merceuil;Service;Km 311;311
+A6;Sens Lyon - Paris;Savigny-lès-Beaune;Repos;Km 297;297
+A6;Sens Lyon - Paris;Le Bois des Corbeaux;Repos;Km 294;294
+A6;Sens Lyon - Paris;Le Creux Moreau;Service;Km 286;286
+A6;Sens Lyon - Paris;La Repotte;Repos;Km 269;269
+A6;Sens Lyon - Paris;Les Lochères;Service;Km 255;255
+A6;Sens Lyon - Paris;Marcigny;Repos;Km 242;242
+A6;Sens Lyon - Paris;La Côme;Repos;Km 233;233
+A6;Sens Lyon - Paris;Genetoy;Repos;Km 221;221
+A6;Sens Lyon - Paris;Maison-Dieu;Service;Km 213;213
+A6;Sens Lyon - Paris;Hervaux;Repos;Km 198;198
+A6;Sens Lyon - Paris;Le Chevreuil;Repos;Km 187;187
+A6;Sens Lyon - Paris;Le Buisson Rond;Repos;Km 174;174
+A6;Sens Lyon - Paris;Venoy Soleil Levant;Service;Km 167;167
+A6;Sens Lyon - Paris;Le Thureau;Repos;Km 158;158
+A6;Sens Lyon - Paris;Les Pâtures;Repos;Km 148;148
+A6;Sens Lyon - Paris;La Loupière;Repos;Km 132;132
+A6;Sens Lyon - Paris;La Couline;Service;Km 123;123
+A6;Sens Lyon - Paris;La Roche;Repos;Km 102;102
+A6;Sens Lyon - Paris;Égreville;Repos;Km 91;91
+A6;Sens Lyon - Paris;Floée;Repos;Km 88;88
+A6;Sens Lyon - Paris;Darvault;Service;Km 74;74
+A6;Sens Lyon - Paris;Achères;Service;Km 57;57
+A6;Sens Lyon - Paris;Arbonne;Repos;Km 52;52
+A6;Sens Lyon - Paris;Fleury-en-Bière;Repos;Km 50;50
+A6;Sens Lyon - Paris;Villabé;Service;Km 29;29
+A7;Sens Lyon - Marseille;Solaize;Service;Km 14;14
+A7;Sens Lyon - Marseille;Vienne;Repos;Km 6;6
+A7;Sens Lyon - Marseille;Auberives;Repos;Km 12;12
+A7;Sens Lyon - Marseille;Roussillon;Service;Km 15;15
+A7;Sens Lyon - Marseille;Saint-Rambert-d'Albon;Service;Km 29;29
+A7;Sens Lyon - Marseille;Le Bornaron;Repos;Km 45;45
+A7;Sens Lyon - Marseille;Pont-de-l'Isère;Service;Km 61;61
+A7;Sens Lyon - Marseille;Portes-lès-Valence;Service;Km 78;78
+A7;Sens Lyon - Marseille;Bellevue;Repos;Km 86;86
+A7;Sens Lyon - Marseille;Bras-de-Zil;Repos;Km 96;96
+A7;Sens Lyon - Marseille;La Coucourde;Repos;Km 105;105
+A7;Sens Lyon - Marseille;Savasse;Repos;Km 110;110
+A7;Sens Lyon - Marseille;Montélimar;Service;Km 120;120
+A7;Sens Lyon - Marseille;Pierrelatte;Repos;Km 134;134
+A7;Sens Lyon - Marseille;Mornas - Village;Service;Km 158;158
+A7;Sens Lyon - Marseille;Orange-Le Grès;Repos;Km 171;171
+A7;Sens Lyon - Marseille;Le Fournalet;Repos;Km 183;183
+A7;Sens Lyon - Marseille;Morières;Service;Km 195;195
+A7;Sens Lyon - Marseille;Cabannes;Repos;Km 201;201
+A7;Sens Lyon - Marseille;Cavaillon - Plan d'Orgon;Repos;Km 210;210
+A7;Sens Lyon - Marseille;Sénas;Repos;Km 219;219
+A7;Sens Lyon - Marseille;Lançon-Provence (BPV);Repos;Km 240;240
+A7;Sens Lyon - Marseille;Lançon-Provence;Service;Km 242;242
+A7;Sens Marseille - Lyon;Vitrolles;Service;Km 258;258
+A7;Sens Marseille - Lyon;Lançon-Provence;Service;Km 242;242
+A7;Sens Marseille - Lyon;Lançon-Provence (BPV);Repos;Km 240;240
+A7;Sens Marseille - Lyon;Lamanon;Repos;Km 228;228
+A7;Sens Marseille - Lyon;Sénas;Repos;Km 219;219
+A7;Sens Marseille - Lyon;Cavaillon - Plan d'Orgon;Repos;Km 209;209
+A7;Sens Marseille - Lyon;Noves;Repos;Km 200;200
+A7;Sens Marseille - Lyon;Sorgues;Service;Km 183;183
+A7;Sens Marseille - Lyon;Orange - Le Coudoulet;Repos;Km 171;171
+A7;Sens Marseille - Lyon;Mornas - Les Adrets;Service;Km 156;156
+A7;Sens Marseille - Lyon;Le Tricastin;Repos;Km 142;142
+A7;Sens Marseille - Lyon;Donzère;Repos;Km 128;128
+A7;Sens Marseille - Lyon;Montélimar;Service;Km 120;120
+A7;Sens Marseille - Lyon;Roubion;Repos;Km 110;110
+A7;Sens Marseille - Lyon;Le Logis Neuf;Repos;Km 105;105
+A7;Sens Marseille - Lyon;Saulce;Service;Km 96;96
+A7;Sens Marseille - Lyon;Livron;Repos;Km 87;87
+A7;Sens Marseille - Lyon;Portes-lès-Valence;Service;Km 78;78
+A7;Sens Marseille - Lyon;Latitude 45;Service;Km 60;60
+A7;Sens Marseille - Lyon;La Bouterne;Repos;Km 55;55
+A7;Sens Marseille - Lyon;La Galaure;Repos;Km 45;45
+A7;Sens Marseille - Lyon;Saint-Rambert-d'Albon;Service;Km 29;29
+A7;Sens Marseille - Lyon;La Grande Borne;Repos;Km 12;12
+A7;Sens Marseille - Lyon;Vienne;Repos;Km 6;6
+A7;Sens Marseille - Lyon;Sérézin-du-Rhône;Service;Km 14;14
+A8;Sens Coudoux - Italie;Ventabren;Repos;Km 8;8
+A8;Sens Coudoux - Italie;La Barque;Repos;Km 29;29
+A8;Sens Coudoux - Italie;La Sainte-Victoire;Service;Km 38;38
+A8;Sens Coudoux - Italie;Barcelone;Repos;Km 53;53
+A8;Sens Coudoux - Italie;Les Terrasses de Provence;Service;Km 67;67
+A8;Sens Coudoux - Italie;Roudaï;Repos;Km 85;85
+A8;Sens Coudoux - Italie;Vidauban Sud;Service;Km 107;107
+A8;Sens Coudoux - Italie;Le Jas Pellicot;Repos;Km 128;128
+A8;Sens Coudoux - Italie;Le Capitou;Repos;Km 133;133
+A8;Sens Coudoux - Italie;Le Reyran;Repos;Km 138;138
+A8;Sens Coudoux - Italie;L'Estérel;Service;Km 143;143
+A8;Sens Coudoux - Italie;Le Piccolaret;Repos;Km 166;166
+A8;Sens Coudoux - Italie;La Côte d'Azur;Service;Km 168;168
+A8;Sens Coudoux - Italie;Antibes;Repos;Km 172;172
+A8;Sens Coudoux - Italie;La Turbie;Repos;Km 208;208
+A8;Sens Coudoux - Italie;La Riviera Française;Service;Km 212;212
+A8;Sens Italie - Coudoux;Via Julia Augusta;Service;Km 210;210
+A8;Sens Italie - Coudoux;La Turbie;Repos;Km 208;208
+A8;Sens Italie - Coudoux;Saint Isidore;Repos;Km 190;190
+A8;Sens Italie - Coudoux;Antibes;Repos;Km 172;172
+A8;Sens Italie - Coudoux;Les Bréguières Nord;Service;Km 168;168
+A8;Sens Italie - Coudoux;Le Capitou;Repos;Km 133;133
+A8;Sens Italie - Coudoux;Canaver;Service;Km 128;128
+A8;Sens Italie - Coudoux;Provence Verdon;Service;Km 107;107
+A8;Sens Italie - Coudoux;Candumy;Repos;Km 85;85
+A8;Sens Italie - Coudoux;Cambarette;Service;Km 68;68
+A8;Sens Italie - Coudoux;Saint Hilaire;Repos;Km 52;52
+A8;Sens Italie - Coudoux;Rousset;Service;Km 37;37
+A8;Sens Italie - Coudoux;La Barque;Repos;Km 29;29
+A8;Sens Italie - Coudoux;Ventabren;Repos;Km 8;8
+A9;Sens Orange - Espagne;Roquemaure-Nord;Repos;Km 11;11
+A9;Sens Orange - Espagne;Tavel-Nord;Service;Km 18;18
+A9;Sens Orange - Espagne;Estézargues-Nord;Repos;Km 25;25
+A9;Sens Orange - Espagne;Lédenon;Repos;Km 36;36
+A9;Sens Orange - Espagne;Nîmes-Marguerittes;Service;Km 45;45
+A9;Sens Orange - Espagne;Milhaud;Repos;Km 60;60
+A9;Sens Orange - Espagne;Vergèze;Repos;Km 68;68
+A9;Sens Orange - Espagne;Ambrussum;Service;Km 76;76
+A9;Sens Orange - Espagne;Lunel;Service;Km 78;78
+A9;Sens Orange - Espagne;Nabrigas;Repos;Km 83;83
+A9;Sens Orange - Espagne;Montpellier-Fabrègues;Service;Km 111;111
+A9;Sens Orange - Espagne;Gigean;Repos;Km 120;120
+A9;Sens Orange - Espagne;Mèze;Repos;Km 131;131
+A9;Sens Orange - Espagne;Florensac;Repos;Km 143;143
+A9;Sens Orange - Espagne;Béziers-Montblanc-Boby Lapointe;Service;Km 154;154
+A9;Sens Orange - Espagne;Lespignan;Repos;Km 173;173
+A9;Sens Orange - Espagne;Narbonne-Vinassan-Charles Trenet;Service;Km 182;182
+A9;Sens Orange - Espagne;Prat-de-Cest;Repos;Km 198;198
+A9;Sens Orange - Espagne;Gasparets;Repos;Km 209;209
+A9;Sens Orange - Espagne;La Palme;Service;Km 218;218
+A9;Sens Orange - Espagne;Fitou;Repos;Km 226;226
+A9;Sens Orange - Espagne;Le Château de Salses;Repos;Km 234;234
+A9;Sens Orange - Espagne;Rivesaltes;Repos;Km 245;245
+A9;Sens Orange - Espagne;Les Pavillons;Repos;Km 256;256
+A9;Sens Orange - Espagne;Le Village Catalan;Service;Km 265;265
+A9;Sens Orange - Espagne;Le Boulou;Repos;Km 271;271
+A9;Sens Espagne - Orange;Le Boulou;Repos;Km 271;271
+A9;Sens Espagne - Orange;Le Village Catalan;Service;Km 265;265
+A9;Sens Espagne - Orange;Les Pavillons;Repos;Km 256;256
+A9;Sens Espagne - Orange;Pia;Repos;Km 245;245
+A9;Sens Espagne - Orange;Le Château de Salses;Repos;Km 234;234
+A9;Sens Espagne - Orange;Fitou;Repos;Km 226;226
+A9;Sens Espagne - Orange;La Palme;Service;Km 218;218
+A9;Sens Espagne - Orange;Sigean;Repos;Km 209;209
+A9;Sens Espagne - Orange;Bages;Repos;Km 198;198
+A9;Sens Espagne - Orange;Narbonne-Vinassan-Charles Trenet;Service;Km 182;182
+A9;Sens Espagne - Orange;Lespignan;Repos;Km 173;173
+A9;Sens Espagne - Orange;Béziers-Montblanc-Boby Lapointe;Service;Km 154;154
+A9;Sens Espagne - Orange;Florensac;Repos;Km 143;143
+A9;Sens Espagne - Orange;Loupian-Georges Brassens;Repos;Km 128;128
+A9;Sens Espagne - Orange;Gigean;Repos;Km 120;120
+A9;Sens Espagne - Orange;Montpellier-Fabrègues;Service;Km 111;111
+A9;Sens Espagne - Orange;Lunel;Service;Km 78;78
+A9;Sens Espagne - Orange;Ambrussum;Service;Km 76;76
+A9;Sens Espagne - Orange;Vergèze;Repos;Km 69;69
+A9;Sens Espagne - Orange;Milhaud;Repos;Km 60;60
+A9;Sens Espagne - Orange;Nîmes-Marguerittes;Service;Km 45;45
+A9;Sens Espagne - Orange;Lédenon;Repos;Km 36;36
+A9;Sens Espagne - Orange;Estézargues-Sud;Repos;Km 25;25
+A9;Sens Espagne - Orange;Tavel-Sud;Service;Km 18;18
+A9;Sens Espagne - Orange;Roquemaure-Sud;Repos;Km 11;11
+A10;Sens Paris - Bordeaux;Limours-Janvry;Service;Km 5;5
+A10;Sens Paris - Bordeaux;Saint-Arnoult;Repos;km 24;24
+A10;Sens Paris - Bordeaux;Boutroux;Repos;Km 43;43
+A10;Sens Paris - Bordeaux;Les plaines de Beauce;Service;Km 57;57
+A10;Sens Paris - Bordeaux;Le Héron Cendré;Repos;Km 75;75
+A10;Sens Paris - Bordeaux;Orléans-Saran;Service;Km 90;90
+A10;Sens Paris - Bordeaux;Bellevue;Repos;Km 105;105
+A10;Sens Paris - Bordeaux;Meung-sur-Loire;Service;Km 117;117
+A10;Sens Paris - Bordeaux;Fougères;Repos;Km 127;127
+A10;Sens Paris - Bordeaux;Blois-Villerbon;Service;Km 143;143
+A10;Sens Paris - Bordeaux;La Chatière;Repos;Km 166;166
+A10;Sens Paris - Bordeaux;La Courte Épée;Repos;Km 181;181
+A10;Sens Paris - Bordeaux;Monnaie;Repos;Km 192;192
+A10;Sens Paris - Bordeaux;Tours - la Longue Vue;Service;Km 196;196
+A10;Sens Paris - Bordeaux;Le Village Brûlé;Repos;Km 219;219
+A10;Sens Paris - Bordeaux;Sorigny;Repos;Km 228;228
+A10;Sens Paris - Bordeaux;Sainte Maure de Touraine;Service;Km 234;234
+A10;Sens Paris - Bordeaux;Maillé;Repos;Km 251;251
+A10;Sens Paris - Bordeaux;Châtellerault - Antran;Service;Km 265;265
+A10;Sens Paris - Bordeaux;Les Meuniers;Repos;Km 277;277
+A10;Sens Paris - Bordeaux;Poitiers - Jaunay-Clan;Service;Km 292;292
+A10;Sens Paris - Bordeaux;Les Cent Septiers;Repos;Km 303;303
+A10;Sens Paris - Bordeaux;Coulombiers;Repos;Km 324;324
+A10;Sens Paris - Bordeaux;Rouillé-Pamproux Nord;Service;Km 338;338
+A10;Sens Paris - Bordeaux;Sainte-Eanne;Repos;Km 347;347
+A10;Sens Paris - Bordeaux;Sainte-Néomaye;Repos;Km 362;362
+A10;Sens Paris - Bordeaux;Poitou-Charentes;Service;Km 372;372
+A10;Sens Paris - Bordeaux;Gript Nord;Repos;Km 382;382
+A10;Sens Paris - Bordeaux;Doeuil-sur-le-Mignon;Repos;Km 396;396
+A10;Sens Paris - Bordeaux;Lozay;Repos;Km 406;406
+A10;Sens Paris - Bordeaux;Fenioux Ouest;Service;Km 422;422
+A10;Sens Paris - Bordeaux;Port-d'Envaux;Repos;Km 434;434
+A10;Sens Paris - Bordeaux;Chermignac;Repos;Km 445;445
+A10;Sens Paris - Bordeaux;Saint-Léger Ouest;Service;Km 456;456
+A10;Sens Paris - Bordeaux;Saint-Palais-de-Phiolin;Repos;Km 468;468
+A10;Sens Paris - Bordeaux;Saint-Ciers Ouest;Repos;Km 476;476
+A10;Sens Paris - Bordeaux;Saint-Caprais;Repos;Km 493;493
+A10;Sens Paris - Bordeaux;Saugon Ouest;Service;Km 506;506
+A10;Sens Paris - Bordeaux;Saint-Christoly;Repos;Km 515;515
+A10;Sens Paris - Bordeaux;Virsac;Repos;Km 525;525
+A10;Sens Paris - Bordeaux;L'Estalot;Service;Km 530;530
+A10;Sens Bordeaux - Paris;Meillac;Service;Km 530;530
+A10;Sens Bordeaux - Paris;Virsac;Repos;Km 525;525
+A10;Sens Bordeaux - Paris;Cézac;Repos;Km 520;520
+A10;Sens Bordeaux - Paris;Les Terres de l'Estuaire;Service;Km 506;506
+A10;Sens Bordeaux - Paris;Boisredon;Repos;Km 491;491
+A10;Sens Bordeaux - Paris;Saint-Ciers Est;Repos;Km 476;476
+A10;Sens Bordeaux - Paris;Saint-Palais-de-Phiolin;Repos;Km 468;468
+A10;Sens Bordeaux - Paris;Saint-Léger Est;Service;Km 456;456
+A10;Sens Bordeaux - Paris;Chermignac;Repos;Km 445;445
+A10;Sens Bordeaux - Paris;Port-d'Envaux;Repos;Km 434;434
+A10;Sens Bordeaux - Paris;Fenioux Est;Service;Km 422;422
+A10;Sens Bordeaux - Paris;La Benâte;Repos;Km 406;406
+A10;Sens Bordeaux - Paris;Doeuil-sur-le-Mignon;Repos;Km 396;396
+A10;Sens Bordeaux - Paris;Gript Sud;Repos;Km 382;382
+A10;Sens Bordeaux - Paris;Poitou-Charentes;Service;Km 372;372
+A10;Sens Bordeaux - Paris;Sainte-Néomaye;Repos;Km 362;362
+A10;Sens Bordeaux - Paris;Sainte-Eanne;Repos;Km 347;347
+A10;Sens Bordeaux - Paris;Rouillé-Pamproux;Service;Km 338;338
+A10;Sens Bordeaux - Paris;Coulombiers;Repos;Km 324;324
+A10;Sens Bordeaux - Paris;Quatre-Vents;Repos;Km 310;310
+A10;Sens Bordeaux - Paris;Poitiers-Chincé;Service;Km 292;292
+A10;Sens Bordeaux - Paris;Les Chagnats;Repos;Km 277;277
+A10;Sens Bordeaux - Paris;Châtellerault-Usseau;Service;Km 265;265
+A10;Sens Bordeaux - Paris;Nouâtre;Repos;Km 251;251
+A10;Sens Bordeaux - Paris;La Fontaine Colette;Service;Km 234;234
+A10;Sens Bordeaux - Paris;Sorigny;Repos;Km 228;228
+A10;Sens Bordeaux - Paris;Le Moulin Rouge;Repos;Km 219;219
+A10;Sens Bordeaux - Paris;Tours - Val de Loire;Service;Km 196;196
+A10;Sens Bordeaux - Paris;Monnaie;Repos;Km 192;192
+A10;Sens Bordeaux - Paris;La Picardière;Repos;Km 181;181
+A10;Sens Bordeaux - Paris;Les Bruères;Repos;Km 166;166
+A10;Sens Bordeaux - Paris;Blois-Ménars;Service;Km 143;143
+A10;Sens Bordeaux - Paris;Brusolle;Repos;Km 127;127
+A10;Sens Bordeaux - Paris;Beaugency-Messas;Service;Km 117;117
+A10;Sens Bordeaux - Paris;Les Chauvry;Repos;Km 109;109
+A10;Sens Bordeaux - Paris;Orléans-Gidy;Service;Km 90;90
+A10;Sens Bordeaux - Paris;La Dauneuse;Repos;Km 75;75
+A10;Sens Bordeaux - Paris;Val-Neuvy;Service;Km 57;57
+A10;Sens Bordeaux - Paris;Marnières;Repos;Km 44;44
+A10;Sens Bordeaux - Paris;Saint-Arnoult;Repos;Km 24;24
+A10;Sens Bordeaux - Paris;Limours - Briis-sous-Forges;Service;Km 5;5
+A11;Sens Paris - Nantes;Gourville;Repos;Km 35;35
+A11;Sens Paris - Nantes;Chartres-Gasville;Service;Km 52;52
+A11;Sens Paris - Nantes;Ver-lès-Chartres-Les Souchets;Repos;Km 66;66
+A11;Sens Paris - Nantes;La Poêle Percée;Repos;Km 76;76
+A11;Sens Paris - Nantes;La Charonnerie;Repos;Km 88;88
+A11;Sens Paris - Nantes;Les Manoirs du Perche;Service;Km 99;99
+A11;Sens Paris - Nantes;Les Charmes;Repos;Km 110;110
+A11;Sens Paris - Nantes;Théligny;Repos;Km 123;123
+A11;Sens Paris - Nantes;La Ferté-Bernard;Service;Km 136;136
+A11;Sens Paris - Nantes;Parnouette;Repos;Km 150;150
+A11;Sens Paris - Nantes;Le Haras de Maulepaire;Repos;Km 160;160
+A11;Sens Paris - Nantes;La Sarthe - Sargé - Le Mans;Service;Km 166;166
+A11;Sens Paris - Nantes;Pruillé-le-Chétif;Repos;Km 180;180
+A11;Sens Paris - Nantes;Pirmil;Repos;Km 197;197
+A11;Sens Paris - Nantes;Parcé-sur-Sarthe;Service;Km 211;211
+A11;Sens Paris - Nantes;La Chapelle-Saint-Laud;Repos;Km 234;234
+A11;Sens Paris - Nantes;Corzé;Repos;Km 244;244
+A11;Sens Paris - Nantes;Bauné;Repos;Km 248;248
+A11;Sens Paris - Nantes;Les Portes d'Angers;Service;Km 258;258
+A11;Sens Paris - Nantes;Les Montilets;Repos;Km 284;284
+A11;Sens Paris - Nantes;Varades-Pays de la Loire;Service;Km 301;301
+A11;Sens Paris - Nantes;Ancenis;Repos;Km 315;315
+A11;Sens Paris - Nantes;Le Cellier;Repos;Km 331;331
+A11;Sens Nantes - Paris;Le Launay;Repos;Km 331;331
+A11;Sens Nantes - Paris;Ancenis;Repos;Km 315;315
+A11;Sens Nantes - Paris;Varades-Pays d'Ancenis;Service;Km 301;301
+A11;Sens Nantes - Paris;Le Réveillon;Repos;Km 284;284
+A11;Sens Nantes - Paris;Les Portes d'Angers;Service;Km 259;259
+A11;Sens Nantes - Paris;Bauné;Repos;Km 248;248
+A11;Sens Nantes - Paris;Corzé;Repos;Km 244;244
+A11;Sens Nantes - Paris;La Chapelle-Saint-Laud;Repos;Km 234;234
+A11;Sens Nantes - Paris;Parcé-sur-Sarthe;Service;Km 211;211
+A11;Sens Nantes - Paris;Pirmil;Repos;Km 197;197
+A11;Sens Nantes - Paris;Pruillé-le-Chétif;Repos;Km 180;180
+A11;Sens Nantes - Paris;La Sarthe - Sargé - Le Mans;Service;Km 166;166
+A11;Sens Nantes - Paris;La Martinière;Repos;Km 160;160
+A11;Sens Nantes - Paris;La Charpenterie;Repos;Km 150;150
+A11;Sens Nantes - Paris;Villaines-la-Gonais;Service;Km 136;136
+A11;Sens Nantes - Paris;Montmirail;Repos;Km 123;123
+A11;Sens Nantes - Paris;La Petite Jardinière;Repos;Km 110;110
+A11;Sens Nantes - Paris;Brou-Dampierre;Service;Km 99;99
+A11;Sens Nantes - Paris;La Leu;Repos;Km 88;88
+A11;Sens Nantes - Paris;Les Dix-Sept-Setiers;Repos;Km 76;76
+A11;Sens Nantes - Paris;Ver-lès-Chartres-Les Moineaux;Repos;Km 65;65
+A11;Sens Nantes - Paris;Chartres-Bois-Paris;Service;Km 52;52
+A11;Sens Nantes - Paris;Les Chaudonnes;Repos;Km 36;36
+A11.1;Sens A11 - Le Mans;Le Mans Sud;Repos;Km 1;1
+A11.1;Sens Le Mans - A11;Le Mans Sud;Repos;Km 1;1
+A13;Sens Paris - Caen;Morainvilliers Nord;Service;Km 27;27
+A13;Sens Paris - Caen;Epone Nord;Repos;Km 39;39
+A13;Sens Paris - Caen;Buchelay;Repos;Km 49;49
+A13;Sens Paris - Caen;Rosny-sur-Seine Nord;Service;Km 51;51
+A13;Sens Paris - Caen;Villeneuve-en-Chevrie Nord;Repos;Km 59;59
+A13;Sens Paris - Caen;Douains Nord;Repos;Km 69;69
+A13;Sens Paris - Caen;Beauchêne Nord;Repos;Km 78;78
+A13;Sens Paris - Caen;Heudebouville;Repos;Km 90;90
+A13;Sens Paris - Caen;Vironvay Nord;Service;Km 93;93
+A13;Sens Paris - Caen;Bord Nord;Repos;Km 101;101
+A13;Sens Paris - Caen;Bosgouet Nord;Service;Km 128;128
+A13;Sens Paris - Caen;Rougemontier;Repos;Km 139;139
+A13;Sens Paris - Caen;Josapha;Repos;Km 148;148
+A13;Sens Paris - Caen;Beuzeville (BPV);Repos;Km 167;167
+A13;Sens Paris - Caen;Beuzeville Nord;Service;Km 170;170
+A13;Sens Paris - Caen;Annebault;Repos;Km 193;193
+A13;Sens Paris - Caen;Dozulé;Repos;Km 204;204
+A13;Sens Paris - Caen;Giberville Nord;Service;Km 220;220
+A13;Sens Caen - Paris;Giberville Sud;Service;Km 220;220
+A13;Sens Caen - Paris;Dozulé;Repos;Km 204;204
+A13;Sens Caen - Paris;Beaumont-en-Auge;Repos;Km 193;193
+A13;Sens Caen - Paris;Beuzeville Sud;Service;Km 170;170
+A13;Sens Caen - Paris;Beuzeville (BPV);Repos;Km 167;167
+A13;Sens Caen - Paris;Moulin;Repos;Km 148;148
+A13;Sens Caen - Paris;Eturqueraye Sud;Repos;Km 140;140
+A13;Sens Caen - Paris;Bosgouet Sud;Service;Km 128;128
+A13;Sens Caen - Paris;Bord Sud;Repos;Km 101;101
+A13;Sens Caen - Paris;Vironvay Sud;Service;Km 93;93
+A13;Sens Caen - Paris;Heudebouville;Repos;Km 90;90
+A13;Sens Caen - Paris;Beauchêne Sud;Repos;Km 78;78
+A13;Sens Caen - Paris;Douains Sud;Repos;Km 69;69
+A13;Sens Caen - Paris;Villeneuve-en-Chevrie Sud;Repos;Km 59;59
+A13;Sens Caen - Paris;Rosny-sur-Seine Sud;Service;Km 51;51
+A13;Sens Caen - Paris;Buchelay;Repos;Km 49;49
+A13;Sens Caen - Paris;Epone Sud;Repos;Km 39;39
+A13;Sens Caen - Paris;Morainvilliers Sud;Service;Km 27;27
+A14;Sens Orgeval - Nanterre;Montesson;Repos;Km 8;8
+A14;Sens Nanterre - Orgeval;Montesson;Repos;Km 8;8
+A15;Sens Gennevilliers - Cergy-Pontoise;Cergy-Pontoise;Service;Km 18;18
+A15;Sens Cergy-Pontoise - Gennevilliers;Cergy-Pontoise;Service;Km 18;18
+A16;Sens Paris - Belgique;Amblainville;Repos;Km 42;42
+A16;Sens Paris - Belgique;Lormaison Est;Repos;Km 49;49
+A16;Sens Paris - Belgique;Auteuil;Repos;Km 64;64
+A16;Sens Paris - Belgique;Le Chêne Peuquet;Repos;Km 76;76
+A16;Sens Paris - Belgique;Hardivilliers;Service;Km 92;92
+A16;Sens Paris - Belgique;La Vallée de la Selle;Repos;Km 110;110
+A16;Sens Paris - Belgique;Vignacourt Est;Repos;Km 139;139
+A16;Sens Paris - Belgique;Le Haut Clocher;Repos;Km 159;159
+A16;Sens Paris - Belgique;La Baie de Somme;Service;Km 179;179
+A16;Sens Paris - Belgique;Le Bois de la Commanderie;Repos;Km 203;203
+A16;Sens Paris - Belgique;Les Falaises de Widehem Est;Repos;Km 227;227
+A16;Sens Paris - Belgique;Herquelingue;Repos;Km 242;242
+A16;Sens Paris - Belgique;L'Épitre;Service;Km 285;285
+A16;Sens Paris - Belgique;Offekerque;Repos;Km 292;292
+A16;Sens Paris - Belgique;Téteghem Sud;Repos;Km 328;328
+A16;Sens Paris - Belgique;Ghyvelde;Repos;Km 338;338
+A16;Sens Belgique - Paris;Les Moëres;Repos;Km 338;338
+A16;Sens Belgique - Paris;Téteghem Nord;Repos;Km 330;330
+A16;Sens Belgique - Paris;Grande-Synthe;Service;Km 319;319
+A16;Sens Belgique - Paris;Saint-Georges-sur-l'Aa;Repos;Km 304;304
+A16;Sens Belgique - Paris;Le Beau Marais;Repos;Km 287;287
+A16;Sens Belgique - Paris;Les Deux Caps;Service;Km 268;268
+A16;Sens Belgique - Paris;Herquelingue;Repos;Km 242;242
+A16;Sens Belgique - Paris;Les Falaises de Widehem Ouest;Repos;Km 228;228
+A16;Sens Belgique - Paris;Le Fond de la Commanderie;Repos;Km 204;204
+A16;Sens Belgique - Paris;La Baie de Somme;Service;Km 179;179
+A16;Sens Belgique - Paris;La Hétroye;Repos;Km 159;159
+A16;Sens Belgique - Paris;Vignacourt Ouest;Repos;Km 139;139
+A16;Sens Belgique - Paris;La Vallée de la Selle Ouest;Repos;Km 110;110
+A16;Sens Belgique - Paris;Hardivillers;Service;Km 92;92
+A16;Sens Belgique - Paris;Le Grand Bois;Repos;Km 76;76
+A16;Sens Belgique - Paris;Le Grand Courtil;Repos;Km 64;64
+A16;Sens Belgique - Paris;Lormaison Ouest;Repos;Km 49;49
+A16;Sens Belgique - Paris;Amblainville;Repos;Km 42;42
+A19;Sens Artenay - Sens;Mauregard;Repos;Km 111;111
+A19;Sens Artenay - Sens;Les Jardins du Loiret;Service;Km 80;80
+A19;Sens Artenay - Sens;Cepoy;Repos;Km 58;58
+A19;Sens Artenay - Sens;Philippe Rossi;Repos;Km 42;42
+A19;Sens Artenay - Sens;Villeroy;Service;Km 16 (10 km au sud-ouest de Sens);16
+A19;Sens Sens - Artenay;Villeroy;Service;Km 16;16
+A19;Sens Sens - Artenay;Chantecoq;Repos;Km 42;42
+A19;Sens Sens - Artenay;La Vallée du Loing;Repos;Km 58;58
+A19;Sens Sens - Artenay;Les Jardins du Loiret;Service;Km 80;80
+A19;Sens Sens - Artenay;Teillay;Repos;Km 111;111
+A20;Sens Vierzon - Toulouse;Vierzon Nord;Repos;Km 1;1
+A20;Sens Vierzon - Toulouse;Les Champs-d'Amour;Service;Km 26;26
+A20;Sens Vierzon - Toulouse;Les Avionneurs;Repos;Km 52;52
+A20;Sens Vierzon - Toulouse;Les Mille Étangs;Service;Km 75;75
+A20;Sens Vierzon - Toulouse;La Marche Occitane;Repos;Km 99;99
+A20;Sens Vierzon - Toulouse;Bois Mandé;Service;Km 125;125
+A20;Sens Vierzon - Toulouse;La Coulerouze;Repos;Km 142;142
+A20;Sens Vierzon - Toulouse;Limoges-Ouest;Service;km 173;173
+A20;Sens Vierzon - Toulouse;Briance-Ligoure;Repos;km 204;204
+A20;Sens Vierzon - Toulouse;La Porte de Corrèze;Service;Km 224;224
+A20;Sens Vierzon - Toulouse;Le Puy de Grâce;Repos;Km 247;247
+A20;Sens Vierzon - Toulouse;Pech Montat;Service;Km 290;290
+A20;Sens Vierzon - Toulouse;Gignac;Repos;Km 294;294
+A20;Sens Vierzon - Toulouse;Aire-Jardin des Causses du Lot;Service;Km 334;334
+A20;Sens Vierzon - Toulouse;La Combe du Tréboulou;Repos;Km 367;367
+A20;Sens Vierzon - Toulouse;Le Bois de Dourre;Service;Km 387;387
+A20;Sens Vierzon - Toulouse;Montauban-Nord;Repos;Km 411;411
+A20;Sens Vierzon - Toulouse;Nauze-Vert;Service;Km 427;427
+A20;Sens Vierzon - Toulouse;Montauban-Sud;Repos;Km 437;437
+A20;Sens Toulouse - Vierzon;Montauban-Sud;Repos;Km 437;437
+A20;Sens Toulouse - Vierzon;Montauban-Nord;Repos;Km 411;411
+A20;Sens Toulouse - Vierzon;Le Bois de Dourre;Service;Km 387;387
+A20;Sens Toulouse - Vierzon;La Combe du Tréboulou;Repos;Km 367;367
+A20;Sens Toulouse - Vierzon;Aire-Jardin des Causses du Lot;Service;Km 334;334
+A20;Sens Toulouse - Vierzon;Gignac;Repos;Km 294;294
+A20;Sens Toulouse - Vierzon;Pech Montat;Service;Km 290;290
+A20;Sens Toulouse - Vierzon;Le Puy de Grâce;Repos;Km 247;247
+A20;Sens Toulouse - Vierzon;La Porte de Corrèze;Service;Km 224;224
+A20;Sens Toulouse - Vierzon;Briance-Ligoure;Repos;Km 204;204
+A20;Sens Toulouse - Vierzon;Limoges-Est;Service;Km 173;173
+A20;Sens Toulouse - Vierzon;La Coulerouze;Repos;Km 142;142
+A20;Sens Toulouse - Vierzon;Bois Mandé;Service;Km 125;125
+A20;Sens Toulouse - Vierzon;Le Val de Creuse;Repos;Km 99;99
+A20;Sens Toulouse - Vierzon;Le Val de l'Indre;Service;Km 75;75
+A20;Sens Toulouse - Vierzon;Les Blés d'Or;Repos;Km 52;52
+A20;Sens Toulouse - Vierzon;Les Champs-d'Amour;Service;Km 26;26
+A20;Sens Toulouse - Vierzon;Vierzon Nord;Repos;Km 1;1
+A23;Sens Lille - Valenciennes;Genech;Service;Km 41 (10 km au sud de Lille);41
+A23;Sens Lille - Valenciennes;La Scarpe;Repos;Km 27 (5 km à l'est de Saint-Amand-les-Eaux);27
+A23;Sens Valenciennes - Lille;Petite-Forêt;Service;Km 10 (10 km au Nord de Valenciennes);10
+A23;Sens Valenciennes - Lille;La Scarpe;Repos;Km 27 (5 km à l'est de Saint-Amand-les-Eaux);27
+A25;Sens Lille - Dunkerque;Steenwerck;Repos;Km 22;22
+A25;Sens Lille - Dunkerque;Saint-Laurent;Service;Km 44;44
+A25;Sens Dunkerque - Lille;Saint-Eloi;Service;Km 44;44
+A25;Sens Dunkerque - Lille;Steenwerck;Repos;Km 23;23
+A26;Sens Calais - Troyes;Zutkerque;Repos;Km 15;15
+A26;Sens Calais - Troyes;Setques;Repos;Km 33;33
+A26;Sens Calais - Troyes;Grand Riez;Repos;Km 46;46
+A26;Sens Calais - Troyes;Rely;Service;Km 55;55
+A26;Sens Calais - Troyes;Le Réveillon;Repos;Km 67;67
+A26;Sens Calais - Troyes;Souchez;Service;Km 90;90
+A26;Sens Calais - Troyes;Les Trois Crêtes;Repos;Km 100;100
+A26;Sens Calais - Troyes;Le Bois d'Huez;Repos;Km 112;112
+A26;Sens Calais - Troyes;Baralle;Service;Km 122;122
+A26;Sens Calais - Troyes;La Vacquerie;Repos;Km 140;140
+A26;Sens Calais - Troyes;L'Omignon;Repos;Km 161;161
+A26;Sens Calais - Troyes;Urvillers;Service;Km 178;178
+A26;Sens Calais - Troyes;St-Brice;Repos;Km 199;199
+A26;Sens Calais - Troyes;La Croisette;Repos;Km 217;217
+A26;Sens Calais - Troyes;Mont de Nizy;Service;Km 239;239
+A26;Sens Calais - Troyes;Cauroy;Repos;Km 249;249
+A26;Sens Calais - Troyes;Courcy;Repos;Km 254;254
+A26;Sens Calais - Troyes;La Garenne;Repos;Km 310;310
+A26;Sens Calais - Troyes;Sommesous;Service;Km 336;336
+A26;Sens Calais - Troyes;Champ Carreau;Repos;Km 348;348
+A26;Sens Calais - Troyes;Charmont-sous-Barbuise;Repos;Km 373;373
+A26;Sens Calais - Troyes;Villechétif;Repos;Km 383;383
+A26;Sens Troyes - Calais;Crocs de la Terre;Repos;Km 383;383
+A26;Sens Troyes - Calais;Charmont-sous-Barbuise;Repos;Km 373;373
+A26;Sens Troyes - Calais;Champ-L'Epée;Repos;Km 348;348
+A26;Sens Troyes - Calais;Sommesous;Service;Km 336;336
+A26;Sens Troyes - Calais;La Bardolle;Repos;Km 317;317
+A26;Sens Troyes - Calais;Les Grands Traquiers;Repos;Km 303;303
+A26;Sens Troyes - Calais;Courcy;Repos;Km 254;254
+A26;Sens Troyes - Calais;Loivre;Repos;Km 249;249
+A26;Sens Troyes - Calais;Champ-Roland;Service;Km 239;239
+A26;Sens Troyes - Calais;Les Pélerins;Repos;Km 219;219
+A26;Sens Troyes - Calais;Le Broyon;Repos;Km 199;199
+A26;Sens Troyes - Calais;Urvillers;Service;Km 178;178
+A26;Sens Troyes - Calais;La Haute Bruyière;Repos;Km 161;161
+A26;Sens Troyes - Calais;Le Plateau;Repos;Km 140;140
+A26;Sens Troyes - Calais;Rumaucourt;Service;Km 122;122
+A26;Sens Troyes - Calais;Les Bonnettes;Repos;Km 111;111
+A26;Sens Troyes - Calais;La Cressonnière;Repos;Km 100;100
+A26;Sens Troyes - Calais;Angres;Service;Km 90;90
+A26;Sens Troyes - Calais;La Grande Bucaille;Repos;Km 67;67
+A26;Sens Troyes - Calais;St-Hilaire Cottes;Service;Km 55;55
+A26;Sens Troyes - Calais;Villefleur;Repos;Km 46;46
+A26;Sens Troyes - Calais;Setques;Repos;Km 33;33
+A26;Sens Troyes - Calais;Nortkerque;Repos;Km 13;13
+A28;Sens Abbeville - Tours;Behen;Repos;Km 13;13
+A28;Sens Abbeville - Tours;Le Translay;Service;Km 24;24
+A28;Sens Abbeville - Tours;Le Bois du Coudroy;Repos;Km 46;46
+A28;Sens Abbeville - Tours;Maucomble;Service;Km 69;69
+A28;Sens Abbeville - Tours;Quincampoix;Repos;Km 90;90
+A28;Sens Abbeville - Tours;Le Roumois;Repos;Km 284;284
+A28;Sens Abbeville - Tours;Le Domaine d'Harcourt;Repos;Km 271;271
+A28;Sens Abbeville - Tours;Risle et Charentonne;Repos;Km 249;249
+A28;Sens Abbeville - Tours;Les Haras;Service;Km 210;210
+A28;Sens Abbeville - Tours;Les Sources de l'Orne;Repos;Km 184;184
+A28;Sens Abbeville - Tours;La Dentelle d'Alençon;Service;Km 161;161
+A28;Sens Abbeville - Tours;Joël Boisgard;Repos;Km 134;134
+A28;Sens Abbeville - Tours;Les Perrières;Repos;Km 83;83
+A28;Sens Abbeville - Tours;Sarthe-Touraine;Service;Km 50;50
+A28;Sens Abbeville - Tours;Saint-Christophe-sur-le-Nais;Repos;Km 47;47
+A28;Sens Abbeville - Tours;Chantemerle;Repos;Km 32;32
+A28;Sens Tours - Abbeville;Chenardière;Repos;Km 32;32
+A28;Sens Tours - Abbeville;Saint-Christophe-sur-le-Nais;Repos;Km 47;47
+A28;Sens Tours - Abbeville;Sarthe-Touraine;Service;Km 50;50
+A28;Sens Tours - Abbeville;Croiselles;Repos;Km 83;83
+A28;Sens Tours - Abbeville;La Suzannerie;Repos;Km 134;134
+A28;Sens Tours - Abbeville;La Dentelle d'Alençon;Service;Km 161;161
+A28;Sens Tours - Abbeville;Les Sources de l'Orne;Repos;Km 184;184
+A28;Sens Tours - Abbeville;Les Haras;Service;Km 210;210
+A28;Sens Tours - Abbeville;Risle et Charentonne;Repos;Km 249;249
+A28;Sens Tours - Abbeville;Le Domaine d'Harcourt;Repos;Km 271;271
+A28;Sens Tours - Abbeville;Le Roumois;Repos;Km 284;284
+A28;Sens Tours - Abbeville;Quincampoix;Repos;Km 90;90
+A28;Sens Tours - Abbeville;Bosc-Mesnil;Service;Km 69;69
+A28;Sens Tours - Abbeville;Le Bois du Coudroy;Repos;Km 46;46
+A28;Sens Tours - Abbeville;Le Translay;Service;Km 24;24
+A28;Sens Tours - Abbeville;Behen;Repos;Km 13;13
+A29;Sens Saint-Quentin - Caen;Athies;Repos;Km 245;245
+A29;Sens Saint-Quentin - Caen;Villers-Bretonneux;Service;Km 211;211
+A29;Sens Saint-Quentin - Caen;Jules Verne;Repos;Km 202;202
+A29;Sens Saint-Quentin - Caen;Dury;Repos;Km 190;190
+A29;Sens Saint-Quentin - Caen;Croixrault;Service;Km 165;165
+A29;Sens Saint-Quentin - Caen;Le Moulin de Pierre;Repos;Km 143;143
+A29;Sens Saint-Quentin - Caen;Cottévrard;Repos;Km 105;105
+A29;Sens Saint-Quentin - Caen;Saint-Martin-aux-Arbres;Repos;Km 78;78
+A29;Sens Saint-Quentin - Caen;Ecretteville-lès-Baons;Repos;Km 63;63
+A29;Sens Saint-Quentin - Caen;Bolleville Nord;Service;Km 52;52
+A29;Sens Saint-Quentin - Caen;Saint-Romain de Colbosc;Repos;Km 34;34
+A29;Sens Saint-Quentin - Caen;La Baie de Seine;Repos;Km 20;20
+A29;Sens Saint-Quentin - Caen;Quetteville;Repos;Km 1;1
+A29;Sens Caen - Saint-Quentin;Quetteville;Repos;Km 1;1
+A29;Sens Caen - Saint-Quentin;La Baie de Seine;Repos;Km 20;20
+A29;Sens Caen - Saint-Quentin;Saint-Romain de Colbosc;Repos;Km 34;34
+A29;Sens Caen - Saint-Quentin;Bolleville Sud;Service;Km 52;52
+A29;Sens Caen - Saint-Quentin;Ecretteville;Repos;Km 63;63
+A29;Sens Caen - Saint-Quentin;Saint Martin aux Arbres;Repos;Km 78;78
+A29;Sens Caen - Saint-Quentin;Cottévrard;Repos;Km 105;105
+A29;Sens Caen - Saint-Quentin;La Mare au Bois;Repos;Km 143;143
+A29;Sens Caen - Saint-Quentin;Croixrault;Service;Km 165;165
+A29;Sens Caen - Saint-Quentin;Dury;Repos;Km 190;190
+A29;Sens Caen - Saint-Quentin;Villers-Bretonneux;Service;Km 211;211
+A29;Sens Caen - Saint-Quentin;Athies;Repos;Km 245;245
+A30;Sens Metz - Longwy;La Castine;Repos;Km 13;13
+A30;Sens Longwy - Metz;Le Bois des Tillots;Repos;Km 15;15
+A31;Sens Beaune - Luxembourg;Corgoloin;Repos;Km 8;8
+A31;Sens Beaune - Luxembourg;Boncourt-le-Bois;Repos;Km 17;17
+A31;Sens Beaune - Luxembourg;Gevrey-Chambertin;Service;Km 26;26
+A31;Sens Beaune - Luxembourg;Le Pré d'Azur;Repos;Km 44;44
+A31;Sens Beaune - Luxembourg;Dijon-Spoy;Service;Km 57;57
+A31;Sens Beaune - Luxembourg;La Villa des Tuillières;Repos;Km 76;76
+A31;Sens Beaune - Luxembourg;La Combe Suzon;Repos;Km 88;88
+A31;Sens Beaune - Luxembourg;Langres - Noidant;Service;Km 103;103
+A31;Sens Beaune - Luxembourg;Le Val de Gris;Repos;Km 122;122
+A31;Sens Beaune - Luxembourg;Le Val de Meuse;Service;Km 138;138
+A31;Sens Beaune - Luxembourg;Le Bois de Chaumont;Repos;Km 162;162
+A31;Sens Beaune - Luxembourg;Lorraine-Sandaucourt-les-Rappes;Service;Km 182;182
+A31;Sens Beaune - Luxembourg;Le Val au Renard;Repos;Km 201;201
+A31;Sens Beaune - Luxembourg;Malvaux;Repos;Km 211;211
+A31;Sens Beaune - Luxembourg;Gye;Repos;Km 225;225
+A31;Sens Beaune - Luxembourg;Toul;Service;Km 232;232
+A31;Sens Beaune - Luxembourg;La Forêt de Haye;Repos;Km 239;239
+A31;Sens Beaune - Luxembourg;Loisy;Service;Km 272;272
+A31;Sens Beaune - Luxembourg;Le Bois du Juré;Repos;Km 279;279
+A31;Sens Beaune - Luxembourg;La Maxe;Service;Km 307;307
+A31;Sens Beaune - Luxembourg;Entrange;Repos;Km 341;341
+A31;Sens Luxembourg - Beaune;Thionville - Porte de France;Repos;Km 341;341
+A31;Sens Luxembourg - Beaune;Saint-Rémy;Service;Km 311;311
+A31;Sens Luxembourg - Beaune;Lesménils;Repos;Km 279;279
+A31;Sens Luxembourg - Beaune;L'Obrion;Service;Km 272;272
+A31;Sens Luxembourg - Beaune;Toul;Service;Km 232;232
+A31;Sens Luxembourg - Beaune;Gye;Repos;Km 225;225
+A31;Sens Luxembourg - Beaune;Faverosse;Repos;Km 211;211
+A31;Sens Luxembourg - Beaune;Grand-Chêne;Repos;Km 201;201
+A31;Sens Luxembourg - Beaune;Lorraine-Sandaucourt-la-Trelle;Service;Km 182;182
+A31;Sens Luxembourg - Beaune;Grand-Repenti;Repos;Km 162;162
+A31;Sens Luxembourg - Beaune;Montigny-le-Roi;Service;Km 138;138
+A31;Sens Luxembourg - Beaune;Côte Robert;Repos;Km 122;122
+A31;Sens Luxembourg - Beaune;Langres-Perrogney;Service;Km 103;103
+A31;Sens Luxembourg - Beaune;Fontenelle;Repos;Km 88;88
+A31;Sens Luxembourg - Beaune;Ste-Gertrude;Repos;Km 76;76
+A31;Sens Luxembourg - Beaune;Dijon-Brognon;Service;Km 57;57
+A31;Sens Luxembourg - Beaune;La Tille;Repos;Km 44;44
+A31;Sens Luxembourg - Beaune;Gevrey-Chambertin;Service;Km 26;26
+A31;Sens Luxembourg - Beaune;Flagey-Echezeaux;Repos;Km 17;17
+A31;Sens Luxembourg - Beaune;Serrigny;Repos;Km 8;8
+A33;Sens Nancy - Strasbourg;Clairlieu;Repos;Km 5;5
+A33;Sens Strasbourg - Nancy;Villers;Repos;Km 5;5
+A34;Sens Reims - Sedan;Taissy;Repos;Km 1;1
+A34;Sens Reims - Sedan;Ardennes (Woinic);Service;Km 24;24
+A34;Sens Reims - Sedan;La Chapelle;Repos;RN58 , Km 2;58
+A34;Sens Sedan - Reims;La Chapelle;Repos;RN58 , Km 2;58
+A34;Sens Sedan - Reims;Ardennes (Woinic);Service;Km 24;24
+A34;Sens Sedan - Reims;Taissy;Repos;Km 1;1
+A35;Sens Lauterbourg - Bâle;Le Landgraben;Repos;Km 241;241
+A35;Sens Lauterbourg - Bâle;Ostwald;Service;Km 67;67
+A35;Sens Lauterbourg - Bâle;Le Haut-Koenigsbourg;Service;Km 47;47
+A35;Sens Lauterbourg - Bâle;Le Fronholz;Repos;Km 72;72
+A35;Sens Bâle - Lauterbourg;Battenheim;Service;Km 94;94
+A35;Sens Bâle - Lauterbourg;La Plaine;Repos;Km 77;77
+A35;Sens Bâle - Lauterbourg;Le Haut-Koenigsbourg;Service;Km 47;47
+A35;Sens Bâle - Lauterbourg;Ostwald;Service;Km 67;67
+A35;Sens Bâle - Lauterbourg;La Pfeffermatt;Repos;Km 241;241
+A35;Sens Bâle - Lauterbourg;Roeschwoog;Repos;Km 219;219
+A36;Sens Beaune - Mulhouse;Villy-le-Moutier;Repos;Km 209;209
+A36;Sens Beaune - Mulhouse;Le Bois Guillerot;Service;Km 201;201
+A36;Sens Beaune - Mulhouse;Les Noues;Repos;Km 185;185
+A36;Sens Beaune - Mulhouse;Sampans;Repos;Km 172;172
+A36;Sens Beaune - Mulhouse;Dole Audelange;Service;Km 160;160
+A36;Sens Beaune - Mulhouse;Le Bois de Servole;Repos;Km 138;138
+A36;Sens Beaune - Mulhouse;Le Bois de Frachère;Repos;Km 129;129
+A36;Sens Beaune - Mulhouse;Besançon Marchaux;Service;Km 112;112
+A36;Sens Beaune - Mulhouse;Chevaney;Repos;Km 101;101
+A36;Sens Beaune - Mulhouse;La Combe de Fougère;Repos;Km 84;84
+A36;Sens Beaune - Mulhouse;Charme;Repos;Km 75;75
+A36;Sens Beaune - Mulhouse;Saint-Maurice;Repos;Km 66;66
+A36;Sens Beaune - Mulhouse;Écot;Service;Km 60;60
+A36;Sens Beaune - Mulhouse;La Forêt;Repos;Km 28;28
+A36;Sens Beaune - Mulhouse;Fontaine;Repos;Km 24;24
+A36;Sens Beaune - Mulhouse;Le Haut Bois;Repos;Km 20;20
+A36;Sens Beaune - Mulhouse;La Porte d'Alsace;Service;Km 11;11
+A36;Sens Mulhouse - Beaune;La Porte d'Alsace;Service;Km 11;11
+A36;Sens Mulhouse - Beaune;Angeot;Repos;Km 20;20
+A36;Sens Mulhouse - Beaune;Fontaine;Repos;Km 24;24
+A36;Sens Mulhouse - Beaune;Les Grands Prés;Repos;Km 28;28
+A36;Sens Mulhouse - Beaune;Dambenois;Repos;Km 44;44
+A36;Sens Mulhouse - Beaune;Écot;Service;Km 60;60
+A36;Sens Mulhouse - Beaune;Saint-Maurice;Repos;Km 66;66
+A36;Sens Mulhouse - Beaune;Le Galiot;Repos;Km 75;75
+A36;Sens Mulhouse - Beaune;Le Boulet;Repos;Km 84;84
+A36;Sens Mulhouse - Beaune;Les Grands Brocards;Repos;Km 101;101
+A36;Sens Mulhouse - Beaune;Besançon Champoux;Service;Km 112;112
+A36;Sens Mulhouse - Beaune;Pelousey;Repos;Km 129;129
+A36;Sens Mulhouse - Beaune;Hyombre;Repos;Km 146;146
+A36;Sens Mulhouse - Beaune;Dole Romange;Service;Km 160;160
+A36;Sens Mulhouse - Beaune;Le Bois des Potets;Repos;Km 172;172
+A36;Sens Mulhouse - Beaune;Saint-Jean-de-Losne;Repos;Km 185;185
+A36;Sens Mulhouse - Beaune;Glanon;Service;Km 201;201
+A36;Sens Mulhouse - Beaune;Argilly;Repos;Km 209;209
+A38;Sens Pouilly-en-Auxois - Dijon;Pouilly-en-Auxois;Repos;Km 1;1
+A38;Sens Dijon - Pouilly-en-Auxois;Pouilly-en-Auxois;Repos;Km 1;1
+A39;Sens Dijon - Bourg-en-Bresse;Crimolois;Repos;Km 6;6
+A39;Sens Dijon - Bourg-en-Bresse;Bois-Défendu;Repos;Km 15;15
+A39;Sens Dijon - Bourg-en-Bresse;Pont - Chêne d'Argent;Service;Km 25;25
+A39;Sens Dijon - Bourg-en-Bresse;La Vouivre;Repos;Km 51;51
+A39;Sens Dijon - Bourg-en-Bresse;La Jument Verte;Repos;Km 67;67
+A39;Sens Dijon - Bourg-en-Bresse;Le Jura;Service;Km 79;79
+A39;Sens Dijon - Bourg-en-Bresse;La Vallière;Repos;Km 100;100
+A39;Sens Dijon - Bourg-en-Bresse;Le Poulet de Bresse;Service;Km 115;115
+A39;Sens Dijon - Bourg-en-Bresse;Marmont;Repos;Km 138;138
+A39;Sens Bourg-en-Bresse - Dijon;Bény;Repos;Km 138;138
+A39;Sens Bourg-en-Bresse - Dijon;Le Poulet de Bresse;Service;Km 115;115
+A39;Sens Bourg-en-Bresse - Dijon;Savigny;Repos;Km 100;100
+A39;Sens Bourg-en-Bresse - Dijon;Le Jura;Service;Km 79;79
+A39;Sens Bourg-en-Bresse - Dijon;Le Chat Perché;Repos;Km 67;67
+A39;Sens Bourg-en-Bresse - Dijon;Louis Pasteur;Repos;Km 51;51
+A39;Sens Bourg-en-Bresse - Dijon;Pont - Val de Saône;Service;Km 25;25
+A39;Sens Bourg-en-Bresse - Dijon;Beire-le-Fort;Repos;Km 16;16
+A39;Sens Bourg-en-Bresse - Dijon;Crimolois;Repos;Km 6;6
+A40;Sens Mâcon - Chamonix;Les Planons;Repos;Km 191;191
+A40;Sens Mâcon - Chamonix;Bourg-Teyssonge;Service;Km 163;163
+A40;Sens Mâcon - Chamonix;Certines;Repos;Km 152;152
+A40;Sens Mâcon - Chamonix;Ceignes-Cerdon;Service;Km 130;130
+A40;Sens Mâcon - Chamonix;Lac;Repos;Km 115;115
+A40;Sens Mâcon - Chamonix;La Michaille;Repos;Km 103;103
+A40;Sens Mâcon - Chamonix;Valleiry;Service;Km 80;80
+A40;Sens Mâcon - Chamonix;Viry;Repos;Km 75;75
+A40;Sens Mâcon - Chamonix;Nangy;Repos;Km 49;49
+A40;Sens Mâcon - Chamonix;Bonneville;Service;Km 35;35
+A40;Sens Mâcon - Chamonix;Cluses;Repos;Km 20;20
+A40;Sens Mâcon - Chamonix;Passy-Mont-Blanc;Repos;Km 5;5
+A40;Sens Chamonix - Mâcon;Cluses;Repos;Km 20;20
+A40;Sens Chamonix - Mâcon;Bonneville;Service;Km 35;35
+A40;Sens Chamonix - Mâcon;Nangy;Repos;Km 49;49
+A40;Sens Chamonix - Mâcon;Téléphérique de Salève;Repos;Km 59;59
+A40;Sens Chamonix - Mâcon;Viry;Repos;Km 75;75
+A40;Sens Chamonix - Mâcon;Valleiry;Service;Km 80;80
+A40;Sens Chamonix - Mâcon;La Semine;Repos;Km 103;103
+A40;Sens Chamonix - Mâcon;Les Neyrolles;Repos;Km 115;115
+A40;Sens Chamonix - Mâcon;Ceignes - Haut Bugey;Service;Km 130;130
+A40;Sens Chamonix - Mâcon;Neuville-sur-Ain;Repos;Km 140;140
+A40;Sens Chamonix - Mâcon;Tossiat;Repos;Km 152;152
+A40;Sens Chamonix - Mâcon;Bourg - Jasseron;Service;Km 163;163
+A40;Sens Chamonix - Mâcon;Musée de la Bresse;Repos;Km 191;191
+A41;Sens Grenoble - Genève;Saint-Nazaire-les-Eymes;Service;Km 10;10
+A41;Sens Grenoble - Genève;Crolles;Repos;Km 14;14
+A41;Sens Grenoble - Genève;Chonas;Repos;Km 22;22
+A41;Sens Grenoble - Genève;Les Marches;Repos;Km 37;37
+A41;Sens Grenoble - Genève;Chignin;Repos;Km 103;103
+A41;Sens Grenoble - Genève;Chambéry Nord;Repos;Km 89;89
+A41;Sens Grenoble - Genève;Mouxy;Service;Km 98;98
+A41;Sens Grenoble - Genève;Saint-Girod;Repos;Km 111;111
+A41;Sens Grenoble - Genève;La Ripaille;Service;Km 125;125
+A41;Sens Grenoble - Genève;Villy-le-Pelloux;Repos;Km 140;140
+A41;Sens Grenoble - Genève;La Ravoire;Repos;Km 143;143
+A41;Sens Genève - Grenoble;Les Ponts de la Caille;Repos;Km 143;143
+A41;Sens Genève - Grenoble;Allonzier;Repos;Km 140;140
+A41;Sens Genève - Grenoble;Fontanelles;Service;Km 125;125
+A41;Sens Genève - Grenoble;Albens;Repos;Km 111;111
+A41;Sens Genève - Grenoble;Drumettaz;Service;Km 98;98
+A41;Sens Genève - Grenoble;Chapareillan;Repos;Km 37;37
+A41;Sens Genève - Grenoble;La Terrasse;Repos;Km 22;22
+A41;Sens Genève - Grenoble;Crolles;Repos;Km 14;14
+A41;Sens Genève - Grenoble;Bois Claret;Service;Km 10;10
+A42;Sens Bourg-en-Bresse - Lyon;Brotteaux;Repos;Km 33;33
+A42;Sens Bourg-en-Bresse - Lyon;Lyon - Montluel;Service;Km 16;16
+A42;Sens Bourg-en-Bresse - Lyon;Beynost;Repos;Km 10;10
+A42;Sens Lyon - Bourg-en-Bresse;Beynost;Repos;Km 10;10
+A42;Sens Lyon - Bourg-en-Bresse;Lyon - Dagneux;Service;Km 16;16
+A42;Sens Lyon - Bourg-en-Bresse;Chazey-sur-Ain;Repos;Km 33;33
+A43;Sens Lyon - Italie;Saint-Priest;Service;Km 8;8
+A43;Sens Lyon - Italie;Saint-Quentin-Fallavier;Repos;Km 21;21
+A43;Sens Lyon - Italie;L'Isle-d'Abeau;Service;Km 29;29
+A43;Sens Lyon - Italie;Le Vernay;Repos;Km 40;40
+A43;Sens Lyon - Italie;Les Marouettes;Repos;Km 53;53
+A43;Sens Lyon - Italie;Romagnieu;Service;Km 65;65
+A43;Sens Lyon - Italie;Le Lavaret;Repos;Km 78;78
+A43;Sens Lyon - Italie;Chambéry Nord;Repos;Km 89;89
+A43;Sens Lyon - Italie;Le Granier;Service;Km 100;100
+A43;Sens Lyon - Italie;Chignin;Repos;Km 103;103
+A43;Sens Lyon - Italie;Le Val-Gelon;Service;Km 120;120
+A43;Sens Lyon - Italie;Saint-Pierre-de-Belleville;Repos;Km 141;141
+A43;Sens Lyon - Italie;Sainte-Marie-de-Cuines;Repos;Km 157;157
+A43;Sens Lyon - Italie;Rieu-Sec;Repos;Km 172;172
+A43;Sens Lyon - Italie;Saint-Michel-de-Maurienne;Service;Km 177;177
+A43;Sens Lyon - Italie;Plate-forme du tunnel du Fréjus;Service;Km 195;195
+A43;Sens Italie - Lyon;Plate-forme du tunnel du Fréjus;Service;Km 195;195
+A43;Sens Italie - Lyon;Saint-Michel-de-Maurienne;Repos;Km 177;177
+A43;Sens Italie - Lyon;Saint-Julien-Montdenis;Service;Km 172;172
+A43;Sens Italie - Lyon;Saint-Avre;Repos;Km 155;155
+A43;Sens Italie - Lyon;Saint-Léger;Repos;Km 144;144
+A43;Sens Italie - Lyon;L'Arclusaz;Service;Km 120;120
+A43;Sens Italie - Lyon;Chignin;Repos;Km 103;103
+A43;Sens Italie - Lyon;L'Abis;Service;Km 100;100
+A43;Sens Italie - Lyon;Chambéry Nord;Repos;Km 89;89
+A43;Sens Italie - Lyon;L'Omble;Repos;Km 78;78
+A43;Sens Italie - Lyon;Le Guiers;Service;Km 65;65
+A43;Sens Italie - Lyon;Les Sitelles;Repos;Km 53;53
+A43;Sens Italie - Lyon;Coiranne;Repos;Km 40;40
+A43;Sens Italie - Lyon;L'Isle-d'Abeau;Service;Km 29;29
+A43;Sens Italie - Lyon;Saint-Quentin-Fallavier;Repos;Km 21;21
+A43;Sens Italie - Lyon;Manissieux;Service;Km 8;8
+A46;Sens Paris - Marseille;Mionnay-Saint-Galmier;Service;Km 16;16
+A46;Sens Paris - Marseille;Communay;Service;Km 60;60
+A46;Sens Marseille - Paris;Communay;Service;Km 60;60
+A46;Sens Marseille - Paris;Mionnay-en-Chatanay;Service;Km 16;16
+A47;Sens Lyon - Saint-Étienne;Saint-Romain-en-Gier;Service;Km 7 (Ouest de Givors);7
+A47;Sens Lyon - Saint-Étienne;Le Pays de Gier;Service;Km 25 (Contournement de Saint-Chamond);25
+A47;Sens Saint-Étienne - Lyon;La Chabure ( RN88 );Service;Km 32 (6 km à l'est de Saint-Étienne);32
+A47;Sens Saint-Étienne - Lyon;Le Pays de Gier;Service;Km 25 (Contournement de Saint-Chamond);25
+A48;Sens Lyon - Grenoble;Ponteray;Repos;Km 48;48
+A48;Sens Lyon - Grenoble;Burcin;Repos;Km 62;62
+A48;Sens Lyon - Grenoble;Le Châtelard;Repos;Km 71;71
+A48;Sens Lyon - Grenoble;Péage de Voreppe;Repos;Km 85;85
+A48;Sens Lyon - Grenoble;L'Ile Rose;Service;Km 86;86
+A48;Sens Grenoble - Lyon;Voreppe;Service;Km 86;86
+A48;Sens Grenoble - Lyon;Péage de Voreppe;Repos;Km 85;85
+A48;Sens Grenoble - Lyon;Réaumont;Repos;Km 71;71
+A48;Sens Grenoble - Lyon;Oyeu;Repos;Km 62;62
+A48;Sens Grenoble - Lyon;Chanses;Repos;Km 48;48
+A49;Sens Grenoble - Valence;Poliénas;Repos;Km 14;14
+A49;Sens Grenoble - Valence;Saint-Sauveur;Repos;Km 29;29
+A49;Sens Grenoble - Valence;Porte de la Drôme;Service;Km 45;45
+A49;Sens Grenoble - Valence;Chatuzange;Repos;Km 56;56
+A49;Sens Grenoble - Valence;Bayanne;Service;Km 12 ( RN532 );12
+A49;Sens Valence - Grenoble;Les Fruitiers;Repos;Km 7 ( RN532 );7
+A49;Sens Valence - Grenoble;Les Marlhes;Service;Km 12 ( RN532 );12
+A49;Sens Valence - Grenoble;Chatuzange;Repos;Km 56;56
+A49;Sens Valence - Grenoble;Royans Vercors;Service;Km 45;45
+A49;Sens Valence - Grenoble;Chambaran;Repos;Km 29;29
+A49;Sens Valence - Grenoble;L'Albenc;Repos;Km 20;20
+A50;Sens Marseille - Toulon;La Pomme;Service;Km 5;5
+A50;Sens Marseille - Toulon;Le Pas d'Ouillier;Repos;Km 31;31
+A50;Sens Marseille - Toulon;La Ciotat;Repos;Km 35;35
+A50;Sens Marseille - Toulon;Les Frères Lumière;Service;Km 42;42
+A50;Sens Marseille - Toulon;Bandol;Repos;Km 56;56
+A50;Sens Marseille - Toulon;Sanary;Repos;Km 58;58
+A50;Sens Toulon - Marseille;Sanary;Repos;Km 58;58
+A50;Sens Toulon - Marseille;Bandol;Repos;Km 56;56
+A50;Sens Toulon - Marseille;La Baie de La Ciotat;Service;Km 42;42
+A50;Sens Toulon - Marseille;La Ciotat;Repos;Km 35;35
+A51;Sens Grenoble - Marseille;Le Crozet;Repos;Km 9;9
+A51;Sens Grenoble - Marseille;Les Jaillets;Repos;Km 19;19
+A51;Sens Grenoble - Marseille;La Saulce;Repos;Km 153;153
+A51;Sens Grenoble - Marseille;Aubignosc;Service;Km 112;112
+A51;Sens Grenoble - Marseille;Le Belvédère de Peyruis;Repos;Km 102;102
+A51;Sens Grenoble - Marseille;Ganagobie;Repos;Km 94;94
+A51;Sens Grenoble - Marseille;Volx;Service;Km 75;75
+A51;Sens Grenoble - Marseille;Jouques;Repos;Km 52;52
+A51;Sens Grenoble - Marseille;Péage de Meyrargues;Repos;Km 35;35
+A51;Sens Grenoble - Marseille;Meyrargues-Fontbelle;Service;Km 32;32
+A51;Sens Grenoble - Marseille;La Champouse;Service;Km 7;7
+A51;Sens Marseille - Grenoble;Les Chabauds;Service;Km 5;5
+A51;Sens Marseille - Grenoble;Meyrargues;Repos;Km 32;32
+A51;Sens Marseille - Grenoble;Péage de Meyrargues;Repos;Km 35;35
+A51;Sens Marseille - Grenoble;Le Pont-Mirabeau;Repos;Km 50;50
+A51;Sens Marseille - Grenoble;Manosque;Service;Km 75;75
+A51;Sens Marseille - Grenoble;Ganagobie;Repos;Km 94;94
+A51;Sens Marseille - Grenoble;Aubignosc;Service;Km 112;112
+A51;Sens Marseille - Grenoble;La Saulce;Repos;Km 153;153
+A51;Sens Marseille - Grenoble;Les Marceaux;Repos;Km 19;19
+A51;Sens Marseille - Grenoble;Le Crozet;Repos;Km 9;9
+A52;Sens Aix-en-Provence - Aubagne;Marcel Pagnol;Service;Km 10;10
+A52;Sens Aix-en-Provence - Aubagne;Le Pont-de-l'Etoile;Repos;Km 20;20
+A52;Sens Aubagne - Aix-en-Provence;Le Pont-de-l'Etoile;Repos;Km 20;20
+A52;Sens Aubagne - Aix-en-Provence;Manon des Sources;Service;Km 10;10
+A54;Sens Nîmes - Salon-de-Provence;Caissargues;Repos;Km 6;6
+A54;Sens Nîmes - Salon-de-Provence;Arles;Repos;Km 23;23
+A54;Sens Nîmes - Salon-de-Provence;Les Cantarelles;Service;Km 73 ( RN113 );73
+A54;Sens Nîmes - Salon-de-Provence;Saint-Martin-de-Crau;Repos;Km 50;50
+A54;Sens Nîmes - Salon-de-Provence;Le Merle;Repos;Km 61;61
+A54;Sens Salon-de-Provence - Nîmes;Le Merle;Repos;Km 61;61
+A54;Sens Salon-de-Provence - Nîmes;Saint-Martin-de-Crau;Repos;Km 50;50
+A54;Sens Salon-de-Provence - Nîmes;Arles;Repos;Km 23;23
+A54;Sens Salon-de-Provence - Nîmes;Nîmes-Costières;Repos;Km 6;6
+A55;Sens Marseille - Martigues;Rebuty;Service;Km 17;17
+A55;Sens Martigues - Marseille;La Nerthe;Service;Km 17;17
+A57;Sens Nice - Toulon;Gonfaron;Repos;Km 45;45
+A57;Sens Nice - Toulon;Les Lauvets;Repos;Km 31;31
+A57;Sens Nice - Toulon;Puget-Ville;Repos;Km 24;24
+A57;Sens Nice - Toulon;La Garde;Service;Km 7;7
+A57;Sens Toulon - Nice;La Bigue;Service;Km 7;7
+A57;Sens Toulon - Nice;Puget-Ville;Repos;Km 24;24
+A57;Sens Toulon - Nice;Le Suvé du Vent;Repos;Km 29;29
+A57;Sens Toulon - Nice;Les Sigues;Repos;Km 45;45
+A61;Sens Narbonne - Toulouse;Pech Loubat;Repos;Km 376;376
+A61;Sens Narbonne - Toulouse;Bizanet;Repos;Km 366;366
+A61;Sens Narbonne - Toulouse;La Peyrière;Repos;Km 354;354
+A61;Sens Narbonne - Toulouse;Les Corbières;Service;Km 340;340
+A61;Sens Narbonne - Toulouse;Le Belvédère d'Auriac;Repos;Km 323;323
+A61;Sens Narbonne - Toulouse;Carcassonne-Arzens;Service;Km 312;312
+A61;Sens Narbonne - Toulouse;Bram;Repos;Km 303;303
+A61;Sens Narbonne - Toulouse;Castelnaudary;Repos;Km 292;292
+A61;Sens Narbonne - Toulouse;Port-Lauragais;Service;Km 274;274
+A61;Sens Narbonne - Toulouse;Villefranche-de-Lauragais;Repos;Km 266;266
+A61;Sens Narbonne - Toulouse;Baziège;Repos;Km 256;256
+A61;Sens Narbonne - Toulouse;Toulouse Sud;Service;Km 248;248
+A61;Sens Narbonne - Toulouse;Toulouse Sud (BPV);Repos;Km 241;241
+A61;Sens Toulouse - Narbonne;Toulouse Sud (BPV);Repos;Km 241;241
+A61;Sens Toulouse - Narbonne;Toulouse Sud;Service;Km 248;248
+A61;Sens Toulouse - Narbonne;Ayguesvives;Repos;Km 256;256
+A61;Sens Toulouse - Narbonne;Renneville;Repos;Km 265;265
+A61;Sens Toulouse - Narbonne;Port-Lauragais;Service;Km 274;274
+A61;Sens Toulouse - Narbonne;Mireval;Repos;Km 291;291
+A61;Sens Toulouse - Narbonne;Montréal;Repos;Km 303;303
+A61;Sens Toulouse - Narbonne;Carcassonne-Arzens Sud;Service;Km 312;312
+A61;Sens Toulouse - Narbonne;Le Belvédère de la Cité;Repos;Km 325;325
+A61;Sens Toulouse - Narbonne;Les Corbières;Service;Km 340;340
+A61;Sens Toulouse - Narbonne;Fontcouverte;Repos;Km 354;354
+A61;Sens Toulouse - Narbonne;Bizanet;Repos;Km 366;366
+A61;Sens Toulouse - Narbonne;Narbonne-Jonquières;Repos;Km 375;375
+A62;Sens Bordeaux - Toulouse;Saint-Selve;Repos;Km 15;15
+A62;Sens Bordeaux - Toulouse;Les Terres de Graves;Service;Km 17;17
+A62;Sens Bordeaux - Toulouse;Le Bazadais;Repos;Km 51;51
+A62;Sens Bordeaux - Toulouse;Cocumont;Repos;Km 62;62
+A62;Sens Bordeaux - Toulouse;Mas d'Agenais;Service;Km 76;76
+A62;Sens Bordeaux - Toulouse;Queyran;Repos;Km 85;85
+A62;Sens Bordeaux - Toulouse;Buzet;Repos;Km 97;97
+A62;Sens Bordeaux - Toulouse;Bruch;Repos;Km 106;106
+A62;Sens Bordeaux - Toulouse;Agen Porte d'Aquitaine;Service;Km 115;115
+A62;Sens Bordeaux - Toulouse;Moirax;Repos;Km 125;125
+A62;Sens Bordeaux - Toulouse;Layrac;Repos;Km 133;133
+A62;Sens Bordeaux - Toulouse;Dunes;Repos;Km 143;143
+A62;Sens Bordeaux - Toulouse;Garonne;Service;Km 161;161
+A62;Sens Bordeaux - Toulouse;Escatalens;Repos;Km 181;181
+A62;Sens Bordeaux - Toulouse;La Forêt de Montech;Repos;Km 190;190
+A62;Sens Bordeaux - Toulouse;Naudy;Repos;Km 197;197
+A62;Sens Bordeaux - Toulouse;Frontonnais Sud;Service;Km 206;206
+A62;Sens Bordeaux - Toulouse;Toulouse Nord;Repos;Km 225;225
+A62;Sens Toulouse - Bordeaux;Toulouse Nord;Repos;Km 225;225
+A62;Sens Toulouse - Bordeaux;Frontonnais Nord;Service;Km 206;206
+A62;Sens Toulouse - Bordeaux;Campsas;Repos;Km 197;197
+A62;Sens Toulouse - Bordeaux;Lacourt-Saint-Pierre;Repos;Km 187;187
+A62;Sens Toulouse - Bordeaux;La Forêt de Saint-Porquier;Repos;Km 179;179
+A62;Sens Toulouse - Bordeaux;Garonne;Service;Km 161;161
+A62;Sens Toulouse - Bordeaux;Dunes;Repos;Km 143;143
+A62;Sens Toulouse - Bordeaux;Layrac;Repos;Km 133;133
+A62;Sens Toulouse - Bordeaux;Estillac;Repos;Km 122;122
+A62;Sens Toulouse - Bordeaux;Agen Porte d'Aquitaine;Service;Km 115;115
+A62;Sens Toulouse - Bordeaux;Bruch;Repos;Km 106;106
+A62;Sens Toulouse - Bordeaux;Buzet;Repos;Km 97;97
+A62;Sens Toulouse - Bordeaux;Queyran;Repos;Km 85;85
+A62;Sens Toulouse - Bordeaux;Mas d'Agenais;Service;Km 76;76
+A62;Sens Toulouse - Bordeaux;Cocumont;Repos;Km 62;62
+A62;Sens Toulouse - Bordeaux;Le Bazadais;Repos;Km 51;51
+A62;Sens Toulouse - Bordeaux;Les Terres de Graves;Service;Km 17;17
+A62;Sens Toulouse - Bordeaux;Saint-Selve;Repos;Km 15;15
+A63;Sens Bordeaux - Biriatou;Bordeaux-Cestas;Service;Km 7;7
+A63;Sens Bordeaux - Biriatou;Les Gargails;Repos;Km 18;18
+A63;Sens Bordeaux - Biriatou;Lugos;Repos;Km 39;39
+A63;Sens Bordeaux - Biriatou;Porte des Landes;Service;Km 56;56
+A63;Sens Bordeaux - Biriatou;Saugnac-et-Muret;Repos;Km 58;58
+A63;Sens Bordeaux - Biriatou;Labouheyre;Repos;Km 69;69
+A63;Sens Bordeaux - Biriatou;Onesse-et-Laharie;Repos;Km 90;90
+A63;Sens Bordeaux - Biriatou;L'Océan;Service;Km 109;109
+A63;Sens Bordeaux - Biriatou;Castets;Repos;Km 123;123
+A63;Sens Bordeaux - Biriatou;Magescq;Repos;Km 127;127
+A63;Sens Bordeaux - Biriatou;Saubion;Repos;Km 146;146
+A63;Sens Bordeaux - Biriatou;Benesse-Maremne;Repos;Km 156;156
+A63;Sens Bordeaux - Biriatou;Labenne;Service;Km 161;161
+A63;Sens Bordeaux - Biriatou;La Négresse;Repos;Km 183;183
+A63;Sens Bordeaux - Biriatou;Bidart;Service;Km 188;188
+A63;Sens Bordeaux - Biriatou;Biriatou;Repos;Km 205;205
+A63;Sens Biriatou - Bordeaux;Biriatou;Repos;Km 205;205
+A63;Sens Biriatou - Bordeaux;Urrugne;Repos;Km 200;200
+A63;Sens Biriatou - Bordeaux;Bidart;Service;Km 188;188
+A63;Sens Biriatou - Bordeaux;La Négresse;Repos;Km 183;183
+A63;Sens Biriatou - Bordeaux;Labenne;Service;Km 161;161
+A63;Sens Biriatou - Bordeaux;Benesse-Maremne;Repos;Km 156;156
+A63;Sens Biriatou - Bordeaux;Saubion;Repos;Km 146;146
+A63;Sens Biriatou - Bordeaux;Magescq;Repos;Km 127;127
+A63;Sens Biriatou - Bordeaux;Castets;Repos;Km 123;123
+A63;Sens Biriatou - Bordeaux;L'Océan;Service;Km 109;109
+A63;Sens Biriatou - Bordeaux;Onesse-et-Laharie;Repos;Km 89;89
+A63;Sens Biriatou - Bordeaux;Labouheyre;Repos;Km 69;69
+A63;Sens Biriatou - Bordeaux;Saugnac-et-Muret;Repos;Km 58;58
+A63;Sens Biriatou - Bordeaux;Porte des Landes;Service;Km 56;56
+A63;Sens Biriatou - Bordeaux;Lugos;Repos;Km 39;39
+A63;Sens Biriatou - Bordeaux;Les Gargails;Repos;Km 19;19
+A63;Sens Biriatou - Bordeaux;Bordeaux - Cestas;Service;Km 8;8
+A64;Sens Bayonne - Toulouse;Sames;Repos;Km 27;27
+A64;Sens Bayonne - Toulouse;Hastingues;Service;Km 30;30
+A64;Sens Bayonne - Toulouse;Haut de Départ;Repos;Km 64;64
+A64;Sens Bayonne - Toulouse;Lacq-Audéjos;Service;Km 80;80
+A64;Sens Bayonne - Toulouse;Serres-Morlaàs;Repos;Km 111;111
+A64;Sens Bayonne - Toulouse;Les Pyrénées;Service;Km 129;129
+A64;Sens Bayonne - Toulouse;Bordes;Repos;Km 156;156
+A64;Sens Bayonne - Toulouse;Les Bandouliers;Repos;Km 172;172
+A64;Sens Bayonne - Toulouse;Pic du Midi;Repos;Km 182;182
+A64;Sens Bayonne - Toulouse;Comminges;Service;Km 194;194
+A64;Sens Bayonne - Toulouse;Lestelle;Repos;Km 218;218
+A64;Sens Bayonne - Toulouse;La Garonne;Service;Km 256;256
+A64;Sens Bayonne - Toulouse;Muret;Repos;Km 278;278
+A64;Sens Toulouse - Bayonne;Muret;Repos;Km 278;278
+A64;Sens Toulouse - Bayonne;Volvestre;Service;Km 256;256
+A64;Sens Toulouse - Bayonne;Lestelle;Repos;Km 218;218
+A64;Sens Toulouse - Bayonne;Comminges;Service;Km 194;194
+A64;Sens Toulouse - Bayonne;Le Pic-du-Midi;Repos;Km 182;182
+A64;Sens Toulouse - Bayonne;Le Lac Saint-Martin;Repos;Km 172;172
+A64;Sens Toulouse - Bayonne;Bordes;Repos;Km 156;156
+A64;Sens Toulouse - Bayonne;Les Pyrénées;Service;Km 129;129
+A64;Sens Toulouse - Bayonne;Serres-Morlaàs;Repos;Km 110;110
+A64;Sens Toulouse - Bayonne;Lacq-Audéjos;Service;Km 80;80
+A64;Sens Toulouse - Bayonne;Magret;Repos;Km 62;62
+A64;Sens Toulouse - Bayonne;Hastingues;Service;Km 30;30
+A64;Sens Toulouse - Bayonne;Sames;Repos;Km 27;27
+A66;Sens Toulouse - Pamiers;Mazères;Repos;Km 24;24
+A66;Sens Toulouse - Pamiers;Pamiers;Repos;Km 36;36
+A66;Sens Pamiers - Toulouse;Pamiers;Repos;Km 36;36
+A66;Sens Pamiers - Toulouse;Rosefond;Repos;Km 24;24
+A68;Sens Toulouse - Albi;Toulouse Est;Repos;Km 3;3
+A68;Sens Toulouse - Albi;Les Portes du Tarn;Service;Km 23;23
+A68;Sens Toulouse - Albi;Les Issarts;Repos;Km 46;46
+A68;Sens Albi - Toulouse;Sanbatan;Repos;Km 44;44
+A68;Sens Albi - Toulouse;Les Portes du Tarn;Service;Km 23;23
+A68;Sens Albi - Toulouse;Toulouse Est;Repos;Km 3;3
+A71;Sens Orléans - Clermont-Ferrand;Le Bois de Bailly;Repos;Km 109;109
+A71;Sens Orléans - Clermont-Ferrand;Cœur de Sologne;Service;Km 127;127
+A71;Sens Orléans - Clermont-Ferrand;L'Étang du Maras;Repos;Km 140;140
+A71;Sens Orléans - Clermont-Ferrand;Les Maremberts;Repos;Km 150;150
+A71;Sens Orléans - Clermont-Ferrand;Salbris - Theillay;Service;Km 165;165
+A71;Sens Orléans - Clermont-Ferrand;Quincy;Repos;Km 192;192
+A71;Sens Orléans - Clermont-Ferrand;Bourges - Sainte-Thorette;Service;Km 200;200
+A71;Sens Orléans - Clermont-Ferrand;Le Berry;Repos;Km 219;219
+A71;Sens Orléans - Clermont-Ferrand;Le Centre de la France - Farges-Allichamps;Service;Km 246;246
+A71;Sens Orléans - Clermont-Ferrand;Le Grand Meaulnes;Repos;Km 276;276
+A71;Sens Orléans - Clermont-Ferrand;L'Allier - Doyet;Service;Km 304;304
+A71;Sens Orléans - Clermont-Ferrand;La Bouble;Repos;Km 333;333
+A71;Sens Orléans - Clermont-Ferrand;Les Volcans d'Auvergne;Service;Km 355;355
+A71;Sens Orléans - Clermont-Ferrand;Montpertuis;Repos;Km 372;372
+A71;Sens Orléans - Clermont-Ferrand;Clermont-Barrière (Gerzat);Repos;Km 381;381
+A71;Sens Clermont-Ferrand - Orléans;Clermont-Barrière (Gerzat);Repos;Km 381;381
+A71;Sens Clermont-Ferrand - Orléans;Pessat-Villeneuve;Repos;Km 372;372
+A71;Sens Clermont-Ferrand - Orléans;Les Volcans d'Auvergne;Service;Km 355;355
+A71;Sens Clermont-Ferrand - Orléans;Chantelle-en-Bourbonnais;Repos;Km 333;333
+A71;Sens Clermont-Ferrand - Orléans;L'Allier - Saulzet;Service;Km 304;304
+A71;Sens Clermont-Ferrand - Orléans;Vallon-en-Sully;Repos;Km 276;276
+A71;Sens Clermont-Ferrand - Orléans;Le Centre de la France - Bruère-Allichamps;Service;Km 246;246
+A71;Sens Clermont-Ferrand - Orléans;Bourges - Cathédrale;Repos;Km 214;214
+A71;Sens Clermont-Ferrand - Orléans;Bourges - Marmagne;Service;Km 200;200
+A71;Sens Clermont-Ferrand - Orléans;La Chaussée de César;Repos;Km 192;192
+A71;Sens Clermont-Ferrand - Orléans;Salbris - La Loge;Service;Km 165;165
+A71;Sens Clermont-Ferrand - Orléans;La Saulot;Repos;Km 153;153
+A71;Sens Clermont-Ferrand - Orléans;La Briganderie;Repos;Km 141;141
+A71;Sens Clermont-Ferrand - Orléans;La Ferté-Saint-Aubin;Service;Km 128;128
+A71;Sens Clermont-Ferrand - Orléans;Le Bois du Télégraphe;Repos;Km 109;109
+A72;Sens Balbigny - Saint-Etienne;La Plaine du Forez;Service;Km 102;102
+A72;Sens Balbigny - Saint-Etienne;Chante Perdrix;Repos;Km 112;112
+A72;Sens Balbigny - Saint-Etienne;Veauchette;Repos;Km 118;118
+A72;Sens Saint-Etienne - Balbigny;Veauchette;Repos;Km 118;118
+A72;Sens Saint-Etienne - Balbigny;Les Chaninats;Repos;Km 112;112
+A72;Sens Saint-Etienne - Balbigny;La Plaine du Forez;Service;Km 102;102
+A75;Sens Clermont-Ferrand - Béziers;Veyre;Service;Km 15;15
+A75;Sens Clermont-Ferrand - Béziers;Le Val d'Allier;Repos;Km 26;26
+A75;Sens Clermont-Ferrand - Béziers;Le Cézallier;Repos;Km 41;41
+A75;Sens Clermont-Ferrand - Béziers;Lafayette - Lorlanges;Service;Km 58;58
+A75;Sens Clermont-Ferrand - Béziers;Chalet;Repos;Km 66;66
+A75;Sens Clermont-Ferrand - Béziers;Garabit;Repos;Km 103;103
+A75;Sens Clermont-Ferrand - Béziers;La Lozère;Service;Km 116;116
+A75;Sens Clermont-Ferrand - Béziers;L'Aubrac;Repos;Km 133;133
+A75;Sens Clermont-Ferrand - Béziers;La Bête du Gévaudan;Repos;Km 155;155
+A75;Sens Clermont-Ferrand - Béziers;L'Aveyron;Service;Km 189;189
+A75;Sens Clermont-Ferrand - Béziers;La Garrigue;Repos;Km 210;210
+A75;Sens Clermont-Ferrand - Béziers;Saint-Germain;Repos;Km 215;215
+A75;Sens Clermont-Ferrand - Béziers;Le Viaduc de Millau;Repos;Km 219;219
+A75;Sens Clermont-Ferrand - Béziers;Le Larzac;Service;Km 239;239
+A75;Sens Clermont-Ferrand - Béziers;Le Caylar;Service;Km 262;262
+A75;Sens Clermont-Ferrand - Béziers;Le Belvédère de la Lerque;Repos;Km 269;269
+A75;Sens Clermont-Ferrand - Béziers;Paulhan;Repos;Km 303;303
+A75;Sens Clermont-Ferrand - Béziers;Valros;Service;Km 320;320
+A75;Sens Béziers - Clermont-Ferrand;Béziers;Repos;Km 333;333
+A75;Sens Béziers - Clermont-Ferrand;Valros;Service;Km 320;320
+A75;Sens Béziers - Clermont-Ferrand;Paulhan;Repos;Km 303;303
+A75;Sens Béziers - Clermont-Ferrand;Le Caylar;Service;Km 262;262
+A75;Sens Béziers - Clermont-Ferrand;Le Larzac;Service;Km 239;239
+A75;Sens Béziers - Clermont-Ferrand;Le Viaduc de Millau;Repos;Km 219;219
+A75;Sens Béziers - Clermont-Ferrand;Saint-Germain;Repos;Km 215;215
+A75;Sens Béziers - Clermont-Ferrand;La Garrigue;Repos;Km 210;210
+A75;Sens Béziers - Clermont-Ferrand;L'Aveyron;Service;Km 189;189
+A75;Sens Béziers - Clermont-Ferrand;Marvejols;Repos;Km 157;157
+A75;Sens Béziers - Clermont-Ferrand;L'Aubrac;Repos;Km 133;133
+A75;Sens Béziers - Clermont-Ferrand;La Lozère;Service;Km 116;116
+A75;Sens Béziers - Clermont-Ferrand;Garabit;Repos;Km 103;103
+A75;Sens Béziers - Clermont-Ferrand;Montchauvet;Repos;Km 90;90
+A75;Sens Béziers - Clermont-Ferrand;Lafayette - Lorlanges;Service;Km 58;58
+A75;Sens Béziers - Clermont-Ferrand;Le Lembron;Repos;Km 41;41
+A75;Sens Béziers - Clermont-Ferrand;Authezat;Service;Km 17;17
+A77;Sens Paris - Nevers;Val-de-Loing;Repos;Km 6;6
+A77;Sens Paris - Nevers;Le Hêtre Pourpre;Repos;Km 11;11
+A77;Sens Paris - Nevers;Le Cèdre;Repos;Km 30;30
+A77;Sens Paris - Nevers;Le Jardin des Arbres;Service;Km 45;45
+A77;Sens Paris - Nevers;Le Ginkgo;Repos;Km 64;64
+A77;Sens Paris - Nevers;Le Caule;Repos;Km 88;88
+A77;Sens Paris - Nevers;Myennes;Repos;Km 97;97
+A77;Sens Paris - Nevers;Les Vignobles;Service;Km 110;110
+A77;Sens Paris - Nevers;Pouilly-sur-Loire;Repos;Km 115;115
+A77;Sens Paris - Nevers;La Charité-sur-Loire;Repos;Km 128;128
+A77;Sens Paris - Nevers;Pougues-les-Eaux;Repos;Km 144;144
+A77;Sens Nevers - Paris;Les Faïenciers;Repos;Km 75 (Sur RN7);75
+A77;Sens Nevers - Paris;Pougues-les-Eaux;Repos;Km 145;145
+A77;Sens Nevers - Paris;La Marche;Repos;Km 132;132
+A77;Sens Nevers - Paris;Pouilly-sur-Loire;Repos;Km 119;119
+A77;Sens Nevers - Paris;Les Vignobles;Service;Km 110;110
+A77;Sens Nevers - Paris;Myennes;Repos;Km 97;97
+A77;Sens Nevers - Paris;Le Séquoia;Repos;Km 89;89
+A77;Sens Nevers - Paris;Le Tulipier;Repos;Km 64;64
+A77;Sens Nevers - Paris;Le Jardin des Arbres;Service;Km 45;45
+A77;Sens Nevers - Paris;Le Liquidambar;Repos;Km 30;30
+A77;Sens Nevers - Paris;Le Sophora;Repos;Km 11;11
+A77;Sens Nevers - Paris;Val-de-Loing;Repos;Km 6;6
+A79;Sens Montmarault - Digoin;Deux-Chaises;Repos;Km 7;7
+A79;Sens Montmarault - Digoin;Cressanges;Repos;Km 21;21
+A79;Sens Montmarault - Digoin;Bourbonnais;Service;Km 38;38
+A79;Sens Montmarault - Digoin;Pierrefitte-sur-Loire;Repos;Km 73;73
+A79;Sens Digoin - Montmarault;Pierrefitte-sur-Loire;Repos;Km 73;73
+A79;Sens Digoin - Montmarault;Bourbonnais;Service;Km 38;38
+A79;Sens Digoin - Montmarault;Cressanges;Repos;Km 21;21
+A79;Sens Digoin - Montmarault;Deux-Chaises;Repos;Km 7;7
+A81;Sens Le Mans - Rennes;La Landrière;Repos;Km 179;179
+A81;Sens Le Mans - Rennes;Les Gripperies;Repos;Km 198;198
+A81;Sens Le Mans - Rennes;Saint-Denis-d'Orques;Service;Km 211;211
+A81;Sens Le Mans - Rennes;Villeray;Repos;Km 225;225
+A81;Sens Le Mans - Rennes;La Mayenne;Service;Km 241;241
+A81;Sens Le Mans - Rennes;La Paplonnière;Repos;Km 259;259
+A81;Sens Le Mans - Rennes;La Gravelle;Repos;Km 267;267
+A81;Sens Le Mans - Rennes;Erbrée;Service;Km 4 ( RN157 );4
+A81;Sens Rennes - Le Mans;Mondevert;Service;Km 4 ( RN157 );4
+A81;Sens Rennes - Le Mans;La Gravelle;Repos;Km 267;267
+A81;Sens Rennes - Le Mans;La Sorinière;Repos;Km 259;259
+A81;Sens Rennes - Le Mans;Le Château de Ricoudet;Repos;Km 248;248
+A81;Sens Rennes - Le Mans;La Mayenne;Service;Km 241;241
+A81;Sens Rennes - Le Mans;Les Coëvrons;Repos;Km 225;225
+A81;Sens Rennes - Le Mans;Vallée de l'Erve;Service;Km 212;212
+A81;Sens Rennes - Le Mans;La Coire;Repos;Km 198;198
+A81;Sens Rennes - Le Mans;La Chevallerie;Repos;Km 179;179
+A83;Sens Nantes - Niort;La Grassinière;Service;Km 2;2
+A83;Sens Nantes - Niort;Le Bignon;Repos;Km 3;3
+A83;Sens Nantes - Niort;Remouillé;Repos;Km 15;15
+A83;Sens Nantes - Niort;Les Brouzils;Service;Km 33;33
+A83;Sens Nantes - Niort;Grissay;Repos;Km 49;49
+A83;Sens Nantes - Niort;La Vendée;Service;Km 72;72
+A83;Sens Nantes - Niort;Auzay;Repos;Km 97;97
+A83;Sens Nantes - Niort;Les Deux-Sèvres;Service;Km 126;126
+A83;Sens Niort - Nantes;La Parthenaise;Service;Km 126;126
+A83;Sens Niort - Nantes;Auzay;Repos;Km 96;96
+A83;Sens Niort - Nantes;La Vendée;Service;Km 72;72
+A83;Sens Niort - Nantes;Sainte-Florence;Repos;Km 49;49
+A83;Sens Niort - Nantes;Chavagnes-en-Paillers;Service;Km 33;33
+A83;Sens Niort - Nantes;Remouillé;Repos;Km 15;15
+A83;Sens Niort - Nantes;Le Bignon;Repos;Km 3;3
+A83;Sens Niort - Nantes;La Grassinière;Service;Km 2;2
+A84;Sens Caen - Rennes;Cahagnes;Repos;Km 233;233
+A84;Sens Caen - Rennes;La vallée de la Vire-Gouvets;Service;Km 202;202
+A84;Sens Caen - Rennes;Baie du Mont-Saint-Michel;Repos;Km 178;178
+A84;Sens Caen - Rennes;Le Mont-Saint-Michel;Service;Km 157;157
+A84;Sens Caen - Rennes;Le Coglès-Ouest;Repos;Km 141;141
+A84;Sens Caen - Rennes;La Lande;Repos;Km 125;125
+A84;Sens Rennes - Caen;La Chaîne;Repos;Km 125;125
+A84;Sens Rennes - Caen;Le Coglès-Est;Repos;Km 140;140
+A84;Sens Rennes - Caen;Le Mont-Saint-Michel;Service;Km 157;157
+A84;Sens Rennes - Caen;Baie du Mont-Saint-Michel;Repos;Km 178;178
+A84;Sens Rennes - Caen;La vallée de la Vire-Gouvets;Service;Km 202;202
+A84;Sens Rennes - Caen;Saint-Jean-des-Essartiers;Repos;Km 233;233
+A85;Sens Vierzon - Angers;La Grange Rouge;Repos;Km 197;197
+A85;Sens Vierzon - Angers;Romorantin;Service;Km 176;176
+A85;Sens Vierzon - Angers;Bois de Faix;Repos;Km 142;142
+A85;Sens Vierzon - Angers;Le Val de Cher;Service;Km 116;116
+A85;Sens Vierzon - Angers;Veigné;Repos;Km 103;103
+A85;Sens Vierzon - Angers;Les jardins de Villandry;Service;Km 86;86
+A85;Sens Vierzon - Angers;Restigné;Repos;Km 62;62
+A85;Sens Vierzon - Angers;Saint-Nicolas-de-Bourgueil;Repos;Km 53;53
+A85;Sens Vierzon - Angers;Longué-les-Cossonnières;Service;Km 23;23
+A85;Sens Angers - Vierzon;Corzé;Repos;Km 0;0
+A85;Sens Angers - Vierzon;Longué-la-Couaille;Service;Km 23;23
+A85;Sens Angers - Vierzon;Chouzé-sur-Loire;Repos;Km 53;53
+A85;Sens Angers - Vierzon;Restigné;Repos;Km 62;62
+A85;Sens Angers - Vierzon;Les jardins de Villandry;Service;Km 86;86
+A85;Sens Angers - Vierzon;Veigné;Repos;Km 103;103
+A85;Sens Angers - Vierzon;Le Val de Cher;Service;Km 116;116
+A85;Sens Angers - Vierzon;La Canarderie;Repos;Km 142;142
+A85;Sens Angers - Vierzon;Romorantin;Service;Km 176;176
+A85;Sens Angers - Vierzon;Le Jarrier;Repos;Km 197;197
+A86;Sens intérieur;Pompadour;Service;Km 40;40
+A86;Sens intérieur;Vélizy-Ouest;Service;Km 63;63
+A86;Sens extérieur;Clair-Bois;Service;Km 63;63
+A86;Sens extérieur;Pompadour;Service;Km 40;40
+A87;Sens Angers - La Roche sur Yon;Beaulieu;Repos;Km 10;10
+A87;Sens Angers - La Roche sur Yon;Trémentines;Service;Km 42;42
+A87;Sens Angers - La Roche sur Yon;Les Herbiers;Service;Km 76;76
+A87;Sens Angers - La Roche sur Yon;La Roche-sur-Yon;Repos;Km 113;113
+A87;Sens La Roche sur Yon - Angers;La Roche-sur-Yon;Repos;Km 113;113
+A87;Sens La Roche sur Yon - Angers;Les Herbiers;Service;Km 76;76
+A87;Sens La Roche sur Yon - Angers;Trémentines;Service;Km 42;42
+A87;Sens La Roche sur Yon - Angers;Beaulieu;Repos;Km 10;10
+A88;Sens Caen - Sées;Sans nom;Service;Km 38 ( RN158 );38
+A88;Sens Caen - Sées;Soulangy;Repos;Km 13 ( RN158 );13
+A88;Sens Caen - Sées;Rônai;Repos;Km 34;34
+A88;Sens Caen - Sées;Pays d'Argentan;Service;Km 22;22
+A88;Sens Caen - Sées;Sées-Ouest;Repos;Km 1;1
+A88;Sens Sées - Caen;Sées-Est;Repos;Km 1;1
+A88;Sens Sées - Caen;Pays d'Argentan;Service;Km 22;22
+A88;Sens Sées - Caen;Rônai;Repos;Km 34;34
+A88;Sens Sées - Caen;Soulangy;Repos;Km 13 ( RN158 );13
+A89;Sens Bordeaux - Lyon;Arveyres;Repos;Km 21;21
+A89;Sens Bordeaux - Lyon;Les Vignes;Repos;Km 36;36
+A89;Sens Bordeaux - Lyon;Les Palombières;Service;Km 54;54
+A89;Sens Bordeaux - Lyon;Mussidan;Repos;Km 90;90
+A89;Sens Bordeaux - Lyon;Le Manoire;Service;Km 125;125
+A89;Sens Bordeaux - Lyon;Thenon;Repos;Km 157;157
+A89;Sens Bordeaux - Lyon;Le Pays de Brive;Service;Km 162;162
+A89;Sens Bordeaux - Lyon;Saint-Germain-les-Vergnes;Repos;Km 203;203
+A89;Sens Bordeaux - Lyon;La Corrèze;Service;Km 232;232
+A89;Sens Bordeaux - Lyon;La Loutre;Repos;Km 271;271
+A89;Sens Bordeaux - Lyon;Les Présidents;Service;Km 288;288
+A89;Sens Bordeaux - Lyon;Heume-l'Église;Repos;Km 312;312
+A89;Sens Bordeaux - Lyon;Manzat;Service;Km 350;350
+A89;Sens Bordeaux - Lyon;Montpertuis;Repos;Km 372 ( A71 );372
+A89;Sens Bordeaux - Lyon;Clermont-Barrière (Gerzat);Repos;Km 381 ( A71 );381
+A89;Sens Bordeaux - Lyon;Les Martres-d'Artière;Repos;Km 408;408
+A89;Sens Bordeaux - Lyon;Le Branchillon;Repos;Km 412;412
+A89;Sens Bordeaux - Lyon;La Limagne;Service;Km 421;421
+A89;Sens Bordeaux - Lyon;Les Pins;Repos;Km 436;436
+A89;Sens Bordeaux - Lyon;Le Haut-Forez;Service;Km 457;457
+A89;Sens Bordeaux - Lyon;Les Bruyères;Repos;Km 482;482
+A89;Sens Bordeaux - Lyon;La Loire;Service;Km 494;494
+A89;Sens Bordeaux - Lyon;Tarare;Repos;Km 520;520
+A89;Sens Bordeaux - Lyon;Les Pierres Dorées;Repos;Km 527;527
+A89;Sens Lyon - Bordeaux;Les Pierres Dorées;Repos;Km 527;527
+A89;Sens Lyon - Bordeaux;Tarare;Repos;Km 520;520
+A89;Sens Lyon - Bordeaux;La Loire;Service;Km 494;494
+A89;Sens Lyon - Bordeaux;Les Ardilliers;Repos;Km 482;482
+A89;Sens Lyon - Bordeaux;Le Haut-Forez;Service;Km 457;457
+A89;Sens Lyon - Bordeaux;Les Suchères;Repos;Km 450;450
+A89;Sens Lyon - Bordeaux;Le Lac;Repos;Km 436;436
+A89;Sens Lyon - Bordeaux;La Limagne;Service;Km 421;421
+A89;Sens Lyon - Bordeaux;Les Pacages;Repos;Km 412;412
+A89;Sens Lyon - Bordeaux;Les Martres-d'Artière;Repos;Km 408;408
+A89;Sens Lyon - Bordeaux;Clermont-Barrière (Gerzat);Repos;Km 381 ( A71 );381
+A89;Sens Lyon - Bordeaux;Pessat-Villeneuve;Repos;Km 372 ( A71 );372
+A89;Sens Lyon - Bordeaux;Manzat;Service;Km 350;350
+A89;Sens Lyon - Bordeaux;Prondines;Repos;Km 312;312
+A89;Sens Lyon - Bordeaux;Les Présidents;Service;Km 288;288
+A89;Sens Lyon - Bordeaux;La Loutre;Repos;Km 271;271
+A89;Sens Lyon - Bordeaux;La Corrèze;Service;Km 232;232
+A89;Sens Lyon - Bordeaux;Saint-Germain-les-Vergnes;Repos;Km 203;203
+A89;Sens Lyon - Bordeaux;Le Pays de Brive;Service;Km 162;162
+A89;Sens Lyon - Bordeaux;Thenon;Repos;Km 157;157
+A89;Sens Lyon - Bordeaux;Le Manoire;Service;Km 125;125
+A89;Sens Lyon - Bordeaux;Mussidan;Repos;Km 90;90
+A89;Sens Lyon - Bordeaux;Les Palombières;Service;Km 54;54
+A89;Sens Lyon - Bordeaux;Les Vignes;Repos;Km 36;36
+A89;Sens Lyon - Bordeaux;Arveyres;Repos;Km 21;21
+A104;Sens Cergy-Pontoise - Marcoussis;Vert Galant Nord;Service;Km 5 ( RN184 );5
+A104;Sens Cergy-Pontoise - Marcoussis;Les Quatre Chemins;Service;Km 10 ( RN184 );10
+A104;Sens Cergy-Pontoise - Marcoussis;Attainville;Service;Km 10 ( RN104 );10
+A104;Sens Cergy-Pontoise - Marcoussis;Villevaudé Sud;Service;Km 19 ( A104 );19
+A104;Sens Cergy-Pontoise - Marcoussis;Les Berchères;Service;Km 5 ( RN104 );5
+A104;Sens Cergy-Pontoise - Marcoussis;La Pointe Ringale;Service;Km 31 ( RN104 );31
+A104;Sens Cergy-Pontoise - Marcoussis;Beauvert;Service;Km 57 ( RN104 );57
+A104;Sens Marcoussis - Cergy-Pontoise;Fond des Prés;Service;Km 56 ( RN104 );56
+A104;Sens Marcoussis - Cergy-Pontoise;Fleury;Service;Km 42 ( RN104 );42
+A104;Sens Marcoussis - Cergy-Pontoise;Les Chevreaux;Service;Km 31 ( RN104 );31
+A104;Sens Marcoussis - Cergy-Pontoise;Villevaudé Nord;Service;Km 19 ( A104 );19
+A104;Sens Marcoussis - Cergy-Pontoise;Les Quatre Chemins;Service;Km 7 ( RN184 );7
+A104;Sens Marcoussis - Cergy-Pontoise;Saint-Ouen-l'Aumône;Service;Km 4 ( RN184 );4
+A105;Sens Brie-Comte-Robert - Melun;Galande-la-Sablière;Service;Km 5;5
+A105;Sens Melun - Brie-Comte-Robert;Galande-la-Mare-Laroche;Service;Km 5;5
+A106;Sens Paris - Orly;Rungis-Delta;Service;Km 6;6
+A131;Sens Le Havre - Rouen;Pont de Tancarville;Repos;Km 1 ( RN182 );1
+A131;Sens Le Havre - Rouen;Bourneville;Repos;Km 1;1
+A131;Sens Rouen - Le Havre;Bourneville;Repos;Km 1;1
+A131;Sens Rouen - Le Havre;Pont de Tancarville;Repos;Km 1 ( RN182 );1
+A150;Sens Rouen-Le Havre;La Vaupalière;Service;Km 8;8
+A150;Sens Rouen-Le Havre;Bouville;Repos;km 16;16
+A150;Sens Le Havre-Rouen;La vallée d'Écalles;Repos;km 16;16
+A154;Sens A13 - Evreux;Val-de-Reuil;Repos;Km 1;1
+A154;Sens Evreux - A13;Val-de-Reuil;Repos;Km 1;1
+A304;Sens Charleroi - Reims;Rocroi;Repos;Km 8;8
+A304;Sens Reims - Charleroi;Rocroi;Repos;Km 8;8
+A311;Sens A31 - Dijon;Dijon-Sud;Repos;Km 31;31
+A311;Sens Dijon - A31;Dijon-Sud;Repos;Km 31;31
+A330;Sens Nancy - Flavigny-sur-Moselle;Le Canal de l'Est;Service;Km 6;6
+A355;Sens Innenheim - Vendenheim;La Bruche;Service;Km 4;4
+A355;Sens Innenheim - Vendenheim;Ittenheim;Repos;Km 13;13
+A355;Sens Vendenheim - Innenheim;Ittenheim;Repos;Km 13;13
+A355;Sens Vendenheim - Innenheim;La Bruche;Service;Km 4;4
+A391;Sens A39 - Poligny;Bersaillin;Repos;Km 1;1
+A391;Sens Poligny - A39;Bersaillin;Repos;Km 1;1
+A404;Sens A40 - Oyonnax;Groissiat;Repos;Km 12;12
+A404;Sens Oyonnax - A40;Groissiat;Repos;Km 12;12
+A406;Sens RN79 - A40;Replonges;Repos;Km 1;1
+A406;Sens A40 - RN79;Replonges;Repos;Km 1;1
+A410;Sens Annecy - Chamonix;Crêts Blancs;Service;Km 144;144
+A410;Sens Annecy - Chamonix;Étaux;Repos;Km 154;154
+A410;Sens Chamonix - Annecy;Évires;Repos;Km 154;154
+A410;Sens Chamonix - Annecy;Groisy;Service;Km 144;144
+A430;Sens A43 - Albertville;Sainte-Hélène-sur-Isère;Repos;Km 135;135
+A430;Sens Albertville - A43;Sainte-Hélène-sur-Isère;Repos;Km 143;143
+A432;Sens Les Échets - Saint-Laurent-de-Mure;Saint-Exupéry;Repos;Km 32;32
+A500;Sens A8 - Monaco;La Turbie;Repos;Km 1;1
+A500;Sens Monaco - A8;La Turbie;Repos;Km 1;1
+A520;Sens A52 - Auriol;Auriol;Repos;Km 2;2
+A520;Sens Auriol - A52;Auriol;Repos;Km 2;2
+A570;Sens Hyères - Toulon;Saint-Augustin;Service;Km 1;1
+A570;Sens Toulon - Hyères;Sans nom;Repos;Km 10 ( RN98 );10
+A620;Sens Bordeaux - Montpellier;Station-service;Service;Km 7;7
+A620;Sens Montpellier - Bordeaux;Station-service;Service;Km 7;7
+A630;Sens extérieur;Aquitaine-Nord;Service;Km 6;6
+A630;Sens extérieur;Aquitaine;Service;Km 15;15
+A630;Sens extérieur;Thouars-Sud;Service;Km 28;28
+A630;Sens extérieur;Fontbelleau;Service;Km 43 ( RN230 );43
+A630;Sens intérieur;Lormont;Service;Km 43 ( RN230 );43
+A630;Sens intérieur;Thouars-Nord;Service;Km 28;28
+A630;Sens intérieur;Gironde;Service;Km 15;15
+A630;Sens intérieur;Aquitaine-Sud;Service;Km 6;6
+A641;Sens A64 - Dax;Peyrehorade;Repos;Km 1;1
+A641;Sens Dax - A64;Peyrehorade;Repos;Km 1;1
+A645;Sens A64 - Espagne;Montréjeau;Repos;Km 1;1
+A645;Sens Espagne - A64;Montréjeau;Repos;Km 1;1
+A701;Sens A10 - Orléans;Orléans-Nord;Repos;Km 1;1
+A709;Sens Orange - Le Perthus;Baillargues;Repos;15 km au Nord-Est de Montpellier;15
+A709;Sens Orange - Le Perthus;Saint-Jean-de-Védas;Repos;4 km au Sud-Ouest de Montpellier;4
+A709;Sens Le Perthus - Orange;Saint-Jean-de-Védas;Repos;4 km au Sud-Ouest de Montpellier;4
+A709;Sens Le Perthus - Orange;Baillargues;Repos;15 km au Nord-Est de Montpellier;15
+A714;Sens A71 - Quinssaines;Bedun;Repos;Km 1;1
+A714;Sens Quinssaines - A71;Les Amarons;Repos;Km 1;1
+A719;Sens A71 - Vichy;Vichy;Repos;Km 21;21
+A719;Sens A71 - Vichy;Gannat;Repos;Km 1;1
+A719;Sens Vichy - A71;Gannat;Repos;Km 1;1
+A719;Sens Vichy - A71;Vichy;Repos;Km 21;21
+A750;Sens Lodève - Montpellier;La Taillade;Service;Km 23;23
+A750;Sens Montpellier - Lodève;La Taillade;Service;Km 23;23
+A837;Sens Rochefort - Saintes;Cabariot;Repos;Km 13;13
+A837;Sens Rochefort - Saintes;Les Oiseaux;Repos;Km 26;26
+A837;Sens Saintes - Rochefort;La Pierre de Crazannes;Repos;Km 29;29
+A837;Sens Saintes - Rochefort;Cabariot;Repos;Km 13;13

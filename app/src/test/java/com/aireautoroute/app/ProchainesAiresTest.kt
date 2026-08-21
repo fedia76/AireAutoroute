@@ -9,6 +9,7 @@ import com.aireautoroute.app.data.Notation
 import com.aireautoroute.app.data.PositionUtilisateur
 import com.aireautoroute.app.data.Sens
 import com.aireautoroute.app.data.SourcePosition
+import com.aireautoroute.app.data.StatutEquipement
 import com.aireautoroute.app.data.TrancheAge
 import com.aireautoroute.app.data.detailAire
 import com.aireautoroute.app.data.prochainesAires
@@ -81,8 +82,11 @@ class ProchainesAiresTest {
         val detail = detailAire(catalogue, donnees, "devant-proche")!!
         val jeux = detail.criteres.first { it.critere == Critere.AIRE_JEUX_EXTERIEURE }
         assertEquals(4.5, jeux.parTrancheAge[TrancheAge.ANS_3_6]!!.moyenne, 0.001)
-        assertTrue(jeux.disponible)
-        assertTrue(detail.criteres.first { it.critere == Critere.STATION_SERVICE }.disponible.not())
+        assertEquals(StatutEquipement.ANNONCE, jeux.consensus?.statut)
+        assertEquals(
+            StatutEquipement.INCONNU,
+            detail.criteres.first { it.critere == Critere.STATION_SERVICE }.consensus?.statut,
+        )
     }
 
     private fun notation(aireId: String, critere: Critere, tranche: TrancheAge?, note: Int) = Notation(

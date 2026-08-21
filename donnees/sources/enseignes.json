@@ -1,0 +1,127 @@
+[
+  {
+    "id": "totalenergies",
+    "nom": "TotalEnergies",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "esso",
+    "nom": "Esso",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "shell",
+    "nom": "Shell",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "bp",
+    "nom": "BP",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "avia",
+    "nom": "Avia",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "agip",
+    "nom": "Agip",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "mcdonalds",
+    "nom": "McDonald's",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "burger_king",
+    "nom": "Burger King",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "kfc",
+    "nom": "KFC",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "paul",
+    "nom": "Paul",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "brioche_doree",
+    "nom": "Brioche Dorée",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "la_croissanterie",
+    "nom": "La Croissanterie",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "starbucks",
+    "nom": "Starbucks",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "columbus_cafe",
+    "nom": "Columbus Café",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "marie_blachere",
+    "nom": "Marie Blachère",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "le_kiosque_a_pizzas",
+    "nom": "Le Kiosque à Pizzas",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "autogrill",
+    "nom": "Autogrill",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "arche",
+    "nom": "L'Arche",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "cote_france",
+    "nom": "Côté France",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "relais",
+    "nom": "Relais",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "carrefour_express",
+    "nom": "Carrefour Express",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "vival",
+    "nom": "Vival",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "daily_monop",
+    "nom": "Daily Monop'",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "ibis_budget",
+    "nom": "Ibis Budget",
+    "categorie": "HOTEL"
+  },
+  {
+    "id": "b_and_b",
+    "nom": "B&B Hôtels",
+    "categorie": "HOTEL"
+  }
+]
