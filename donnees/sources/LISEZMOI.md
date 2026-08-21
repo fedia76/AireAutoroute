@@ -19,6 +19,16 @@ Catalogue des aires extrait de [WikiSara](https://routes.fandom.com), sous **CC 
 par `tools/scrapper_wikisara.py`. Le CSV versionné fait foi : le script n'est rejoué que pour le
 rafraîchir, à la demande.
 
+## `osm_aires.json`
+
+Aires d'autoroute et équipements relevés dans [OpenStreetMap](https://www.openstreetmap.org),
+sous **licence ODbL** — les données doivent être attribuées à ses contributeurs, et toute base
+qui en dérive reste sous la même licence. Produit par `tools/scrapper_osm.py`, qui interroge
+l'API Overpass.
+
+Le fichier est brut : les objets n'y sont pas encore rattachés aux aires du référentiel. Ce
+rattachement se fait hors ligne, dans la chaîne d'import.
+
 ## `enseignes.json`
 
 Référentiel des enseignes tenu à la main. Il sert de liste de saisie dans l'application ; aucune

@@ -9,6 +9,14 @@ on:
         description: "Relancer le scraping de WikiSara avant de régénérer (sinon, on repart du CSV versionné)"
         type: boolean
         default: false
+      rafraichir_osm:
+        description: "Relever les aires et leurs équipements dans OpenStreetMap"
+        type: boolean
+        default: false
+      autoroutes_osm:
+        description: "Limiter le relevé OSM à ces autoroutes (ex. A13,A10) ; vide = France entière"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -34,6 +42,19 @@ jobs:
         run: |
           pip install requests beautifulsoup4
           python3 ../../tools/scrapper_wikisara.py
+
+      - name: Relevé d'OpenStreetMap
+        if: ${{ inputs.rafraichir_osm }}
+        run: |
+          if [ -n "${{ inputs.autoroutes_osm }}" ]; then
+            python3 tools/scrapper_osm.py --autoroutes "${{ inputs.autoroutes_osm }}"
+          else
+            python3 tools/scrapper_osm.py
+          fi
+
+      - name: Relevé OSM dans le résumé du run
+        if: ${{ inputs.rafraichir_osm }}
+        run: cat donnees/rapport_osm.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Génération des fichiers de données
         run: python3 tools/generer_donnees.py
