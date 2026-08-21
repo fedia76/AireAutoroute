@@ -16,6 +16,26 @@ l'autoroute et les **noter**, en particulier quand on voyage avec des enfants.
 3. **Un clic ouvre le détail** : statut de chaque équipement, notes par critère, notes par tranche
    d'âge, commentaires, enseignes (qu'on peut compléter), et un formulaire de contribution.
 
+### Trois habillages au choix
+
+L'icône palette, en haut de l'écran d'accueil, ouvre le choix du thème. Le réglage est conservé
+d'une session à l'autre (préférences Android, pas le fichier de données).
+
+| Thème | Parti pris | Style de liste |
+| --- | --- | --- |
+| **Signalétique** (par défaut) | le bleu des panneaux d'autoroute, angles francs, distances en cartouche | cartes bordées d'un liseré coloré |
+| **Carnet de route** | fond papier, titres en serif, avis mis en avant | cartes souples, notes des jeux en barres |
+| **Copilote** | tableau de bord sombre, chiffres en chasse fixe, lecture de nuit | lignes denses séparées par des filets |
+
+Un thème regroupe une palette (claire et sombre), une typographie, des formes et un style de liste
+— la structure des écrans, elle, ne change pas. *Signalétique* et *Carnet* suivent le réglage
+clair/sombre du téléphone ; *Copilote* n'existe qu'en sombre, c'est son propos. Tout est dans
+`ui/theme/ThemeApp.kt` : ajouter un quatrième thème revient à ajouter une entrée à l'énumération.
+
+Faute de pouvoir embarquer les fontes des maquettes (Barlow, Source Serif, IBM Plex) sans les
+télécharger, les thèmes s'appuient sur les familles du système — sans-serif, serif et monospace —
+en gardant la structure des trois ramps typographiques.
+
 ### Critères
 
 | Critère | Noté | Détail |

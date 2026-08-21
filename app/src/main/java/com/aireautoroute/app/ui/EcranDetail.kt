@@ -10,8 +10,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
@@ -19,6 +22,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.InputChip
 import androidx.compose.material3.MaterialTheme
@@ -38,7 +42,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.aireautoroute.app.data.AireDetail
-import com.aireautoroute.app.data.ConsensusEquipement
 import com.aireautoroute.app.data.DetailCritere
 import com.aireautoroute.app.data.Notation
 import com.aireautoroute.app.data.StatutEquipement
@@ -59,7 +62,9 @@ fun EcranDetail(
             TopAppBar(
                 title = { Text(detail?.aire?.nom ?: "Aire") },
                 navigationIcon = {
-                    IconButton(onClick = onRetour) { Text("←", style = MaterialTheme.typography.titleLarge) }
+                    IconButton(onClick = onRetour) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Retour")
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
@@ -198,10 +203,20 @@ private fun CarteCritere(detail: DetailCritere) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(
-                    text = "${detail.critere.emoji}  ${detail.critere.libelle}",
-                    style = MaterialTheme.typography.titleSmall,
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = detail.critere.icone,
+                        contentDescription = null,
+                        tint = detail.consensus
+                            ?.let { couleurStatut(it.statut) }
+                            ?: MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.size(20.dp),
+                    )
+                    Text(
+                        text = "  " + detail.critere.libelle,
+                        style = MaterialTheme.typography.titleSmall,
+                    )
+                }
                 detail.consensus?.let { EtiquetteStatut(it) }
             }
 
@@ -225,7 +240,7 @@ private fun CarteCritere(detail: DetailCritere) {
                             style = MaterialTheme.typography.bodySmall,
                             modifier = Modifier.padding(end = 8.dp),
                         )
-                        EtoilesLecture(note.moyenne, taille = 14)
+                        EtoilesLecture(note.moyenne, taille = 14.dp)
                         Text(
                             text = " %.1f".format(note.moyenne),
                             style = MaterialTheme.typography.bodySmall,
@@ -247,7 +262,7 @@ private fun CarteCritere(detail: DetailCritere) {
 private fun LigneCommentaire(notation: Notation) {
     Column(Modifier.padding(vertical = 2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            EtoilesLecture(notation.note.toDouble(), taille = 12)
+            EtoilesLecture(notation.note.toDouble(), taille = 12.dp)
             Text(
                 text = " ${notation.auteur}" +
                     (notation.trancheAge?.let { " · ${it.libelle}" } ?: "") +
@@ -262,20 +277,4 @@ private fun LigneCommentaire(notation: Notation) {
             fontWeight = FontWeight.Normal,
         )
     }
-}
-
-/** Pastille colorée résumant ce que l'on sait de la présence d'un équipement. */
-@Composable
-private fun EtiquetteStatut(consensus: ConsensusEquipement) {
-    val couleur = when (consensus.statut) {
-        StatutEquipement.CONFIRME -> MaterialTheme.colorScheme.primary
-        StatutEquipement.A_CONFIRMER, StatutEquipement.ANNONCE -> MaterialTheme.colorScheme.secondary
-        StatutEquipement.ABSENT -> MaterialTheme.colorScheme.error
-        StatutEquipement.INCONNU -> MaterialTheme.colorScheme.onSurfaceVariant
-    }
-    Text(
-        text = (if (consensus.presentAvere) "✓ " else "") + consensus.statut.libelle,
-        style = MaterialTheme.typography.labelSmall,
-        color = couleur,
-    )
 }

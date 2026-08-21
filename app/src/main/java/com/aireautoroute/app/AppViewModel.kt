@@ -12,6 +12,7 @@ import com.aireautoroute.app.data.Critere
 import com.aireautoroute.app.data.DeclarationEquipement
 import com.aireautoroute.app.data.DepotDonnees
 import com.aireautoroute.app.data.Notation
+import com.aireautoroute.app.data.PreferencesUi
 import com.aireautoroute.app.data.PositionUtilisateur
 import com.aireautoroute.app.data.Presence
 import com.aireautoroute.app.data.Sens
@@ -22,11 +23,13 @@ import com.aireautoroute.app.data.prochainesAires
 import com.aireautoroute.app.geo.LocalisateurPk
 import com.aireautoroute.app.geo.ResultatLocalisation
 import com.aireautoroute.app.geo.SuiviPosition
+import com.aireautoroute.app.ui.theme.ThemeApp
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
@@ -63,6 +66,14 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
 
     private val depot = DepotDonnees(application)
     private val suivi = SuiviPosition(application)
+    private val preferences = PreferencesUi(application)
+
+    /** Habillage choisi par l'utilisateur, appliqué à toute l'application. */
+    val theme: StateFlow<ThemeApp> = preferences.theme
+        .map { nom -> ThemeApp.entries.firstOrNull { it.name == nom } ?: ThemeApp.SIGNALETIQUE }
+        .stateIn(viewModelScope, SharingStarted.Eagerly, ThemeApp.SIGNALETIQUE)
+
+    fun definirTheme(theme: ThemeApp) = preferences.definirTheme(theme.name)
 
     private val positionChoisie = MutableStateFlow<PositionUtilisateur?>(null)
     private val etatLocalisation = MutableStateFlow(EtatLocalisation())

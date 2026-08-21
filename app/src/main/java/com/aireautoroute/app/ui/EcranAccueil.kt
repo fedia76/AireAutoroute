@@ -1,5 +1,8 @@
 package com.aireautoroute.app.ui
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,24 +11,33 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.AssistChip
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MyLocation
+import androidx.compose.material.icons.filled.Palette
+import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -45,30 +57,47 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.aireautoroute.app.EtatUi
 import com.aireautoroute.app.data.AireResume
 import com.aireautoroute.app.data.Autoroute
+import com.aireautoroute.app.data.Enseigne
+import com.aireautoroute.app.data.ConsensusEquipement
+import com.aireautoroute.app.data.NoteAgregee
 import com.aireautoroute.app.data.Sens
 import com.aireautoroute.app.data.SourcePosition
-import com.aireautoroute.app.data.StatutEquipement
 import com.aireautoroute.app.data.TrancheAge
+import com.aireautoroute.app.ui.theme.LocalThemeApp
+import com.aireautoroute.app.ui.theme.StyleListe
+import com.aireautoroute.app.ui.theme.ThemeApp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EcranAccueil(
     etat: EtatUi,
+    themeCourant: ThemeApp,
+    onTheme: (ThemeApp) -> Unit,
     onPositionManuelle: (Autoroute, Double, Sens) -> Unit,
     onInverserSens: () -> Unit,
     onAire: (String) -> Unit,
     onLocaliser: () -> Unit,
 ) {
+    var dialogueTheme by remember { mutableStateOf(false) }
+
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
                 title = { Text("Aires d'autoroute") },
+                actions = {
+                    IconButton(onClick = { dialogueTheme = true }) {
+                        Icon(Icons.Filled.Palette, contentDescription = "Changer d'apparence")
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
                 ),
             )
         },
@@ -80,19 +109,22 @@ fun EcranAccueil(
             return@Scaffold
         }
 
+        val dense = LocalThemeApp.current.styleListe == StyleListe.TABLEAU_DE_BORD
+
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(
-                start = 16.dp,
-                end = 16.dp,
+                start = if (dense) 0.dp else 16.dp,
+                end = if (dense) 0.dp else 16.dp,
                 top = encarts.calculateTopPadding() + 12.dp,
                 bottom = encarts.calculateBottomPadding() + 24.dp,
             ),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(if (dense) 0.dp else 12.dp),
         ) {
             item {
                 CartePosition(
                     etat = etat,
+                    modifier = if (dense) Modifier.padding(horizontal = 16.dp) else Modifier,
                     onPositionManuelle = onPositionManuelle,
                     onInverserSens = onInverserSens,
                     onLocaliser = onLocaliser,
@@ -108,20 +140,40 @@ fun EcranAccueil(
                             "Prochaines aires (${etat.prochainesAires.size})"
                         },
                         style = MaterialTheme.typography.titleMedium,
-                        modifier = Modifier.padding(top = 4.dp),
+                        modifier = Modifier.padding(
+                            start = if (dense) 16.dp else 0.dp,
+                            end = if (dense) 16.dp else 0.dp,
+                            top = if (dense) 18.dp else 4.dp,
+                            bottom = if (dense) 8.dp else 0.dp,
+                        ),
                     )
                 }
                 items(etat.prochainesAires, key = { it.aire.id }) { resume ->
-                    CarteAireResume(resume = resume, onClick = { onAire(resume.aire.id) })
+                    when (LocalThemeApp.current.styleListe) {
+                        StyleListe.PANNEAU -> AirePanneau(resume) { onAire(resume.aire.id) }
+                        StyleListe.CARNET -> AireCarnet(resume) { onAire(resume.aire.id) }
+                        StyleListe.TABLEAU_DE_BORD -> AireTableauDeBord(resume) { onAire(resume.aire.id) }
+                    }
                 }
             }
         }
     }
+
+    if (dialogueTheme) {
+        DialogueTheme(
+            themeCourant = themeCourant,
+            onTheme = onTheme,
+            onFermer = { dialogueTheme = false },
+        )
+    }
 }
+
+// --- Bloc « ma position » ----------------------------------------------------
 
 @Composable
 private fun CartePosition(
     etat: EtatUi,
+    modifier: Modifier = Modifier,
     onPositionManuelle: (Autoroute, Double, Sens) -> Unit,
     onInverserSens: () -> Unit,
     onLocaliser: () -> Unit,
@@ -132,6 +184,7 @@ private fun CartePosition(
     var pkTexte by remember { mutableStateOf("") }
     var sens by remember { mutableStateOf(Sens.CROISSANT) }
     var menuOuvert by remember { mutableStateOf(false) }
+    val theme = LocalThemeApp.current
 
     // Une localisation réussie remplit le formulaire manuel, qui reste corrigeable.
     LaunchedEffect(etat.position) {
@@ -143,14 +196,63 @@ private fun CartePosition(
         }
     }
 
-    ElevatedCard(Modifier.fillMaxWidth()) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = if (theme.styleListe == StyleListe.CARNET) {
+            null
+        } else {
+            BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+        },
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = if (theme.styleListe == StyleListe.CARNET) 2.dp else 0.dp,
+        ),
+    ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            Text("Ma position", style = MaterialTheme.typography.titleMedium)
+
+            etat.position?.let { position ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = position.autoroute.nom,
+                        style = MaterialTheme.typography.headlineSmall.copy(
+                            fontFamily = theme.policeChiffres,
+                            fontWeight = FontWeight.Bold,
+                        ),
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Column(Modifier.padding(start = 12.dp).weight(1f)) {
+                        Text(
+                            text = "PK %.1f · %s".format(position.pk, position.autoroute.terminus(position.sens)),
+                            style = MaterialTheme.typography.titleSmall.copy(
+                                fontFamily = theme.policeChiffres,
+                            ),
+                        )
+                        Text(
+                            text = buildString {
+                                append(
+                                    if (position.source == SourcePosition.GPS) {
+                                        "Position GPS"
+                                    } else {
+                                        "Position saisie"
+                                    },
+                                )
+                                position.ecartMetres?.let { append(" · à %.0f m du tracé".format(it)) }
+                            },
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    IconButton(onClick = onInverserSens) {
+                        Icon(Icons.Filled.SwapHoriz, contentDescription = "Inverser le sens")
+                    }
+                }
+                HorizontalDivider()
+            }
 
             Button(
                 onClick = onLocaliser,
                 enabled = !etat.localisation.enCours,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().height(50.dp),
             ) {
                 if (etat.localisation.enCours) {
                     CircularProgressIndicator(
@@ -160,11 +262,12 @@ private fun CartePosition(
                     )
                     Text("  Localisation en cours…")
                 } else {
+                    Icon(Icons.Filled.MyLocation, contentDescription = null, modifier = Modifier.size(18.dp))
                     Text(
-                        if (etat.position?.source == SourcePosition.GPS) {
-                            "📍  Actualiser ma position"
+                        text = if (etat.position?.source == SourcePosition.GPS) {
+                            "  Actualiser ma position"
                         } else {
-                            "📍  Me localiser"
+                            "  Me localiser"
                         },
                     )
                 }
@@ -204,17 +307,16 @@ private fun CartePosition(
             )
 
             autoroute?.let { choisie ->
-                Text("Direction", style = MaterialTheme.typography.bodyMedium)
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     FilterChip(
                         selected = sens == Sens.CROISSANT,
                         onClick = { sens = Sens.CROISSANT },
-                        label = { Text(choisie.terminusFin) },
+                        label = { Text("vers ${choisie.terminusFin}") },
                     )
                     FilterChip(
                         selected = sens == Sens.DECROISSANT,
                         onClick = { sens = Sens.DECROISSANT },
-                        label = { Text(choisie.terminusDebut) },
+                        label = { Text("vers ${choisie.terminusDebut}") },
                     )
                 }
             }
@@ -238,33 +340,239 @@ private fun CartePosition(
                     color = MaterialTheme.colorScheme.error,
                 )
             }
+        }
+    }
+}
 
-            etat.position?.let { position ->
-                HorizontalDivider()
+// --- Les trois mises en page de la liste -------------------------------------
+
+/** Thème « Signalétique » : liseré coloré, distance en cartouche. */
+@Composable
+private fun AirePanneau(resume: AireResume, onClick: () -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+    ) {
+        Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
+            Box(
+                Modifier
+                    .width(6.dp)
+                    .fillMaxHeight()
+                    .background(
+                        if (resume.noteGenerale == null) {
+                            MaterialTheme.colorScheme.outline
+                        } else {
+                            MaterialTheme.colorScheme.primary
+                        },
+                    ),
+            )
+            Column(
+                Modifier.padding(14.dp).weight(1f),
+                verticalArrangement = Arrangement.spacedBy(7.dp),
+            ) {
                 Row(
                     Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
+                    verticalAlignment = Alignment.Top,
                 ) {
                     Column(Modifier.weight(1f)) {
-                        Text(position.libelle, fontWeight = FontWeight.SemiBold)
+                        Text(resume.aire.nom, style = MaterialTheme.typography.titleMedium)
                         Text(
-                            text = buildString {
-                                append(
-                                    if (position.source == SourcePosition.GPS) {
-                                        "Position GPS"
-                                    } else {
-                                        "Position saisie"
-                                    },
-                                )
-                                position.ecartMetres?.let { append(" · à %.0f m du tracé".format(it)) }
-                            },
+                            text = "%s · PK %.1f".format(resume.aire.type.libelle, resume.aire.pk),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
-                    TextButton(onClick = onInverserSens) { Text("Inverser") }
+                    Column(horizontalAlignment = Alignment.End) {
+                        Text(
+                            text = "%.0f".format(resume.distanceKm),
+                            style = MaterialTheme.typography.headlineMedium.copy(
+                                fontFamily = LocalThemeApp.current.policeChiffres,
+                                fontWeight = FontWeight.Bold,
+                            ),
+                            color = MaterialTheme.colorScheme.primary,
+                        )
+                        Text(
+                            text = "KM",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
+                NoteAvecDetail(resume.noteGenerale)
+                TranchesAgeChiffrees(resume.notesJeux)
+                Equipements(resume.equipements)
+                Enseignes(resume.enseignes)
+            }
+        }
+    }
+}
+
+/** Thème « Carnet de route » : carte souple, notes des jeux en barres. */
+@Composable
+private fun AireCarnet(resume: AireResume, onClick: () -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    ) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(9.dp)) {
+            Row(
+                Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.Bottom,
+            ) {
+                Text(
+                    text = resume.aire.nom,
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    text = "dans %.0f km".format(resume.distanceKm),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                NoteAvecDetail(resume.noteGenerale)
+            }
+            Text(
+                text = "%s · PK %.1f".format(resume.aire.type.libelle, resume.aire.pk),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            TranchesAgeBarres(resume.notesJeux)
+            Equipements(resume.equipements)
+            Enseignes(resume.enseignes)
+        }
+    }
+}
+
+/** Thème « Copilote » : ligne dense, colonne de distance en chasse fixe. */
+@Composable
+private fun AireTableauDeBord(resume: AireResume, onClick: () -> Unit) {
+    Column(Modifier.fillMaxWidth().clickable(onClick = onClick)) {
+        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+        Row(
+            Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            Column(
+                modifier = Modifier.width(56.dp),
+                horizontalAlignment = Alignment.End,
+            ) {
+                Text(
+                    text = "%.0f".format(resume.distanceKm),
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontFamily = LocalThemeApp.current.policeChiffres,
+                        fontWeight = FontWeight.Bold,
+                    ),
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Text(
+                    text = "KM",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(7.dp)) {
+                Row(
+                    Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.Bottom,
+                ) {
+                    Text(
+                        text = resume.aire.nom,
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        text = "PK %.0f".format(resume.aire.pk),
+                        style = MaterialTheme.typography.labelSmall.copy(
+                            fontFamily = LocalThemeApp.current.policeChiffres,
+                        ),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                NoteAvecDetail(resume.noteGenerale)
+                TranchesAgeChiffrees(resume.notesJeux)
+                Equipements(resume.equipements)
+                Enseignes(resume.enseignes)
+            }
+        }
+    }
+}
+
+// --- Fragments partagés ------------------------------------------------------
+
+@Composable
+private fun TranchesAgeChiffrees(notes: Map<TrancheAge, NoteAgregee>) {
+    if (notes.isEmpty()) return
+    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        TrancheAge.entries.forEach { tranche ->
+            val note = notes[tranche] ?: return@forEach
+            val bonne = note.moyenne >= 4.0
+            Column(
+                Modifier
+                    .border(
+                        1.dp,
+                        if (bonne) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.outline,
+                        MaterialTheme.shapes.extraSmall,
+                    )
+                    .padding(horizontal = 8.dp, vertical = 5.dp),
+            ) {
+                Text(
+                    text = tranche.libelle,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Text(
+                    text = "%.1f".format(note.moyenne),
+                    style = MaterialTheme.typography.titleSmall.copy(
+                        fontFamily = LocalThemeApp.current.policeChiffres,
+                        fontWeight = FontWeight.Bold,
+                    ),
+                    color = if (bonne) {
+                        MaterialTheme.colorScheme.tertiary
+                    } else {
+                        MaterialTheme.colorScheme.onSurface
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun TranchesAgeBarres(notes: Map<TrancheAge, NoteAgregee>) {
+    if (notes.isEmpty()) return
+    Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
+        TrancheAge.entries.forEach { tranche ->
+            val note = notes[tranche] ?: return@forEach
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = tranche.libelle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.width(62.dp),
+                )
+                LinearProgressIndicator(
+                    progress = { (note.moyenne / 5.0).toFloat() },
+                    modifier = Modifier.weight(1f).height(7.dp),
+                    color = if (note.moyenne >= 4.0) {
+                        MaterialTheme.colorScheme.tertiary
+                    } else {
+                        MaterialTheme.colorScheme.secondary
+                    },
+                    trackColor = MaterialTheme.colorScheme.surfaceVariant,
+                )
+                Text(
+                    text = " %.1f".format(note.moyenne),
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.width(34.dp),
+                )
             }
         }
     }
@@ -272,75 +580,52 @@ private fun CartePosition(
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun CarteAireResume(resume: AireResume, onClick: () -> Unit) {
-    Card(
-        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+private fun Equipements(equipements: List<ConsensusEquipement>) {
+    if (equipements.isEmpty()) return
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Row(
-                Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.Top,
-            ) {
-                Column(Modifier.weight(1f)) {
-                    Text(resume.aire.nom, style = MaterialTheme.typography.titleMedium)
-                    Text(
-                        text = "%s · PK %.1f".format(resume.aire.type.libelle, resume.aire.pk),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
+        equipements.forEach { equipement ->
+            val couleur = if (equipement.presentAvere) {
+                MaterialTheme.colorScheme.onSurface
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = equipement.critere.icone,
+                    contentDescription = null,
+                    tint = couleurStatut(equipement.statut),
+                    modifier = Modifier.size(16.dp),
+                )
                 Text(
-                    text = "dans %.0f km".format(resume.distanceKm),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
+                    text = " " + equipement.critere.libelle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = couleur,
                 )
             }
+        }
+    }
+}
 
-            NoteAvecDetail(resume.noteGenerale)
-
-            if (resume.notesJeux.isNotEmpty()) {
-                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    TrancheAge.entries.forEach { tranche ->
-                        resume.notesJeux[tranche]?.let { note ->
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Text(
-                                    text = tranche.libelle + " ",
-                                    style = MaterialTheme.typography.labelSmall,
-                                )
-                                EtoilesLecture(note.moyenne, taille = 12)
-                            }
-                        }
-                    }
-                }
-            }
-
-            // Un équipement confirmé par les visiteurs porte une coche ; les autres restent en gris.
-            if (resume.equipements.isNotEmpty()) {
-                FlowRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    resume.equipements.forEach { equipement ->
-                        Text(
-                            text = (if (equipement.presentAvere) "✓ " else "") +
-                                "${equipement.critere.emoji} ${equipement.critere.libelle}",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = if (equipement.statut == StatutEquipement.CONFIRME) {
-                                MaterialTheme.colorScheme.onSurface
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            },
-                        )
-                    }
-                }
-            }
-
-            if (resume.enseignes.isNotEmpty()) {
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    resume.enseignes.take(3).forEach { enseigne ->
-                        AssistChip(onClick = onClick, label = { Text(enseigne.nom) })
-                    }
-                }
-            }
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun Enseignes(enseignes: List<Enseigne>) {
+    if (enseignes.isEmpty()) return
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        enseignes.take(4).forEach { enseigne ->
+            Text(
+                text = enseigne.nom,
+                style = MaterialTheme.typography.labelSmall.copy(fontSize = 12.sp),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier
+                    .border(1.dp, MaterialTheme.colorScheme.outline, MaterialTheme.shapes.extraSmall)
+                    .padding(horizontal = 7.dp, vertical = 3.dp),
+            )
         }
     }
 }

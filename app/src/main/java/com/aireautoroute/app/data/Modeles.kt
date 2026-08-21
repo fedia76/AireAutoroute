@@ -108,16 +108,15 @@ data class LienAireEnseigne(
 enum class Critere(
     val libelle: String,
     val parTrancheAge: Boolean,
-    val emoji: String,
     /** `false` pour l'appréciation générale, qui n'est pas un équipement à déclarer. */
     val estEquipement: Boolean = true,
 ) {
-    AIRE_JEUX_INTERIEURE("Aire de jeux intérieure", true, "🎠"),
-    AIRE_JEUX_EXTERIEURE("Aire de jeux extérieure", true, "🛝"),
-    TOILETTES("Toilettes", false, "🚻"),
-    STATION_SERVICE("Station-service", false, "⛽"),
-    TABLE_A_LANGER("Table à langer", false, "👶"),
-    APPRECIATION_GENERALE("Appréciation générale", false, "⭐", estEquipement = false);
+    AIRE_JEUX_INTERIEURE("Aire de jeux intérieure", true),
+    AIRE_JEUX_EXTERIEURE("Aire de jeux extérieure", true),
+    TOILETTES("Toilettes", false),
+    STATION_SERVICE("Station-service", false),
+    TABLE_A_LANGER("Table à langer", false),
+    APPRECIATION_GENERALE("Appréciation générale", false, estEquipement = false);
 
     companion object {
         /** Ordre d'affichage dans le détail et le formulaire de notation. */

@@ -21,14 +21,13 @@ import com.aireautoroute.app.ui.EcranAccueil
 import com.aireautoroute.app.ui.EcranDetail
 import com.aireautoroute.app.ui.EcranNotation
 import com.aireautoroute.app.ui.theme.AireAutorouteTheme
+import com.aireautoroute.app.ui.theme.ThemeApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AireAutorouteTheme {
-                ApplicationAires()
-            }
+            ApplicationAires()
         }
     }
 }
@@ -44,6 +43,14 @@ private object Routes {
 
 @Composable
 fun ApplicationAires(vm: AppViewModel = viewModel()) {
+    val theme by vm.theme.collectAsStateWithLifecycle()
+    AireAutorouteTheme(theme = theme) {
+        Navigation(vm = vm, themeCourant = theme)
+    }
+}
+
+@Composable
+private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
     val navController = rememberNavController()
     val etat by vm.etat.collectAsStateWithLifecycle()
     val contexte = LocalContext.current
@@ -58,6 +65,8 @@ fun ApplicationAires(vm: AppViewModel = viewModel()) {
         composable(Routes.ACCUEIL) {
             EcranAccueil(
                 etat = etat,
+                themeCourant = themeCourant,
+                onTheme = vm::definirTheme,
                 onPositionManuelle = vm::definirPositionManuelle,
                 onInverserSens = vm::inverserSens,
                 onAire = { aireId -> navController.navigate(Routes.detail(aireId)) },
