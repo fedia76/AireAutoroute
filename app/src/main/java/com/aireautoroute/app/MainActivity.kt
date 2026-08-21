@@ -76,6 +76,7 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
                 onAire = { aireId -> navController.navigate(Routes.detail(aireId)) },
                 onSources = { navController.navigate(Routes.SOURCES) },
                 onCarte = { navController.navigate(Routes.CARTE) },
+                onMessageLu = vm::effacerMessageContribution,
                 onLocaliser = {
                     val accordee = ContextCompat.checkSelfPermission(
                         contexte,

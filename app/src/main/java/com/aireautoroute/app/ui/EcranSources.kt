@@ -87,8 +87,9 @@ fun EcranSources(onRetour: () -> Unit) {
         ) {
             item {
                 Text(
-                    "Les autoroutes et les aires proviennent de données ouvertes. Les notes et " +
-                        "les commentaires, eux, restent sur votre téléphone.",
+                    "Les autoroutes et les aires proviennent de données ouvertes et sont " +
+                        "embarquées dans l'application. Les avis, eux, sont partagés entre tous " +
+                        "les utilisateurs.",
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
@@ -129,6 +130,30 @@ fun EcranSources(onRetour: () -> Unit) {
                         Text(
                             "Les deux chaussées d'une même aire partagent la position calculée " +
                                 "depuis leur point kilométrique : à quelques dizaines de mètres près.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                }
+            }
+
+            item {
+                Card(Modifier.fillMaxWidth()) {
+                    Column(
+                        Modifier.padding(14.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Text("Vos contributions", style = MaterialTheme.typography.titleSmall)
+                        Text(
+                            "Les avis sont publiés sur un service partagé, hébergé en Europe, " +
+                                "pour que chacun profite des observations des autres. Aucun " +
+                                "compte n'est demandé : l'application ouvre une session anonyme " +
+                                "au premier lancement, qui sert uniquement à vous laisser " +
+                                "revenir sur vos propres avis.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                        Text(
+                            "Ne publiez rien que vous ne diriez pas à voix haute sur une aire : " +
+                                "les commentaires sont visibles par tout le monde.",
                             style = MaterialTheme.typography.bodySmall,
                         )
                     }

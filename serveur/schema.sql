@@ -62,8 +62,19 @@ create table if not exists notation (
 
   -- Un contributeur ne note qu'une fois chaque critère d'une aire : revenir sur
   -- son avis le remplace, au lieu de gonfler la moyenne.
-  constraint notation_unique_par_auteur unique (auteur_id, aire_id, critere, tranche_age)
+  -- « nulls not distinct » est indispensable : sans lui, deux lignes dont la
+  -- tranche d'âge est nulle ne se ressembleraient pas aux yeux de l'index, et
+  -- l'on pourrait noter les mêmes toilettes autant de fois qu'on le veut.
+  constraint notation_unique_par_auteur
+    unique nulls not distinct (auteur_id, aire_id, critere, tranche_age)
 );
+
+-- Rattrapage pour une base créée avec la première version du script.
+do $$ begin
+  alter table notation drop constraint if exists notation_unique_par_auteur;
+  alter table notation add constraint notation_unique_par_auteur
+    unique nulls not distinct (auteur_id, aire_id, critere, tranche_age);
+end $$;
 
 create index if not exists notation_par_aire on notation (aire_id) where not masquee;
 

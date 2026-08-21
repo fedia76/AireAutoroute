@@ -76,6 +76,21 @@ Un équipement *Absent* disparaît de la vue résumée et ses notes ne sont plus
 si l'exploitant l'annonçait : les visiteurs ont le dernier mot. Le seuil est une constante unique
 (`SEUIL_CONFIRMATION` dans `data/Vues.kt`), à relever quand il y aura plus de contributeurs.
 
+## Les avis sont partagés
+
+Les autoroutes et les aires sont **embarquées dans l'application** ; les avis, eux, sont publiés sur
+un service partagé ([Supabase](https://supabase.com), hébergé en Europe) pour que chacun profite des
+observations des autres. Le schéma et sa mise en place sont dans [`serveur/`](serveur/).
+
+**Aucun compte n'est demandé** : l'application ouvre une session anonyme au premier lancement. Elle
+ne sert qu'à une chose — garantir que personne ne modifie l'avis d'un autre, et vous laisser revenir
+sur les vôtres. La clé embarquée dans l'APK est publique par construction : ce qu'elle autorise est
+décidé par les règles d'accès du schéma, pas par son secret.
+
+Quand le service est injoignable, l'application affiche les derniers avis rapatriés — une copie
+locale en tient lieu — et le signale par une icône dans la barre du haut. Une contribution qui ne
+part pas est annoncée franchement plutôt que perdue en silence.
+
 ## Modèle de données
 
 Pas de base de données pour l'instant : les données sont dans des fichiers JSON, mais **structurées
@@ -87,13 +102,12 @@ comme des tables**, pour que le passage à Room ne touche que `DepotDonnees`.
 | `aire` | `assets/seed/aires.json` | id, autoroute, nom, PK, sens desservi, type (service/repos), coordonnées, équipements annoncés |
 | `enseigne` | `assets/seed/enseignes.json` | id, nom, catégorie (carburant, restauration, boutique, hôtel) |
 | `aire_enseigne` | `assets/seed/aire_enseignes.json` | table de liaison **many-to-many** aire ↔ enseigne |
-| `notation` | `filesDir/donnees_utilisateur.json` | id, aire, critère, tranche d'âge, note 1-5, commentaire, auteur, date |
-| `declaration_equipement` | `filesDir/donnees_utilisateur.json` | id, aire, critère, présence (oui/non), auteur, date |
+| `notation` | service partagé | id, aire, critère, tranche d'âge, note 1-5, commentaire, auteur, date |
+| `declaration_equipement` | service partagé | id, aire, critère, présence (oui/non), auteur, date |
 
-Les quatre premiers fichiers sont livrés dans l'APK (lecture seule). Le cinquième est écrit dans le
-stockage privé de l'application et contient aussi les enseignes ajoutées par l'utilisateur et leurs
-liaisons (`liensEnseignes`), avec le drapeau `ajoutParUtilisateur` qui permet de les distinguer du
-catalogue livré.
+Les quatre fichiers d'assets sont livrés dans l'APK, en lecture seule. Les deux dernières tables
+vivent sur le service partagé ; `filesDir/donnees_utilisateur.json` n'en garde qu'une copie, pour
+avoir quelque chose à montrer sans réseau.
 
 Le **sens** est modélisé par le PK : `CROISSANT` = les PK augmentent = on va vers le terminus
 d'arrivée (pour l'A13 : vers Caen), `DECROISSANT` = l'inverse, `LES_DEUX` pour une aire accessible
