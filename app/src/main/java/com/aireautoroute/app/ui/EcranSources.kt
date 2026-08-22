@@ -46,11 +46,20 @@ private val SOURCES = listOf(
             "kilométrique.",
     ),
     Source(
+        titre = "OpenStreetMap",
+        origine = "© les contributeurs OpenStreetMap, relevé via l'API Overpass",
+        licence = "ODbL",
+        usage = "Les équipements annoncés sur chaque aire — toilettes, station-service, aire " +
+            "de jeux, table à langer — et les enseignes qui y sont présentes. Ce qu'OSM " +
+            "indique est annoncé, jamais affirmé : seuls vos passages le confirment.",
+    ),
+    Source(
         titre = "Enseignes",
-        origine = "Référentiel tenu à la main dans le dépôt du projet",
+        origine = "Référentiel tenu à la main dans le dépôt du projet, augmenté des marques " +
+            "relevées dans OpenStreetMap",
         licence = "—",
-        usage = "Sert de liste de saisie. Aucune enseigne n'est encore rattachée à une aire : " +
-            "ce rattachement viendra d'OpenStreetMap.",
+        usage = "Sert de liste de saisie. Une marque n'entre au catalogue qu'à partir de " +
+            "trois aires : en deçà, c'est plus probablement une saisie isolée qu'une enseigne.",
     ),
 )
 

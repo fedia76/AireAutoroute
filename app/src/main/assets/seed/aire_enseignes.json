@@ -1,1 +1,3962 @@
-[]
+[
+  {
+    "aireId": "a1-c-ur-des-hauts-de-france-est",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a1-c-ur-des-hauts-de-france-est",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a1-c-ur-des-hauts-de-france-est",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a1-c-ur-des-hauts-de-france-ouest",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a1-c-ur-des-hauts-de-france-ouest",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a1-c-ur-des-hauts-de-france-ouest",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a1-c-ur-des-hauts-de-france-ouest",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a1-c-ur-des-hauts-de-france-ouest",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a1-phalempin-est",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a1-phalempin-est",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a1-phalempin-ouest",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a1-phalempin-ouest",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a1-phalempin-ouest",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a1-ressons-est",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a1-ressons-est",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a1-ressons-est",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a1-ressons-est",
+    "enseigneId": "territoires_france"
+  },
+  {
+    "aireId": "a1-ressons-est",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a1-ressons-ouest",
+    "enseigneId": "flunch"
+  },
+  {
+    "aireId": "a1-ressons-ouest",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a1-saint-leger",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a1-saint-leger",
+    "enseigneId": "casino_express"
+  },
+  {
+    "aireId": "a1-vemars-est",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a1-vemars-est",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a1-vemars-est",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a1-vemars-ouest",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a1-vemars-ouest",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a1-wancourt-ouest",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a1-wancourt-ouest",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a1-wancourt-ouest",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a10-beaugency-messas",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a10-beaugency-messas",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a10-blois-menars",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a10-blois-menars",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a10-blois-menars",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a10-blois-villerbon",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a10-blois-villerbon",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a10-blois-villerbon",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a10-blois-villerbon",
+    "enseigneId": "territoires_france"
+  },
+  {
+    "aireId": "a10-chatellerault-antran",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a10-chatellerault-antran",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a10-chatellerault-antran",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a10-chatellerault-antran",
+    "enseigneId": "go_johnny_go"
+  },
+  {
+    "aireId": "a10-chatellerault-usseau",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a10-chatellerault-usseau",
+    "enseigneId": "honiby_market"
+  },
+  {
+    "aireId": "a10-fenioux-est",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a10-fenioux-est",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a10-fenioux-est",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a10-fenioux-ouest",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a10-fenioux-ouest",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a10-fenioux-ouest",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a10-fenioux-ouest",
+    "enseigneId": "mezzoday"
+  },
+  {
+    "aireId": "a10-l-estalot",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a10-l-estalot",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a10-l-estalot",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-la-fontaine-colette",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a10-la-fontaine-colette",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a10-la-fontaine-colette",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a10-les-plaines-de-beauce",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a10-les-plaines-de-beauce",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a10-les-plaines-de-beauce",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a10-les-plaines-de-beauce",
+    "enseigneId": "territoires_france"
+  },
+  {
+    "aireId": "a10-les-terres-de-l-estuaire",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a10-les-terres-de-l-estuaire",
+    "enseigneId": "honiby_market"
+  },
+  {
+    "aireId": "a10-les-terres-de-l-estuaire",
+    "enseigneId": "steak_n_shake"
+  },
+  {
+    "aireId": "a10-limours-briis-sous-forges",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a10-limours-briis-sous-forges",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-limours-janvry",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a10-limours-janvry",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a10-limours-janvry",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a10-limours-janvry",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a10-limours-janvry",
+    "enseigneId": "pizza_hut"
+  },
+  {
+    "aireId": "a10-limours-janvry",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-meillac",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a10-meillac",
+    "enseigneId": "crep_eat"
+  },
+  {
+    "aireId": "a10-meillac",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a10-meillac",
+    "enseigneId": "kfc"
+  },
+  {
+    "aireId": "a10-meillac",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a10-meung-sur-loire",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a10-meung-sur-loire",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a10-orleans-gidy",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a10-orleans-gidy",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a10-orleans-gidy",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-orleans-saran",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a10-orleans-saran",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a10-orleans-saran",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a10-orleans-saran",
+    "enseigneId": "subway"
+  },
+  {
+    "aireId": "a10-orleans-saran",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-poitiers-chince",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a10-poitiers-chince",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a10-poitiers-chince",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a10-poitiers-chince",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a10-poitiers-jaunay-clan",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a10-poitiers-jaunay-clan",
+    "enseigneId": "honiby_market"
+  },
+  {
+    "aireId": "a10-poitiers-jaunay-clan",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a10-poitou-charentes-croissant",
+    "enseigneId": "arche_comptoir"
+  },
+  {
+    "aireId": "a10-poitou-charentes-croissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a10-poitou-charentes-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a10-poitou-charentes-croissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a10-poitou-charentes-decroissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a10-poitou-charentes-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a10-poitou-charentes-decroissant",
+    "enseigneId": "mezzo_di_pasta"
+  },
+  {
+    "aireId": "a10-poitou-charentes-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-rouille-pamproux",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a10-rouille-pamproux",
+    "enseigneId": "mie_caline"
+  },
+  {
+    "aireId": "a10-rouille-pamproux-nord",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a10-rouille-pamproux-nord",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a10-rouille-pamproux-nord",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-saint-leger-est",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a10-saint-leger-est",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a10-saint-leger-ouest",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a10-saint-leger-ouest",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a10-saint-leger-ouest",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a10-saint-leger-ouest",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a10-sainte-maure-de-touraine",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a10-sainte-maure-de-touraine",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-saugon-ouest",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a10-saugon-ouest",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a10-saugon-ouest",
+    "enseigneId": "honiby_market"
+  },
+  {
+    "aireId": "a10-tours-la-longue-vue",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a10-tours-la-longue-vue",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a10-tours-la-longue-vue",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a10-tours-la-longue-vue",
+    "enseigneId": "leo"
+  },
+  {
+    "aireId": "a10-tours-val-de-loire",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a10-tours-val-de-loire",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a10-tours-val-de-loire",
+    "enseigneId": "comptoirs_casino"
+  },
+  {
+    "aireId": "a10-tours-val-de-loire",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a10-val-neuvy",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a10-val-neuvy",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a104-villevaude-nord",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a104-villevaude-sud",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a105-galande-la-mare-laroche",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a105-galande-la-sabliere",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a105-galande-la-sabliere",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a106-rungis-delta",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a106-rungis-delta",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a106-rungis-delta",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a11-brou-dampierre",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a11-brou-dampierre",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a11-brou-dampierre",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a11-brou-dampierre",
+    "enseigneId": "maison_pradier"
+  },
+  {
+    "aireId": "a11-chartres-bois-paris",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a11-chartres-bois-paris",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a11-chartres-bois-paris",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a11-chartres-bois-paris",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a11-chartres-gasville",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a11-chartres-gasville",
+    "enseigneId": "buffalo_grill"
+  },
+  {
+    "aireId": "a11-chartres-gasville",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a11-chartres-gasville",
+    "enseigneId": "territoires_france"
+  },
+  {
+    "aireId": "a11-la-ferte-bernard",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a11-la-ferte-bernard",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a11-la-ferte-bernard",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a11-la-sarthe-sarge-le-mans-croissant",
+    "enseigneId": "c_ur_ble"
+  },
+  {
+    "aireId": "a11-la-sarthe-sarge-le-mans-croissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a11-la-sarthe-sarge-le-mans-croissant",
+    "enseigneId": "comptoirs_casino"
+  },
+  {
+    "aireId": "a11-la-sarthe-sarge-le-mans-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a11-la-sarthe-sarge-le-mans-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a11-la-sarthe-sarge-le-mans-decroissant",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a11-les-manoirs-du-perche",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a11-les-manoirs-du-perche",
+    "enseigneId": "ciao"
+  },
+  {
+    "aireId": "a11-les-manoirs-du-perche",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a11-les-manoirs-du-perche",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a11-les-portes-d-angers-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a11-les-portes-d-angers-croissant",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a11-les-portes-d-angers-decroissant",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a11-les-portes-d-angers-decroissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a11-les-portes-d-angers-decroissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a11-les-portes-d-angers-decroissant",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a11-les-portes-d-angers-decroissant",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a11-parce-sur-sarthe-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a11-parce-sur-sarthe-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a11-varades-pays-d-ancenis",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a11-varades-pays-d-ancenis",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a11-varades-pays-de-la-loire",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a11-varades-pays-de-la-loire",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a11-villaines-la-gonais",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a11-villaines-la-gonais",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a11-villaines-la-gonais",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a13-beuzeville-nord",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a13-beuzeville-nord",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a13-beuzeville-nord",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a13-beuzeville-sud",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a13-beuzeville-sud",
+    "enseigneId": "honiby_market"
+  },
+  {
+    "aireId": "a13-bosgouet-nord",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a13-bosgouet-nord",
+    "enseigneId": "kfc"
+  },
+  {
+    "aireId": "a13-bosgouet-nord",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a13-bosgouet-sud",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a13-bosgouet-sud",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a13-bosgouet-sud",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a13-bosgouet-sud",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a13-giberville-nord",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a13-giberville-sud",
+    "enseigneId": "buffalo_grill"
+  },
+  {
+    "aireId": "a13-giberville-sud",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a13-giberville-sud",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a13-giberville-sud",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a13-giberville-sud",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a13-morainvilliers-nord",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a13-morainvilliers-nord",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a13-morainvilliers-nord",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a13-morainvilliers-sud",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a13-morainvilliers-sud",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a13-rosny-sur-seine-nord",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a13-rosny-sur-seine-nord",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a13-rosny-sur-seine-nord",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a13-rosny-sur-seine-nord",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a13-rosny-sur-seine-sud",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a13-vironvay-nord",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a13-vironvay-nord",
+    "enseigneId": "mie_caline"
+  },
+  {
+    "aireId": "a13-vironvay-sud",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a15-cergy-pontoise",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a15-cergy-pontoise",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a150-la-vaupaliere",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a150-la-vaupaliere",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a16-hardivillers",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a16-hardivillers",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a16-la-baie-de-somme-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a16-la-baie-de-somme-decroissant",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a19-les-jardins-du-loiret-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a19-les-jardins-du-loiret-decroissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a19-les-jardins-du-loiret-decroissant",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a19-villeroy-croissant",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a19-villeroy-croissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a19-villeroy-croissant",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a2-graincourt",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a2-havrincourt",
+    "enseigneId": "atelier_charal"
+  },
+  {
+    "aireId": "a2-havrincourt",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a2-havrincourt",
+    "enseigneId": "tasty"
+  },
+  {
+    "aireId": "a2-la-sentinelle-est",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a2-la-sentinelle-ouest",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a2-la-sentinelle-ouest",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a2-la-sentinelle-ouest",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a2-la-sentinelle-ouest",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a20-aire-jardin-des-causses-du-lot-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a20-aire-jardin-des-causses-du-lot-decroissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a20-aire-jardin-des-causses-du-lot-decroissant",
+    "enseigneId": "steak_n_shake"
+  },
+  {
+    "aireId": "a20-bois-mande-croissant",
+    "enseigneId": "deli_by_shell"
+  },
+  {
+    "aireId": "a20-bois-mande-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a20-bois-mande-decroissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a20-bois-mande-decroissant",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a20-bois-mande-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a20-la-porte-de-correze-croissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a20-la-porte-de-correze-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a20-le-bois-de-dourre-croissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a20-le-bois-de-dourre-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a20-le-val-de-l-indre",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a20-les-champs-d-amour-croissant",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a20-les-champs-d-amour-croissant",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a20-les-champs-d-amour-croissant",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a20-les-mille-etangs",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a20-limoges-est",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a20-limoges-est",
+    "enseigneId": "subway"
+  },
+  {
+    "aireId": "a20-limoges-ouest",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a20-nauze-vert",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a20-nauze-vert",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a20-pech-montat-croissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a20-pech-montat-croissant",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a20-pech-montat-croissant",
+    "enseigneId": "origin_r"
+  },
+  {
+    "aireId": "a23-petite-foret",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a23-petite-foret",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a23-petite-foret",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a25-saint-eloi",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a25-saint-eloi",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a25-saint-laurent",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a26-angres",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a26-angres",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a26-angres",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a26-angres",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a26-baralle",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a26-champ-roland",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a26-charmont-sous-barbuise-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a26-mont-de-nizy",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a26-rely",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a26-rely",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a26-rely",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a26-rumaucourt",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a26-sommesous-croissant",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a26-sommesous-decroissant",
+    "enseigneId": "deli_by_shell"
+  },
+  {
+    "aireId": "a26-sommesous-decroissant",
+    "enseigneId": "maison_pradier"
+  },
+  {
+    "aireId": "a26-sommesous-decroissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a26-sommesous-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a26-st-hilaire-cottes",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a26-st-hilaire-cottes",
+    "enseigneId": "honiby"
+  },
+  {
+    "aireId": "a26-urvillers-decroissant",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a26-urvillers-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a26-urvillers-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a28-la-dentelle-d-alencon-decroissant",
+    "enseigneId": "arche_cafeteria"
+  },
+  {
+    "aireId": "a28-la-dentelle-d-alencon-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a28-la-dentelle-d-alencon-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a28-le-domaine-d-harcourt-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a28-les-haras-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a28-les-haras-croissant",
+    "enseigneId": "vival"
+  },
+  {
+    "aireId": "a28-sarthe-touraine-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a29-bolleville-sud",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a29-bolleville-sud",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a29-bolleville-sud",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a29-croixrault-croissant",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a29-croixrault-croissant",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a29-croixrault-croissant",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a29-quetteville-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a29-villers-bretonneux-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a29-villers-bretonneux-decroissant",
+    "enseigneId": "honiby"
+  },
+  {
+    "aireId": "a3-noisy-le-sec",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a3-noisy-le-sec",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a31-dijon-brognon",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a31-dijon-brognon",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a31-dijon-brognon",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a31-dijon-brognon",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a31-gevrey-chambertin-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a31-gevrey-chambertin-croissant",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a31-gevrey-chambertin-croissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a31-gevrey-chambertin-decroissant",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a31-gevrey-chambertin-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a31-l-obrion",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a31-la-maxe",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a31-la-maxe",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a31-langres-noidant",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a31-langres-noidant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a31-langres-noidant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a31-langres-noidant",
+    "enseigneId": "vival"
+  },
+  {
+    "aireId": "a31-langres-perrogney",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a31-langres-perrogney",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a31-langres-perrogney",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a31-langres-perrogney",
+    "enseigneId": "kfc"
+  },
+  {
+    "aireId": "a31-le-val-de-meuse",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a31-loisy",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a31-lorraine-sandaucourt-la-trelle",
+    "enseigneId": "arche_cafeteria"
+  },
+  {
+    "aireId": "a31-lorraine-sandaucourt-la-trelle",
+    "enseigneId": "casino_everyday"
+  },
+  {
+    "aireId": "a31-lorraine-sandaucourt-la-trelle",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a31-lorraine-sandaucourt-les-rappes",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a31-montigny-le-roi",
+    "enseigneId": "atelier_charal"
+  },
+  {
+    "aireId": "a31-montigny-le-roi",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a31-montigny-le-roi",
+    "enseigneId": "tasty"
+  },
+  {
+    "aireId": "a31-saint-remy",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a31-saint-remy",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a31-saint-remy",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a31-toul-croissant",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a330-le-canal-de-l-est",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a330-le-canal-de-l-est",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a34-la-chapelle-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a34-la-chapelle-decroissant",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a34-la-chapelle-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a355-la-bruche-croissant",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a36-besancon-champoux",
+    "enseigneId": "deli_by_shell"
+  },
+  {
+    "aireId": "a36-besancon-champoux",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a36-besancon-champoux",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a36-besancon-marchaux",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a36-besancon-marchaux",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a36-besancon-marchaux",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a36-dole-audelange",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a36-dole-audelange",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a36-dole-audelange",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a36-dole-romange",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a36-dole-romange",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a36-dole-romange",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a36-ecot-decroissant",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a36-ecot-decroissant",
+    "enseigneId": "vival"
+  },
+  {
+    "aireId": "a36-glanon",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a36-glanon",
+    "enseigneId": "comptoirs_casino"
+  },
+  {
+    "aireId": "a36-la-porte-d-alsace-croissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a36-la-porte-d-alsace-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a36-la-porte-d-alsace-decroissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a36-le-bois-guillerot",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a39-le-jura-decroissant",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a39-le-jura-decroissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a39-le-poulet-de-bresse-decroissant",
+    "enseigneId": "arche_cafeteria"
+  },
+  {
+    "aireId": "a39-le-poulet-de-bresse-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a39-le-poulet-de-bresse-decroissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a39-le-poulet-de-bresse-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a39-le-poulet-de-bresse-decroissant",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a39-pont-chene-d-argent",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a39-pont-chene-d-argent",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a39-pont-val-de-saone",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a39-pont-val-de-saone",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a4-brumath-croissant",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a4-brumath-decroissant",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a4-bussy-saint-georges",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a4-bussy-saint-georges",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a4-changis-sur-marne",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a4-changis-sur-marne",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a4-ferrieres",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a4-ferrieres",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a4-gueux",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a4-keskastel-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a4-keskastel-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a4-keskastel-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a4-longeville-croissant",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a4-longeville-croissant",
+    "enseigneId": "kfc"
+  },
+  {
+    "aireId": "a4-longeville-croissant",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a4-longeville-decroissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a4-metz-saint-privat-croissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a4-metz-saint-privat-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a4-metz-saint-privat-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a4-reims-champagne-croissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a4-reims-champagne-croissant",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a4-reims-champagne-croissant",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a4-reims-champagne-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a4-reims-champagne-decroissant",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a4-reims-champagne-decroissant",
+    "enseigneId": "buffalo_grill"
+  },
+  {
+    "aireId": "a4-reims-champagne-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a4-saverne-eckartswiller",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a4-saverne-eckartswiller",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a4-saverne-eckartswiller",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a4-saverne-monswiller",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a4-saverne-monswiller",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a4-saverne-monswiller",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a4-saverne-monswiller",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a4-tardenois-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a4-tardenois-croissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a4-tardenois-croissant",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a4-tardenois-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a4-tardenois-decroissant",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a4-tardenois-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a4-ussy-sur-marne",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a4-valmy-le-moulin",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a4-valmy-orbeval",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a4-valmy-orbeval",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a4-valmy-orbeval",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a4-verdun-saint-nicolas-croissant",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a4-verdun-saint-nicolas-croissant",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a4-verdun-saint-nicolas-croissant",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a4-verdun-saint-nicolas-decroissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a4-verdun-saint-nicolas-decroissant",
+    "enseigneId": "kfc"
+  },
+  {
+    "aireId": "a4-verdun-saint-nicolas-decroissant",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a4-verdun-saint-nicolas-decroissant",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a4-vrigny",
+    "enseigneId": "leo"
+  },
+  {
+    "aireId": "a4-vrigny",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a40-bonneville-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a40-bonneville-decroissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a40-bourg-jasseron",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a40-bourg-jasseron",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a40-bourg-jasseron",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a40-bourg-teyssonge",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a40-bourg-teyssonge",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a40-bourg-teyssonge",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a40-bourg-teyssonge",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a40-ceignes-cerdon",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a40-ceignes-cerdon",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a40-ceignes-haut-bugey",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a40-ceignes-haut-bugey",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a40-valleiry-croissant",
+    "enseigneId": "flunch"
+  },
+  {
+    "aireId": "a40-valleiry-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a40-valleiry-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a40-valleiry-decroissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a40-valleiry-decroissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a41-bois-claret",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a41-bois-claret",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a41-drumettaz",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a41-fontanelles",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a41-la-ripaille",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a41-mouxy",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a41-saint-nazaire-les-eymes",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a41-saint-nazaire-les-eymes",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a410-crets-blancs",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a410-groisy",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a42-beynost-croissant",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a42-beynost-croissant",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a42-lyon-dagneux",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a42-lyon-dagneux",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a42-lyon-dagneux",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a42-lyon-montluel",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a42-lyon-montluel",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a42-lyon-montluel",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a43-l-abis",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a43-l-arclusaz",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a43-l-arclusaz",
+    "enseigneId": "mie_caline"
+  },
+  {
+    "aireId": "a43-l-isle-d-abeau-croissant",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a43-l-isle-d-abeau-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a43-l-isle-d-abeau-croissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a43-l-isle-d-abeau-croissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a43-l-isle-d-abeau-croissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a43-l-isle-d-abeau-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a43-le-granier",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a43-le-granier",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a43-le-guiers",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a43-le-guiers",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a43-le-guiers",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a43-le-guiers",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a43-le-guiers",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a43-le-val-gelon",
+    "enseigneId": "casino_everyday"
+  },
+  {
+    "aireId": "a43-le-val-gelon",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a43-le-val-gelon",
+    "enseigneId": "mie_caline"
+  },
+  {
+    "aireId": "a43-manissieux",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a43-saint-julien-montdenis",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a43-saint-julien-montdenis",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a43-saint-michel-de-maurienne-croissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a43-saint-priest",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a43-saint-priest",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a43-saint-priest",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a46-communay-croissant",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a46-communay-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a46-mionnay-en-chatanay",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a46-mionnay-en-chatanay",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a46-mionnay-en-chatanay",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a46-mionnay-saint-galmier",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a47-le-pays-de-gier-croissant",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a47-le-pays-de-gier-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a47-saint-romain-en-gier",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a48-l-ile-rose",
+    "enseigneId": "casino_everyday"
+  },
+  {
+    "aireId": "a48-l-ile-rose",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a48-voreppe",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a48-voreppe",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a48-voreppe",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a49-porte-de-la-drome",
+    "enseigneId": "ciao"
+  },
+  {
+    "aireId": "a49-porte-de-la-drome",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a49-porte-de-la-drome",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a49-porte-de-la-drome",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a49-royans-vercors",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a49-royans-vercors",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a49-royans-vercors",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a5-chateauvillain-orges",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a5-chateauvillain-orges",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a5-chateauvillain-orges",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a5-chateauvillain-orges",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a5-jonchets-la-grande-paroisse",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a5-jonchets-les-recompenses",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a5-troyes-fresnoy-le-chateau",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a5-troyes-fresnoy-le-chateau",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a5-troyes-le-plessis",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a5-troyes-le-plessis",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a5-villeneuve-l-archeveque",
+    "enseigneId": "c_ur_ble"
+  },
+  {
+    "aireId": "a5-villeneuve-l-archeveque",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a5-villeneuve-l-archeveque",
+    "enseigneId": "vival"
+  },
+  {
+    "aireId": "a5-villeneuve-vauluisant",
+    "enseigneId": "c_ur_ble"
+  },
+  {
+    "aireId": "a5-villeneuve-vauluisant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a5-villeneuve-vauluisant",
+    "enseigneId": "vival"
+  },
+  {
+    "aireId": "a50-la-baie-de-la-ciotat",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a50-la-baie-de-la-ciotat",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a50-la-baie-de-la-ciotat",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a50-la-pomme",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a50-les-freres-lumiere",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a50-les-freres-lumiere",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a51-aubignosc-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a51-la-champouse",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a51-la-champouse",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a51-les-chabauds",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a51-les-chabauds",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a51-les-chabauds",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a51-meyrargues-fontbelle",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a51-volx",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a52-manon-des-sources",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a52-manon-des-sources",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a52-marcel-pagnol",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a55-la-nerthe",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a55-la-nerthe",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a55-rebuty",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a57-la-bigue",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a57-la-bigue",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a57-la-bigue",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a57-la-garde",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a570-saint-augustin",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a6-acheres",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a6-acheres",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a6-acheres",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a6-acheres-la-foret",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a6-acheres-la-foret",
+    "enseigneId": "maison_pradier"
+  },
+  {
+    "aireId": "a6-beaune-merceuil",
+    "enseigneId": "as_24"
+  },
+  {
+    "aireId": "a6-beaune-merceuil",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a6-beaune-merceuil",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a6-beaune-merceuil",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a6-beaune-merceuil",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a6-beaune-tailly",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a6-beaune-tailly",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a6-darvault",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a6-darvault",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a6-darvault",
+    "enseigneId": "territoires_france"
+  },
+  {
+    "aireId": "a6-drace",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a6-drace",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a6-drace",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a6-la-chaponne",
+    "enseigneId": "arche"
+  },
+  {
+    "aireId": "a6-la-chaponne",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a6-la-chaponne",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a6-la-chaponne",
+    "enseigneId": "hippopotamus"
+  },
+  {
+    "aireId": "a6-la-couline",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a6-la-couline",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a6-la-couline",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a6-la-couline",
+    "enseigneId": "pizza_hut"
+  },
+  {
+    "aireId": "a6-la-couline",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a6-la-ferte",
+    "enseigneId": "arche"
+  },
+  {
+    "aireId": "a6-la-ferte",
+    "enseigneId": "bp"
+  },
+  {
+    "aireId": "a6-la-ferte",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a6-la-ferte",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a6-la-foret",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a6-la-foret",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a6-la-foret",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a6-la-reserve",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a6-la-reserve",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a6-la-reserve",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a6-le-chien-blanc",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a6-le-chien-blanc",
+    "enseigneId": "crep_eat"
+  },
+  {
+    "aireId": "a6-le-chien-blanc",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a6-le-chien-blanc",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a6-le-chien-blanc",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a6-le-creux-moreau",
+    "enseigneId": "atelier_charal"
+  },
+  {
+    "aireId": "a6-le-creux-moreau",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a6-le-creux-moreau",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a6-le-creux-moreau",
+    "enseigneId": "tasty"
+  },
+  {
+    "aireId": "a6-les-cheres-croissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a6-les-cheres-decroissant",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a6-les-cheres-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a6-les-lisses",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a6-les-lisses",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a6-les-lisses",
+    "enseigneId": "hippopotamus"
+  },
+  {
+    "aireId": "a6-les-lisses",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a6-les-locheres",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a6-les-locheres",
+    "enseigneId": "ciao"
+  },
+  {
+    "aireId": "a6-les-locheres",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a6-les-locheres",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a6-macon-la-salle",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a6-macon-la-salle",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a6-macon-la-salle",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a6-macon-la-salle",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a6-macon-la-salle",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a6-macon-saint-albain",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a6-macon-saint-albain",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a6-macon-saint-albain",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a6-maison-dieu",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a6-maison-dieu",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a6-maison-dieu",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a6-maison-dieu",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a6-nemours",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a6-nemours",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a6-nemours",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a6-nemours",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a6-patural",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a6-saint-ambreuil",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a6-saint-ambreuil",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a6-saint-ambreuil",
+    "enseigneId": "hippopotamus"
+  },
+  {
+    "aireId": "a6-saint-ambreuil",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a6-taponas",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a6-taponas",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a6-taponas",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a6-venoy-chablis",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a6-venoy-chablis",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a6-venoy-chablis",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a6-venoy-soleil-levant",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a6-venoy-soleil-levant",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a6-venoy-soleil-levant",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a6-venoy-soleil-levant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a6-villabe",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a6-villabe",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a61-carcassonne-arzens",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a61-carcassonne-arzens",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a61-carcassonne-arzens-sud",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a61-carcassonne-arzens-sud",
+    "enseigneId": "kfc"
+  },
+  {
+    "aireId": "a61-carcassonne-arzens-sud",
+    "enseigneId": "proxi"
+  },
+  {
+    "aireId": "a61-carcassonne-arzens-sud",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a61-les-corbieres-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a61-les-corbieres-croissant",
+    "enseigneId": "honiby_market"
+  },
+  {
+    "aireId": "a61-les-corbieres-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a61-les-corbieres-decroissant",
+    "enseigneId": "honiby_market"
+  },
+  {
+    "aireId": "a61-les-corbieres-decroissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a61-les-corbieres-decroissant",
+    "enseigneId": "territoires_france"
+  },
+  {
+    "aireId": "a61-port-lauragais-decroissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a61-port-lauragais-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a61-toulouse-sud-croissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a61-toulouse-sud-croissant",
+    "enseigneId": "crep_eat"
+  },
+  {
+    "aireId": "a61-toulouse-sud-croissant",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a61-toulouse-sud-croissant",
+    "enseigneId": "mezzoday"
+  },
+  {
+    "aireId": "a61-toulouse-sud-croissant",
+    "enseigneId": "proxi"
+  },
+  {
+    "aireId": "a61-toulouse-sud-decroissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a61-toulouse-sud-decroissant",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a61-toulouse-sud-decroissant",
+    "enseigneId": "mezzoday"
+  },
+  {
+    "aireId": "a61-toulouse-sud-decroissant",
+    "enseigneId": "proxi"
+  },
+  {
+    "aireId": "a62-agen-porte-d-aquitaine-decroissant",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a62-agen-porte-d-aquitaine-decroissant",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a62-agen-porte-d-aquitaine-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a62-frontonnais-nord",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a62-frontonnais-nord",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a62-frontonnais-sud",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a62-garonne-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a62-garonne-croissant",
+    "enseigneId": "honiby_market"
+  },
+  {
+    "aireId": "a62-garonne-croissant",
+    "enseigneId": "subway"
+  },
+  {
+    "aireId": "a62-les-terres-de-graves-croissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a62-les-terres-de-graves-croissant",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a62-les-terres-de-graves-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a62-les-terres-de-graves-croissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a62-les-terres-de-graves-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a62-mas-d-agenais-decroissant",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a62-mas-d-agenais-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a62-mas-d-agenais-decroissant",
+    "enseigneId": "origin_r"
+  },
+  {
+    "aireId": "a63-bidart-croissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a63-bidart-croissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a63-bidart-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a63-bidart-decroissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a63-bidart-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a63-bidart-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a63-bordeaux-cestas-decroissant",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a63-bordeaux-cestas-decroissant",
+    "enseigneId": "leo"
+  },
+  {
+    "aireId": "a63-bordeaux-cestas-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a63-bordeaux-cestas-decroissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a63-l-ocean-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a63-l-ocean-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a63-labenne-croissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a63-labenne-decroissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a63-labenne-decroissant",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a63-porte-des-landes-croissant",
+    "enseigneId": "flunch"
+  },
+  {
+    "aireId": "a63-porte-des-landes-croissant",
+    "enseigneId": "monop"
+  },
+  {
+    "aireId": "a63-porte-des-landes-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a63-porte-des-landes-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a63-porte-des-landes-decroissant",
+    "enseigneId": "flunch"
+  },
+  {
+    "aireId": "a63-porte-des-landes-decroissant",
+    "enseigneId": "monop"
+  },
+  {
+    "aireId": "a630-aquitaine",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a630-aquitaine",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a630-aquitaine",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a630-aquitaine-nord",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a630-aquitaine-sud",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a630-aquitaine-sud",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a630-gironde",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a630-gironde",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a630-thouars-nord",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a630-thouars-sud",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a64-comminges-decroissant",
+    "enseigneId": "arche_comptoir"
+  },
+  {
+    "aireId": "a64-comminges-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a64-comminges-decroissant",
+    "enseigneId": "casino_express"
+  },
+  {
+    "aireId": "a64-comminges-decroissant",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a64-hastingues-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a64-hastingues-decroissant",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a64-hastingues-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a64-hastingues-decroissant",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a64-la-garonne",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a64-lacq-audejos-croissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a64-lacq-audejos-croissant",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a64-lacq-audejos-croissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a64-lacq-audejos-decroissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a64-les-pyrenees-croissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a64-les-pyrenees-croissant",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a64-les-pyrenees-croissant",
+    "enseigneId": "mezzo_di_pasta"
+  },
+  {
+    "aireId": "a64-les-pyrenees-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a64-volvestre",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a64-volvestre",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a68-les-portes-du-tarn-croissant",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a68-les-portes-du-tarn-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a7-lancon-provence-bpv-decroissant",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a7-lancon-provence-bpv-decroissant",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a7-lancon-provence-croissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a7-lancon-provence-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a7-lancon-provence-decroissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a7-lancon-provence-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a7-lancon-provence-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a7-latitude-45",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a7-latitude-45",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a7-latitude-45",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a7-montelimar-croissant",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a7-montelimar-croissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a7-montelimar-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a7-montelimar-croissant",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a7-montelimar-decroissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a7-montelimar-decroissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a7-montelimar-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a7-montelimar-decroissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a7-montelimar-decroissant",
+    "enseigneId": "territoires_france"
+  },
+  {
+    "aireId": "a7-morieres",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a7-morieres",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a7-morieres",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a7-morieres",
+    "enseigneId": "territoires_france"
+  },
+  {
+    "aireId": "a7-mornas-les-adrets",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a7-mornas-les-adrets",
+    "enseigneId": "origin_r"
+  },
+  {
+    "aireId": "a7-mornas-les-adrets",
+    "enseigneId": "subway"
+  },
+  {
+    "aireId": "a7-mornas-village",
+    "enseigneId": "a_table"
+  },
+  {
+    "aireId": "a7-mornas-village",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a7-mornas-village",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a7-mornas-village",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a7-mornas-village",
+    "enseigneId": "pizza_hut"
+  },
+  {
+    "aireId": "a7-pont-de-l-isere",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a7-pont-de-l-isere",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a7-pont-de-l-isere",
+    "enseigneId": "monop"
+  },
+  {
+    "aireId": "a7-pont-de-l-isere",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a7-portes-les-valence-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a7-portes-les-valence-croissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a7-portes-les-valence-decroissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a7-portes-les-valence-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a7-portes-les-valence-decroissant",
+    "enseigneId": "mezzo_di_pasta"
+  },
+  {
+    "aireId": "a7-portes-les-valence-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a7-roussillon",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-croissant",
+    "enseigneId": "arche_comptoir"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-croissant",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-croissant",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-croissant",
+    "enseigneId": "hippopotamus"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-croissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-croissant",
+    "enseigneId": "subway"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-decroissant",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-decroissant",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-decroissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a7-saint-rambert-d-albon-decroissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a7-saulce",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a7-saulce",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a7-saulce",
+    "enseigneId": "mie_caline"
+  },
+  {
+    "aireId": "a7-sorgues",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a7-sorgues",
+    "enseigneId": "casino"
+  },
+  {
+    "aireId": "a7-sorgues",
+    "enseigneId": "kfc"
+  },
+  {
+    "aireId": "a7-sorgues",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a71-bourges-marmagne",
+    "enseigneId": "casino_everyday"
+  },
+  {
+    "aireId": "a71-bourges-marmagne",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a71-bourges-marmagne",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a71-bourges-sainte-thorette",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a71-bourges-sainte-thorette",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a71-bourges-sainte-thorette",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a71-bourges-sainte-thorette",
+    "enseigneId": "go_johnny_go"
+  },
+  {
+    "aireId": "a71-c-ur-de-sologne",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a71-c-ur-de-sologne",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a71-c-ur-de-sologne",
+    "enseigneId": "maison_pradier"
+  },
+  {
+    "aireId": "a71-l-allier-doyet",
+    "enseigneId": "atelier_charal"
+  },
+  {
+    "aireId": "a71-l-allier-doyet",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a71-l-allier-saulzet",
+    "enseigneId": "atelier_charal"
+  },
+  {
+    "aireId": "a71-l-allier-saulzet",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a71-l-allier-saulzet",
+    "enseigneId": "comptoirs_casino"
+  },
+  {
+    "aireId": "a71-la-ferte-saint-aubin",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a71-la-ferte-saint-aubin",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a71-la-ferte-saint-aubin",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a71-le-centre-de-la-france-bruere-allichamps",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a71-le-centre-de-la-france-bruere-allichamps",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a71-le-centre-de-la-france-bruere-allichamps",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a71-le-centre-de-la-france-bruere-allichamps",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a71-les-volcans-d-auvergne-croissant",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a71-salbris-la-loge",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a71-salbris-theillay",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a71-salbris-theillay",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a72-la-plaine-du-forez-croissant",
+    "enseigneId": "deli_by_shell"
+  },
+  {
+    "aireId": "a72-la-plaine-du-forez-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a72-la-plaine-du-forez-croissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a72-la-plaine-du-forez-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a72-la-plaine-du-forez-decroissant",
+    "enseigneId": "casino_express"
+  },
+  {
+    "aireId": "a72-la-plaine-du-forez-decroissant",
+    "enseigneId": "tasty"
+  },
+  {
+    "aireId": "a75-authezat",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a75-authezat",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a75-l-aveyron-croissant",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a75-l-aveyron-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a75-la-lozere-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a75-la-lozere-decroissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a75-la-lozere-decroissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a75-lafayette-lorlanges-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a75-lafayette-lorlanges-croissant",
+    "enseigneId": "tasty"
+  },
+  {
+    "aireId": "a75-veyre",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a75-veyre",
+    "enseigneId": "casino_express"
+  },
+  {
+    "aireId": "a75-veyre",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a77-le-jardin-des-arbres-croissant",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a77-le-jardin-des-arbres-croissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a77-les-vignobles-croissant",
+    "enseigneId": "c_ur_ble"
+  },
+  {
+    "aireId": "a77-les-vignobles-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a79-bourbonnais-decroissant",
+    "enseigneId": "fulli"
+  },
+  {
+    "aireId": "a8-cambarette",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a8-cambarette",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a8-cambarette",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a8-canaver",
+    "enseigneId": "as_24"
+  },
+  {
+    "aireId": "a8-canaver",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a8-canaver",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a8-canaver",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a8-l-esterel",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a8-l-esterel",
+    "enseigneId": "marie_blachere"
+  },
+  {
+    "aireId": "a8-la-cote-d-azur",
+    "enseigneId": "atelier_charal"
+  },
+  {
+    "aireId": "a8-la-cote-d-azur",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a8-la-cote-d-azur",
+    "enseigneId": "maison_pradier"
+  },
+  {
+    "aireId": "a8-la-cote-d-azur",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a8-la-riviera-francaise",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a8-la-riviera-francaise",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a8-la-sainte-victoire",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a8-les-breguieres-nord",
+    "enseigneId": "pizza_hut"
+  },
+  {
+    "aireId": "a8-les-breguieres-nord",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a8-les-breguieres-nord",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a8-les-terrasses-de-provence",
+    "enseigneId": "as_24"
+  },
+  {
+    "aireId": "a8-les-terrasses-de-provence",
+    "enseigneId": "autogrill"
+  },
+  {
+    "aireId": "a8-provence-verdon",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a8-provence-verdon",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a8-provence-verdon",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a8-provence-verdon",
+    "enseigneId": "mezzoday"
+  },
+  {
+    "aireId": "a8-provence-verdon",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a8-provence-verdon",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a8-rousset",
+    "enseigneId": "atelier_charal"
+  },
+  {
+    "aireId": "a8-rousset",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a8-rousset",
+    "enseigneId": "vival"
+  },
+  {
+    "aireId": "a8-via-julia-augusta",
+    "enseigneId": "columbus_cafe_co"
+  },
+  {
+    "aireId": "a8-via-julia-augusta",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a8-via-julia-augusta",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a8-vidauban-sud",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a8-vidauban-sud",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a8-vidauban-sud",
+    "enseigneId": "courtepaille"
+  },
+  {
+    "aireId": "a81-la-mayenne-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a81-la-mayenne-decroissant",
+    "enseigneId": "comptoirs_casino"
+  },
+  {
+    "aireId": "a81-la-mayenne-decroissant",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a81-saint-denis-d-orques",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a81-saint-denis-d-orques",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a81-saint-denis-d-orques",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a81-vallee-de-l-erve",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a81-vallee-de-l-erve",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a81-vallee-de-l-erve",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a83-chavagnes-en-paillers",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a83-la-parthenaise",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a83-la-vendee-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a83-les-brouzils",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a83-les-deux-sevres",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a84-la-vallee-de-la-vire-gouvets-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a84-le-mont-saint-michel-croissant",
+    "enseigneId": "comptoirs_casino"
+  },
+  {
+    "aireId": "a84-le-mont-saint-michel-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a85-le-val-de-cher-decroissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a85-le-val-de-cher-decroissant",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a85-les-jardins-de-villandry-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a85-les-jardins-de-villandry-croissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a85-longue-la-couaille",
+    "enseigneId": "leo_resto"
+  },
+  {
+    "aireId": "a85-longue-la-couaille",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a85-longue-les-cossonnieres",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a85-romorantin-croissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a85-romorantin-croissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a85-romorantin-croissant",
+    "enseigneId": "mezzo_di_pasta"
+  },
+  {
+    "aireId": "a85-romorantin-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a86-clair-bois",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a86-clair-bois",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a86-pompadour-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a86-pompadour-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a86-velizy-ouest",
+    "enseigneId": "total_access"
+  },
+  {
+    "aireId": "a86-velizy-ouest",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a87-trementines-croissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a88-pays-d-argentan-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a88-pays-d-argentan-croissant",
+    "enseigneId": "flunch"
+  },
+  {
+    "aireId": "a88-pays-d-argentan-croissant",
+    "enseigneId": "vival"
+  },
+  {
+    "aireId": "a88-sees-est",
+    "enseigneId": "as_24"
+  },
+  {
+    "aireId": "a89-la-correze-croissant",
+    "enseigneId": "paul"
+  },
+  {
+    "aireId": "a89-la-correze-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a89-la-correze-croissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a89-la-limagne-croissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a89-la-limagne-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a89-la-loire-croissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a89-la-loire-croissant",
+    "enseigneId": "casino_express"
+  },
+  {
+    "aireId": "a89-le-haut-forez-croissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a89-le-haut-forez-croissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a89-le-haut-forez-decroissant",
+    "enseigneId": "deli_by_shell"
+  },
+  {
+    "aireId": "a89-le-haut-forez-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a89-le-haut-forez-decroissant",
+    "enseigneId": "shell_select"
+  },
+  {
+    "aireId": "a89-le-manoire-decroissant",
+    "enseigneId": "arche_cafeteria"
+  },
+  {
+    "aireId": "a89-le-manoire-decroissant",
+    "enseigneId": "phileas"
+  },
+  {
+    "aireId": "a89-le-manoire-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a89-les-palombieres-decroissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a89-les-palombieres-decroissant",
+    "enseigneId": "dyneff"
+  },
+  {
+    "aireId": "a89-les-presidents-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a89-les-presidents-decroissant",
+    "enseigneId": "flunch"
+  },
+  {
+    "aireId": "a89-les-presidents-decroissant",
+    "enseigneId": "monop"
+  },
+  {
+    "aireId": "a89-manzat-decroissant",
+    "enseigneId": "casino_everyday"
+  },
+  {
+    "aireId": "a89-manzat-decroissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a89-manzat-decroissant",
+    "enseigneId": "leo"
+  },
+  {
+    "aireId": "a9-ambrussum-croissant",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a9-ambrussum-croissant",
+    "enseigneId": "carrefour_express"
+  },
+  {
+    "aireId": "a9-ambrussum-croissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a9-ambrussum-croissant",
+    "enseigneId": "pomme_pain"
+  },
+  {
+    "aireId": "a9-ambrussum-croissant",
+    "enseigneId": "starbucks"
+  },
+  {
+    "aireId": "a9-ambrussum-croissant",
+    "enseigneId": "stratto"
+  },
+  {
+    "aireId": "a9-ambrussum-decroissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a9-ambrussum-decroissant",
+    "enseigneId": "ciao"
+  },
+  {
+    "aireId": "a9-ambrussum-decroissant",
+    "enseigneId": "mcdonalds"
+  },
+  {
+    "aireId": "a9-ambrussum-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a9-beziers-montblanc-boby-lapointe-croissant",
+    "enseigneId": "buffalo_grill"
+  },
+  {
+    "aireId": "a9-beziers-montblanc-boby-lapointe-croissant",
+    "enseigneId": "ciao"
+  },
+  {
+    "aireId": "a9-beziers-montblanc-boby-lapointe-croissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a9-beziers-montblanc-boby-lapointe-croissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a9-beziers-montblanc-boby-lapointe-decroissant",
+    "enseigneId": "pizza_hut"
+  },
+  {
+    "aireId": "a9-beziers-montblanc-boby-lapointe-decroissant",
+    "enseigneId": "shell"
+  },
+  {
+    "aireId": "a9-la-palme-croissant",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a9-la-palme-croissant",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a9-la-palme-croissant",
+    "enseigneId": "go_johnny_go"
+  },
+  {
+    "aireId": "a9-la-palme-croissant",
+    "enseigneId": "pizza_hut"
+  },
+  {
+    "aireId": "a9-la-palme-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a9-la-palme-decroissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a9-la-palme-decroissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a9-la-palme-decroissant",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a9-le-village-catalan-decroissant",
+    "enseigneId": "comptoirs_casino"
+  },
+  {
+    "aireId": "a9-montpellier-fabregues-croissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a9-montpellier-fabregues-croissant",
+    "enseigneId": "mie_caline"
+  },
+  {
+    "aireId": "a9-montpellier-fabregues-croissant",
+    "enseigneId": "origin_r"
+  },
+  {
+    "aireId": "a9-montpellier-fabregues-croissant",
+    "enseigneId": "steak_n_shake"
+  },
+  {
+    "aireId": "a9-montpellier-fabregues-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a9-montpellier-fabregues-decroissant",
+    "enseigneId": "avia"
+  },
+  {
+    "aireId": "a9-montpellier-fabregues-decroissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a9-narbonne-vinassan-charles-trenet-croissant",
+    "enseigneId": "burger_king"
+  },
+  {
+    "aireId": "a9-narbonne-vinassan-charles-trenet-croissant",
+    "enseigneId": "e_leclerc"
+  },
+  {
+    "aireId": "a9-narbonne-vinassan-charles-trenet-croissant",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a9-narbonne-vinassan-charles-trenet-croissant",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a9-narbonne-vinassan-charles-trenet-decroissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a9-narbonne-vinassan-charles-trenet-decroissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a9-nimes-marguerittes-croissant",
+    "enseigneId": "bonjour"
+  },
+  {
+    "aireId": "a9-nimes-marguerittes-croissant",
+    "enseigneId": "brioche_doree"
+  },
+  {
+    "aireId": "a9-nimes-marguerittes-croissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a9-nimes-marguerittes-croissant",
+    "enseigneId": "totalenergies"
+  },
+  {
+    "aireId": "a9-nimes-marguerittes-decroissant",
+    "enseigneId": "atelier_charal"
+  },
+  {
+    "aireId": "a9-nimes-marguerittes-decroissant",
+    "enseigneId": "casino_shop"
+  },
+  {
+    "aireId": "a9-nimes-marguerittes-decroissant",
+    "enseigneId": "eni"
+  },
+  {
+    "aireId": "a9-nimes-marguerittes-decroissant",
+    "enseigneId": "tasty"
+  },
+  {
+    "aireId": "a9-pia",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a9-tavel-nord",
+    "enseigneId": "esso"
+  },
+  {
+    "aireId": "a9-tavel-nord",
+    "enseigneId": "franprix"
+  },
+  {
+    "aireId": "a9-tavel-nord",
+    "enseigneId": "la_croissanterie"
+  },
+  {
+    "aireId": "a9-tavel-nord",
+    "enseigneId": "lunch_grill"
+  },
+  {
+    "aireId": "a9-tavel-sud",
+    "enseigneId": "origin_r"
+  }
+]

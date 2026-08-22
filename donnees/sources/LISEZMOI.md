@@ -26,10 +26,16 @@ sous **licence ODbL** — les données doivent être attribuées à ses contribu
 qui en dérive reste sous la même licence. Produit par `tools/scrapper_osm.py`, qui interroge
 l'API Overpass.
 
-Le fichier est brut : les objets n'y sont pas encore rattachés aux aires du référentiel. Ce
-rattachement se fait hors ligne, dans la chaîne d'import.
+Le fichier est brut : chaque aire y porte l'autoroute et le point kilométrique déduits de nos
+tracés, mais pas encore d'identité. Le rattachement au référentiel se fait hors ligne, dans
+`tools/import/osm.py`, sur le nom, le point kilométrique et le côté de la chaussée.
+
+Le fichier est facultatif : la chaîne d'import tourne sans lui, les aires n'annonçant alors que
+ce que leur type implique.
 
 ## `enseignes.json`
 
-Référentiel des enseignes tenu à la main. Il sert de liste de saisie dans l'application ; aucune
-enseigne n'est rattachée à une aire tant que la passe OpenStreetMap n'est pas branchée.
+Référentiel des enseignes tenu à la main. Il sert de liste de saisie dans l'application, et
+l'import l'augmente des marques relevées dans OpenStreetMap — à partir de trois aires, en deçà
+de quoi une marque est plus probablement une saisie isolée qu'une enseigne. Ce fichier-ci n'est
+jamais réécrit par l'import : c'est le catalogue livré dans `assets/seed/` qui porte l'ajout.

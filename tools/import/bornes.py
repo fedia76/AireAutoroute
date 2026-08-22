@@ -160,6 +160,36 @@ def projeter_sur_trace(trace: TraceAutoroute, lat: float, lon: float) -> tuple[f
     return meilleure_distance, meilleur_pk
 
 
+def ecart_lateral(trace: TraceAutoroute, lat: float, lon: float) -> float:
+    """
+    Distance signée entre un point et le tracé, en kilomètres.
+
+    Positive à gauche du sens des points kilométriques croissants, négative à droite. Comme on
+    roule à droite en France, une aire à droite du tracé dessert la chaussée croissante. Le
+    bornage ne relève qu'une des deux chaussées, décalée d'une vingtaine de mètres : le signe
+    départage bien les aires qui se font face, mais reste indicatif tout près de l'axe.
+    """
+    meilleure_distance = float("inf")
+    meilleur_ecart = 0.0
+
+    for depart, arrivee in zip(trace.bornes, trace.bornes[1:]):
+        cos_lat = math.cos(math.radians(depart.lat))
+        bx = (arrivee.lon - depart.lon) * KM_PAR_DEGRE * cos_lat
+        by = (arrivee.lat - depart.lat) * KM_PAR_DEGRE
+        px = (lon - depart.lon) * KM_PAR_DEGRE * cos_lat
+        py = (lat - depart.lat) * KM_PAR_DEGRE
+
+        longueur2 = bx * bx + by * by
+        part = 0.0 if longueur2 == 0 else max(0.0, min(1.0, (px * bx + py * by) / longueur2))
+        distance = math.hypot(px - part * bx, py - part * by)
+        if distance < meilleure_distance:
+            longueur = math.sqrt(longueur2)
+            meilleure_distance = distance
+            meilleur_ecart = 0.0 if longueur == 0 else (bx * py - by * px) / longueur
+
+    return meilleur_ecart
+
+
 def position_du_pk(trace: TraceAutoroute, pk: float) -> tuple[float, float] | None:
     """Coordonnées d'un point kilométrique, interpolées entre les deux bornes qui l'encadrent."""
     bornes = trace.bornes
