@@ -122,6 +122,7 @@ versionnées dans `donnees/sources/` :
 | --- | --- | --- |
 | [Bornage du réseau routier national](https://www.data.gouv.fr/datasets/bornage-du-reseau-routier-national/) (data.gouv.fr) | Licence Ouverte | le tracé de chaque autoroute — une borne par kilomètre — et le PK **affiché sur les panneaux** |
 | [WikiSara](https://routes.fandom.com) | CC BY-SA | la liste des aires : nom, sens, type, point kilométrique |
+| [OpenStreetMap](https://www.openstreetmap.org) (API Overpass) | ODbL | les équipements réellement relevés sur le terrain et les enseignes présentes |
 | `donnees/sources/enseignes.json` | — | référentiel de saisie des enseignes, tenu à la main |
 
 Le bornage donne, pour chaque borne, deux abscisses : la distance depuis l'origine du tracé et le
@@ -194,10 +195,15 @@ Le projet se construit avec le wrapper Gradle, sans Android Studio :
 ```bash
 ./gradlew testDebugUnitTest   # tests unitaires (JVM)
 ./gradlew assembleDebug       # app/build/outputs/apk/debug/app-debug.apk
-./gradlew assembleRelease     # APK de release non signé
+./gradlew assembleRelease     # APK de release (signé si la clé est configurée)
+./gradlew bundleRelease       # app/build/outputs/bundle/release/app-release.aab
 ```
 
-- `minSdk` 26 (Android 8.0), `targetSdk`/`compileSdk` 35, JDK 17.
+- `minSdk` 26 (Android 8.0), `targetSdk`/`compileSdk` 36, JDK 17.
+- La release est minifiée (R8) et réduite ; les règles de conservation couvrent
+  kotlinx.serialization, seul mécanisme réflexif du projet.
+- La signature est lue dans l'environnement ou dans `~/.gradle/gradle.properties` ; sans clé, la
+  construction aboutit à un binaire non signé. Voir [docs/PUBLICATION.md](docs/PUBLICATION.md).
 - Aucune dépendance aux services Google : la localisation passe par le `LocationManager` du
   système, l'application fonctionne donc aussi sans Play Services.
 
@@ -207,18 +213,23 @@ Le workflow [`.github/workflows/android.yml`](.github/workflows/android.yml) s'e
 push** (toutes branches), sur les pull requests et à la demande :
 
 1. tests unitaires,
-2. `assembleDebug` + `assembleRelease`,
-3. publication des deux APK en artefacts (`apk-debug`, `apk-release-non-signe`), téléchargeables
-   depuis l'onglet *Actions* du dépôt.
+2. `assembleDebug` + `assembleRelease` + `bundleRelease`,
+3. publication des binaires en artefacts (`apk-debug`, `apk-release`, `aab-release`, `empreintes`),
+   téléchargeables depuis l'onglet *Actions* du dépôt.
 
 Un second workflow, [`donnees.yml`](.github/workflows/donnees.yml), régénère les données **à la
 demande** (déclenchement manuel, avec une option pour rejouer d'abord le scraping de WikiSara) et
 ouvre une pull request portant le rapport d'import en description : le diff est ce qui permet de
 refuser un import qui aurait mal tourné. Les données ne sont jamais régénérées pendant un build.
 
-L'APK de debug est directement installable sur un téléphone. L'APK de release est **non signé** :
-il faut le signer avec sa propre clé (`apksigner`) avant installation. Un push de tag `v*` crée en
-plus une release GitHub contenant les APK.
+L'APK de debug est directement installable sur un téléphone. L'APK de release l'est aussi dès que
+les secrets de signature sont configurés dans le dépôt ; sinon la CI le produit non signé et le
+signale dans le résumé du run. Un push de tag `v*` crée en plus une release GitHub contenant l'APK
+de release.
+
+Le fichier `.aab` est le format attendu par la Play Console — il ne s'installe pas directement sur
+un téléphone. La marche à suivre pour la publication est décrite dans
+[docs/PUBLICATION.md](docs/PUBLICATION.md).
 
 ## Structure du dépôt
 
@@ -258,3 +269,13 @@ app/src/main/java/com/aireautoroute/app/
   tables à langer et enseignes.
 - Filtrer la liste (« seulement les aires avec jeux intérieurs notés 4+ pour les 3-6 ans »).
 - Pondérer le consensus par l'ancienneté des déclarations (un équipement peut fermer).
+
+## Licence
+
+Le code de l'application est publié sous [licence MIT](LICENSE).
+
+Les données embarquées relèvent de leurs licences respectives, indépendantes de celle du code : le
+bornage du réseau routier national est sous **Licence Ouverte**, le catalogue des aires dérivé de
+WikiSara sous **CC BY-SA**, et le relevé des équipements issu d'OpenStreetMap sous **ODbL**.
+L'attribution est affichée dans l'écran « Sources et licences » de l'application ; les fichiers
+dérivés conservent la licence de leur source.

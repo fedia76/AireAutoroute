@@ -13,3 +13,8 @@ app/build/
 # Python
 __pycache__/
 *.py[cod]
+
+# Signature : ni la clé, ni ses mots de passe ne doivent être versionnés
+*.jks
+*.keystore
+keystore.properties
