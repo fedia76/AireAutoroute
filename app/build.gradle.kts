@@ -35,6 +35,20 @@ android {
         versionCode = 1
         versionName = "0.1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Coordonnées du service de contributions. La clé est publique par construction :
+        // ce qu'elle autorise est décidé par les règles d'accès du schéma, pas par son secret.
+        // Les variables d'environnement permettent de viser un autre projet sans toucher au code.
+        buildConfigField(
+            "String",
+            "SUPABASE_URL",
+            "\"${System.getenv("SUPABASE_URL") ?: "https://fdquuazpejwxbtozxppj.supabase.co"}\"",
+        )
+        buildConfigField(
+            "String",
+            "SUPABASE_CLE_PUBLIQUE",
+            "\"${System.getenv("SUPABASE_CLE_PUBLIQUE") ?: "sb_publishable_1_A20GXntUVPfv69xsLUpA_5Ju0uI6a"}\"",
+        )
     }
 
     signingConfigs {
@@ -72,6 +86,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     packaging {
@@ -103,6 +118,10 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    implementation(platform(libs.supabase.bom))
+    implementation(libs.supabase.postgrest)
+    implementation(libs.supabase.auth)
+    implementation(libs.ktor.client.okhttp)
     debugImplementation(libs.androidx.ui.tooling)
     testImplementation(libs.junit)
 }

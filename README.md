@@ -76,6 +76,21 @@ Un équipement *Absent* disparaît de la vue résumée et ses notes ne sont plus
 si l'exploitant l'annonçait : les visiteurs ont le dernier mot. Le seuil est une constante unique
 (`SEUIL_CONFIRMATION` dans `data/Vues.kt`), à relever quand il y aura plus de contributeurs.
 
+## Les avis sont partagés
+
+Les autoroutes et les aires sont **embarquées dans l'application** ; les avis, eux, sont publiés sur
+un service partagé ([Supabase](https://supabase.com), hébergé en Europe) pour que chacun profite des
+observations des autres. Le schéma et sa mise en place sont dans [`serveur/`](serveur/).
+
+**Aucun compte n'est demandé** : l'application ouvre une session anonyme au premier lancement. Elle
+ne sert qu'à une chose — garantir que personne ne modifie l'avis d'un autre, et vous laisser revenir
+sur les vôtres. La clé embarquée dans l'APK est publique par construction : ce qu'elle autorise est
+décidé par les règles d'accès du schéma, pas par son secret.
+
+Quand le service est injoignable, l'application affiche les derniers avis rapatriés — une copie
+locale en tient lieu — et le signale par une icône dans la barre du haut. Une contribution qui ne
+part pas est annoncée franchement plutôt que perdue en silence.
+
 ## Modèle de données
 
 Pas de base de données pour l'instant : les données sont dans des fichiers JSON, mais **structurées
@@ -87,13 +102,12 @@ comme des tables**, pour que le passage à Room ne touche que `DepotDonnees`.
 | `aire` | `assets/seed/aires.json` | id, autoroute, nom, PK, sens desservi, type (service/repos), coordonnées, équipements annoncés |
 | `enseigne` | `assets/seed/enseignes.json` | id, nom, catégorie (carburant, restauration, boutique, hôtel) |
 | `aire_enseigne` | `assets/seed/aire_enseignes.json` | table de liaison **many-to-many** aire ↔ enseigne |
-| `notation` | `filesDir/donnees_utilisateur.json` | id, aire, critère, tranche d'âge, note 1-5, commentaire, auteur, date |
-| `declaration_equipement` | `filesDir/donnees_utilisateur.json` | id, aire, critère, présence (oui/non), auteur, date |
+| `notation` | service partagé | id, aire, critère, tranche d'âge, note 1-5, commentaire, auteur, date |
+| `declaration_equipement` | service partagé | id, aire, critère, présence (oui/non), auteur, date |
 
-Les quatre premiers fichiers sont livrés dans l'APK (lecture seule). Le cinquième est écrit dans le
-stockage privé de l'application et contient aussi les enseignes ajoutées par l'utilisateur et leurs
-liaisons (`liensEnseignes`), avec le drapeau `ajoutParUtilisateur` qui permet de les distinguer du
-catalogue livré.
+Les quatre fichiers d'assets sont livrés dans l'APK, en lecture seule. Les deux dernières tables
+vivent sur le service partagé ; `filesDir/donnees_utilisateur.json` n'en garde qu'une copie, pour
+avoir quelque chose à montrer sans réseau.
 
 Le **sens** est modélisé par le PK : `CROISSANT` = les PK augmentent = on va vers le terminus
 d'arrivée (pour l'A13 : vers Caen), `DECROISSANT` = l'inverse, `LES_DEUX` pour une aire accessible
@@ -101,13 +115,14 @@ depuis les deux chaussées.
 
 ### D'où viennent les données
 
-**89 autoroutes, 11 000 km de tracé et 1 092 aires**, importés de deux sources ouvertes
+**89 autoroutes, 11 000 km de tracé et 1 376 aires**, importés de deux sources ouvertes
 versionnées dans `donnees/sources/` :
 
 | Source | Licence | Ce qu'elle apporte |
 | --- | --- | --- |
 | [Bornage du réseau routier national](https://www.data.gouv.fr/datasets/bornage-du-reseau-routier-national/) (data.gouv.fr) | Licence Ouverte | le tracé de chaque autoroute — une borne par kilomètre — et le PK **affiché sur les panneaux** |
 | [WikiSara](https://routes.fandom.com) | CC BY-SA | la liste des aires : nom, sens, type, point kilométrique |
+| [OpenStreetMap](https://www.openstreetmap.org) (API Overpass) | ODbL | les équipements réellement relevés sur le terrain et les enseignes présentes |
 | `donnees/sources/enseignes.json` | — | référentiel de saisie des enseignes, tenu à la main |
 
 Le bornage donne, pour chaque borne, deux abscisses : la distance depuis l'origine du tracé et le
@@ -116,6 +131,11 @@ kilométrage d'une autre, ou décaler son origine — et c'est le **numéro de b
 puisque c'est celui que lit l'automobiliste. Chaque aire est ensuite placée sur le tracé en
 interpolant son PK entre les deux bornes qui l'encadrent : les deux sources parlent la même langue,
 celle des panneaux.
+
+**Une ligne de WikiSara décrit une aire, sur une chaussée donnée** — et c'est ainsi qu'elles sont
+livrées. Les deux côtés d'un même lieu, « Vironvay Nord » et « Vironvay Sud », restent deux aires
+distinctes : ce sont deux parkings, deux jeux d'équipements, deux séries d'avis. Seules les redites
+de la source — deux lignes identiques, même nom, même sens, même point — sont regroupées.
 
 Pour régénérer :
 
@@ -129,7 +149,7 @@ Le script refuse d'écrire si un contrôle échoue : identifiants en double, air
 hors tracé, kilométrage non croissant, ou chute de plus de 20 % du nombre d'aires. Ce qui est
 écarté est listé dans [`donnees/rapport_import.md`](donnees/rapport_import.md) — aujourd'hui
 275 km de tracé (là où le bornage décrit une autoroute en tronçons dont le kilométrage repart) et
-33 aires dont le PK ne tombe pas sur le tracé retenu.
+35 aires dont le PK ne tombe pas sur le tracé retenu.
 
 `tools/scrapper_wikisara.py` sert à rafraîchir le CSV des aires ; il n'est pas rejoué à chaque
 import, le CSV versionné fait foi.
@@ -256,5 +276,6 @@ Le code de l'application est publié sous [licence MIT](LICENSE).
 
 Les données embarquées relèvent de leurs licences respectives, indépendantes de celle du code : le
 bornage du réseau routier national est sous **Licence Ouverte**, le catalogue des aires dérivé de
-WikiSara sous **CC BY-SA**. L'attribution est affichée dans l'écran « Sources et licences » de
-l'application, et les fichiers dérivés de WikiSara restent sous CC BY-SA.
+WikiSara sous **CC BY-SA**, et le relevé des équipements issu d'OpenStreetMap sous **ODbL**.
+L'attribution est affichée dans l'écran « Sources et licences » de l'application ; les fichiers
+dérivés conservent la licence de leur source.

@@ -76,12 +76,24 @@ la production.
    téléphone). Compter quelques jours à deux semaines.
 2. **Fiche du magasin** — icône 512×512, bandeau 1024×500, 2 à 8 captures d'écran, titre ≤ 30
    caractères, description courte ≤ 80, description longue ≤ 4000.
-3. **Politique de confidentialité** — obligatoire, à une URL publique. L'application ne demande
-   aucun accès réseau et ne transmet rien : le texte peut être court, mais il doit exister.
-4. **Sécurité des données** — déclarer *aucune donnée collectée ni partagée*. La position est
-   utilisée pour situer l'utilisateur sur l'autoroute, elle ne quitte jamais l'appareil ; les
-   notations sont écrites dans `filesDir/donnees_utilisateur.json`. L'application n'a pas la
-   permission `INTERNET`, ce qui rend cette déclaration vérifiable.
+3. **Politique de confidentialité** — obligatoire, à une URL publique. Elle doit décrire ce que
+   l'application envoie au service de contributions, qui l'héberge, et combien de temps les avis
+   sont conservés.
+4. **Sécurité des données** — l'application **publie les avis sur un service partagé** (Supabase,
+   hébergé en Europe). La déclaration doit donc couvrir, au minimum :
+   - les *contributions* (note, tranche d'âge, commentaire libre, aire concernée, date) : collectées
+     et **partagées publiquement**, puisque tout le monde les lit ;
+   - l'*identifiant de session anonyme* ouvert au premier lancement : collecté, rattaché à
+     l'appareil, sans compte ni adresse e-mail ;
+   - le *commentaire libre* est le point sensible : un utilisateur peut y écrire n'importe quoi, y
+     compris des informations personnelles. Play attend qu'on le déclare comme tel.
+
+   La **position** reste hors du lot : elle sert à situer l'automobiliste sur l'autoroute et n'est
+   jamais transmise. À déclarer comme *utilisée mais non collectée*.
+
+   L'aire concernée par un avis est une donnée de localisation grossière au moment où elle part sur
+   le réseau — c'est le genre de nuance sur laquelle Play sanctionne une déclaration trop
+   optimiste. Dans le doute, déclarer plutôt que taire.
 5. **Test fermé** — canal *closed testing*, pas *internal testing* qui ne compte pas. Il faut
    **12 testeurs inscrits en continu pendant 14 jours**. Le compteur démarre au 12ᵉ inscrit
    effectif : une adresse listée mais jamais confirmée ne compte pas, et une désinscription remet
@@ -97,7 +109,9 @@ il faudra remonter d'un niveau annuellement pour continuer à publier des mises 
 
 ## 6. Licences des données
 
-Les catalogues embarqués proviennent du bornage du réseau routier national (Licence Ouverte) et de
-WikiSara (CC BY-SA). L'attribution est affichée dans l'écran « Sources et licences » de
-l'application, ce qui satisfait les deux licences. Les fichiers dérivés de WikiSara restent sous
-CC BY-SA.
+Les catalogues embarqués proviennent du bornage du réseau routier national (Licence Ouverte), de
+WikiSara (CC BY-SA) et d'OpenStreetMap (ODbL). L'attribution est affichée dans l'écran « Sources et
+licences » de l'application, ce qui satisfait ces licences. Les fichiers dérivés de WikiSara restent
+sous CC BY-SA.
+
+Le code de l'application est sous licence MIT (voir `LICENSE`).

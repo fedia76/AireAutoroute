@@ -19,6 +19,7 @@ quelques centaines de mètres, sans usage pour nous.
 """
 
 import csv
+import math
 import re
 from dataclasses import dataclass, field
 
@@ -26,6 +27,8 @@ from .lambert93 import vers_wgs84
 
 # « A0013 » -> A13. Les codes longs et les routes nationales sont écartés.
 CODE_AUTOROUTE = re.compile(r"^A(\d{4})$")
+
+KM_PAR_DEGRE = 111.32
 
 
 @dataclass
@@ -127,6 +130,64 @@ def lire_traces(chemin: str) -> dict[str, TraceAutoroute]:
         traces[numero] = TraceAutoroute(numero=numero, bornes=gardees, km_ecartes=ecartes)
 
     return traces
+
+
+def projeter_sur_trace(trace: TraceAutoroute, lat: float, lon: float) -> tuple[float, float]:
+    """
+    Projette un point sur le tracé et renvoie (distance en km, point kilométrique).
+
+    Sert à reconnaître les objets qui appartiennent à une autoroute donnée, puis à les situer
+    dessus. Le calcul se fait dans un repère plan local, comme pour la localisation GPS.
+    """
+    meilleure_distance = float("inf")
+    meilleur_pk = trace.bornes[0].pk
+
+    for depart, arrivee in zip(trace.bornes, trace.bornes[1:]):
+        # Repère plan centré sur le début du segment, en kilomètres.
+        cos_lat = math.cos(math.radians(depart.lat))
+        bx = (arrivee.lon - depart.lon) * KM_PAR_DEGRE * cos_lat
+        by = (arrivee.lat - depart.lat) * KM_PAR_DEGRE
+        px = (lon - depart.lon) * KM_PAR_DEGRE * cos_lat
+        py = (lat - depart.lat) * KM_PAR_DEGRE
+
+        longueur2 = bx * bx + by * by
+        part = 0.0 if longueur2 == 0 else max(0.0, min(1.0, (px * bx + py * by) / longueur2))
+        distance = math.hypot(px - part * bx, py - part * by)
+        if distance < meilleure_distance:
+            meilleure_distance = distance
+            meilleur_pk = depart.pk + part * (arrivee.pk - depart.pk)
+
+    return meilleure_distance, meilleur_pk
+
+
+def ecart_lateral(trace: TraceAutoroute, lat: float, lon: float) -> float:
+    """
+    Distance signée entre un point et le tracé, en kilomètres.
+
+    Positive à gauche du sens des points kilométriques croissants, négative à droite. Comme on
+    roule à droite en France, une aire à droite du tracé dessert la chaussée croissante. Le
+    bornage ne relève qu'une des deux chaussées, décalée d'une vingtaine de mètres : le signe
+    départage bien les aires qui se font face, mais reste indicatif tout près de l'axe.
+    """
+    meilleure_distance = float("inf")
+    meilleur_ecart = 0.0
+
+    for depart, arrivee in zip(trace.bornes, trace.bornes[1:]):
+        cos_lat = math.cos(math.radians(depart.lat))
+        bx = (arrivee.lon - depart.lon) * KM_PAR_DEGRE * cos_lat
+        by = (arrivee.lat - depart.lat) * KM_PAR_DEGRE
+        px = (lon - depart.lon) * KM_PAR_DEGRE * cos_lat
+        py = (lat - depart.lat) * KM_PAR_DEGRE
+
+        longueur2 = bx * bx + by * by
+        part = 0.0 if longueur2 == 0 else max(0.0, min(1.0, (px * bx + py * by) / longueur2))
+        distance = math.hypot(px - part * bx, py - part * by)
+        if distance < meilleure_distance:
+            longueur = math.sqrt(longueur2)
+            meilleure_distance = distance
+            meilleur_ecart = 0.0 if longueur == 0 else (bx * py - by * px) / longueur
+
+    return meilleur_ecart
 
 
 def position_du_pk(trace: TraceAutoroute, pk: float) -> tuple[float, float] | None:
