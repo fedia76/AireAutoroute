@@ -64,8 +64,23 @@ Chaque exécution publie l'APK de debug, l'APK de release, le bundle `.aab` et u
 d'empreintes SHA-256. Tant que les secrets sont absents, la construction continue de fonctionner
 et signale dans le résumé que les binaires ne sont pas signés.
 
-Un tag `v*` crée en plus une release GitHub avec l'APK de release — c'est la voie de distribution
-directe, indépendante du Play Store.
+Un tag `v*` crée en plus une release GitHub portant l'APK **et** le bundle. L'APK est la voie de
+distribution directe, indépendante du Play Store ; le bundle y figure parce qu'une release offre un
+lien de téléchargement direct, là où un artefact de CI est une archive zip qu'il faut d'abord
+décompresser — ce qui est pénible depuis un téléphone.
+
+### Publier sans ordinateur
+
+Tout le parcours Play Store se fait depuis un téléphone : création du compte et vérification
+d'identité (qui réclame des photos d'une pièce d'identité), fiche du magasin, captures d'écran,
+déclarations, gestion du test fermé. Demande la **version bureau** dans le navigateur : l'interface
+mobile de la Play Console masque certaines sections.
+
+Le seul point qui résiste est la génération de la clé d'upload, `keytool` n'étant pas disponible sur
+Android par défaut. Deux contournements : [Termux](https://f-droid.org/packages/com.termux/)
+(installé depuis F-Droid, puis `pkg install openjdk-17`), ou la génération sur une autre machine.
+Ne jamais la produire dans un job d'intégration continue sur un dépôt public : l'artefact serait
+téléchargeable par n'importe qui.
 
 ## 4. Le parcours Play Store, compte personnel
 
