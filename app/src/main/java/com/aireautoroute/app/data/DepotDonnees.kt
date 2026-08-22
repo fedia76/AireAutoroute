@@ -23,18 +23,29 @@ data class Catalogue(
     val liensEnseignes: List<LienAireEnseigne>,
 )
 
+/** Où en est l'application vis-à-vis du service de contributions. */
+enum class EtatSynchro {
+    EN_COURS,
+    A_JOUR,
+
+    /** Le service est injoignable : on affiche ce que le dernier passage avait rapporté. */
+    HORS_LIGNE,
+}
+
 /**
  * Accès aux données de l'application.
  *
- * Tant qu'il n'y a pas de base de données :
- *  - le catalogue (autoroutes, aires, enseignes, liaisons) est lu dans les fichiers JSON de `assets/seed/` ;
- *  - les contributions de l'utilisateur (notations, enseignes ajoutées) sont écrites dans
- *    `filesDir/donnees_utilisateur.json`.
- *
- * Les deux couches gardent la forme des tables décrites dans le README, pour que le passage à
- * une base Room ne change que cette classe.
+ * Deux sources de nature différente :
+ *  - le **catalogue** — autoroutes, tracés, aires — est lu dans les fichiers JSON de
+ *    `assets/seed/`. Il change une fois par an et doit s'afficher sans réseau.
+ *  - les **contributions** — notes, déclarations, enseignes — viennent du service partagé.
+ *    Le fichier `filesDir/donnees_utilisateur.json` n'en garde qu'une copie, pour avoir
+ *    quelque chose à montrer quand le réseau manque.
  */
-class DepotDonnees(private val context: Context) {
+class DepotDonnees(
+    private val context: Context,
+    private val service: ServiceContributions = ServiceContributions(context),
+) {
 
     private val json = Json {
         ignoreUnknownKeys = true
@@ -42,103 +53,97 @@ class DepotDonnees(private val context: Context) {
         prettyPrint = true
     }
 
-    private val fichierUtilisateur: File
-        get() = File(context.filesDir, FICHIER_UTILISATEUR)
+    private val fichierCache: File
+        get() = File(context.filesDir, FICHIER_CACHE)
 
     private val mutexEcriture = Mutex()
 
     private val _catalogue = MutableStateFlow<Catalogue?>(null)
     val catalogue: StateFlow<Catalogue?> = _catalogue.asStateFlow()
 
-    private val _donneesUtilisateur = MutableStateFlow(DonneesUtilisateur())
-    val donneesUtilisateur: StateFlow<DonneesUtilisateur> = _donneesUtilisateur.asStateFlow()
+    private val _contributions = MutableStateFlow(DonneesUtilisateur())
+    val contributions: StateFlow<DonneesUtilisateur> = _contributions.asStateFlow()
 
-    suspend fun charger() = withContext(Dispatchers.IO) {
-        _catalogue.value = Catalogue(
-            autoroutes = lireAsset("seed/autoroutes.json"),
-            aires = lireAsset("seed/aires.json"),
-            enseignes = lireAsset("seed/enseignes.json"),
-            liensEnseignes = lireAsset("seed/aire_enseignes.json"),
-        )
-        _donneesUtilisateur.value = lireDonneesUtilisateur()
+    private val _synchro = MutableStateFlow(EtatSynchro.EN_COURS)
+    val synchro: StateFlow<EtatSynchro> = _synchro.asStateFlow()
+
+    suspend fun charger() {
+        withContext(Dispatchers.IO) {
+            _catalogue.value = Catalogue(
+                autoroutes = lireAsset("seed/autoroutes.json"),
+                aires = lireAsset("seed/aires.json"),
+                enseignes = lireAsset("seed/enseignes.json"),
+                liensEnseignes = lireAsset("seed/aire_enseignes.json"),
+            )
+            _contributions.value = lireCache()
+        }
+        rafraichir()
+    }
+
+    /** Rapatrie les contributions publiées. Sans réseau, on garde la copie locale. */
+    suspend fun rafraichir() {
+        _synchro.value = EtatSynchro.EN_COURS
+        val resultat = runCatching { service.lireContributions() }
+        resultat
+            .onSuccess { distantes ->
+                _contributions.value = distantes
+                ecrireCache(distantes)
+                _synchro.value = EtatSynchro.A_JOUR
+            }
+            .onFailure { _synchro.value = EtatSynchro.HORS_LIGNE }
     }
 
     private inline fun <reified T> lireAsset(chemin: String): List<T> =
         context.assets.open(chemin).bufferedReader().use { json.decodeFromString(it.readText()) }
 
-    private fun lireDonneesUtilisateur(): DonneesUtilisateur {
-        val fichier = fichierUtilisateur
+    private fun lireCache(): DonneesUtilisateur {
+        val fichier = fichierCache
         if (!fichier.exists()) return DonneesUtilisateur()
         return runCatching { json.decodeFromString<DonneesUtilisateur>(fichier.readText()) }
             .getOrElse { DonneesUtilisateur() }
     }
 
-    private suspend fun modifier(transformation: (DonneesUtilisateur) -> DonneesUtilisateur) {
+    private suspend fun ecrireCache(donnees: DonneesUtilisateur) {
         mutexEcriture.withLock {
-            val nouvelles = transformation(_donneesUtilisateur.value)
-            _donneesUtilisateur.value = nouvelles
             withContext(Dispatchers.IO) {
-                val temporaire = File(context.filesDir, "$FICHIER_UTILISATEUR.tmp")
-                temporaire.writeText(json.encodeToString(nouvelles))
-                temporaire.renameTo(fichierUtilisateur)
+                val temporaire = File(context.filesDir, "$FICHIER_CACHE.tmp")
+                temporaire.writeText(json.encodeToString(donnees))
+                temporaire.renameTo(fichierCache)
             }
         }
     }
 
     /**
-     * Enregistre en une fois la contribution d'un utilisateur pour une aire : ce qu'il déclare
-     * présent ou absent, et les notes des équipements qu'il a déclarés présents.
+     * Publie la contribution d'un utilisateur, puis relit ce que le service en a fait.
+     *
+     * Sans réseau, l'envoi échoue franchement : mieux vaut le dire que laisser croire que
+     * l'avis est parti.
      */
     suspend fun enregistrerContribution(
         declarations: List<DeclarationEquipement>,
         notations: List<Notation>,
-    ) {
-        if (declarations.isEmpty() && notations.isEmpty()) return
-        modifier { donnees ->
-            donnees.copy(
-                notations = donnees.notations + notations,
-                declarations = donnees.declarations + declarations,
-            )
+    ): Result<Unit> {
+        if (declarations.isEmpty() && notations.isEmpty()) return Result.success(Unit)
+        return runCatching {
+            service.publierContribution(notations, declarations)
+            rafraichir()
         }
     }
 
-    suspend fun supprimerNotation(id: String) {
-        modifier { donnees -> donnees.copy(notations = donnees.notations.filterNot { it.id == id }) }
-    }
-
-    /** Rattache une enseigne à une aire, en la créant au catalogue utilisateur si besoin. */
-    suspend fun ajouterEnseigneAAire(aireId: String, nomEnseigne: String) {
-        val nom = nomEnseigne.trim()
-        if (nom.isEmpty()) return
-        val connues = (_catalogue.value?.enseignes.orEmpty() + _donneesUtilisateur.value.enseignes)
-        val existante = connues.firstOrNull { it.nom.equals(nom, ignoreCase = true) }
-        val enseigne = existante ?: Enseigne(id = "user-" + UUID.randomUUID(), nom = nom)
-        modifier { donnees ->
-            val dejaLie = (_catalogue.value?.liensEnseignes.orEmpty() + donnees.liensEnseignes)
-                .any { it.aireId == aireId && it.enseigneId == enseigne.id }
-            if (dejaLie) {
-                donnees
-            } else {
-                donnees.copy(
-                    enseignes = if (existante == null) donnees.enseignes + enseigne else donnees.enseignes,
-                    liensEnseignes = donnees.liensEnseignes +
-                        LienAireEnseigne(aireId, enseigne.id, ajoutParUtilisateur = true),
-                )
-            }
+    suspend fun ajouterEnseigneAAire(aireId: String, nomEnseigne: String): Result<Unit> =
+        runCatching {
+            service.rattacherEnseigne(aireId, nomEnseigne)
+            rafraichir()
         }
-    }
 
-    suspend fun retirerEnseigneDAire(aireId: String, enseigneId: String) {
-        modifier { donnees ->
-            donnees.copy(
-                liensEnseignes = donnees.liensEnseignes
-                    .filterNot { it.aireId == aireId && it.enseigneId == enseigneId },
-            )
+    suspend fun retirerEnseigneDAire(aireId: String, enseigneId: String): Result<Unit> =
+        runCatching {
+            service.detacherEnseigne(aireId, enseigneId)
+            rafraichir()
         }
-    }
 
     companion object {
-        private const val FICHIER_UTILISATEUR = "donnees_utilisateur.json"
+        private const val FICHIER_CACHE = "donnees_utilisateur.json"
         private const val AUTEUR_PAR_DEFAUT = "Moi"
 
         fun nouvelleDeclaration(

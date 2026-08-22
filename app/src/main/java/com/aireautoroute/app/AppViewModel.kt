@@ -11,6 +11,7 @@ import com.aireautoroute.app.data.Catalogue
 import com.aireautoroute.app.data.Critere
 import com.aireautoroute.app.data.DeclarationEquipement
 import com.aireautoroute.app.data.DepotDonnees
+import com.aireautoroute.app.data.EtatSynchro
 import com.aireautoroute.app.data.Notation
 import com.aireautoroute.app.data.PreferencesUi
 import com.aireautoroute.app.data.PositionUtilisateur
@@ -56,6 +57,9 @@ data class EtatLocalisation(
 
 data class EtatUi(
     val chargement: Boolean = true,
+    val synchro: EtatSynchro = EtatSynchro.EN_COURS,
+    /** Message à montrer après une tentative de publication. */
+    val messageContribution: String? = null,
     val autoroutes: List<Autoroute> = emptyList(),
     val position: PositionUtilisateur? = null,
     val prochainesAires: List<AireResume> = emptyList(),
@@ -81,14 +85,19 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     private val etatLocalisation = MutableStateFlow(EtatLocalisation())
     private var jobLocalisation: Job? = null
 
+    private val messageContribution = MutableStateFlow<String?>(null)
+
     val etat: StateFlow<EtatUi> = combine(
         depot.catalogue,
-        depot.donneesUtilisateur,
+        depot.contributions,
         positionChoisie,
         etatLocalisation,
-    ) { catalogue, donnees, position, localisation ->
+        combine(depot.synchro, messageContribution) { synchro, message -> synchro to message },
+    ) { catalogue, donnees, position, localisation, (synchro, message) ->
         EtatUi(
             chargement = catalogue == null,
+            synchro = synchro,
+            messageContribution = message,
             autoroutes = catalogue?.autoroutes.orEmpty(),
             position = position,
             prochainesAires = if (catalogue != null && position != null) {
@@ -214,7 +223,7 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
 
     fun detail(aireId: String): StateFlow<AireDetail?> = combine(
         depot.catalogue,
-        depot.donneesUtilisateur,
+        depot.contributions,
     ) { catalogue, donnees ->
         catalogue?.let { detailAire(it, donnees, aireId) }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
@@ -260,15 +269,38 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
                 }
         }
 
-        viewModelScope.launch { depot.enregistrerContribution(declarations, notations) }
+        viewModelScope.launch {
+            rendreCompte(depot.enregistrerContribution(declarations, notations), "Merci ! Votre avis est publié.")
+        }
     }
 
     fun ajouterEnseigne(aireId: String, nom: String) {
-        viewModelScope.launch { depot.ajouterEnseigneAAire(aireId, nom) }
+        viewModelScope.launch {
+            rendreCompte(depot.ajouterEnseigneAAire(aireId, nom), "Enseigne ajoutée.")
+        }
     }
 
     fun retirerEnseigne(aireId: String, enseigneId: String) {
-        viewModelScope.launch { depot.retirerEnseigneDAire(aireId, enseigneId) }
+        viewModelScope.launch {
+            rendreCompte(depot.retirerEnseigneDAire(aireId, enseigneId), "Enseigne retirée.")
+        }
+    }
+
+    /** Une contribution qui ne part pas doit se voir : l'utilisateur croirait l'avoir publiée. */
+    private fun rendreCompte(resultat: Result<Unit>, succes: String) {
+        messageContribution.value = if (resultat.isSuccess) {
+            succes
+        } else {
+            "Envoi impossible : vérifiez votre connexion, votre contribution n'a pas été publiée."
+        }
+    }
+
+    fun effacerMessageContribution() {
+        messageContribution.value = null
+    }
+
+    fun rafraichir() {
+        viewModelScope.launch { depot.rafraichir() }
     }
 
     private companion object {

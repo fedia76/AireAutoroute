@@ -14,7 +14,10 @@ enum class Sens {
     CROISSANT,
     DECROISSANT,
 
-    /** Utilisé uniquement pour les aires accessibles depuis les deux chaussées. */
+    /**
+     * Aire accessible depuis les deux chaussées — une aire enjambant l'autoroute, par exemple.
+     * Le catalogue actuel n'en produit pas : WikiSara décrit une aire par sens de circulation.
+     */
     @SerialName("LES_DEUX")
     LES_DEUX;
 

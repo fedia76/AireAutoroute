@@ -5,7 +5,7 @@ des aires avec leur PK. Chaque aire est placée sur le tracé en interpolant son
 bornes qui l'encadrent : les deux sources parlent la même langue, celle des panneaux.
 """
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 
 from .bornes import TraceAutoroute, position_du_pk
@@ -15,20 +15,24 @@ SENS_CROISSANT = "CROISSANT"
 SENS_DECROISSANT = "DECROISSANT"
 SENS_LES_DEUX = "LES_DEUX"
 
+# Employé dans l'identifiant quand deux aires d'un même lieu portent le même nom.
+SUFFIXE_SENS = {SENS_CROISSANT: "croissant", SENS_DECROISSANT: "decroissant"}
+
 # Une aire de service se définit par la présence de carburant et de sanitaires : on les annonce,
 # sans les affirmer — l'application les présentera comme « annoncés, non vérifiés » tant qu'aucun
 # visiteur ne les aura confirmés.
 EQUIPEMENTS_AIRE_DE_SERVICE = ["STATION_SERVICE", "TOILETTES"]
 
-# Tolérance de rapprochement entre les deux chaussées d'une même aire, en kilomètres.
-TOLERANCE_FUSION_KM = 2.0
+# Deux lignes de WikiSara séparées de moins de cette distance, portant le même nom et le même
+# sens, désignent la même aire : la source la répète parfois.
+TOLERANCE_DOUBLON_KM = 2.0
 
 
 @dataclass
 class Rapport:
     autoroutes_retenues: int = 0
     aires_retenues: int = 0
-    aires_deux_sens: int = 0
+    doublons_regroupes: int = 0
     km_traces: float = 0.0
     km_ecartes: float = 0.0
     autoroutes_sans_trace: list[str] = field(default_factory=list)
@@ -107,7 +111,6 @@ def construire(
         rapport.km_ecartes += trace.km_ecartes
 
     rapport.aires_retenues = len(aires)
-    rapport.aires_deux_sens = sum(1 for a in aires if a["sens"] == SENS_LES_DEUX)
     rapport.km_traces = round(rapport.km_traces, 1)
     rapport.km_ecartes = round(rapport.km_ecartes, 1)
     return autoroutes, aires, rapport
@@ -120,57 +123,64 @@ def _aires_de_l_autoroute(
     catalogue: CatalogueWikisara,
     rapport: Rapport,
 ) -> list[dict]:
-    # Une même aire desservie par les deux chaussées apparaît deux fois, au même nom et à un ou
-    # deux kilomètres près : on la fusionne en une seule entrée accessible dans les deux sens.
-    par_nom: dict[str, list[tuple[AireWikisara, str]]] = defaultdict(list)
+    """
+    Une ligne de WikiSara décrit une aire, sur une chaussée donnée : c'est le référentiel.
+
+    Les deux chaussées d'un même lieu — « Vironvay Nord » et « Vironvay Sud » — restent donc deux
+    aires distinctes, avec leurs propres équipements et leurs propres avis. Seules les redites de
+    la source, deux lignes identiques au même point et dans le même sens, sont regroupées.
+    """
+    par_nom_et_sens: dict[tuple[str, str], list[AireWikisara]] = defaultdict(list)
     for aire in candidates:
         sens = _sens_de(catalogue, aire)
         if sens is None:
             rapport.sens_indetermine.append(f"{numero} · {aire.nom}")
             continue
-        if not (trace.pk_min - TOLERANCE_FUSION_KM <= aire.pk <= trace.pk_max + TOLERANCE_FUSION_KM):
+        if not (trace.pk_min - TOLERANCE_DOUBLON_KM <= aire.pk <= trace.pk_max + TOLERANCE_DOUBLON_KM):
             rapport.aires_hors_trace.append(
                 f"{numero} · {aire.nom} (PK {aire.pk:.0f}, tracé {trace.pk_min:.0f}-{trace.pk_max:.0f})"
             )
             continue
-        par_nom[slug(aire.nom)].append((aire, sens))
+        par_nom_et_sens[(slug(aire.nom), sens)].append(aire)
 
-    # Deux aires homonymes éloignées de plus de la tolérance restent deux aires distinctes.
-    groupes: list[tuple[str, list[tuple[AireWikisara, str]]]] = []
-    for nom_slug, membres in par_nom.items():
-        membres.sort(key=lambda m: m[0].pk)
-        courant: list[tuple[AireWikisara, str]] = []
+    # Deux aires homonymes du même sens mais éloignées restent deux aires distinctes.
+    groupes: list[tuple[str, str, list[AireWikisara]]] = []
+    for (nom_slug, sens), membres in par_nom_et_sens.items():
+        membres.sort(key=lambda m: m.pk)
+        courant: list[AireWikisara] = []
         for membre in membres:
-            if courant and membre[0].pk - courant[-1][0].pk > TOLERANCE_FUSION_KM:
-                groupes.append((nom_slug, courant))
+            if courant and membre.pk - courant[-1].pk > TOLERANCE_DOUBLON_KM:
+                groupes.append((nom_slug, sens, courant))
                 courant = []
             courant.append(membre)
         if courant:
-            groupes.append((nom_slug, courant))
+            groupes.append((nom_slug, sens, courant))
+        rapport.doublons_regroupes += len(membres) - sum(
+            1 for g in groupes if g[0] == nom_slug and g[1] == sens
+        )
 
-    # Un nom d'aire peut revenir à deux PK différents sur la même autoroute : dans ce cas
-    # seulement, le PK entre dans l'identifiant pour le garder unique.
-    occurrences: dict[str, int] = defaultdict(int)
-    for nom_slug, _ in groupes:
-        occurrences[nom_slug] += 1
+    # L'identifiant reste lisible tant qu'il est unique ; le sens puis le PK ne s'y ajoutent que
+    # pour départager deux aires qui porteraient sinon le même.
+    homonymes = Counter(nom_slug for nom_slug, _, _ in groupes)
 
     resultat: list[dict] = []
-    for nom_slug, membres in sorted(groupes, key=lambda g: g[1][0][0].pk):
-        aire = membres[0][0]
-        sens_presents = {sens for _, sens in membres}
-        sens = SENS_LES_DEUX if len(sens_presents) > 1 else next(iter(sens_presents))
-
-        pk = round(sum(m[0].pk for m in membres) / len(membres), 1)
+    identifiants: set[str] = set()
+    for nom_slug, sens, membres in sorted(groupes, key=lambda g: (g[2][0].pk, g[1])):
+        aire = membres[0]
+        pk = round(sum(m.pk for m in membres) / len(membres), 1)
         position = position_du_pk(trace, pk)
         if position is None:
             rapport.aires_hors_trace.append(f"{numero} · {aire.nom} (PK {pk:.0f} hors bornes)")
             continue
 
         identifiant = f"{numero.lower()}-{nom_slug}"
-        if occurrences[nom_slug] > 1:
+        if homonymes[nom_slug] > 1:
+            identifiant = f"{identifiant}-{SUFFIXE_SENS[sens]}"
+        if identifiant in identifiants:
             identifiant = f"{identifiant}-{pk:.0f}"
+        identifiants.add(identifiant)
 
-        type_aire = "SERVICE" if any(m[0].type_aire == "SERVICE" for m in membres) else "REPOS"
+        type_aire = "SERVICE" if any(m.type_aire == "SERVICE" for m in membres) else "REPOS"
         resultat.append({
             "id": identifiant,
             "autorouteId": numero,

@@ -24,6 +24,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.CloudOff
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Palette
@@ -44,6 +45,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -64,6 +67,7 @@ import com.aireautoroute.app.EtatUi
 import com.aireautoroute.app.data.AireResume
 import com.aireautoroute.app.data.Autoroute
 import com.aireautoroute.app.data.Enseigne
+import com.aireautoroute.app.data.EtatSynchro
 import com.aireautoroute.app.data.ConsensusEquipement
 import com.aireautoroute.app.data.NoteAgregee
 import com.aireautoroute.app.data.Sens
@@ -85,15 +89,32 @@ fun EcranAccueil(
     onLocaliser: () -> Unit,
     onSources: () -> Unit,
     onCarte: () -> Unit,
+    onMessageLu: () -> Unit,
 ) {
     var dialogueTheme by remember { mutableStateOf(false) }
+    val messages = remember { SnackbarHostState() }
+
+    // Une contribution qui n'est pas partie doit se voir.
+    LaunchedEffect(etat.messageContribution) {
+        val message = etat.messageContribution ?: return@LaunchedEffect
+        messages.showSnackbar(message)
+        onMessageLu()
+    }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
+        snackbarHost = { SnackbarHost(messages) },
         topBar = {
             TopAppBar(
                 title = { Text("Aires d'autoroute") },
                 actions = {
+                    if (etat.synchro == EtatSynchro.HORS_LIGNE) {
+                        Icon(
+                            imageVector = Icons.Filled.CloudOff,
+                            contentDescription = "Avis non rafraîchis, service injoignable",
+                            modifier = Modifier.padding(end = 4.dp),
+                        )
+                    }
                     if (etat.position != null) {
                         IconButton(onClick = onCarte) {
                             Icon(Icons.Filled.Map, contentDescription = "Voir la carte")

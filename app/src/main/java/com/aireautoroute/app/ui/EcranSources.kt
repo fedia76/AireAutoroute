@@ -46,11 +46,20 @@ private val SOURCES = listOf(
             "kilométrique.",
     ),
     Source(
+        titre = "OpenStreetMap",
+        origine = "© les contributeurs OpenStreetMap, relevé via l'API Overpass",
+        licence = "ODbL",
+        usage = "Les équipements annoncés sur chaque aire — toilettes, station-service, aire " +
+            "de jeux, table à langer — et les enseignes qui y sont présentes. Ce qu'OSM " +
+            "indique est annoncé, jamais affirmé : seuls vos passages le confirment.",
+    ),
+    Source(
         titre = "Enseignes",
-        origine = "Référentiel tenu à la main dans le dépôt du projet",
+        origine = "Référentiel tenu à la main dans le dépôt du projet, augmenté des marques " +
+            "relevées dans OpenStreetMap",
         licence = "—",
-        usage = "Sert de liste de saisie. Aucune enseigne n'est encore rattachée à une aire : " +
-            "ce rattachement viendra d'OpenStreetMap.",
+        usage = "Sert de liste de saisie. Une marque n'entre au catalogue qu'à partir de " +
+            "trois aires : en deçà, c'est plus probablement une saisie isolée qu'une enseigne.",
     ),
 )
 
@@ -87,8 +96,9 @@ fun EcranSources(onRetour: () -> Unit) {
         ) {
             item {
                 Text(
-                    "Les autoroutes et les aires proviennent de données ouvertes. Les notes et " +
-                        "les commentaires, eux, restent sur votre téléphone.",
+                    "Les autoroutes et les aires proviennent de données ouvertes et sont " +
+                        "embarquées dans l'application. Les avis, eux, sont partagés entre tous " +
+                        "les utilisateurs.",
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
@@ -127,8 +137,33 @@ fun EcranSources(onRetour: () -> Unit) {
                             style = MaterialTheme.typography.bodySmall,
                         )
                         Text(
-                            "Les deux chaussées d'une même aire partagent la position calculée " +
-                                "depuis leur point kilométrique : à quelques dizaines de mètres près.",
+                            "Les deux côtés d'un même lieu sont deux aires distinctes, mais leur " +
+                                "position est calculée depuis le même point kilométrique : elles " +
+                                "se superposent sur la carte, à quelques dizaines de mètres près.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                }
+            }
+
+            item {
+                Card(Modifier.fillMaxWidth()) {
+                    Column(
+                        Modifier.padding(14.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Text("Vos contributions", style = MaterialTheme.typography.titleSmall)
+                        Text(
+                            "Les avis sont publiés sur un service partagé, hébergé en Europe, " +
+                                "pour que chacun profite des observations des autres. Aucun " +
+                                "compte n'est demandé : l'application ouvre une session anonyme " +
+                                "au premier lancement, qui sert uniquement à vous laisser " +
+                                "revenir sur vos propres avis.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                        Text(
+                            "Ne publiez rien que vous ne diriez pas à voix haute sur une aire : " +
+                                "les commentaires sont visibles par tout le monde.",
                             style = MaterialTheme.typography.bodySmall,
                         )
                     }

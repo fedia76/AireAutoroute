@@ -123,5 +123,245 @@
     "id": "b_and_b",
     "nom": "B&B Hôtels",
     "categorie": "HOTEL"
+  },
+  {
+    "id": "bonjour",
+    "nom": "Bonjour",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "eni",
+    "nom": "Eni",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "franprix",
+    "nom": "Franprix",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "e_leclerc",
+    "nom": "E.Leclerc",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "casino_shop",
+    "nom": "Casino Shop",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "dyneff",
+    "nom": "Dyneff",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "shell_select",
+    "nom": "Shell Select",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "pomme_pain",
+    "nom": "Pomme de Pain",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "stratto",
+    "nom": "Stratto",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "phileas",
+    "nom": "Philéas",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "total_access",
+    "nom": "Total Access",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "fulli",
+    "nom": "Fulli",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "columbus_cafe_co",
+    "nom": "Columbus Café & Co",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "lunch_grill",
+    "nom": "Lunch Grill",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "a_table",
+    "nom": "À Table !",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "courtepaille",
+    "nom": "Courtepaille",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "casino",
+    "nom": "Casino",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "leo_resto",
+    "nom": "Leo Resto",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "honiby_market",
+    "nom": "Honiby Market",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "territoires_france",
+    "nom": "Territoires de France",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "atelier_charal",
+    "nom": "L'atelier Charal",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "comptoirs_casino",
+    "nom": "Les Comptoirs Casino",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "flunch",
+    "nom": "Flunch",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "pizza_hut",
+    "nom": "Pizza Hut",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "tasty",
+    "nom": "Tasty",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "mie_caline",
+    "nom": "La Mie Câline",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "deli_by_shell",
+    "nom": "Deli by Shell",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "maison_pradier",
+    "nom": "Maison Pradier",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "subway",
+    "nom": "Subway",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "casino_express",
+    "nom": "Casino Express",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "ciao",
+    "nom": "Ciao",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "origin_r",
+    "nom": "Origin'R",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "casino_everyday",
+    "nom": "Casino everyday",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "buffalo_grill",
+    "nom": "Buffalo Grill",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "arche_cafeteria",
+    "nom": "L'Arche Cafétéria",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "hippopotamus",
+    "nom": "Hippopotamus",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "leo",
+    "nom": "Léo",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "mezzo_di_pasta",
+    "nom": "Mezzo Di Pasta",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "as_24",
+    "nom": "AS 24",
+    "categorie": "CARBURANT"
+  },
+  {
+    "id": "c_ur_ble",
+    "nom": "Cœur de Blé",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "mezzoday",
+    "nom": "Mezzoday",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "monop",
+    "nom": "Monop'",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "proxi",
+    "nom": "Proxi",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "steak_n_shake",
+    "nom": "Steak 'n Shake",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "honiby",
+    "nom": "Honiby",
+    "categorie": "BOUTIQUE"
+  },
+  {
+    "id": "arche_comptoir",
+    "nom": "L'Arche Comptoir",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "go_johnny_go",
+    "nom": "Go Johnny Go",
+    "categorie": "RESTAURATION"
+  },
+  {
+    "id": "crep_eat",
+    "nom": "Crep'Eat",
+    "categorie": "RESTAURATION"
   }
 ]
