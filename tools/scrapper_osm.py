@@ -37,6 +37,7 @@ SERVEURS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
     "https://overpass.private.coffee/api/interpreter",
+    "https://overpass.osm.jp/api/interpreter",
 ]
 
 AGENT = "AireAutoroute/0.1 (import de donnees ; https://github.com/fedia76/AireAutoroute)"
@@ -127,12 +128,15 @@ def interroger(requete: str, minimum: int = 0, delai_s: int = DELAI_REPONSE_S) -
 # Le relevé porte toujours sur la France entière : filtrer côté Overpass supposerait de deviner
 # comment les autoroutes y sont nommées — le tag `ref` s'écrit « A 13 » avec une espace, et pas
 # toujours. Le tri par autoroute se fait donc ensuite, sur nos propres tracés, qui font foi.
+# Deux valeurs exactes plutôt qu'une expression régulière : Overpass indexe les couples
+# clé=valeur, et `highway~"^(services|rest_area)$"` lui interdit cet index — il doit alors
+# parcourir tous les objets « highway » de la boîte, c'est-à-dire l'essentiel du réseau
+# routier de six pays. C'est ce qui faisait dépasser le délai de 180 s.
 REQUETE_AIRES = f"""
 [out:json][timeout:180][bbox:{BOITE_FRANCE}];
 (
-  way["highway"~"^(services|rest_area)$"];
-  relation["highway"~"^(services|rest_area)$"];
-  node["highway"~"^(services|rest_area)$"];
+  nwr["highway"="services"];
+  nwr["highway"="rest_area"];
 );
 out center tags;
 """
