@@ -17,6 +17,7 @@ Usage :
 
 import argparse
 import json
+import math
 import os
 import sys
 import time
@@ -81,7 +82,14 @@ def interroger(requete: str, delai_s: int = DELAI_REPONSE_S) -> dict:
         )
         try:
             with urllib.request.urlopen(demande, timeout=delai_s) as reponse:
-                return json.loads(reponse.read().decode("utf-8"))
+                resultat = json.loads(reponse.read().decode("utf-8"))
+            # Overpass ne renvoie un code d'erreur que pour les requêtes mal écrites : un délai
+            # dépassé ou une mémoire saturée arrivent dans un HTTP 200, signalés par « remark ».
+            # Sans ce contrôle, l'échec se lit comme un résultat vide.
+            remarque = resultat.get("remark")
+            if remarque:
+                raise ValueError(f"le serveur signale : {remarque}")
+            return resultat
         except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError) as echec:
             dernier_echec = f"{serveur} : {echec}"
             print(f"  échec sur {serveur} ({echec}), essai du serveur suivant", file=sys.stderr)
@@ -104,36 +112,66 @@ out center tags;
 """
 
 
-# Large à dessein : ce filtre ne sert qu'à alléger les relevés de mise au point, le rattachement
-# fin viendra ensuite. Une grande aire de service s'étend loin de l'axe.
+# Large à dessein : le rattachement fin viendra ensuite. Une grande aire de service s'étend loin
+# de l'axe, et les tracés du bornage ne suivent qu'une des deux chaussées.
 DISTANCE_FILTRE_KM = 1.5
+
+KM_PAR_DEGRE = 111.32
+
+
+def _boite(trace, marge_km: float) -> tuple[float, float, float, float]:
+    """Rectangle englobant un tracé, élargi de la marge, pour écarter vite les aires lointaines."""
+    lats = [b.lat for b in trace.bornes]
+    lons = [b.lon for b in trace.bornes]
+    marge_lat = marge_km / KM_PAR_DEGRE
+    milieu = math.radians((min(lats) + max(lats)) / 2)
+    marge_lon = marge_km / (KM_PAR_DEGRE * max(0.1, math.cos(milieu)))
+    return (min(lats) - marge_lat, max(lats) + marge_lat,
+            min(lons) - marge_lon, max(lons) + marge_lon)
 
 
 def filtrer_par_autoroute(
     aires: list[dict],
-    autoroutes: list[str],
+    autoroutes: list[str] | None,
     distance_max_km: float = DISTANCE_FILTRE_KM,
 ) -> list[dict]:
-    """Ne garde que les aires longeant les autoroutes demandées, d'après nos tracés."""
+    """Ne garde que les aires longeant nos tracés, et note sur chacune l'axe et le PK trouvés.
+
+    La boîte englobante récoltée chez Overpass déborde sur l'Espagne, l'Italie, l'Allemagne et le
+    Benelux : c'est ici que ces aires-là disparaissent, faute de tracé français à proximité. Le
+    tri se fait sur nos propres tracés parce qu'eux font foi — le tag `ref` d'OSM s'écrit tantôt
+    « A13 », tantôt « A 13 », et manque parfois.
+    """
     from importlib import import_module
 
     bornes = import_module("import.bornes")
     traces = bornes.lire_traces(os.path.join(RACINE, "donnees", "sources", "bornes2025.csv"))
 
-    inconnues = [a for a in autoroutes if a not in traces]
-    if inconnues:
-        print(f"  autoroutes inconnues du bornage, ignorées : {inconnues}", file=sys.stderr)
+    if autoroutes:
+        inconnues = [a for a in autoroutes if a not in traces]
+        if inconnues:
+            print(f"  autoroutes inconnues du bornage, ignorées : {inconnues}", file=sys.stderr)
+        traces = {n: t for n, t in traces.items() if n in autoroutes}
+
+    boites = {n: _boite(t, distance_max_km) for n, t in traces.items()}
 
     retenus = []
     for aire in aires:
-        for numero in autoroutes:
-            trace = traces.get(numero)
-            if trace is None:
+        lat, lon = aire["lat"], aire["lon"]
+        meilleur = None
+        for numero, trace in traces.items():
+            lat_min, lat_max, lon_min, lon_max = boites[numero]
+            if not (lat_min <= lat <= lat_max and lon_min <= lon <= lon_max):
                 continue
-            distance, _ = bornes.projeter_sur_trace(trace, aire["lat"], aire["lon"])
-            if distance <= distance_max_km:
-                retenus.append(aire)
-                break
+            distance, pk = bornes.projeter_sur_trace(trace, lat, lon)
+            if distance <= distance_max_km and (meilleur is None or distance < meilleur[1]):
+                meilleur = (numero, distance, pk)
+        if meilleur is not None:
+            numero, distance, pk = meilleur
+            retenus.append({**aire,
+                            "autoroute": numero,
+                            "pk": round(pk, 3),
+                            "distance_km": round(distance, 3)})
     return retenus
 
 
@@ -175,12 +213,41 @@ def extraire_aires(autoroutes: list[str] | None) -> list[dict]:
             "lon": round(centre[1], 6),
             "tags": tags_retenus(element),
         })
-    print(f"  {len(aires)} aires trouvées", flush=True)
+    print(f"  {len(aires)} aires trouvées dans la boîte englobante", flush=True)
 
-    if autoroutes:
-        aires = filtrer_par_autoroute(aires, autoroutes)
-        print(f"  {len(aires)} retenues le long de {', '.join(autoroutes)}", flush=True)
+    aires = filtrer_par_autoroute(aires, autoroutes)
+    portee = ", ".join(autoroutes) if autoroutes else "nos autoroutes"
+    print(f"  {len(aires)} retenues le long de {portee}", flush=True)
     return aires
+
+
+def requete_equipements(lot: list[dict]) -> str:
+    """Requête relevant les équipements autour d'un lot d'aires, désignées par leur identifiant.
+
+    Attention au piège : `around:rayon,lat,lon,lat,lon,…` ne veut *pas* dire « autour de chacun
+    de ces points » mais « autour de la ligne brisée qui les joint ». Sur un lot d'aires
+    dispersées dans toute la France, ce couloir traverse le pays, la requête devient
+    ingérable et Overpass la refuse — en répondant, ce qui achève de tromper, un résultat vide.
+    On désigne donc les aires par leur identifiant OSM et on demande `around.aires`, qui lui
+    travaille bien objet par objet.
+    """
+    par_type: dict[str, list[str]] = {}
+    for aire in lot:
+        type_osm, identifiant = aire["osm"].split("/")
+        par_type.setdefault(type_osm, []).append(identifiant)
+
+    ensemble = "\n  ".join(
+        f"{type_osm}(id:{','.join(identifiants)});"
+        for type_osm, identifiants in sorted(par_type.items())
+    )
+    filtres = "\n  ".join(
+        f"nwr(around.aires:{RAYON_EQUIPEMENTS_M}){filtre};" for filtre in FILTRES_EQUIPEMENTS
+    )
+    return (
+        f"[out:json][timeout:180];\n"
+        f"(\n  {ensemble}\n)->.aires;\n"
+        f"(\n  {filtres}\n);\nout center tags;"
+    )
 
 
 def extraire_equipements(aires: list[dict]) -> tuple[list[dict], int]:
@@ -195,12 +262,7 @@ def extraire_equipements(aires: list[dict]) -> tuple[list[dict], int]:
     perdus = 0
 
     for numero, lot in enumerate(lots, start=1):
-        coordonnees = ",".join(f"{a['lat']},{a['lon']}" for a in lot)
-        filtres = "\n  ".join(
-            f"nwr(around:{RAYON_EQUIPEMENTS_M},{coordonnees}){filtre};"
-            for filtre in FILTRES_EQUIPEMENTS
-        )
-        requete = f"[out:json][timeout:180];\n(\n  {filtres}\n);\nout center tags;"
+        requete = requete_equipements(lot)
 
         try:
             reponse = interroger(requete)
@@ -246,9 +308,12 @@ def statistiques(aires: list[dict], equipements: list[dict]) -> list[str]:
         if e["tags"].get("brand") or e["tags"].get("name")
     }
 
+    axes = {a["autoroute"] for a in aires if a.get("autoroute")}
+
     return [
         f"aires : {len(aires)} ({types_aires})",
         f"  dont nommées : {nommees}",
+        f"  réparties sur {len(axes)} autoroutes",
         f"équipements : {len(equipements)}",
         f"  toilettes : {compte(lambda t: t.get('amenity') == 'toilets')}",
         f"    dont table à langer renseignée : "
@@ -306,8 +371,11 @@ def main() -> int:
                 "interrogés. Les chiffres ci-dessous sont donc sous-estimés.\n\n"
             )
         fichier.write("\n".join(f"- {ligne.strip()}" for ligne in lignes))
-        fichier.write("\n\nCes objets ne sont pas encore rattachés aux aires du référentiel :\n")
-        fichier.write("c'est l'étape suivante.\n")
+        fichier.write(
+            "\n\nChaque aire porte l'autoroute et le point kilométrique déduits de nos tracés, mais\n"
+            "n'est pas encore appariée à une aire du référentiel — ni à un sens de circulation :\n"
+            "c'est l'étape suivante.\n"
+        )
 
     print()
     for ligne in lignes:
