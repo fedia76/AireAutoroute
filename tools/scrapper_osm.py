@@ -41,8 +41,14 @@ SERVEURS = [
 AGENT = "AireAutoroute/0.1 (import de donnees ; https://github.com/fedia76/AireAutoroute)"
 
 DELAI_ENTRE_REQUETES_S = 3
-LOT_AIRES = 60
+DELAI_REPONSE_S = 240
+LOT_AIRES = 150
 RAYON_EQUIPEMENTS_M = 250
+
+# Boîte englobant la France métropolitaine. Beaucoup plus rapide qu'un filtre sur le polygone du
+# pays, qu'Overpass met un temps considérable à appliquer. Les quelques aires frontalières
+# récoltées au passage seront écartées faute de tracé français à proximité.
+BOITE_FRANCE = "41.3,-5.2,51.1,9.6"
 
 # Ce qu'on va chercher autour de chaque aire, et ce qu'on en fera dans l'application.
 FILTRES_EQUIPEMENTS = [
@@ -62,7 +68,7 @@ TAGS_UTILES = {
 }
 
 
-def interroger(requete: str, delai_s: int = 600) -> dict:
+def interroger(requete: str, delai_s: int = DELAI_REPONSE_S) -> dict:
     """Envoie une requête Overpass, en passant au serveur suivant en cas de refus."""
     donnees = urllib.parse.urlencode({"data": requete}).encode("utf-8")
     dernier_echec = None
@@ -87,15 +93,14 @@ def interroger(requete: str, delai_s: int = 600) -> dict:
 # Le relevé porte toujours sur la France entière : filtrer côté Overpass supposerait de deviner
 # comment les autoroutes y sont nommées — le tag `ref` s'écrit « A 13 » avec une espace, et pas
 # toujours. Le tri par autoroute se fait donc ensuite, sur nos propres tracés, qui font foi.
-REQUETE_AIRES = """
-[out:json][timeout:900];
-area["ISO3166-1"="FR"][admin_level=2]->.fr;
+REQUETE_AIRES = f"""
+[out:json][timeout:180][bbox:{BOITE_FRANCE}];
 (
-  way["highway"~"^(services|rest_area)$"](area.fr);
-  relation["highway"~"^(services|rest_area)$"](area.fr);
-  node["highway"~"^(services|rest_area)$"](area.fr);
+  way["highway"~"^(services|rest_area)$"];
+  relation["highway"~"^(services|rest_area)$"];
+  node["highway"~"^(services|rest_area)$"];
 );
-out geom tags;
+out center tags;
 """
 
 
@@ -153,7 +158,7 @@ def tags_retenus(element: dict) -> dict:
 
 
 def extraire_aires(autoroutes: list[str] | None) -> list[dict]:
-    print("Extraction des aires (France entière)…")
+    print("Extraction des aires (France entière)…", flush=True)
     reponse = interroger(REQUETE_AIRES)
     elements = reponse.get("elements", [])
     if not elements:
@@ -164,31 +169,30 @@ def extraire_aires(autoroutes: list[str] | None) -> list[dict]:
         centre = centre_de(element)
         if centre is None or centre[0] is None:
             continue
-        contour = [
-            [round(p["lat"], 6), round(p["lon"], 6)]
-            for p in (element.get("geometry") or [])
-            if p.get("lat") is not None
-        ]
         aires.append({
             "osm": f"{element['type']}/{element['id']}",
             "lat": round(centre[0], 6),
             "lon": round(centre[1], 6),
-            "contour": contour,
             "tags": tags_retenus(element),
         })
-    print(f"  {len(aires)} aires trouvées")
+    print(f"  {len(aires)} aires trouvées", flush=True)
 
     if autoroutes:
         aires = filtrer_par_autoroute(aires, autoroutes)
-        print(f"  {len(aires)} retenues le long de {', '.join(autoroutes)}")
+        print(f"  {len(aires)} retenues le long de {', '.join(autoroutes)}", flush=True)
     return aires
 
 
-def extraire_equipements(aires: list[dict]) -> list[dict]:
-    """Objets d'intérêt situés à proximité des aires, interrogés par lots."""
+def extraire_equipements(aires: list[dict]) -> tuple[list[dict], int]:
+    """Objets d'intérêt situés à proximité des aires, interrogés par lots.
+
+    Renvoie les objets relevés et le nombre de lots perdus : Overpass est un service bénévole
+    qui refuse parfois de répondre, et un lot manqué ne doit pas coûter tout le relevé.
+    """
     equipements: dict[str, dict] = {}
     lots = [aires[i:i + LOT_AIRES] for i in range(0, len(aires), LOT_AIRES)]
-    print(f"Extraction des équipements en {len(lots)} lots…")
+    print(f"Extraction des équipements en {len(lots)} lots…", flush=True)
+    perdus = 0
 
     for numero, lot in enumerate(lots, start=1):
         coordonnees = ",".join(f"{a['lat']},{a['lon']}" for a in lot)
@@ -196,9 +200,15 @@ def extraire_equipements(aires: list[dict]) -> list[dict]:
             f"nwr(around:{RAYON_EQUIPEMENTS_M},{coordonnees}){filtre};"
             for filtre in FILTRES_EQUIPEMENTS
         )
-        requete = f"[out:json][timeout:300];\n(\n  {filtres}\n);\nout center tags;"
+        requete = f"[out:json][timeout:180];\n(\n  {filtres}\n);\nout center tags;"
 
-        reponse = interroger(requete, delai_s=300)
+        try:
+            reponse = interroger(requete)
+        except RuntimeError as echec:
+            perdus += 1
+            print(f"  lot {numero}/{len(lots)} : perdu ({echec})", file=sys.stderr, flush=True)
+            time.sleep(DELAI_ENTRE_REQUETES_S)
+            continue
         nouveaux = 0
         for element in reponse.get("elements", []):
             centre = centre_de(element)
@@ -214,10 +224,10 @@ def extraire_equipements(aires: list[dict]) -> list[dict]:
                 "tags": tags_retenus(element),
             }
             nouveaux += 1
-        print(f"  lot {numero}/{len(lots)} : {nouveaux} objets")
+        print(f"  lot {numero}/{len(lots)} : {nouveaux} objets", flush=True)
         time.sleep(DELAI_ENTRE_REQUETES_S)
 
-    return list(equipements.values())
+    return list(equipements.values()), perdus
 
 
 def statistiques(aires: list[dict], equipements: list[dict]) -> list[str]:
@@ -230,7 +240,6 @@ def statistiques(aires: list[dict], equipements: list[dict]) -> list[str]:
         types_aires[aire["tags"].get("highway", "?")] += 1
 
     nommees = sum(1 for a in aires if a["tags"].get("name"))
-    avec_contour = sum(1 for a in aires if len(a["contour"]) > 2)
     marques = {
         (e["tags"].get("brand") or e["tags"].get("name"))
         for e in equipements
@@ -240,7 +249,6 @@ def statistiques(aires: list[dict], equipements: list[dict]) -> list[str]:
     return [
         f"aires : {len(aires)} ({types_aires})",
         f"  dont nommées : {nommees}",
-        f"  dont avec un contour exploitable : {avec_contour}",
         f"équipements : {len(equipements)}",
         f"  toilettes : {compte(lambda t: t.get('amenity') == 'toilets')}",
         f"    dont table à langer renseignée : "
@@ -272,7 +280,7 @@ def main() -> int:
         print("aucune aire extraite : rien n'est écrit", file=sys.stderr)
         return 1
 
-    equipements = extraire_equipements(aires)
+    equipements, lots_perdus = extraire_equipements(aires)
 
     os.makedirs(os.path.dirname(SORTIE), exist_ok=True)
     with open(SORTIE, "w", encoding="utf-8") as fichier:
@@ -292,6 +300,11 @@ def main() -> int:
         fichier.write("OpenStreetMap, sous licence ODbL.\n\n")
         if autoroutes:
             fichier.write(f"Extraction partielle, limitée à : {', '.join(autoroutes)}.\n\n")
+        if lots_perdus:
+            fichier.write(
+                f"**Relevé incomplet** : {lots_perdus} lot(s) d'équipements n'ont pas pu être\n"
+                "interrogés. Les chiffres ci-dessous sont donc sous-estimés.\n\n"
+            )
         fichier.write("\n".join(f"- {ligne.strip()}" for ligne in lignes))
         fichier.write("\n\nCes objets ne sont pas encore rattachés aux aires du référentiel :\n")
         fichier.write("c'est l'étape suivante.\n")
@@ -301,6 +314,13 @@ def main() -> int:
         print(ligne)
     print(f"\nÉcrit dans {SORTIE} ({os.path.getsize(SORTIE) / 1_048_576:.1f} Mo)")
     print(f"Rapport : {RAPPORT}")
+
+    if lots_perdus:
+        print(
+            f"\n{lots_perdus} lot(s) d'équipements perdus : le relevé est incomplet.",
+            file=sys.stderr,
+        )
+        return 1
     return 0
 
 
