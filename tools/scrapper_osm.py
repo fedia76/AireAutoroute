@@ -24,6 +24,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SORTIE = os.path.join(RACINE, "donnees", "sources", "osm_aires.json")
 RAPPORT = os.path.join(RACINE, "donnees", "rapport_osm.md")
@@ -82,22 +84,10 @@ def interroger(requete: str, delai_s: int = 600) -> dict:
     raise RuntimeError(f"aucun serveur Overpass n'a répondu — dernier échec : {dernier_echec}")
 
 
-def requete_aires(autoroutes: list[str] | None) -> str:
-    if autoroutes:
-        # Mise au point : on se limite aux aires proches des autoroutes demandées.
-        selection = "|".join(autoroutes)
-        return f"""
-[out:json][timeout:600];
-area["ISO3166-1"="FR"][admin_level=2]->.fr;
-way["highway"="motorway"]["ref"~"^({selection})$"](area.fr)->.axes;
-(
-  way["highway"~"^(services|rest_area)$"](around.axes:800);
-  relation["highway"~"^(services|rest_area)$"](around.axes:800);
-  node["highway"~"^(services|rest_area)$"](around.axes:800);
-);
-out geom tags;
-"""
-    return """
+# Le relevé porte toujours sur la France entière : filtrer côté Overpass supposerait de deviner
+# comment les autoroutes y sont nommées — le tag `ref` s'écrit « A 13 » avec une espace, et pas
+# toujours. Le tri par autoroute se fait donc ensuite, sur nos propres tracés, qui font foi.
+REQUETE_AIRES = """
 [out:json][timeout:900];
 area["ISO3166-1"="FR"][admin_level=2]->.fr;
 (
@@ -107,6 +97,39 @@ area["ISO3166-1"="FR"][admin_level=2]->.fr;
 );
 out geom tags;
 """
+
+
+# Large à dessein : ce filtre ne sert qu'à alléger les relevés de mise au point, le rattachement
+# fin viendra ensuite. Une grande aire de service s'étend loin de l'axe.
+DISTANCE_FILTRE_KM = 1.5
+
+
+def filtrer_par_autoroute(
+    aires: list[dict],
+    autoroutes: list[str],
+    distance_max_km: float = DISTANCE_FILTRE_KM,
+) -> list[dict]:
+    """Ne garde que les aires longeant les autoroutes demandées, d'après nos tracés."""
+    from importlib import import_module
+
+    bornes = import_module("import.bornes")
+    traces = bornes.lire_traces(os.path.join(RACINE, "donnees", "sources", "bornes2025.csv"))
+
+    inconnues = [a for a in autoroutes if a not in traces]
+    if inconnues:
+        print(f"  autoroutes inconnues du bornage, ignorées : {inconnues}", file=sys.stderr)
+
+    retenus = []
+    for aire in aires:
+        for numero in autoroutes:
+            trace = traces.get(numero)
+            if trace is None:
+                continue
+            distance, _ = bornes.projeter_sur_trace(trace, aire["lat"], aire["lon"])
+            if distance <= distance_max_km:
+                retenus.append(aire)
+                break
+    return retenus
 
 
 def centre_de(element: dict) -> tuple[float, float] | None:
@@ -130,8 +153,12 @@ def tags_retenus(element: dict) -> dict:
 
 
 def extraire_aires(autoroutes: list[str] | None) -> list[dict]:
-    print("Extraction des aires…")
-    reponse = interroger(requete_aires(autoroutes))
+    print("Extraction des aires (France entière)…")
+    reponse = interroger(REQUETE_AIRES)
+    elements = reponse.get("elements", [])
+    if not elements:
+        print("  le serveur a répondu sans aucun élément ; requête envoyée :", file=sys.stderr)
+        print(REQUETE_AIRES, file=sys.stderr)
     aires = []
     for element in reponse.get("elements", []):
         centre = centre_de(element)
@@ -150,6 +177,10 @@ def extraire_aires(autoroutes: list[str] | None) -> list[dict]:
             "tags": tags_retenus(element),
         })
     print(f"  {len(aires)} aires trouvées")
+
+    if autoroutes:
+        aires = filtrer_par_autoroute(aires, autoroutes)
+        print(f"  {len(aires)} retenues le long de {', '.join(autoroutes)}")
     return aires
 
 
