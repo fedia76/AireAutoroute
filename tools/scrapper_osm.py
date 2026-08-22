@@ -36,13 +36,18 @@ RAPPORT = os.path.join(RACINE, "donnees", "rapport_osm.md")
 SERVEURS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
-    "https://overpass.osm.ch/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
 ]
 
 AGENT = "AireAutoroute/0.1 (import de donnees ; https://github.com/fedia76/AireAutoroute)"
 
-DELAI_ENTRE_REQUETES_S = 3
+# Les instances comptent les requêtes par adresse IP, et celles des runners GitHub sont
+# partagées : espacer les requêtes coûte quelques minutes et évite les refus.
+DELAI_ENTRE_REQUETES_S = 15
 DELAI_REPONSE_S = 240
+ATTENTE_APRES_REFUS_S = 45
+ESSAIS_PAR_SERVEUR = 2
+ATTENTE_AVANT_REPRISE_S = 90
 LOT_AIRES = 150
 RAYON_EQUIPEMENTS_M = 250
 
@@ -69,31 +74,52 @@ TAGS_UTILES = {
 }
 
 
-def interroger(requete: str, delai_s: int = DELAI_REPONSE_S) -> dict:
-    """Envoie une requête Overpass, en passant au serveur suivant en cas de refus."""
+def interroger(requete: str, minimum: int = 0, delai_s: int = DELAI_REPONSE_S) -> dict:
+    """Envoie une requête Overpass, en réessayant puis en changeant de serveur.
+
+    `minimum` est le nombre d'éléments en dessous duquel la réponse est jugée douteuse. Une
+    instance qui ne détient pas la zone interrogée répond en effet poliment, et une liste vide
+    se lit alors comme « il n'y a rien ici » au lieu de « ce serveur ne sait pas ».
+    """
     donnees = urllib.parse.urlencode({"data": requete}).encode("utf-8")
     dernier_echec = None
 
     for serveur in SERVEURS:
-        demande = urllib.request.Request(
-            serveur,
-            data=donnees,
-            headers={"User-Agent": AGENT, "Accept": "application/json"},
-        )
-        try:
-            with urllib.request.urlopen(demande, timeout=delai_s) as reponse:
-                resultat = json.loads(reponse.read().decode("utf-8"))
-            # Overpass ne renvoie un code d'erreur que pour les requêtes mal écrites : un délai
-            # dépassé ou une mémoire saturée arrivent dans un HTTP 200, signalés par « remark ».
-            # Sans ce contrôle, l'échec se lit comme un résultat vide.
-            remarque = resultat.get("remark")
-            if remarque:
-                raise ValueError(f"le serveur signale : {remarque}")
-            return resultat
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError) as echec:
-            dernier_echec = f"{serveur} : {echec}"
-            print(f"  échec sur {serveur} ({echec}), essai du serveur suivant", file=sys.stderr)
-            time.sleep(DELAI_ENTRE_REQUETES_S)
+        for essai in range(1, ESSAIS_PAR_SERVEUR + 1):
+            demande = urllib.request.Request(
+                serveur,
+                data=donnees,
+                headers={"User-Agent": AGENT, "Accept": "application/json"},
+            )
+            try:
+                with urllib.request.urlopen(demande, timeout=delai_s) as reponse:
+                    resultat = json.loads(reponse.read().decode("utf-8"))
+                # Overpass ne renvoie un code d'erreur que pour les requêtes mal écrites : un
+                # délai dépassé ou une mémoire saturée arrivent dans un HTTP 200, signalés par
+                # « remark ». Sans ce contrôle, l'échec se lit comme un résultat vide.
+                remarque = resultat.get("remark")
+                if remarque:
+                    raise ValueError(f"le serveur signale : {remarque}")
+                if len(resultat.get("elements", [])) < minimum:
+                    raise ValueError("réponse vide, ce serveur ne couvre sans doute pas la zone")
+                return resultat
+            except (urllib.error.URLError, urllib.error.HTTPError,
+                    TimeoutError, ValueError) as echec:
+                dernier_echec = f"{serveur} : {echec}"
+                reessayable = (
+                    isinstance(echec, urllib.error.HTTPError)
+                    and echec.code in {429, 500, 502, 503, 504}
+                    and essai < ESSAIS_PAR_SERVEUR
+                )
+                if reessayable:
+                    print(f"  {serveur} refuse ({echec}), nouvel essai dans "
+                          f"{ATTENTE_APRES_REFUS_S} s", file=sys.stderr, flush=True)
+                    time.sleep(ATTENTE_APRES_REFUS_S)
+                    continue
+                print(f"  échec sur {serveur} ({echec}), essai du serveur suivant",
+                      file=sys.stderr, flush=True)
+                time.sleep(DELAI_ENTRE_REQUETES_S)
+                break
 
     raise RuntimeError(f"aucun serveur Overpass n'a répondu — dernier échec : {dernier_echec}")
 
@@ -197,7 +223,7 @@ def tags_retenus(element: dict) -> dict:
 
 def extraire_aires(autoroutes: list[str] | None) -> list[dict]:
     print("Extraction des aires (France entière)…", flush=True)
-    reponse = interroger(REQUETE_AIRES)
+    reponse = interroger(REQUETE_AIRES, minimum=1)
     elements = reponse.get("elements", [])
     if not elements:
         print("  le serveur a répondu sans aucun élément ; requête envoyée :", file=sys.stderr)
@@ -259,37 +285,48 @@ def extraire_equipements(aires: list[dict]) -> tuple[list[dict], int]:
     equipements: dict[str, dict] = {}
     lots = [aires[i:i + LOT_AIRES] for i in range(0, len(aires), LOT_AIRES)]
     print(f"Extraction des équipements en {len(lots)} lots…", flush=True)
-    perdus = 0
 
-    for numero, lot in enumerate(lots, start=1):
-        requete = requete_equipements(lot)
+    restants = list(enumerate(lots, start=1))
+    for tentative in (1, 2):
+        if not restants:
+            break
+        if tentative > 1:
+            print(f"Reprise des {len(restants)} lot(s) manqués, après une pause de "
+                  f"{ATTENTE_AVANT_REPRISE_S} s…", flush=True)
+            time.sleep(ATTENTE_AVANT_REPRISE_S)
 
-        try:
-            reponse = interroger(requete)
-        except RuntimeError as echec:
-            perdus += 1
-            print(f"  lot {numero}/{len(lots)} : perdu ({echec})", file=sys.stderr, flush=True)
+        echoues = []
+        for numero, lot in restants:
+            # Un lot couvre plus de cent aires : il en ressort toujours quelque chose. Une
+            # réponse vide dénonce le serveur, pas le terrain.
+            try:
+                reponse = interroger(requete_equipements(lot), minimum=1)
+            except RuntimeError as echec:
+                echoues.append((numero, lot))
+                print(f"  lot {numero}/{len(lots)} : perdu ({echec})", file=sys.stderr, flush=True)
+                continue
+
+            nouveaux = 0
+            for element in reponse.get("elements", []):
+                centre = centre_de(element)
+                if centre is None or centre[0] is None:
+                    continue
+                cle = f"{element['type']}/{element['id']}"
+                if cle in equipements:
+                    continue
+                equipements[cle] = {
+                    "osm": cle,
+                    "lat": round(centre[0], 6),
+                    "lon": round(centre[1], 6),
+                    "tags": tags_retenus(element),
+                }
+                nouveaux += 1
+            print(f"  lot {numero}/{len(lots)} : {nouveaux} objets", flush=True)
             time.sleep(DELAI_ENTRE_REQUETES_S)
-            continue
-        nouveaux = 0
-        for element in reponse.get("elements", []):
-            centre = centre_de(element)
-            if centre is None or centre[0] is None:
-                continue
-            cle = f"{element['type']}/{element['id']}"
-            if cle in equipements:
-                continue
-            equipements[cle] = {
-                "osm": cle,
-                "lat": round(centre[0], 6),
-                "lon": round(centre[1], 6),
-                "tags": tags_retenus(element),
-            }
-            nouveaux += 1
-        print(f"  lot {numero}/{len(lots)} : {nouveaux} objets", flush=True)
-        time.sleep(DELAI_ENTRE_REQUETES_S)
 
-    return list(equipements.values()), perdus
+        restants = echoues
+
+    return list(equipements.values()), len(restants)
 
 
 def statistiques(aires: list[dict], equipements: list[dict]) -> list[str]:

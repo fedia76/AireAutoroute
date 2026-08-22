@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     # Garde-fou : un serveur Overpass qui ne répond plus ne doit pas consommer
     # une demi-heure de runner avant qu'on s'en aperçoive.
-    timeout-minutes: 25
+    timeout-minutes: 40
 
     steps:
       - name: Récupération du dépôt
@@ -48,7 +48,7 @@ jobs:
 
       - name: Relevé d'OpenStreetMap
         if: ${{ inputs.rafraichir_osm }}
-        timeout-minutes: 15
+        timeout-minutes: 30
         run: |
           if [ -n "${{ inputs.autoroutes_osm }}" ]; then
             python3 tools/scrapper_osm.py --autoroutes "${{ inputs.autoroutes_osm }}"
