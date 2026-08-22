@@ -228,8 +228,9 @@ signale dans le résumé du run. Un push de tag `v*` crée en plus une release G
 de release.
 
 Le fichier `.aab` est le format attendu par la Play Console — il ne s'installe pas directement sur
-un téléphone. La marche à suivre pour la publication est décrite dans
-[docs/PUBLICATION.md](docs/PUBLICATION.md).
+un téléphone. Un tag `v*` l'attache à la release GitHub aux côtés de l'APK, ce qui permet de le
+téléverser depuis n'importe quel appareil sans passer par l'archive zip des artefacts. La marche à
+suivre pour la publication est décrite dans [docs/PUBLICATION.md](docs/PUBLICATION.md).
 
 ## Structure du dépôt
 

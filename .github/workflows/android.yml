@@ -176,15 +176,25 @@ jobs:
     permissions:
       contents: write
     steps:
-      # Seuls les APK sont attachés à la release GitHub : le bundle ne s'installe pas
-      # directement, il reste un artefact de CI destiné à la Play Console.
+      # L'APK sert à l'installation directe, le bundle au téléversement dans la Play Console.
+      # Le bundle est attaché ici, et pas seulement publié en artefact, parce qu'un artefact est
+      # une archive zip : le récupérer depuis un téléphone imposerait de la décompresser avant de
+      # pouvoir la donner au sélecteur de fichiers de la Play Console.
       - name: Récupération de l'APK de release
         uses: actions/download-artifact@v4
         with:
           name: apk-release
           path: binaires
 
+      - name: Récupération du bundle
+        uses: actions/download-artifact@v4
+        with:
+          name: aab-release
+          path: binaires
+
       - name: Création de la release
         uses: softprops/action-gh-release@v2
         with:
-          files: binaires/aire-autoroute-release-*.apk
+          files: |
+            binaires/aire-autoroute-release-*.apk
+            binaires/aire-autoroute-*.aab
