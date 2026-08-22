@@ -33,6 +33,7 @@ jobs:
   build:
     name: Tests + APK + AAB
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Récupération du dépôt
@@ -50,7 +51,12 @@ jobs:
       - name: Configuration de Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Provisionnement de la chaîne Gradle
+        timeout-minutes: 10
+        run: ./gradlew --version
+
       - name: Tests unitaires
+        timeout-minutes: 10
         run: ./gradlew testDebugUnitTest --stacktrace
 
       # Sans secret de signature (pull request venant d'un fork, dépôt fraîchement cloné), le
@@ -67,6 +73,7 @@ jobs:
           fi
 
       - name: Construction des binaires
+        timeout-minutes: 20
         env:
           ANDROID_KEYSTORE_FILE: ${{ runner.temp }}/upload.jks
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
