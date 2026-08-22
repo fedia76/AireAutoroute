@@ -249,3 +249,12 @@ app/src/main/java/com/aireautoroute/app/
   tables à langer et enseignes.
 - Filtrer la liste (« seulement les aires avec jeux intérieurs notés 4+ pour les 3-6 ans »).
 - Pondérer le consensus par l'ancienneté des déclarations (un équipement peut fermer).
+
+## Licence
+
+Le code de l'application est publié sous [licence MIT](LICENSE).
+
+Les données embarquées relèvent de leurs licences respectives, indépendantes de celle du code : le
+bornage du réseau routier national est sous **Licence Ouverte**, le catalogue des aires dérivé de
+WikiSara sous **CC BY-SA**. L'attribution est affichée dans l'écran « Sources et licences » de
+l'application, et les fichiers dérivés de WikiSara restent sous CC BY-SA.
