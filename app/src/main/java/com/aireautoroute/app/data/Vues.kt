@@ -11,6 +11,11 @@ data class PositionUtilisateur(
     /** Distance entre le point GPS et le tracé de l'autoroute (mode automatique). */
     val ecartMetres: Double? = null,
     val sensFiable: Boolean = true,
+    /**
+     * `true` quand la position vient du dernier point connu du système et non d'une mesure
+     * fraîche : elle est affichée en attendant mieux, et signalée comme approximative.
+     */
+    val provisoire: Boolean = false,
 ) {
     val libelle: String
         get() = "${autoroute.nom} · PK ${"%.1f".format(pk)} · direction ${autoroute.terminus(sens)}"

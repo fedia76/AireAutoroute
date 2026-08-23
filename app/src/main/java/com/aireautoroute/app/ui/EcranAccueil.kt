@@ -219,10 +219,11 @@ private fun CartePosition(
     var menuOuvert by remember { mutableStateOf(false) }
     val theme = LocalThemeApp.current
 
-    // Une localisation réussie remplit le formulaire manuel, qui reste corrigeable.
+    // Une localisation réussie remplit le formulaire manuel, qui reste corrigeable. Un aperçu
+    // provisoire, lui, ne recopie rien : il serait remplacé sous les doigts de l'utilisateur.
     LaunchedEffect(etat.position) {
         val position = etat.position ?: return@LaunchedEffect
-        if (position.source == SourcePosition.GPS) {
+        if (position.source == SourcePosition.GPS && !position.provisoire) {
             autoroute = position.autoroute
             pkTexte = "%.0f".format(position.pk)
             sens = position.sens
@@ -263,16 +264,23 @@ private fun CartePosition(
                         Text(
                             text = buildString {
                                 append(
-                                    if (position.source == SourcePosition.GPS) {
-                                        "Position GPS"
-                                    } else {
-                                        "Position saisie"
+                                    when {
+                                        position.provisoire -> "Position approximative"
+                                        position.source == SourcePosition.GPS -> "Position GPS"
+                                        else -> "Position saisie"
                                     },
                                 )
+                                if (position.provisoire) {
+                                    append(" · dernier point connu, mesure en cours")
+                                }
                                 position.ecartMetres?.let { append(" · à %.0f m du tracé".format(it)) }
                             },
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            color = if (position.provisoire) {
+                                MaterialTheme.colorScheme.error
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            },
                         )
                     }
                     IconButton(onClick = onInverserSens) {
@@ -293,7 +301,7 @@ private fun CartePosition(
                         strokeWidth = 2.dp,
                         color = MaterialTheme.colorScheme.onPrimary,
                     )
-                    Text("  Localisation en cours…")
+                    Text("  Acquisition du signal GPS…")
                 } else {
                     Icon(Icons.Filled.MyLocation, contentDescription = null, modifier = Modifier.size(18.dp))
                     Text(
@@ -372,7 +380,11 @@ private fun CartePosition(
                 Text(
                     text = texte,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error,
+                    color = if (etat.localisation.estErreur) {
+                        MaterialTheme.colorScheme.error
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    },
                 )
             }
         }

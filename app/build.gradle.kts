@@ -122,6 +122,9 @@ dependencies {
     implementation(libs.supabase.postgrest)
     implementation(libs.supabase.auth)
     implementation(libs.ktor.client.okhttp)
+    // Fournisseur de position fusionné de Google. Son absence est gérée à l'exécution :
+    // sur un téléphone sans services Google, l'application retombe sur le LocationManager.
+    implementation(libs.play.services.location)
     debugImplementation(libs.androidx.ui.tooling)
     testImplementation(libs.junit)
 }
