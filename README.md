@@ -159,6 +159,46 @@ seuls équipements annoncés sont la station-service et les sanitaires des aires
 que c'est ce qui définit ce type d'aire, pas parce qu'on les a vérifiés. Ils restent « annoncés »
 jusqu'à ce que deux visiteurs les confirment. La passe OpenStreetMap viendra combler ce manque.
 
+## Obtenir une position, et pas un souvenir
+
+Avant de convertir un point en PK, encore faut-il que ce point décrive l'endroit où se trouve le
+véhicule. C'est le rôle de
+[`SuiviPosition`](app/src/main/java/com/aireautoroute/app/geo/SuiviPosition.kt), et le piège y est
+plus grand qu'il n'y paraît : `getLastKnownLocation()` répond instantanément avec le dernier point
+mémorisé par le système, qui peut dater d'heures et d'un autre département — et comme il
+**transporte le cap et la vitesse qu'il avait au moment de sa prise**, rien dans son contenu ne le
+distingue d'une mesure du moment.
+
+L'application applique donc trois règles, portées par
+[`MesurePosition`](app/src/main/java/com/aireautoroute/app/geo/MesurePosition.kt) :
+
+1. **Fraîcheur.** Une mesure de plus de 10 s ne peut pas devenir la position courante. L'âge se
+   calcule sur `elapsedRealtimeNanos`, l'horloge monotone du système, et non sur `Location.getTime`
+   qui suit l'horloge murale — une resynchronisation réseau suffirait à rajeunir un point périmé.
+2. **Précision.** Un point annoncé à plus de 200 m près (typiquement une localisation cellulaire)
+   est écarté : projeté sur le réseau, il s'accrocherait volontiers à la mauvaise autoroute.
+3. **Aperçu explicite.** Le dernier point connu, s'il a moins de deux minutes, est tout de même
+   affiché pendant la recherche — mais étiqueté « position approximative, mesure en cours », et
+   remplacé dès la première mesure valable. Si aucune n'arrive, l'application le dit au lieu de
+   laisser croire que l'aperçu est le résultat.
+
+Pour obtenir une mesure fraîche, il ne suffit pas d'attendre : il faut la demander. Deux sources,
+choisies à l'exécution selon l'appareil :
+
+- le **fournisseur fusionné** des services Google
+  ([`FournisseurFusionne`](app/src/main/java/com/aireautoroute/app/geo/FournisseurFusionne.kt)),
+  celui dont se servent Maps et Waze : il combine GNSS, Wi-Fi et cellulaire, et en priorité haute
+  avec `maxUpdateAge = 0` il produit un point neuf au lieu de relire un cache ;
+- le `LocationManager` du système en repli
+  ([`FournisseurSysteme`](app/src/main/java/com/aireautoroute/app/geo/FournisseurSysteme.kt)), via
+  `getCurrentLocation()` qui réveille lui aussi le fournisseur, pour les téléphones sans services
+  Google.
+
+Les deux enchaînent la même séquence — aperçu du cache, demande de mesure fraîche, puis suivi
+continu sans filtre de temps ni de distance : une localisation ponctuelle attend le prochain point,
+pas le prochain déplacement de cinquante mètres. Le budget total est de 30 s, une première
+acquisition à froid dépassant couramment la quinzaine.
+
 ## Du GPS au point kilométrique
 
 C'est la question centrale du mode automatique. La conversion se fait dans
@@ -176,8 +216,9 @@ C'est la question centrale du mode automatique. La conversion se fait dans
 4. Le **PK est interpolé** linéairement entre les deux extrémités du segment retenu.
 5. Le **sens** vient du cap GPS : on le compare à l'azimut du segment orienté dans le sens des PK
    croissants. Moins de 90° d'écart → sens croissant, sinon décroissant. Le cap n'étant fiable
-   qu'en mouvement, il est ignoré sous ~10 km/h ; dans ce cas l'application le signale et le sens
-   reste corrigeable d'un bouton (« Inverser »).
+   qu'en mouvement, il est ignoré sous ~10 km/h : l'application laisse alors 8 s à la mesure pour
+   en fournir un, puis affiche la position en signalant que le sens reste à confirmer — il est
+   corrigeable d'un bouton (« Inverser »).
 
 Comme le PK de l'utilisateur et celui des aires sont mesurés sur le même ruban et avec la même
 méthode, la distance affichée (« dans 5 km ») reste juste même là où le tracé est grossier. Et
@@ -204,8 +245,9 @@ Le projet se construit avec le wrapper Gradle, sans Android Studio :
   kotlinx.serialization, seul mécanisme réflexif du projet.
 - La signature est lue dans l'environnement ou dans `~/.gradle/gradle.properties` ; sans clé, la
   construction aboutit à un binaire non signé. Voir [docs/PUBLICATION.md](docs/PUBLICATION.md).
-- Aucune dépendance aux services Google : la localisation passe par le `LocationManager` du
-  système, l'application fonctionne donc aussi sans Play Services.
+- Les services Google ne sont pas requis : `play-services-location` est compilé dans
+  l'application pour le fournisseur fusionné, mais sa présence est vérifiée à l'exécution et la
+  localisation retombe sur le `LocationManager` du système sur un téléphone qui en est dépourvu.
 
 ### Intégration continue
 
@@ -256,9 +298,12 @@ app/src/main/java/com/aireautoroute/app/
 │   ├── DepotDonnees.kt      lecture des assets, lecture/écriture du fichier utilisateur
 │   └── Vues.kt              consensus de présence, prochaines aires, moyennes par tranche d'âge
 ├── geo/
-│   ├── LocalisateurPk.kt    GPS → autoroute + PK + sens
-│   ├── ProjectionCarte.kt   projection locale et fenêtre d'affichage de la carte
-│   └── SuiviPosition.kt     flux de positions (LocationManager)
+│   ├── LocalisateurPk.kt       GPS → autoroute + PK + sens
+│   ├── ProjectionCarte.kt      projection locale et fenêtre d'affichage de la carte
+│   ├── MesurePosition.kt       âge, précision, cap : ce qui rend une mesure exploitable
+│   ├── SuiviPosition.kt        choix de la source et flux de positions
+│   ├── FournisseurFusionne.kt  source Play Services (celle de Maps)
+│   └── FournisseurSysteme.kt   source LocationManager, en repli
 └── ui/                      écrans Compose et composants (étoiles)
 ```
 
