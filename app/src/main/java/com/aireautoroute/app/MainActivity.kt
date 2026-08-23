@@ -99,6 +99,7 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
         composable(Routes.CARTE) {
             EcranCarte(
                 etat = etat,
+                themeCourant = themeCourant,
                 onRetour = { navController.popBackStack() },
                 onAire = { aireId -> navController.navigate(Routes.detail(aireId)) },
             )

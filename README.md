@@ -15,10 +15,11 @@ l'autoroute et les **noter**, en particulier quand on voyage avec des enfants.
    Seules les aires accessibles depuis la chaussée empruntée sont affichées.
 3. **Un clic ouvre le détail** : statut de chaque équipement, notes par critère, notes par tranche
    d'âge, commentaires, enseignes (qu'on peut compléter), et un formulaire de contribution.
-4. **Une vue carte** montre l'itinéraire et les aires autour de soi : la portion qui reste à
-   parcourir se détache de celle qui est derrière, un appui sur une aire l'ouvre. Elle est dessinée
-   à partir des tracés embarqués — **aucune tuile n'est téléchargée**, donc elle fonctionne sans
-   réseau, ce qui est la moindre des choses en voiture.
+4. **Une vue carte** pose les aires en pastilles cliquables sur un vrai fond cartographique :
+   littoral, fleuves, réseau routier et noms de villes. L'itinéraire courant s'y détache, et la
+   portion qui reste à parcourir se distingue de celle qui est derrière. Le fond est **embarqué
+   dans l'application** — **aucune tuile n'est téléchargée**, ni au premier lancement ni ensuite,
+   donc la carte fonctionne sans réseau, ce qui est la moindre des choses en voiture.
 
 ### Trois habillages au choix
 
@@ -159,6 +160,79 @@ seuls équipements annoncés sont la station-service et les sanitaires des aires
 que c'est ce qui définit ce type d'aire, pas parce qu'on les a vérifiés. Ils restent « annoncés »
 jusqu'à ce que deux visiteurs les confirment. La passe OpenStreetMap viendra combler ce manque.
 
+## Le fond cartographique, embarqué
+
+La carte est rendue par [MapLibre Native](https://maplibre.org/), qui lit un fichier
+[PMTiles](https://docs.protomaps.com/pmtiles/) livré dans l'application. Rien n'est téléchargé :
+ni au premier lancement, ni ensuite.
+
+### Pourquoi le zoom s'arrête à 8
+
+Le fond contient les niveaux de zoom 0 à 8, soit une trentaine de mégaoctets. Ce n'est **pas** le
+zoom maximal d'affichage : au-delà, MapLibre redessine la géométrie du niveau 8 à la nouvelle
+échelle. On perd du détail, jamais de la netteté — c'est ce qui distingue un fond vectoriel d'une
+image, qui deviendrait floue.
+
+Le compromis est là parce que chaque niveau de zoom supplémentaire multiplie le poids par trois :
+
+| Zoom max | Poids du fond |
+| --- | --- |
+| 7 | 8,5 Mo |
+| **8** | **27,9 Mo** |
+| 9 | 86,4 Mo |
+| 10 | 219,4 Mo |
+
+À z8, le profil de génération de Protomaps a déjà fait entrer dans les tuiles les autoroutes
+(dès z3), les voies rapides (z6), les routes principales (z7), les pays (z5), les régions (z8),
+et les villes et bourgs (z7). Manquent les routes secondaires (z9) et les rues (z14) : c'est le
+parti pris, et il donne un atlas routier, ce qu'on veut pour se situer entre deux aires.
+
+Le réseau autoroutier n'est donc **pas** redessiné depuis nos propres tracés : le fond le porte
+déjà. Seul l'itinéraire courant est tracé par-dessus, puisque c'est justement son propos.
+
+### Régénérer le fond
+
+```bash
+pip install pmtiles
+python3 tools/generer_fond.py --estimer   # pèse sans rien télécharger
+python3 tools/generer_fond.py             # écrit app/src/main/assets/fond/
+python3 tools/tests_fond.py               # tests de l'extraction
+```
+
+`--estimer` ne lit que l'index de l'archive distante — quelques centaines de kilooctets — et
+affiche le poids par niveau de zoom. C'est ce qui permet de choisir `--maxzoom` sans télécharger
+quoi que ce soit. `--url` vise un autre build (la liste est sur
+[maps.protomaps.com/builds](https://maps.protomaps.com/builds/), les noms sont datés).
+
+**Le `.pmtiles` produit n'est pas versionné** : 28 Mo de binaire à chaque régénération feraient
+enfler l'historique du dépôt sans retour. Il se régénère par la commande ci-dessus, et l'absence
+du fichier n'empêche ni la compilation ni l'exécution — la carte s'affiche alors sans repères,
+avec l'itinéraire et les aires. Si le fond doit voyager avec le dépôt, Git LFS est le bon outil.
+
+Les glyphes de police, eux, sont versionnés une fois pour toutes dans
+`app/src/main/assets/fond/glyphes/` : deux graisses de Noto Sans sur trois plages Unicode, 560 Ko.
+Sans eux, MapLibre irait chercher les libellés sur le réseau — et une carte hors-ligne muette
+n'aurait pas grand intérêt.
+
+### Ce que le fond ajoute au poids de l'application
+
+| Élément | Poids |
+| --- | --- |
+| Tuiles du fond | ~28 Mo |
+| MapLibre Native (une ABI, variante OpenGL) | ~11 Mo |
+| Glyphes | 0,6 Mo |
+
+La variante **OpenGL** est retenue délibérément : l'artefact `android-sdk` par défaut déclare
+`android.hardware.vulkan.version` en `required="true"`, ce qui ferait filtrer l'application par le
+Play Store sur les appareils sans Vulkan. Les découpages par ABI de l'App Bundle font que chaque
+utilisateur ne télécharge qu'une bibliothèque native.
+
+### Licences
+
+Le fond dérive d'OpenStreetMap, sous **ODbL** : l'attribution « © OpenStreetMap, Protomaps » est
+affichée sur la carte, comme la licence l'exige. Les glyphes sont sous **SIL Open Font License**
+(`app/src/main/assets/fond/glyphes/OFL.txt`).
+
 ## Obtenir une position, et pas un souvenir
 
 Avant de convertir un point en PK, encore faut-il que ce point décrive l'endroit où se trouve le
@@ -283,6 +357,8 @@ donnees/
 tools/
 ├── generer_donnees.py       point d'entrée de l'import
 ├── tests_import.py          tests de la chaîne d'import
+├── generer_fond.py          extraction du fond cartographique embarqué
+├── tests_fond.py            tests de l'extraction du fond
 ├── scrapper_wikisara.py     rafraîchissement du catalogue des aires
 └── import/                  lecture des sources, conversion Lambert 93, construction
 ```
@@ -297,9 +373,12 @@ app/src/main/java/com/aireautoroute/app/
 │   ├── Modeles.kt           les « tables » et les énumérations (critères, tranches d'âge, sens)
 │   ├── DepotDonnees.kt      lecture des assets, lecture/écriture du fichier utilisateur
 │   └── Vues.kt              consensus de présence, prochaines aires, moyennes par tranche d'âge
+├── carte/
+│   ├── FondCarte.kt            recopie du fond vers le stockage, au premier lancement
+│   ├── StyleCarte.kt           style MapLibre du fond, une palette par habillage
+│   └── CarteMapLibre.kt        itinéraire, pastilles groupées, appui, cadrage
 ├── geo/
 │   ├── LocalisateurPk.kt       GPS → autoroute + PK + sens
-│   ├── ProjectionCarte.kt      projection locale et fenêtre d'affichage de la carte
 │   ├── MesurePosition.kt       âge, précision, cap : ce qui rend une mesure exploitable
 │   ├── SuiviPosition.kt        choix de la source et flux de positions
 │   ├── FournisseurFusionne.kt  source Play Services (celle de Maps)
