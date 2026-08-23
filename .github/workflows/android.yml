@@ -51,6 +51,48 @@ jobs:
       - name: Configuration de Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      # Le fond cartographique n'est pas versionné : 28 Mo de binaire régénérés
+      # feraient enfler l'historique du dépôt sans retour. Il est reconstruit
+      # ici, puis mis en cache — la clé ne dépend pas du build Protomaps du
+      # jour, un fond vieux de quelques jours étant strictement équivalent.
+      # Changer `v1` force la régénération.
+      - name: Cache du fond cartographique
+        id: cache-fond
+        uses: actions/cache@v4
+        with:
+          path: app/src/main/assets/fond/france-z8.pmtiles
+          key: fond-france-z8-v1
+
+      - name: Installation de Python
+        if: steps.cache-fond.outputs.cache-hit != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Une panne de Protomaps ne doit pas casser la construction : l'application
+      # sait s'afficher sans fond (l'itinéraire et les aires restent là). On se
+      # contente donc d'avertir, et l'étape suivante dit ce que l'APK contient.
+      - name: Génération du fond cartographique
+        if: steps.cache-fond.outputs.cache-hit != 'true'
+        continue-on-error: true
+        timeout-minutes: 15
+        run: |
+          python3 -m pip install --quiet pmtiles
+          python3 tools/generer_fond.py
+
+      - name: État du fond cartographique
+        run: |
+          set -euo pipefail
+          fond=app/src/main/assets/fond/france-z8.pmtiles
+          if [ -f "$fond" ]; then
+            taille=$(du -h "$fond" | cut -f1)
+            echo "::notice::Fond cartographique embarqué ($taille)."
+            echo "Fond cartographique : **$taille**" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::Fond cartographique absent : l'APK affichera la carte sans repères."
+            echo "Fond cartographique : **absent**" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Provisionnement de la chaîne Gradle
         timeout-minutes: 10
         run: ./gradlew --version

@@ -192,6 +192,14 @@ déjà. Seul l'itinéraire courant est tracé par-dessus, puisque c'est justemen
 
 ### Régénérer le fond
 
+**En temps normal, il n'y a rien à faire** : le workflow « Build APK » régénère le fond avant de
+construire, puis le met en cache. L'APK publié en artefact de la construction le contient déjà —
+c'est le chemin à suivre si l'on n'a pas d'atelier Android sous la main. Pour forcer une
+régénération, il suffit de changer le suffixe de la clé de cache (`fond-france-z8-v1`) dans
+[`.github/workflows/android.yml`](.github/workflows/android.yml).
+
+En local :
+
 ```bash
 pip install pmtiles
 python3 tools/generer_fond.py --estimer   # pèse sans rien télécharger
@@ -205,9 +213,14 @@ quoi que ce soit. `--url` vise un autre build (la liste est sur
 [maps.protomaps.com/builds](https://maps.protomaps.com/builds/), les noms sont datés).
 
 **Le `.pmtiles` produit n'est pas versionné** : 28 Mo de binaire à chaque régénération feraient
-enfler l'historique du dépôt sans retour. Il se régénère par la commande ci-dessus, et l'absence
-du fichier n'empêche ni la compilation ni l'exécution — la carte s'affiche alors sans repères,
-avec l'itinéraire et les aires. Si le fond doit voyager avec le dépôt, Git LFS est le bon outil.
+enfler l'historique du dépôt sans retour. L'absence du fichier n'empêche ni la compilation ni
+l'exécution — la carte s'affiche alors sans repères, avec l'itinéraire et les aires, et la
+construction le signale par un avertissement plutôt que d'échouer : une panne de Protomaps ne doit
+pas casser le dépôt. Si le fond doit voyager avec les sources, Git LFS est le bon outil.
+
+Le script vise par défaut `--url=auto`, qui remonte les jours jusqu'à trouver un build Protomaps
+disponible. Les builds sont quotidiens et ne sont pas conservés indéfiniment : une date figée
+aurait expiré au bout de quelques semaines.
 
 Les glyphes de police, eux, sont versionnés une fois pour toutes dans
 `app/src/main/assets/fond/glyphes/` : deux graisses de Noto Sans sur trois plages Unicode, 560 Ko.

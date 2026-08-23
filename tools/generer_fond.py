@@ -16,16 +16,21 @@ Usage :
     python3 tools/generer_fond.py               # génère l'asset
 
 Options :
-    --url=...       archive source (défaut : dernier build Protomaps connu)
+    --url=...       archive source (défaut : `auto`, voir plus bas)
     --bbox=O,S,E,N  emprise (défaut : France métropolitaine + Corse)
     --maxzoom=N     niveau de zoom maximal embarqué (défaut : 8)
     --sortie=...    chemin du fichier produit
     --estimer       n'écrit rien, affiche seulement le poids par niveau
     --ua=...        User-Agent, si l'hébergeur refuse celui par défaut
 
+Par défaut, `--url=auto` remonte les jours depuis aujourd'hui jusqu'à trouver
+un build Protomaps qui réponde : ils sont publiés quotidiennement et ne sont
+pas conservés indéfiniment, donc figer une date la ferait expirer.
+
 Dépendance :  pip install pmtiles
 """
 
+import datetime
 import math
 import os
 import sys
@@ -42,8 +47,14 @@ except ImportError:
 # France métropolitaine, Corse comprise, avec un peu de marge.
 BBOX_DEFAUT = (-5.3, 41.3, 9.7, 51.2)
 MAXZOOM_DEFAUT = 8
-URL_DEFAUT = "https://build.protomaps.com/20260823.pmtiles"
+URL_DEFAUT = "auto"
 SORTIE_DEFAUT = "app/src/main/assets/fond/france-z8.pmtiles"
+
+# Protomaps publie un build par jour, nommé par sa date, et ne les garde pas
+# indéfiniment : figer une date dans le script la ferait expirer en quelques
+# semaines. On remonte donc les jours jusqu'à en trouver un qui réponde.
+MODELE_BUILD = "https://build.protomaps.com/{date}.pmtiles"
+JOURS_REMONTES = 10
 
 # Les hébergeurs derrière Cloudflare refusent couramment l'agent par défaut de
 # urllib. On se présente comme un client ordinaire.
@@ -56,6 +67,38 @@ AGENT_DEFAUT = (
 def premier_id(z):
     """Identifiant de la première tuile du niveau de zoom z."""
     return ((1 << (z * 2)) - 1) // 3
+
+
+def resoudre_url(url, agent=AGENT_DEFAUT):
+    """Remplace `auto` par le build quotidien le plus récent qui réponde."""
+    if url != "auto":
+        return url
+
+    jour = datetime.date.today()
+    essayees = []
+    for _ in range(JOURS_REMONTES):
+        candidate = MODELE_BUILD.format(date=jour.strftime("%Y%m%d"))
+        essayees.append(candidate)
+        requete = urllib.request.Request(
+            candidate,
+            headers={"Range": "bytes=0-0", "User-Agent": agent, "Accept": "*/*"},
+        )
+        try:
+            with urllib.request.urlopen(requete, timeout=30) as reponse:
+                if reponse.status in (200, 206):
+                    print(f"build retenu : {candidate}")
+                    return candidate
+        except urllib.error.HTTPError:
+            pass
+        except urllib.error.URLError as erreur:
+            raise SystemExit(f"Protomaps injoignable : {erreur.reason}") from None
+        jour -= datetime.timedelta(days=1)
+
+    raise SystemExit(
+        f"Aucun build Protomaps trouvé sur les {JOURS_REMONTES} derniers jours.\n"
+        "Vérifie la liste sur https://maps.protomaps.com/builds/ et passe --url=… "
+        "explicitement.\nEssayées :\n  " + "\n  ".join(essayees)
+    )
 
 
 def source_http(url, agent=AGENT_DEFAUT):
@@ -241,7 +284,11 @@ def main():
         else:
             sys.exit(__doc__)
 
-    lire = source_http(url, agent) if url.startswith("http") else source_fichier(url)
+    if url == "auto" or url.startswith("http"):
+        url = resoudre_url(url, agent)
+        lire = source_http(url, agent)
+    else:
+        lire = source_fichier(url)
 
     print(f"archive  : {url}")
     print(f"emprise  : {bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]}")
