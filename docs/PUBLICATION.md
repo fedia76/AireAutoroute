@@ -139,7 +139,27 @@ la production.
 6. **Demande d'accès à la production** — examinée manuellement. Google regarde si le test a été
    réel ; un refus renvoie à l'étape 5.
 
-## 5. Nom de package
+## 5. Symboles de débogage natifs
+
+La carte s'appuie sur MapLibre, qui embarque son moteur de rendu OpenGL sous forme de
+bibliothèques natives. La Play Console signale leur absence de symboles :
+
+> Cet App Bundle contient du code natif, et vous n'avez pas importé de symboles de débogage.
+
+C'est un **avertissement, pas un refus** : le bundle est acceptable en l'état. Sans les symboles,
+un plantage venu du code natif n'apparaît toutefois dans la Play Console que sous forme d'adresses
+mémoire, sans nom de fonction ni numéro de ligne.
+
+`debugSymbolLevel = "SYMBOL_TABLE"` dans le type de build `release` demande à Gradle de les
+empaqueter. Ils voyagent dans le bundle et sont retirés avant livraison : l'application installée
+ne grossit pas. `FULL` existe aussi, mais n'apporte rien de plus sur une dépendance fournie
+précompilée.
+
+Cela suppose que les `.so` livrés par MapLibre aient conservé leur table des symboles. Si
+l'avertissement persiste après un nouveau téléversement, c'est qu'ils ont été dépouillés à la
+source, et il n'y a alors rien à en tirer.
+
+## 6. Nom de package
 
 L'identifiant de publication est `com.airesautoroute.myapp` (`applicationId` dans
 `app/build.gradle.kts`). Il est **figé** : la Play Console l'arrête à la création de la fiche, et
@@ -147,13 +167,13 @@ l'application ne peut plus en changer une fois publiée sous peine de ne plus po
 jour. Il diffère volontairement du `namespace`, `com.aireautoroute.app`, qui désigne le paquet des
 sources et n'a pas à lui correspondre.
 
-## 6. Cible d'API
+## 7. Cible d'API
 
 Depuis le 31 août 2026, toute soumission doit cibler **API 36** (Android 16). Le projet est aligné :
 `compileSdk` et `targetSdk` valent 36. Cette contrainte se renouvelle chaque année à la fin août —
 il faudra remonter d'un niveau annuellement pour continuer à publier des mises à jour.
 
-## 7. Licences des données
+## 8. Licences des données
 
 Les catalogues embarqués proviennent du bornage du réseau routier national (Licence Ouverte), de
 WikiSara (CC BY-SA) et d'OpenStreetMap (ODbL). L'attribution est affichée dans l'écran « Sources et
