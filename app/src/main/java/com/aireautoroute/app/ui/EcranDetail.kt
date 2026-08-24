@@ -27,6 +27,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.InputChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -43,6 +44,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.aireautoroute.app.data.AireDetail
 import com.aireautoroute.app.data.DetailCritere
+import com.aireautoroute.app.data.MotifSignalement
 import com.aireautoroute.app.data.Notation
 import com.aireautoroute.app.data.StatutEquipement
 
@@ -54,8 +56,11 @@ fun EcranDetail(
     onNoter: () -> Unit,
     onAjouterEnseigne: (String) -> Unit,
     onRetirerEnseigne: (String) -> Unit,
+    onSignaler: (String, MotifSignalement) -> Unit,
 ) {
     var dialogueEnseigne by remember { mutableStateOf(false) }
+    // L'avis en cours de signalement, null quand la boîte est fermée.
+    var avisSignale by remember { mutableStateOf<Notation?>(null) }
 
     Scaffold(
         topBar = {
@@ -152,7 +157,7 @@ fun EcranDetail(
             }
 
             items(detail.criteres, key = { it.critere.name }) { critere ->
-                CarteCritere(critere)
+                CarteCritere(critere, onSignaler = { avisSignale = it })
             }
 
             item {
@@ -192,10 +197,50 @@ fun EcranDetail(
             },
         )
     }
+
+    avisSignale?.let { notation ->
+        var motif by remember(notation.id) { mutableStateOf(MotifSignalement.INJURIEUX) }
+        AlertDialog(
+            onDismissRequest = { avisSignale = null },
+            title = { Text("Signaler cet avis") },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(
+                        "Un avis signalé par plusieurs personnes est masqué automatiquement.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    MotifSignalement.entries.forEach { candidat ->
+                        Row(
+                            Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            RadioButton(
+                                selected = motif == candidat,
+                                onClick = { motif = candidat },
+                            )
+                            Text(candidat.libelle, style = MaterialTheme.typography.bodySmall)
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        onSignaler(notation.id, motif)
+                        avisSignale = null
+                    },
+                ) { Text("Signaler") }
+            },
+            dismissButton = {
+                TextButton(onClick = { avisSignale = null }) { Text("Annuler") }
+            },
+        )
+    }
 }
 
 @Composable
-private fun CarteCritere(detail: DetailCritere) {
+private fun CarteCritere(detail: DetailCritere, onSignaler: (Notation) -> Unit) {
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Row(
@@ -252,24 +297,37 @@ private fun CarteCritere(detail: DetailCritere) {
 
             if (detail.commentaires.isNotEmpty()) {
                 HorizontalDivider(Modifier.padding(vertical = 4.dp))
-                detail.commentaires.forEach { notation -> LigneCommentaire(notation) }
+                detail.commentaires.forEach { notation ->
+                    LigneCommentaire(notation, onSignaler = { onSignaler(notation) })
+                }
             }
         }
     }
 }
 
 @Composable
-private fun LigneCommentaire(notation: Notation) {
+private fun LigneCommentaire(notation: Notation, onSignaler: () -> Unit) {
     Column(Modifier.padding(vertical = 2.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            EtoilesLecture(notation.note.toDouble(), taille = 12.dp)
-            Text(
-                text = " ${notation.auteur}" +
-                    (notation.trancheAge?.let { " · ${it.libelle}" } ?: "") +
-                    " · ${notation.date.take(10)}",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                EtoilesLecture(notation.note.toDouble(), taille = 12.dp)
+                Text(
+                    text = " ${notation.auteur}" +
+                        (notation.trancheAge?.let { " · ${it.libelle}" } ?: "") +
+                        " · ${notation.date.take(10)}",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            // Le signalement se place sur le commentaire lui-même : relégué dans un écran de
+            // réglages, il ne serait pas trouvé au moment où l'on en a besoin.
+            TextButton(onClick = onSignaler) {
+                Text("Signaler", style = MaterialTheme.typography.labelSmall)
+            }
         }
         Text(
             text = notation.commentaire.orEmpty(),

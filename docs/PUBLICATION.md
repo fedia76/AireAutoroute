@@ -159,7 +159,41 @@ Cela suppose que les `.so` livrés par MapLibre aient conservé leur table des s
 l'avertissement persiste après un nouveau téléversement, c'est qu'ils ont été dépouillés à la
 source, et il n'y a alors rien à en tirer.
 
-## 6. Nom de package
+## 6. Contenu généré par les utilisateurs
+
+Le commentaire libre d'une notation est publié tel quel et lu par tout le monde. Les règles du
+Play Store imposent alors trois choses : un signalement accessible depuis l'application, un moyen
+de bloquer un contributeur, et un retrait effectif des contenus signalés.
+
+Ce qui est en place :
+
+- **Signalement** — un bouton sur chaque commentaire, avec un motif à choisir. Il est posé sur le
+  contenu lui-même : relégué dans un écran de réglages, il ne serait pas trouvé au moment où l'on
+  en a besoin.
+- **Retrait** — au troisième signalement, un déclencheur de base de données bascule `masquee` à
+  vrai. Les règles de lecture filtrant déjà `not masquee`, l'avis disparaît pour tout le monde sans
+  intervention. Le seuil est une constante unique dans `serveur/schema.sql`.
+- **Effacement** — l'écran « Sources et confidentialité » permet de supprimer d'un coup toutes ses
+  contributions. C'est le droit à l'effacement du RGPD, exercé sans avoir à écrire à qui que ce
+  soit.
+
+Ce qui manque encore : **le blocage d'un contributeur**. Les sessions étant anonymes, il faudrait
+mémoriser localement les identifiants masqués et filtrer à la lecture. Tant que ce n'est pas fait,
+l'application ne coche pas entièrement la case, et c'est le point le plus susceptible d'être
+soulevé à la demande d'accès à la production.
+
+Le seuil automatique ne dispense pas de relire les signalements. Depuis la console du service :
+
+```sql
+select n.id, n.commentaire, count(s.*) as signalements
+from notation n join signalement s on s.notation_id = n.id
+group by n.id, n.commentaire
+order by signalements desc;
+```
+
+Un masquage se défait par `update notation set masquee = false where id = '…';`.
+
+## 7. Nom de package
 
 L'identifiant de publication est `com.aireautoroute.app` (`applicationId` dans
 `app/build.gradle.kts`), identique au `namespace`.
@@ -173,13 +207,13 @@ tant que rien n'a été publié.
 Côté application, l'identifiant est modifiable jusqu'à la première publication acceptée, et figé
 après : en changer ferait perdre la capacité de mettre à jour les installations existantes.
 
-## 7. Cible d'API
+## 8. Cible d'API
 
 Depuis le 31 août 2026, toute soumission doit cibler **API 36** (Android 16). Le projet est aligné :
 `compileSdk` et `targetSdk` valent 36. Cette contrainte se renouvelle chaque année à la fin août —
 il faudra remonter d'un niveau annuellement pour continuer à publier des mises à jour.
 
-## 8. Licences des données
+## 9. Licences des données
 
 Les catalogues embarqués proviennent du bornage du réseau routier national (Licence Ouverte), de
 WikiSara (CC BY-SA) et d'OpenStreetMap (ODbL). L'attribution est affichée dans l'écran « Sources et

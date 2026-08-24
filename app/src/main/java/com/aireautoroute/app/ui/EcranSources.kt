@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -16,9 +17,14 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -65,12 +71,14 @@ private val SOURCES = listOf(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EcranSources(onRetour: () -> Unit) {
+fun EcranSources(onRetour: () -> Unit, onSupprimerContributions: () -> Unit) {
+    var confirmation by remember { mutableStateOf(false) }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
-                title = { Text("Sources et licences") },
+                title = { Text("Sources et confidentialité") },
                 navigationIcon = {
                     IconButton(onClick = onRetour) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Retour")
@@ -166,9 +174,44 @@ fun EcranSources(onRetour: () -> Unit) {
                                 "les commentaires sont visibles par tout le monde.",
                             style = MaterialTheme.typography.bodySmall,
                         )
+                        Text(
+                            "Vous pouvez retirer à tout moment l'ensemble de ce que vous avez " +
+                                "publié. La suppression est immédiate et définitive : ni " +
+                                "l'application ni le service n'en gardent de copie.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                        TextButton(onClick = { confirmation = true }) {
+                            Text("Supprimer toutes mes contributions")
+                        }
                     }
                 }
             }
         }
+    }
+
+    if (confirmation) {
+        AlertDialog(
+            onDismissRequest = { confirmation = false },
+            title = { Text("Supprimer toutes vos contributions ?") },
+            text = {
+                Text(
+                    "Vos notes, vos déclarations d'équipement et les enseignes que vous avez " +
+                        "rattachées seront effacées du service partagé. Cette action est " +
+                        "irréversible.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        onSupprimerContributions()
+                        confirmation = false
+                    },
+                ) { Text("Supprimer") }
+            },
+            dismissButton = {
+                TextButton(onClick = { confirmation = false }) { Text("Annuler") }
+            },
+        )
     }
 }

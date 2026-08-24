@@ -117,6 +117,37 @@ class ServiceContributions(@Suppress("unused") private val contexte: Context) {
         }
     }
 
+    /**
+     * Signale le commentaire d'une notation.
+     *
+     * Le passage par `upsert` rend l'action idempotente : signaler deux fois le même avis ne
+     * gonfle pas le compteur, c'est la contrainte d'unicité du schéma qui l'impose.
+     */
+    suspend fun signalerNotation(notationId: String, motif: MotifSignalement) {
+        val auteurId = identifiantContributeur()
+        client.from("signalement").upsert(
+            SignalementAEnvoyer(notationId = notationId, auteurId = auteurId, motif = motif),
+        ) {
+            onConflict = "auteur_id,notation_id"
+        }
+    }
+
+    /**
+     * Efface tout ce que cette installation a publié — droit à l'effacement.
+     *
+     * Aucun filtre sur l'auteur n'est nécessaire côté client pour la sûreté : les règles d'accès
+     * du schéma bornent déjà la suppression aux lignes de la session courante. Il est écrit tout
+     * de même, pour que la requête dise ce qu'elle fait.
+     */
+    suspend fun supprimerMesContributions() {
+        val auteurId = identifiantContributeur()
+        listOf("notation", "declaration_equipement", "aire_enseigne").forEach { table ->
+            client.from(table).delete {
+                filter { eq("auteur_id", auteurId) }
+            }
+        }
+    }
+
     suspend fun detacherEnseigne(aireId: String, enseigneId: String) {
         val auteurId = identifiantContributeur()
         client.from("aire_enseigne").delete {
@@ -136,6 +167,13 @@ class ServiceContributions(@Suppress("unused") private val contexte: Context) {
 // --- Représentations transportées ---------------------------------------------------------
 // Deux familles distinctes : ce qu'on lit porte les colonnes posées par le serveur (identifiant,
 // date), ce qu'on écrit ne les mentionne pas, pour laisser jouer les valeurs par défaut.
+
+@Serializable
+private data class SignalementAEnvoyer(
+    @SerialName("notation_id") val notationId: String,
+    @SerialName("auteur_id") val auteurId: String,
+    val motif: MotifSignalement,
+)
 
 @Serializable
 private data class NotationLue(

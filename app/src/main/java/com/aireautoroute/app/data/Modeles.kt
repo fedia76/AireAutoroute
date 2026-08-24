@@ -201,3 +201,18 @@ data class DonneesUtilisateur(
     /** Enseignes créées par l'utilisateur quand elle n'existait pas dans le catalogue livré. */
     val enseignes: List<Enseigne> = emptyList(),
 )
+
+/**
+ * Motif d'un signalement.
+ *
+ * La liste reste courte : un choix long décourage le signalement, et le tri fin se fait de
+ * toute façon à la lecture du commentaire.
+ */
+@Serializable
+enum class MotifSignalement(val libelle: String) {
+    INJURIEUX("Propos injurieux ou haineux"),
+    PERSONNEL("Contient des informations personnelles"),
+    INEXACT("Information fausse"),
+    HORS_SUJET("Hors sujet ou publicité"),
+    AUTRE("Autre"),
+}

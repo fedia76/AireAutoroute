@@ -225,3 +225,69 @@ with (security_invoker = true) as
   from declaration_equipement
   where not masquee
   group by aire_id, critere;
+
+-- ---------------------------------------------------------------------------
+-- Signalements
+-- ---------------------------------------------------------------------------
+-- Les règles du Play Store imposent, pour toute application publiant du contenu écrit par ses
+-- utilisateurs, un moyen de signaler ce contenu depuis l'application et son retrait rapide.
+-- Le commentaire libre d'une notation est le seul contenu concerné : les notes et les
+-- déclarations de présence sont des valeurs contraintes, elles ne peuvent rien véhiculer.
+
+create table if not exists signalement (
+  id           uuid primary key default gen_random_uuid(),
+  notation_id  uuid not null references notation (id) on delete cascade,
+  auteur_id    uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  motif        text not null default 'AUTRE'
+               check (motif in ('INJURIEUX', 'PERSONNEL', 'INEXACT', 'HORS_SUJET', 'AUTRE')),
+  creee_le     timestamptz not null default now(),
+
+  -- Un signalement par personne et par avis : sans quoi un seul contributeur suffirait à
+  -- atteindre le seuil de masquage.
+  constraint signalement_unique_par_auteur unique (auteur_id, notation_id)
+);
+
+create index if not exists signalement_par_notation on signalement (notation_id);
+
+alter table signalement enable row level security;
+
+drop policy if exists signalement_ajout on signalement;
+create policy signalement_ajout on signalement
+  for insert with check (auteur_id = auth.uid());
+
+-- Chacun relit ses propres signalements, personne ne lit ceux des autres : savoir qui a
+-- signalé quoi inviterait aux représailles.
+drop policy if exists signalement_lecture on signalement;
+create policy signalement_lecture on signalement
+  for select using (auteur_id = auth.uid());
+
+-- Au-delà du seuil, l'avis est masqué sans attendre d'intervention humaine. La fonction est
+-- « security definer » parce que celui qui signale n'est pas l'auteur : les règles d'accès de
+-- `notation` lui interdiraient la mise à jour. `search_path` est fixé, faute de quoi une table
+-- homonyme placée dans un autre schéma détournerait la fonction.
+create or replace function masquer_notation_signalee() returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  total integer;
+begin
+  select count(*) into total from signalement where notation_id = new.notation_id;
+  if total >= 3 then
+    update notation set masquee = true, modifiee_le = now() where id = new.notation_id;
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists signalement_masque_notation on signalement;
+create trigger signalement_masque_notation
+  after insert on signalement
+  for each row execute function masquer_notation_signalee();
+
+-- Le masquage est réversible : `update notation set masquee = false where id = '…';` depuis la
+-- console. À relire régulièrement, le seuil ne remplaçant pas l'examen des signalements :
+--   select n.id, n.commentaire, count(s.*) as signalements
+--   from notation n join signalement s on s.notation_id = n.id
+--   group by n.id, n.commentaire order by signalements desc;

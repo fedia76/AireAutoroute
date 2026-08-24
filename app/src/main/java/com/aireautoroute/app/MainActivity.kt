@@ -106,7 +106,10 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
         }
 
         composable(Routes.SOURCES) {
-            EcranSources(onRetour = { navController.popBackStack() })
+            EcranSources(
+                onRetour = { navController.popBackStack() },
+                onSupprimerContributions = vm::supprimerMesContributions,
+            )
         }
 
         composable(Routes.DETAIL) { entree ->
@@ -118,6 +121,7 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
                 onNoter = { navController.navigate(Routes.notation(aireId)) },
                 onAjouterEnseigne = { nom -> vm.ajouterEnseigne(aireId, nom) },
                 onRetirerEnseigne = { enseigneId -> vm.retirerEnseigne(aireId, enseigneId) },
+                onSignaler = vm::signaler,
             )
         }
 

@@ -124,7 +124,7 @@ fun EcranAccueil(
                         Icon(Icons.Filled.Palette, contentDescription = "Changer d'apparence")
                     }
                     IconButton(onClick = onSources) {
-                        Icon(Icons.Filled.Info, contentDescription = "Sources et licences")
+                        Icon(Icons.Filled.Info, contentDescription = "Sources et confidentialité")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(

@@ -142,6 +142,20 @@ class DepotDonnees(
             rafraichir()
         }
 
+    suspend fun signaler(notationId: String, motif: MotifSignalement): Result<Unit> =
+        runCatching {
+            service.signalerNotation(notationId, motif)
+            // Relire aussitôt : au-delà du seuil, le service a masqué l'avis et il doit
+            // disparaître de l'écran sans attendre le prochain rafraîchissement.
+            rafraichir()
+        }
+
+    suspend fun supprimerMesContributions(): Result<Unit> =
+        runCatching {
+            service.supprimerMesContributions()
+            rafraichir()
+        }
+
     companion object {
         private const val FICHIER_CACHE = "donnees_utilisateur.json"
         private const val AUTEUR_PAR_DEFAUT = "Moi"

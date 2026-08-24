@@ -13,6 +13,7 @@ import com.aireautoroute.app.data.Critere
 import com.aireautoroute.app.data.DeclarationEquipement
 import com.aireautoroute.app.data.DepotDonnees
 import com.aireautoroute.app.data.EtatSynchro
+import com.aireautoroute.app.data.MotifSignalement
 import com.aireautoroute.app.data.Notation
 import com.aireautoroute.app.data.PreferencesUi
 import com.aireautoroute.app.data.PositionUtilisateur
@@ -329,6 +330,21 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     fun retirerEnseigne(aireId: String, enseigneId: String) {
         viewModelScope.launch {
             rendreCompte(depot.retirerEnseigneDAire(aireId, enseigneId), "Enseigne retirée.")
+        }
+    }
+
+    fun signaler(notationId: String, motif: MotifSignalement) {
+        viewModelScope.launch {
+            rendreCompte(depot.signaler(notationId, motif), "Signalement enregistré, merci.")
+        }
+    }
+
+    fun supprimerMesContributions() {
+        viewModelScope.launch {
+            rendreCompte(
+                depot.supprimerMesContributions(),
+                "Vos contributions ont été supprimées.",
+            )
         }
     }
 
