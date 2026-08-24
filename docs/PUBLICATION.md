@@ -122,13 +122,21 @@ la production.
 6. **Demande d'accès à la production** — examinée manuellement. Google regarde si le test a été
    réel ; un refus renvoie à l'étape 5.
 
-## 5. Cible d'API
+## 5. Nom de package
+
+L'identifiant de publication est `com.airesautoroute.myapp` (`applicationId` dans
+`app/build.gradle.kts`). Il est **figé** : la Play Console l'arrête à la création de la fiche, et
+l'application ne peut plus en changer une fois publiée sous peine de ne plus pouvoir se mettre à
+jour. Il diffère volontairement du `namespace`, `com.aireautoroute.app`, qui désigne le paquet des
+sources et n'a pas à lui correspondre.
+
+## 6. Cible d'API
 
 Depuis le 31 août 2026, toute soumission doit cibler **API 36** (Android 16). Le projet est aligné :
 `compileSdk` et `targetSdk` valent 36. Cette contrainte se renouvelle chaque année à la fin août —
 il faudra remonter d'un niveau annuellement pour continuer à publier des mises à jour.
 
-## 6. Licences des données
+## 7. Licences des données
 
 Les catalogues embarqués proviennent du bornage du réseau routier national (Licence Ouverte), de
 WikiSara (CC BY-SA) et d'OpenStreetMap (ODbL). L'attribution est affichée dans l'écran « Sources et
