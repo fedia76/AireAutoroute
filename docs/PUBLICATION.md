@@ -91,9 +91,15 @@ la production.
    téléphone). Compter quelques jours à deux semaines.
 2. **Fiche du magasin** — icône 512×512, bandeau 1024×500, 2 à 8 captures d'écran, titre ≤ 30
    caractères, description courte ≤ 80, description longue ≤ 4000.
-3. **Politique de confidentialité** — obligatoire, à une URL publique. Elle doit décrire ce que
-   l'application envoie au service de contributions, qui l'héberge, et combien de temps les avis
-   sont conservés.
+3. **Politique de confidentialité** — obligatoire, à une URL publique. Elle est rédigée dans
+   [`docs/confidentialite.html`](confidentialite.html) et publiée par GitHub Pages, ce qui évite
+   d'avoir à louer un hébergement : *Settings → Pages → Source : Deploy from a branch → `main` /
+   `docs`*. L'URL à donner à la Play Console devient alors
+   `https://fedia76.github.io/AireAutoroute/confidentialite.html`.
+
+   Google exige une page accessible sans authentification et non modifiable par ses lecteurs — un
+   document partagé en écriture est refusé. La page doit rester exacte : c'est un engagement
+   opposable, à corriger dès que l'application change ce qu'elle transmet.
 4. **Sécurité des données** — l'application **publie les avis sur un service partagé** (Supabase,
    hébergé en Europe). La déclaration doit donc couvrir, au minimum :
    - les *contributions* (note, tranche d'âge, commentaire libre, aire concernée, date) : collectées
