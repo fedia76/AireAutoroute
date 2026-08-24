@@ -100,21 +100,38 @@ la production.
    Google exige une page accessible sans authentification et non modifiable par ses lecteurs — un
    document partagé en écriture est refusé. La page doit rester exacte : c'est un engagement
    opposable, à corriger dès que l'application change ce qu'elle transmet.
-4. **Sécurité des données** — l'application **publie les avis sur un service partagé** (Supabase,
-   hébergé en Europe). La déclaration doit donc couvrir, au minimum :
-   - les *contributions* (note, tranche d'âge, commentaire libre, aire concernée, date) : collectées
-     et **partagées publiquement**, puisque tout le monde les lit ;
-   - l'*identifiant de session anonyme* ouvert au premier lancement : collecté, rattaché à
-     l'appareil, sans compte ni adresse e-mail ;
-   - le *commentaire libre* est le point sensible : un utilisateur peut y écrire n'importe quoi, y
-     compris des informations personnelles. Play attend qu'on le déclare comme tel.
+4. **Sécurité des données** — répondre **oui** : l'application publie les avis sur un service
+   partagé (Supabase, hébergé en Europe). La correspondance exacte avec les types de données de
+   Play, relevée sur `ServiceContributions.kt` et `serveur/schema.sql` :
 
-   La **position** reste hors du lot : elle sert à situer l'automobiliste sur l'autoroute et n'est
-   jamais transmise. À déclarer comme *utilisée mais non collectée*.
+   | Type Play | Champ | Collectée | Partagée | Obligatoire |
+   | --- | --- | --- | --- | --- |
+   | Informations personnelles → ID utilisateur | `auteur_id` | oui | **oui** | obligatoire |
+   | Informations personnelles → Nom | `auteur`, la signature facultative | oui | **oui** | facultatif |
+   | Activité dans l'application → Autre contenu généré par l'utilisateur | note, critère, tranche d'âge, commentaire, aire | oui | **oui** | facultatif |
 
-   L'aire concernée par un avis est une donnée de localisation grossière au moment où elle part sur
-   le réseau — c'est le genre de nuance sur laquelle Play sanctionne une déclaration trop
-   optimiste. Dans le doute, déclarer plutôt que taire.
+   Finalité unique : *fonctionnalités de l'application*. Ni publicité, ni analyse, ni
+   personnalisation.
+
+   « Partagée » vaut oui partout : la requête de lecture sélectionne toutes les colonnes, donc
+   `auteur_id` circule aussi, même si le client Kotlin l'ignore à la désérialisation.
+
+   La **position n'est pas à déclarer comme collectée**. Play définit la collecte comme une
+   transmission hors de l'appareil, et aucune coordonnée ne quitte le téléphone : le service réseau
+   n'en manipule aucune. L'aire citée dans un avis est du contenu que l'utilisateur choisit de
+   publier, pas un relevé de sa position. La déclarer contredirait la politique de confidentialité
+   et la description de la fiche — une incohérence entre les trois est autrement plus risquée qu'une
+   omission supposée.
+
+   Le *commentaire libre* reste le point sensible : un utilisateur peut y écrire des informations
+   personnelles. C'est ce qui justifie de le déclarer comme contenu généré par l'utilisateur, et ce
+   qui impose à terme un mécanisme de signalement (voir la politique Play sur le contenu généré par
+   les utilisateurs).
+
+   Pratiques de sécurité : **chiffrement en transit** oui ; **suppression sur demande** oui, par
+   l'adresse de contact de la politique de confidentialité. L'obligation de suppression de compte
+   depuis l'application ne s'applique pas : il n'y a pas de compte, seulement une session anonyme
+   sans inscription.
 5. **Test fermé** — canal *closed testing*, pas *internal testing* qui ne compte pas. Il faut
    **12 testeurs inscrits en continu pendant 14 jours**. Le compteur démarre au 12ᵉ inscrit
    effectif : une adresse listée mais jamais confirmée ne compte pas, et une désinscription remet
