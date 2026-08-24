@@ -206,7 +206,18 @@ order by signalements desc;
 
 Un masquage se défait par `update notation set masquee = false where id = '…';`.
 
-## 7. Nom de package
+## 7. Numéro de version
+
+`versionCode` est le numéro que la Play Console utilise pour ordonner les versions. **Il doit
+augmenter à chaque téléversement** : un bundle réutilisant un numéro déjà vu est refusé, même si la
+version correspondante a été retirée depuis. Il ne redescend jamais.
+
+`versionName` n'a aucun rôle technique — c'est la chaîne montrée aux utilisateurs.
+
+Corriger quoi que ce soit dans une version déjà téléversée impose donc de reconstruire avec un
+`versionCode` supérieur : on ne remplace pas un bundle, on en publie un nouveau.
+
+## 8. Nom de package
 
 L'identifiant de publication est `com.aireautoroute.app` (`applicationId` dans
 `app/build.gradle.kts`), identique au `namespace`.
@@ -220,13 +231,13 @@ tant que rien n'a été publié.
 Côté application, l'identifiant est modifiable jusqu'à la première publication acceptée, et figé
 après : en changer ferait perdre la capacité de mettre à jour les installations existantes.
 
-## 8. Cible d'API
+## 9. Cible d'API
 
 Depuis le 31 août 2026, toute soumission doit cibler **API 36** (Android 16). Le projet est aligné :
 `compileSdk` et `targetSdk` valent 36. Cette contrainte se renouvelle chaque année à la fin août —
 il faudra remonter d'un niveau annuellement pour continuer à publier des mises à jour.
 
-## 9. Licences des données
+## 10. Licences des données
 
 Les catalogues embarqués proviennent du bornage du réseau routier national (Licence Ouverte), de
 WikiSara (CC BY-SA) et d'OpenStreetMap (ODbL). L'attribution est affichée dans l'écran « Sources et
