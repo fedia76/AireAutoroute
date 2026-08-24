@@ -57,6 +57,8 @@ fun EcranDetail(
     onAjouterEnseigne: (String) -> Unit,
     onRetirerEnseigne: (String) -> Unit,
     onSignaler: (String, MotifSignalement) -> Unit,
+    onSignalerContributeur: (String, MotifSignalement) -> Unit,
+    onMasquerContributeur: (String) -> Unit,
 ) {
     var dialogueEnseigne by remember { mutableStateOf(false) }
     // L'avis en cours de signalement, null quand la boîte est fermée.
@@ -198,28 +200,53 @@ fun EcranDetail(
         )
     }
 
+    // Une seule boîte pour les trois gestes : trois boutons sous chaque avis alourdiraient la
+    // liste pour une action qui reste rare.
     avisSignale?.let { notation ->
         var motif by remember(notation.id) { mutableStateOf(MotifSignalement.INJURIEUX) }
+        var cible by remember(notation.id) { mutableStateOf(CibleSignalement.AVIS) }
         AlertDialog(
             onDismissRequest = { avisSignale = null },
-            title = { Text("Signaler cet avis") },
+            title = { Text("Signaler ou masquer") },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    Text(
-                        "Un avis signalé par plusieurs personnes est masqué automatiquement.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    MotifSignalement.entries.forEach { candidat ->
-                        Row(
-                            Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
+                    CibleSignalement.entries.forEach { candidate ->
+                        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                             RadioButton(
-                                selected = motif == candidat,
-                                onClick = { motif = candidat },
+                                selected = cible == candidate,
+                                onClick = { cible = candidate },
+                                enabled = candidate == CibleSignalement.AVIS ||
+                                    notation.auteurId.isNotBlank(),
                             )
-                            Text(candidat.libelle, style = MaterialTheme.typography.bodySmall)
+                            Column {
+                                Text(candidate.libelle, style = MaterialTheme.typography.bodyMedium)
+                                Text(
+                                    candidate.effet,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
+                        }
+                    }
+
+                    if (cible != CibleSignalement.MASQUER_CONTRIBUTEUR) {
+                        HorizontalDivider(Modifier.padding(vertical = 6.dp))
+                        Text(
+                            "Motif",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        MotifSignalement.entries.forEach { candidat ->
+                            Row(
+                                Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                RadioButton(
+                                    selected = motif == candidat,
+                                    onClick = { motif = candidat },
+                                )
+                                Text(candidat.libelle, style = MaterialTheme.typography.bodySmall)
+                            }
                         }
                     }
                 }
@@ -227,16 +254,38 @@ fun EcranDetail(
             confirmButton = {
                 TextButton(
                     onClick = {
-                        onSignaler(notation.id, motif)
+                        when (cible) {
+                            CibleSignalement.AVIS -> onSignaler(notation.id, motif)
+                            CibleSignalement.CONTRIBUTEUR ->
+                                onSignalerContributeur(notation.auteurId, motif)
+                            CibleSignalement.MASQUER_CONTRIBUTEUR ->
+                                onMasquerContributeur(notation.auteurId)
+                        }
                         avisSignale = null
                     },
-                ) { Text("Signaler") }
+                ) { Text("Valider") }
             },
             dismissButton = {
                 TextButton(onClick = { avisSignale = null }) { Text("Annuler") }
             },
         )
     }
+}
+
+/** Ce que vise le geste : un avis, ou la personne qui l'a écrit. */
+private enum class CibleSignalement(val libelle: String, val effet: String) {
+    AVIS(
+        "Signaler cet avis",
+        "Masqué pour tout le monde s'il est signalé par plusieurs personnes.",
+    ),
+    CONTRIBUTEUR(
+        "Signaler ce contributeur",
+        "Remonté pour examen. Utile quand une même personne publie en série.",
+    ),
+    MASQUER_CONTRIBUTEUR(
+        "Masquer ce contributeur",
+        "Immédiat, et pour vous seul : ses avis et ses notes disparaissent de votre affichage.",
+    ),
 }
 
 @Composable

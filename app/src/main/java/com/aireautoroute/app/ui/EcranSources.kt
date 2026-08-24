@@ -71,7 +71,12 @@ private val SOURCES = listOf(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EcranSources(onRetour: () -> Unit, onSupprimerContributions: () -> Unit) {
+fun EcranSources(
+    onRetour: () -> Unit,
+    onSupprimerContributions: () -> Unit,
+    nombreAuteursMasques: Int,
+    onDemasquerTous: () -> Unit,
+) {
     var confirmation by remember { mutableStateOf(false) }
 
     Scaffold(
@@ -182,6 +187,37 @@ fun EcranSources(onRetour: () -> Unit, onSupprimerContributions: () -> Unit) {
                         )
                         TextButton(onClick = { confirmation = true }) {
                             Text("Supprimer toutes mes contributions")
+                        }
+                    }
+                }
+            }
+
+            // Sans cet écran, masquer serait sans retour : l'avis qui permettrait de défaire
+            // le geste est précisément celui qu'on ne voit plus.
+            item {
+                Card(Modifier.fillMaxWidth()) {
+                    Column(
+                        Modifier.padding(14.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Text("Contributeurs masqués", style = MaterialTheme.typography.titleSmall)
+                        if (nombreAuteursMasques == 0) {
+                            Text(
+                                "Vous n'avez masqué personne. Depuis un avis, « Signaler ou " +
+                                    "masquer » permet de ne plus voir les contributions d'une " +
+                                    "personne — pour vous seul, sans que cela l'affecte.",
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                        } else {
+                            Text(
+                                "$nombreAuteursMasques contributeur(s) masqué(s). Leurs avis, " +
+                                    "leurs notes et leurs déclarations sont écartés de votre " +
+                                    "affichage et des moyennes que vous voyez.",
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                            TextButton(onClick = onDemasquerTous) {
+                                Text("Réafficher tout le monde")
+                            }
                         }
                     }
                 }

@@ -162,10 +162,12 @@ source, et il n'y a alors rien à en tirer.
 ## 6. Contenu généré par les utilisateurs
 
 Le commentaire libre d'une notation est publié tel quel et lu par tout le monde. Les règles du
-Play Store imposent alors trois choses : un signalement accessible depuis l'application, un moyen
-de bloquer un contributeur, et un retrait effectif des contenus signalés.
+Play Store imposent alors de pouvoir signaler un contenu **et** un auteur, de bloquer un
+contributeur, et de retirer effectivement ce qui est signalé.
 
-Ce qui est en place :
+Deux axes se croisent : ce que le geste vise — un avis, ou la personne — et pour qui il agit —
+tout le monde, ou le seul lecteur. Trois des quatre combinaisons sont utiles ; masquer un avis
+isolé pour soi seul n'en fait pas partie, il suffit de ne pas le lire.
 
 - **Signalement** — un bouton sur chaque commentaire, avec un motif à choisir. Il est posé sur le
   contenu lui-même : relégué dans un écran de réglages, il ne serait pas trouvé au moment où l'on
@@ -176,11 +178,22 @@ Ce qui est en place :
 - **Effacement** — l'écran « Sources et confidentialité » permet de supprimer d'un coup toutes ses
   contributions. C'est le droit à l'effacement du RGPD, exercé sans avoir à écrire à qui que ce
   soit.
+- **Signalement d'un contributeur** — pour la personne plutôt que pour une de ses phrases.
+  Signaler vingt commentaires publicitaires un par un n'aurait pas de sens. Aucun masquage
+  automatique n'en découle : effacer d'un coup tout ce qu'une personne a écrit sur la foi de trois
+  signalements serait disproportionné, et donnerait à trois comptes le pouvoir de l'effacer. Ces
+  lignes remontent pour examen.
+- **Masquage d'un contributeur** — le « block users » exigé par Google. Immédiat, et pour le seul
+  lecteur qui l'a demandé. Ses avis, ses notes et ses déclarations sortent de l'affichage **et des
+  moyennes** : masquer quelqu'un en le laissant peser sur les étoiles serait cosmétique. Deux
+  lecteurs peuvent donc voir des moyennes différentes, c'est le prix d'un masquage qui fait ce
+  qu'il annonce. La liste se défait depuis « Sources et confidentialité » — sans quoi le geste
+  serait sans retour, l'avis qui permettrait de l'annuler étant justement celui qu'on ne voit plus.
 
-Ce qui manque encore : **le blocage d'un contributeur**. Les sessions étant anonymes, il faudrait
-mémoriser localement les identifiants masqués et filtrer à la lecture. Tant que ce n'est pas fait,
-l'application ne coche pas entièrement la case, et c'est le point le plus susceptible d'être
-soulevé à la demande d'accès à la production.
+Une limite à connaître : « une personne » désigne ici **une session anonyme sur un appareil**.
+Réinstaller l'application donne une nouvelle identité, donc démasquée et désignalée. C'est inhérent
+au choix de ne demander aucun compte, et Google l'admet pour les applications anonymes ; mais
+contre un nuisible déterminé, ces mécanismes ralentissent plus qu'ils n'empêchent.
 
 Le seuil automatique ne dispense pas de relire les signalements. Depuis la console du service :
 

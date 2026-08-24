@@ -106,9 +106,12 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
         }
 
         composable(Routes.SOURCES) {
+            val masques by vm.auteursMasques.collectAsStateWithLifecycle()
             EcranSources(
                 onRetour = { navController.popBackStack() },
                 onSupprimerContributions = vm::supprimerMesContributions,
+                nombreAuteursMasques = masques.size,
+                onDemasquerTous = vm::demasquerTousLesAuteurs,
             )
         }
 
@@ -122,6 +125,8 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
                 onAjouterEnseigne = { nom -> vm.ajouterEnseigne(aireId, nom) },
                 onRetirerEnseigne = { enseigneId -> vm.retirerEnseigne(aireId, enseigneId) },
                 onSignaler = vm::signaler,
+                onSignalerContributeur = vm::signalerContributeur,
+                onMasquerContributeur = vm::masquerAuteur,
             )
         }
 

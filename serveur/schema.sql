@@ -234,20 +234,37 @@ with (security_invoker = true) as
 -- Le commentaire libre d'une notation est le seul contenu concerné : les notes et les
 -- déclarations de présence sont des valeurs contraintes, elles ne peuvent rien véhiculer.
 
+-- Un signalement vise soit un avis précis, soit un contributeur dans son ensemble. Le second
+-- cas existe parce que signaler vingt commentaires publicitaires un par un n'a pas de sens.
 create table if not exists signalement (
-  id           uuid primary key default gen_random_uuid(),
-  notation_id  uuid not null references notation (id) on delete cascade,
-  auteur_id    uuid not null default auth.uid() references auth.users (id) on delete cascade,
-  motif        text not null default 'AUTRE'
-               check (motif in ('INJURIEUX', 'PERSONNEL', 'INEXACT', 'HORS_SUJET', 'AUTRE')),
-  creee_le     timestamptz not null default now(),
-
-  -- Un signalement par personne et par avis : sans quoi un seul contributeur suffirait à
-  -- atteindre le seuil de masquage.
-  constraint signalement_unique_par_auteur unique (auteur_id, notation_id)
+  id              uuid primary key default gen_random_uuid(),
+  notation_id     uuid references notation (id) on delete cascade,
+  auteur_signale  uuid references auth.users (id) on delete cascade,
+  auteur_id       uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  motif           text not null default 'AUTRE'
+                  check (motif in ('INJURIEUX', 'PERSONNEL', 'INEXACT', 'HORS_SUJET', 'AUTRE')),
+  creee_le        timestamptz not null default now()
 );
 
+-- Rattrapage pour les bases où la première version de la table a déjà été appliquée.
+alter table signalement add column if not exists auteur_signale uuid references auth.users (id) on delete cascade;
+alter table signalement alter column notation_id drop not null;
+
+-- Une cible et une seule : un signalement qui ne désigne rien, ou qui désigne les deux, est
+-- une erreur d'appel qu'il vaut mieux refuser que stocker.
+alter table signalement drop constraint if exists signalement_une_seule_cible;
+alter table signalement add constraint signalement_une_seule_cible
+  check ((notation_id is null) <> (auteur_signale is null));
+
+-- Un signalement par personne et par cible : sans quoi un seul contributeur suffirait à
+-- atteindre le seuil de masquage. `nulls not distinct` est indispensable — les deux colonnes
+-- de cible étant alternativement nulles, l'unicité par défaut ne verrait aucun doublon.
+alter table signalement drop constraint if exists signalement_unique_par_auteur;
+alter table signalement add constraint signalement_unique_par_auteur
+  unique nulls not distinct (auteur_id, notation_id, auteur_signale);
+
 create index if not exists signalement_par_notation on signalement (notation_id);
+create index if not exists signalement_par_auteur_signale on signalement (auteur_signale);
 
 alter table signalement enable row level security;
 
@@ -273,6 +290,12 @@ as $$
 declare
   total integer;
 begin
+  -- Seul le signalement d'un avis masque. Celui d'un contributeur remonte pour examen : le
+  -- masquage automatique de tout ce qu'une personne a écrit serait disproportionné, et
+  -- offrirait à trois comptes le pouvoir de l'effacer.
+  if new.notation_id is null then
+    return new;
+  end if;
   select count(*) into total from signalement where notation_id = new.notation_id;
   if total >= 3 then
     update notation set masquee = true, modifiee_le = now() where id = new.notation_id;
@@ -291,3 +314,8 @@ create trigger signalement_masque_notation
 --   select n.id, n.commentaire, count(s.*) as signalements
 --   from notation n join signalement s on s.notation_id = n.id
 --   group by n.id, n.commentaire order by signalements desc;
+
+-- Revue des contributeurs signalés, qu'aucun automatisme ne traite :
+--   select auteur_signale, count(*) as signalements, max(creee_le) as dernier
+--   from signalement where auteur_signale is not null
+--   group by auteur_signale order by signalements desc;

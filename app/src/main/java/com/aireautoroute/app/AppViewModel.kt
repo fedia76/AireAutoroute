@@ -118,6 +118,12 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), EtatUi())
 
     init {
+        // La liste des masqués est poussée au dépôt avant le premier chargement, faute de quoi
+        // les avis d'un contributeur masqué s'afficheraient le temps d'un battement.
+        depot.definirAuteursMasques(preferences.auteursMasques.value)
+        viewModelScope.launch {
+            preferences.auteursMasques.collect { depot.definirAuteursMasques(it) }
+        }
         viewModelScope.launch { depot.charger() }
     }
 
@@ -330,6 +336,27 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     fun retirerEnseigne(aireId: String, enseigneId: String) {
         viewModelScope.launch {
             rendreCompte(depot.retirerEnseigneDAire(aireId, enseigneId), "Enseigne retirée.")
+        }
+    }
+
+    val auteursMasques: StateFlow<Set<String>> = preferences.auteursMasques
+
+    fun masquerAuteur(auteurId: String) {
+        preferences.masquerAuteur(auteurId)
+        messageContribution.value = "Ce contributeur est masqué. Vous ne verrez plus ses avis."
+    }
+
+    fun demasquerTousLesAuteurs() {
+        preferences.demasquerTous()
+        messageContribution.value = "Les contributeurs masqués réapparaissent."
+    }
+
+    fun signalerContributeur(auteurId: String, motif: MotifSignalement) {
+        viewModelScope.launch {
+            rendreCompte(
+                depot.signalerContributeur(auteurId, motif),
+                "Contributeur signalé, merci.",
+            )
         }
     }
 

@@ -63,7 +63,9 @@ class ServiceContributions(@Suppress("unused") private val contexte: Context) {
             notations = notations.map { it.versModele() },
             declarations = declarations.map { it.versModele() },
             enseignes = enseignes.map { it.versModele() },
-            liensEnseignes = liens.map { LienAireEnseigne(it.aireId, it.enseigneId, true) },
+            liensEnseignes = liens.map {
+                LienAireEnseigne(it.aireId, it.enseigneId, ajoutParUtilisateur = true, auteurId = it.auteurId)
+            },
         )
     }
 
@@ -128,7 +130,23 @@ class ServiceContributions(@Suppress("unused") private val contexte: Context) {
         client.from("signalement").upsert(
             SignalementAEnvoyer(notationId = notationId, auteurId = auteurId, motif = motif),
         ) {
-            onConflict = "auteur_id,notation_id"
+            onConflict = "auteur_id,notation_id,auteur_signale"
+        }
+    }
+
+    /**
+     * Signale un contributeur dans son ensemble.
+     *
+     * Aucun masquage automatique n'en découle, à la différence du signalement d'un avis :
+     * effacer d'un coup tout ce qu'une personne a écrit sur la foi de trois signalements
+     * serait disproportionné. Ces lignes remontent pour examen.
+     */
+    suspend fun signalerContributeur(auteurSignale: String, motif: MotifSignalement) {
+        val auteurId = identifiantContributeur()
+        client.from("signalement").upsert(
+            SignalementAEnvoyer(auteurSignale = auteurSignale, auteurId = auteurId, motif = motif),
+        ) {
+            onConflict = "auteur_id,notation_id,auteur_signale"
         }
     }
 
@@ -170,7 +188,9 @@ class ServiceContributions(@Suppress("unused") private val contexte: Context) {
 
 @Serializable
 private data class SignalementAEnvoyer(
-    @SerialName("notation_id") val notationId: String,
+    // Une cible et une seule : le schéma refuse une ligne qui n'en désigne aucune ou les deux.
+    @SerialName("notation_id") val notationId: String? = null,
+    @SerialName("auteur_signale") val auteurSignale: String? = null,
     @SerialName("auteur_id") val auteurId: String,
     val motif: MotifSignalement,
 )
@@ -179,6 +199,7 @@ private data class SignalementAEnvoyer(
 private data class NotationLue(
     val id: String,
     @SerialName("aire_id") val aireId: String,
+    @SerialName("auteur_id") val auteurId: String,
     val critere: Critere,
     @SerialName("tranche_age") val trancheAge: TrancheAge? = null,
     val note: Int,
@@ -194,6 +215,7 @@ private data class NotationLue(
         note = note,
         commentaire = commentaire,
         auteur = auteur ?: "Anonyme",
+        auteurId = auteurId,
         date = creeeLe,
     )
 }
@@ -225,6 +247,7 @@ private data class NotationAEnvoyer(
 private data class DeclarationLue(
     val id: String,
     @SerialName("aire_id") val aireId: String,
+    @SerialName("auteur_id") val auteurId: String,
     val critere: Critere,
     val presence: Presence,
     val auteur: String? = null,
@@ -236,6 +259,7 @@ private data class DeclarationLue(
         critere = critere,
         presence = presence,
         auteur = auteur ?: "Anonyme",
+        auteurId = auteurId,
         date = creeeLe,
     )
 }
@@ -280,6 +304,7 @@ private data class EnseigneAEnvoyer(val nom: String, val categorie: String = "AU
 private data class LienLu(
     @SerialName("aire_id") val aireId: String,
     @SerialName("enseigne_id") val enseigneId: String,
+    @SerialName("auteur_id") val auteurId: String,
 )
 
 @Serializable
