@@ -70,6 +70,15 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+
+            // MapLibre embarque son moteur de rendu OpenGL sous forme de bibliothèques natives.
+            // Sans leur table des symboles, un plantage venu de ce code n'arrive dans la Play
+            // Console que sous forme d'adresses mémoire, illisibles. Les symboles voyagent dans
+            // le bundle et sont retirés avant livraison : ils n'alourdissent pas l'application
+            // installée.
+            ndk {
+                debugSymbolLevel = "SYMBOL_TABLE"
+            }
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.findByName("release")
         }

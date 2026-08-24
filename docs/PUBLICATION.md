@@ -100,21 +100,38 @@ la production.
    Google exige une page accessible sans authentification et non modifiable par ses lecteurs — un
    document partagé en écriture est refusé. La page doit rester exacte : c'est un engagement
    opposable, à corriger dès que l'application change ce qu'elle transmet.
-4. **Sécurité des données** — l'application **publie les avis sur un service partagé** (Supabase,
-   hébergé en Europe). La déclaration doit donc couvrir, au minimum :
-   - les *contributions* (note, tranche d'âge, commentaire libre, aire concernée, date) : collectées
-     et **partagées publiquement**, puisque tout le monde les lit ;
-   - l'*identifiant de session anonyme* ouvert au premier lancement : collecté, rattaché à
-     l'appareil, sans compte ni adresse e-mail ;
-   - le *commentaire libre* est le point sensible : un utilisateur peut y écrire n'importe quoi, y
-     compris des informations personnelles. Play attend qu'on le déclare comme tel.
+4. **Sécurité des données** — répondre **oui** : l'application publie les avis sur un service
+   partagé (Supabase, hébergé en Europe). La correspondance exacte avec les types de données de
+   Play, relevée sur `ServiceContributions.kt` et `serveur/schema.sql` :
 
-   La **position** reste hors du lot : elle sert à situer l'automobiliste sur l'autoroute et n'est
-   jamais transmise. À déclarer comme *utilisée mais non collectée*.
+   | Type Play | Champ | Collectée | Partagée | Obligatoire |
+   | --- | --- | --- | --- | --- |
+   | Informations personnelles → ID utilisateur | `auteur_id` | oui | **oui** | obligatoire |
+   | Informations personnelles → Nom | `auteur`, la signature facultative | oui | **oui** | facultatif |
+   | Activité dans l'application → Autre contenu généré par l'utilisateur | note, critère, tranche d'âge, commentaire, aire | oui | **oui** | facultatif |
 
-   L'aire concernée par un avis est une donnée de localisation grossière au moment où elle part sur
-   le réseau — c'est le genre de nuance sur laquelle Play sanctionne une déclaration trop
-   optimiste. Dans le doute, déclarer plutôt que taire.
+   Finalité unique : *fonctionnalités de l'application*. Ni publicité, ni analyse, ni
+   personnalisation.
+
+   « Partagée » vaut oui partout : la requête de lecture sélectionne toutes les colonnes, donc
+   `auteur_id` circule aussi, même si le client Kotlin l'ignore à la désérialisation.
+
+   La **position n'est pas à déclarer comme collectée**. Play définit la collecte comme une
+   transmission hors de l'appareil, et aucune coordonnée ne quitte le téléphone : le service réseau
+   n'en manipule aucune. L'aire citée dans un avis est du contenu que l'utilisateur choisit de
+   publier, pas un relevé de sa position. La déclarer contredirait la politique de confidentialité
+   et la description de la fiche — une incohérence entre les trois est autrement plus risquée qu'une
+   omission supposée.
+
+   Le *commentaire libre* reste le point sensible : un utilisateur peut y écrire des informations
+   personnelles. C'est ce qui justifie de le déclarer comme contenu généré par l'utilisateur, et ce
+   qui impose à terme un mécanisme de signalement (voir la politique Play sur le contenu généré par
+   les utilisateurs).
+
+   Pratiques de sécurité : **chiffrement en transit** oui ; **suppression sur demande** oui, par
+   l'adresse de contact de la politique de confidentialité. L'obligation de suppression de compte
+   depuis l'application ne s'applique pas : il n'y a pas de compte, seulement une session anonyme
+   sans inscription.
 5. **Test fermé** — canal *closed testing*, pas *internal testing* qui ne compte pas. Il faut
    **12 testeurs inscrits en continu pendant 14 jours**. Le compteur démarre au 12ᵉ inscrit
    effectif : une adresse listée mais jamais confirmée ne compte pas, et une désinscription remet
@@ -122,13 +139,47 @@ la production.
 6. **Demande d'accès à la production** — examinée manuellement. Google regarde si le test a été
    réel ; un refus renvoie à l'étape 5.
 
-## 5. Cible d'API
+## 5. Symboles de débogage natifs
+
+La carte s'appuie sur MapLibre, qui embarque son moteur de rendu OpenGL sous forme de
+bibliothèques natives. La Play Console signale leur absence de symboles :
+
+> Cet App Bundle contient du code natif, et vous n'avez pas importé de symboles de débogage.
+
+C'est un **avertissement, pas un refus** : le bundle est acceptable en l'état. Sans les symboles,
+un plantage venu du code natif n'apparaît toutefois dans la Play Console que sous forme d'adresses
+mémoire, sans nom de fonction ni numéro de ligne.
+
+`debugSymbolLevel = "SYMBOL_TABLE"` dans le type de build `release` demande à Gradle de les
+empaqueter. Ils voyagent dans le bundle et sont retirés avant livraison : l'application installée
+ne grossit pas. `FULL` existe aussi, mais n'apporte rien de plus sur une dépendance fournie
+précompilée.
+
+Cela suppose que les `.so` livrés par MapLibre aient conservé leur table des symboles. Si
+l'avertissement persiste après un nouveau téléversement, c'est qu'ils ont été dépouillés à la
+source, et il n'y a alors rien à en tirer.
+
+## 6. Nom de package
+
+L'identifiant de publication est `com.aireautoroute.app` (`applicationId` dans
+`app/build.gradle.kts`), identique au `namespace`.
+
+Il doit correspondre **exactement** au nom de package de la fiche Play Store, sans quoi le
+téléversement est refusé. Or ce nom est arrêté à la création de la fiche et n'y est plus
+modifiable : la Play Console en propose un par défaut, de la forme `com.<nom>.myapp`, qu'il faut
+penser à corriger à ce moment-là. La seule façon de le rattraper ensuite est de recréer la fiche,
+tant que rien n'a été publié.
+
+Côté application, l'identifiant est modifiable jusqu'à la première publication acceptée, et figé
+après : en changer ferait perdre la capacité de mettre à jour les installations existantes.
+
+## 7. Cible d'API
 
 Depuis le 31 août 2026, toute soumission doit cibler **API 36** (Android 16). Le projet est aligné :
 `compileSdk` et `targetSdk` valent 36. Cette contrainte se renouvelle chaque année à la fin août —
 il faudra remonter d'un niveau annuellement pour continuer à publier des mises à jour.
 
-## 6. Licences des données
+## 8. Licences des données
 
 Les catalogues embarqués proviennent du bornage du réseau routier national (Licence Ouverte), de
 WikiSara (CC BY-SA) et d'OpenStreetMap (ODbL). L'attribution est affichée dans l'écran « Sources et
