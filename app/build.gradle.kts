@@ -95,6 +95,14 @@ android {
         }
     }
 
+    androidResources {
+        // Les tuiles d'un fichier PMTiles sont déjà compressées une par une, et
+        // les glyphes sont des protobufs compacts : les recompresser dans l'APK
+        // ne gagne rien et ralentit la copie vers le stockage au premier
+        // lancement.
+        noCompress += listOf("pmtiles", "pbf")
+    }
+
     dependenciesInfo {
         // Le bloc de métadonnées chiffré empêche de vérifier qu'un APK distribué directement
         // correspond bien aux sources. On le retire de l'APK, mais on le garde dans le bundle :
@@ -125,6 +133,9 @@ dependencies {
     // Fournisseur de position fusionné de Google. Son absence est gérée à l'exécution :
     // sur un téléphone sans services Google, l'application retombe sur le LocationManager.
     implementation(libs.play.services.location)
+    // Moteur de rendu de la carte. Le fond est lu depuis un fichier local :
+    // aucune tuile n'est téléchargée à l'exécution.
+    implementation(libs.maplibre.android)
     debugImplementation(libs.androidx.ui.tooling)
     testImplementation(libs.junit)
 }
