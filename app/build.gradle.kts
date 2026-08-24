@@ -29,10 +29,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        // Identifiant de publication, distinct du `namespace` ci-dessus qui reste celui des
-        // sources. Il est figé par la fiche Play Store et ne peut plus changer une fois
-        // l'application publiée : toute divergence bloquerait les mises à jour.
-        applicationId = "com.airesautoroute.myapp"
+        applicationId = "com.aireautoroute.app"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

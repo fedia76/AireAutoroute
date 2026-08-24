@@ -161,11 +161,17 @@ source, et il n'y a alors rien à en tirer.
 
 ## 6. Nom de package
 
-L'identifiant de publication est `com.airesautoroute.myapp` (`applicationId` dans
-`app/build.gradle.kts`). Il est **figé** : la Play Console l'arrête à la création de la fiche, et
-l'application ne peut plus en changer une fois publiée sous peine de ne plus pouvoir se mettre à
-jour. Il diffère volontairement du `namespace`, `com.aireautoroute.app`, qui désigne le paquet des
-sources et n'a pas à lui correspondre.
+L'identifiant de publication est `com.aireautoroute.app` (`applicationId` dans
+`app/build.gradle.kts`), identique au `namespace`.
+
+Il doit correspondre **exactement** au nom de package de la fiche Play Store, sans quoi le
+téléversement est refusé. Or ce nom est arrêté à la création de la fiche et n'y est plus
+modifiable : la Play Console en propose un par défaut, de la forme `com.<nom>.myapp`, qu'il faut
+penser à corriger à ce moment-là. La seule façon de le rattraper ensuite est de recréer la fiche,
+tant que rien n'a été publié.
+
+Côté application, l'identifiant est modifiable jusqu'à la première publication acceptée, et figé
+après : en changer ferait perdre la capacité de mettre à jour les installations existantes.
 
 ## 7. Cible d'API
 
