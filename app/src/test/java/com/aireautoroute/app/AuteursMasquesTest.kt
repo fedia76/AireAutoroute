@@ -44,8 +44,8 @@ class AuteursMasquesTest {
         notations = listOf(notation("n1", "gene"), notation("n2", "paisible")),
         declarations = listOf(declaration("d1", "gene"), declaration("d2", "paisible")),
         liensEnseignes = listOf(
-            LienAireEnseigne("a13-vironvay-nord", "e1", true, "gene"),
-            LienAireEnseigne("a13-vironvay-nord", "e2", true, "paisible"),
+            LienAireEnseigne("a13-vironvay-nord", "e1", auteurId = "gene", ajoutParUtilisateur = true),
+            LienAireEnseigne("a13-vironvay-nord", "e2", auteurId = "paisible", ajoutParUtilisateur = true),
         ),
     )
 
