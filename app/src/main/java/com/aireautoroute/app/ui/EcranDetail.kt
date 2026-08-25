@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.AlertDialog
@@ -40,6 +41,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.aireautoroute.app.data.AireDetail
@@ -211,15 +213,37 @@ fun EcranDetail(
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     CibleSignalement.entries.forEach { candidate ->
-                        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                        // Viser une personne suppose de savoir laquelle : un avis rapatrié avant
+                        // que le service ne pose les identifiants n'en désigne aucune.
+                        val actif = candidate == CibleSignalement.AVIS ||
+                            notation.auteurId.isNotBlank()
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .selectable(
+                                    selected = cible == candidate,
+                                    enabled = actif,
+                                    role = Role.RadioButton,
+                                    onClick = { cible = candidate },
+                                )
+                                .padding(vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
                             RadioButton(
                                 selected = cible == candidate,
                                 onClick = { cible = candidate },
-                                enabled = candidate == CibleSignalement.AVIS ||
-                                    notation.auteurId.isNotBlank(),
+                                enabled = actif,
                             )
-                            Column {
-                                Text(candidate.libelle, style = MaterialTheme.typography.bodyMedium)
+                            Column(Modifier.weight(1f)) {
+                                Text(
+                                    text = candidate.libelle,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = if (actif) {
+                                        MaterialTheme.colorScheme.onSurface
+                                    } else {
+                                        MaterialTheme.colorScheme.onSurfaceVariant
+                                    },
+                                )
                                 Text(
                                     candidate.effet,
                                     style = MaterialTheme.typography.labelSmall,
@@ -238,7 +262,14 @@ fun EcranDetail(
                         )
                         MotifSignalement.entries.forEach { candidat ->
                             Row(
-                                Modifier.fillMaxWidth(),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .selectable(
+                                        selected = motif == candidat,
+                                        role = Role.RadioButton,
+                                        onClick = { motif = candidat },
+                                    )
+                                    .padding(vertical = 4.dp),
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 RadioButton(
