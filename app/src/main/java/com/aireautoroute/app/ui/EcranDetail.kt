@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.AlertDialog
@@ -27,6 +28,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.InputChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -39,10 +41,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.aireautoroute.app.data.AireDetail
 import com.aireautoroute.app.data.DetailCritere
+import com.aireautoroute.app.data.MotifSignalement
 import com.aireautoroute.app.data.Notation
 import com.aireautoroute.app.data.StatutEquipement
 
@@ -54,8 +58,13 @@ fun EcranDetail(
     onNoter: () -> Unit,
     onAjouterEnseigne: (String) -> Unit,
     onRetirerEnseigne: (String) -> Unit,
+    onSignaler: (String, MotifSignalement) -> Unit,
+    onSignalerContributeur: (String, MotifSignalement) -> Unit,
+    onMasquerContributeur: (String) -> Unit,
 ) {
     var dialogueEnseigne by remember { mutableStateOf(false) }
+    // L'avis en cours de signalement, null quand la boîte est fermée.
+    var avisSignale by remember { mutableStateOf<Notation?>(null) }
 
     Scaffold(
         topBar = {
@@ -152,7 +161,7 @@ fun EcranDetail(
             }
 
             items(detail.criteres, key = { it.critere.name }) { critere ->
-                CarteCritere(critere)
+                CarteCritere(critere, onSignaler = { avisSignale = it })
             }
 
             item {
@@ -192,10 +201,126 @@ fun EcranDetail(
             },
         )
     }
+
+    // Une seule boîte pour les trois gestes : trois boutons sous chaque avis alourdiraient la
+    // liste pour une action qui reste rare.
+    avisSignale?.let { notation ->
+        var motif by remember(notation.id) { mutableStateOf(MotifSignalement.INJURIEUX) }
+        var cible by remember(notation.id) { mutableStateOf(CibleSignalement.AVIS) }
+        AlertDialog(
+            onDismissRequest = { avisSignale = null },
+            title = { Text("Signaler ou masquer") },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    CibleSignalement.entries.forEach { candidate ->
+                        // Viser une personne suppose de savoir laquelle : un avis rapatrié avant
+                        // que le service ne pose les identifiants n'en désigne aucune.
+                        val actif = candidate == CibleSignalement.AVIS ||
+                            notation.auteurId.isNotBlank()
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .selectable(
+                                    selected = cible == candidate,
+                                    enabled = actif,
+                                    role = Role.RadioButton,
+                                    onClick = { cible = candidate },
+                                )
+                                .padding(vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            RadioButton(
+                                selected = cible == candidate,
+                                onClick = { cible = candidate },
+                                enabled = actif,
+                            )
+                            Column(Modifier.weight(1f)) {
+                                Text(
+                                    text = candidate.libelle,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = if (actif) {
+                                        MaterialTheme.colorScheme.onSurface
+                                    } else {
+                                        MaterialTheme.colorScheme.onSurfaceVariant
+                                    },
+                                )
+                                Text(
+                                    candidate.effet,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
+                        }
+                    }
+
+                    if (cible != CibleSignalement.MASQUER_CONTRIBUTEUR) {
+                        HorizontalDivider(Modifier.padding(vertical = 6.dp))
+                        Text(
+                            "Motif",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        MotifSignalement.entries.forEach { candidat ->
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .selectable(
+                                        selected = motif == candidat,
+                                        role = Role.RadioButton,
+                                        onClick = { motif = candidat },
+                                    )
+                                    .padding(vertical = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                RadioButton(
+                                    selected = motif == candidat,
+                                    onClick = { motif = candidat },
+                                )
+                                Text(candidat.libelle, style = MaterialTheme.typography.bodySmall)
+                            }
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        when (cible) {
+                            CibleSignalement.AVIS -> onSignaler(notation.id, motif)
+                            CibleSignalement.CONTRIBUTEUR ->
+                                onSignalerContributeur(notation.auteurId, motif)
+                            CibleSignalement.MASQUER_CONTRIBUTEUR ->
+                                onMasquerContributeur(notation.auteurId)
+                        }
+                        avisSignale = null
+                    },
+                ) { Text("Valider") }
+            },
+            dismissButton = {
+                TextButton(onClick = { avisSignale = null }) { Text("Annuler") }
+            },
+        )
+    }
+}
+
+/** Ce que vise le geste : un avis, ou la personne qui l'a écrit. */
+private enum class CibleSignalement(val libelle: String, val effet: String) {
+    AVIS(
+        "Signaler cet avis",
+        "Masqué pour tout le monde s'il est signalé par plusieurs personnes.",
+    ),
+    CONTRIBUTEUR(
+        "Signaler ce contributeur",
+        "Remonté pour examen. Utile quand une même personne publie en série.",
+    ),
+    MASQUER_CONTRIBUTEUR(
+        "Masquer ce contributeur",
+        "Immédiat, et pour vous seul : ses avis et ses notes disparaissent de votre affichage.",
+    ),
 }
 
 @Composable
-private fun CarteCritere(detail: DetailCritere) {
+private fun CarteCritere(detail: DetailCritere, onSignaler: (Notation) -> Unit) {
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Row(
@@ -252,24 +377,37 @@ private fun CarteCritere(detail: DetailCritere) {
 
             if (detail.commentaires.isNotEmpty()) {
                 HorizontalDivider(Modifier.padding(vertical = 4.dp))
-                detail.commentaires.forEach { notation -> LigneCommentaire(notation) }
+                detail.commentaires.forEach { notation ->
+                    LigneCommentaire(notation, onSignaler = { onSignaler(notation) })
+                }
             }
         }
     }
 }
 
 @Composable
-private fun LigneCommentaire(notation: Notation) {
+private fun LigneCommentaire(notation: Notation, onSignaler: () -> Unit) {
     Column(Modifier.padding(vertical = 2.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            EtoilesLecture(notation.note.toDouble(), taille = 12.dp)
-            Text(
-                text = " ${notation.auteur}" +
-                    (notation.trancheAge?.let { " · ${it.libelle}" } ?: "") +
-                    " · ${notation.date.take(10)}",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                EtoilesLecture(notation.note.toDouble(), taille = 12.dp)
+                Text(
+                    text = " ${notation.auteur}" +
+                        (notation.trancheAge?.let { " · ${it.libelle}" } ?: "") +
+                        " · ${notation.date.take(10)}",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            // Le signalement se place sur le commentaire lui-même : relégué dans un écran de
+            // réglages, il ne serait pas trouvé au moment où l'on en a besoin.
+            TextButton(onClick = onSignaler) {
+                Text("Signaler", style = MaterialTheme.typography.labelSmall)
+            }
         }
         Text(
             text = notation.commentaire.orEmpty(),

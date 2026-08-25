@@ -61,8 +61,36 @@ class DepotDonnees(
     private val _catalogue = MutableStateFlow<Catalogue?>(null)
     val catalogue: StateFlow<Catalogue?> = _catalogue.asStateFlow()
 
+    /**
+     * Le jeu complet, tel que le service l'a rendu. Il n'est jamais exposé directement : ce qui
+     * sort d'ici est filtré des contributeurs masqués.
+     *
+     * Le garder entier est délibéré. Démasquer quelqu'un réaffiche alors ses avis
+     * immédiatement, sans attendre un aller-retour réseau qui, hors couverture, n'arriverait
+     * jamais.
+     */
+    private var brutes = DonneesUtilisateur()
+    private var auteursMasques: Set<String> = emptySet()
+
     private val _contributions = MutableStateFlow(DonneesUtilisateur())
     val contributions: StateFlow<DonneesUtilisateur> = _contributions.asStateFlow()
+
+    /**
+     * Point de filtrage unique.
+     *
+     * `prochainesAires` et `detailAire` lisent tous deux ce seul flux : filtrer ici suffit à
+     * écarter les contributeurs masqués des listes, des détails, des moyennes et des consensus,
+     * sans toucher au calcul lui-même.
+     */
+    private fun publier() {
+        _contributions.value = brutes.sansAuteurs(auteursMasques)
+    }
+
+    fun definirAuteursMasques(auteurs: Set<String>) {
+        if (auteurs == auteursMasques) return
+        auteursMasques = auteurs
+        publier()
+    }
 
     private val _synchro = MutableStateFlow(EtatSynchro.EN_COURS)
     val synchro: StateFlow<EtatSynchro> = _synchro.asStateFlow()
@@ -75,7 +103,8 @@ class DepotDonnees(
                 enseignes = lireAsset("seed/enseignes.json"),
                 liensEnseignes = lireAsset("seed/aire_enseignes.json"),
             )
-            _contributions.value = lireCache()
+            brutes = lireCache()
+            publier()
         }
         rafraichir()
     }
@@ -86,7 +115,8 @@ class DepotDonnees(
         val resultat = runCatching { service.lireContributions() }
         resultat
             .onSuccess { distantes ->
-                _contributions.value = distantes
+                brutes = distantes
+                publier()
                 ecrireCache(distantes)
                 _synchro.value = EtatSynchro.A_JOUR
             }
@@ -139,6 +169,23 @@ class DepotDonnees(
     suspend fun retirerEnseigneDAire(aireId: String, enseigneId: String): Result<Unit> =
         runCatching {
             service.detacherEnseigne(aireId, enseigneId)
+            rafraichir()
+        }
+
+    suspend fun signalerContributeur(auteurId: String, motif: MotifSignalement): Result<Unit> =
+        runCatching { service.signalerContributeur(auteurId, motif) }
+
+    suspend fun signaler(notationId: String, motif: MotifSignalement): Result<Unit> =
+        runCatching {
+            service.signalerNotation(notationId, motif)
+            // Relire aussitôt : au-delà du seuil, le service a masqué l'avis et il doit
+            // disparaître de l'écran sans attendre le prochain rafraîchissement.
+            rafraichir()
+        }
+
+    suspend fun supprimerMesContributions(): Result<Unit> =
+        runCatching {
+            service.supprimerMesContributions()
             rafraichir()
         }
 

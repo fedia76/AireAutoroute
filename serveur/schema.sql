@@ -225,3 +225,97 @@ with (security_invoker = true) as
   from declaration_equipement
   where not masquee
   group by aire_id, critere;
+
+-- ---------------------------------------------------------------------------
+-- Signalements
+-- ---------------------------------------------------------------------------
+-- Les règles du Play Store imposent, pour toute application publiant du contenu écrit par ses
+-- utilisateurs, un moyen de signaler ce contenu depuis l'application et son retrait rapide.
+-- Le commentaire libre d'une notation est le seul contenu concerné : les notes et les
+-- déclarations de présence sont des valeurs contraintes, elles ne peuvent rien véhiculer.
+
+-- Un signalement vise soit un avis précis, soit un contributeur dans son ensemble. Le second
+-- cas existe parce que signaler vingt commentaires publicitaires un par un n'a pas de sens.
+create table if not exists signalement (
+  id              uuid primary key default gen_random_uuid(),
+  notation_id     uuid references notation (id) on delete cascade,
+  auteur_signale  uuid references auth.users (id) on delete cascade,
+  auteur_id       uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  motif           text not null default 'AUTRE'
+                  check (motif in ('INJURIEUX', 'PERSONNEL', 'INEXACT', 'HORS_SUJET', 'AUTRE')),
+  creee_le        timestamptz not null default now()
+);
+
+-- Rattrapage pour les bases où la première version de la table a déjà été appliquée.
+alter table signalement add column if not exists auteur_signale uuid references auth.users (id) on delete cascade;
+alter table signalement alter column notation_id drop not null;
+
+-- Une cible et une seule : un signalement qui ne désigne rien, ou qui désigne les deux, est
+-- une erreur d'appel qu'il vaut mieux refuser que stocker.
+alter table signalement drop constraint if exists signalement_une_seule_cible;
+alter table signalement add constraint signalement_une_seule_cible
+  check ((notation_id is null) <> (auteur_signale is null));
+
+-- Un signalement par personne et par cible : sans quoi un seul contributeur suffirait à
+-- atteindre le seuil de masquage. `nulls not distinct` est indispensable — les deux colonnes
+-- de cible étant alternativement nulles, l'unicité par défaut ne verrait aucun doublon.
+alter table signalement drop constraint if exists signalement_unique_par_auteur;
+alter table signalement add constraint signalement_unique_par_auteur
+  unique nulls not distinct (auteur_id, notation_id, auteur_signale);
+
+create index if not exists signalement_par_notation on signalement (notation_id);
+create index if not exists signalement_par_auteur_signale on signalement (auteur_signale);
+
+alter table signalement enable row level security;
+
+drop policy if exists signalement_ajout on signalement;
+create policy signalement_ajout on signalement
+  for insert with check (auteur_id = auth.uid());
+
+-- Chacun relit ses propres signalements, personne ne lit ceux des autres : savoir qui a
+-- signalé quoi inviterait aux représailles.
+drop policy if exists signalement_lecture on signalement;
+create policy signalement_lecture on signalement
+  for select using (auteur_id = auth.uid());
+
+-- Au-delà du seuil, l'avis est masqué sans attendre d'intervention humaine. La fonction est
+-- « security definer » parce que celui qui signale n'est pas l'auteur : les règles d'accès de
+-- `notation` lui interdiraient la mise à jour. `search_path` est fixé, faute de quoi une table
+-- homonyme placée dans un autre schéma détournerait la fonction.
+create or replace function masquer_notation_signalee() returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  total integer;
+begin
+  -- Seul le signalement d'un avis masque. Celui d'un contributeur remonte pour examen : le
+  -- masquage automatique de tout ce qu'une personne a écrit serait disproportionné, et
+  -- offrirait à trois comptes le pouvoir de l'effacer.
+  if new.notation_id is null then
+    return new;
+  end if;
+  select count(*) into total from signalement where notation_id = new.notation_id;
+  if total >= 3 then
+    update notation set masquee = true, modifiee_le = now() where id = new.notation_id;
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists signalement_masque_notation on signalement;
+create trigger signalement_masque_notation
+  after insert on signalement
+  for each row execute function masquer_notation_signalee();
+
+-- Le masquage est réversible : `update notation set masquee = false where id = '…';` depuis la
+-- console. À relire régulièrement, le seuil ne remplaçant pas l'examen des signalements :
+--   select n.id, n.commentaire, count(s.*) as signalements
+--   from notation n join signalement s on s.notation_id = n.id
+--   group by n.id, n.commentaire order by signalements desc;
+
+-- Revue des contributeurs signalés, qu'aucun automatisme ne traite :
+--   select auteur_signale, count(*) as signalements, max(creee_le) as dernier
+--   from signalement where auteur_signale is not null
+--   group by auteur_signale order by signalements desc;

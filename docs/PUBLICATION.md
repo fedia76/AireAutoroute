@@ -159,7 +159,65 @@ Cela suppose que les `.so` livrés par MapLibre aient conservé leur table des s
 l'avertissement persiste après un nouveau téléversement, c'est qu'ils ont été dépouillés à la
 source, et il n'y a alors rien à en tirer.
 
-## 6. Nom de package
+## 6. Contenu généré par les utilisateurs
+
+Le commentaire libre d'une notation est publié tel quel et lu par tout le monde. Les règles du
+Play Store imposent alors de pouvoir signaler un contenu **et** un auteur, de bloquer un
+contributeur, et de retirer effectivement ce qui est signalé.
+
+Deux axes se croisent : ce que le geste vise — un avis, ou la personne — et pour qui il agit —
+tout le monde, ou le seul lecteur. Trois des quatre combinaisons sont utiles ; masquer un avis
+isolé pour soi seul n'en fait pas partie, il suffit de ne pas le lire.
+
+- **Signalement** — un bouton sur chaque commentaire, avec un motif à choisir. Il est posé sur le
+  contenu lui-même : relégué dans un écran de réglages, il ne serait pas trouvé au moment où l'on
+  en a besoin.
+- **Retrait** — au troisième signalement, un déclencheur de base de données bascule `masquee` à
+  vrai. Les règles de lecture filtrant déjà `not masquee`, l'avis disparaît pour tout le monde sans
+  intervention. Le seuil est une constante unique dans `serveur/schema.sql`.
+- **Effacement** — l'écran « Sources et confidentialité » permet de supprimer d'un coup toutes ses
+  contributions. C'est le droit à l'effacement du RGPD, exercé sans avoir à écrire à qui que ce
+  soit.
+- **Signalement d'un contributeur** — pour la personne plutôt que pour une de ses phrases.
+  Signaler vingt commentaires publicitaires un par un n'aurait pas de sens. Aucun masquage
+  automatique n'en découle : effacer d'un coup tout ce qu'une personne a écrit sur la foi de trois
+  signalements serait disproportionné, et donnerait à trois comptes le pouvoir de l'effacer. Ces
+  lignes remontent pour examen.
+- **Masquage d'un contributeur** — le « block users » exigé par Google. Immédiat, et pour le seul
+  lecteur qui l'a demandé. Ses avis, ses notes et ses déclarations sortent de l'affichage **et des
+  moyennes** : masquer quelqu'un en le laissant peser sur les étoiles serait cosmétique. Deux
+  lecteurs peuvent donc voir des moyennes différentes, c'est le prix d'un masquage qui fait ce
+  qu'il annonce. La liste se défait depuis « Sources et confidentialité » — sans quoi le geste
+  serait sans retour, l'avis qui permettrait de l'annuler étant justement celui qu'on ne voit plus.
+
+Une limite à connaître : « une personne » désigne ici **une session anonyme sur un appareil**.
+Réinstaller l'application donne une nouvelle identité, donc démasquée et désignalée. C'est inhérent
+au choix de ne demander aucun compte, et Google l'admet pour les applications anonymes ; mais
+contre un nuisible déterminé, ces mécanismes ralentissent plus qu'ils n'empêchent.
+
+Le seuil automatique ne dispense pas de relire les signalements. Depuis la console du service :
+
+```sql
+select n.id, n.commentaire, count(s.*) as signalements
+from notation n join signalement s on s.notation_id = n.id
+group by n.id, n.commentaire
+order by signalements desc;
+```
+
+Un masquage se défait par `update notation set masquee = false where id = '…';`.
+
+## 7. Numéro de version
+
+`versionCode` est le numéro que la Play Console utilise pour ordonner les versions. **Il doit
+augmenter à chaque téléversement** : un bundle réutilisant un numéro déjà vu est refusé, même si la
+version correspondante a été retirée depuis. Il ne redescend jamais.
+
+`versionName` n'a aucun rôle technique — c'est la chaîne montrée aux utilisateurs.
+
+Corriger quoi que ce soit dans une version déjà téléversée impose donc de reconstruire avec un
+`versionCode` supérieur : on ne remplace pas un bundle, on en publie un nouveau.
+
+## 8. Nom de package
 
 L'identifiant de publication est `com.aireautoroute.app` (`applicationId` dans
 `app/build.gradle.kts`), identique au `namespace`.
@@ -173,13 +231,13 @@ tant que rien n'a été publié.
 Côté application, l'identifiant est modifiable jusqu'à la première publication acceptée, et figé
 après : en changer ferait perdre la capacité de mettre à jour les installations existantes.
 
-## 7. Cible d'API
+## 9. Cible d'API
 
 Depuis le 31 août 2026, toute soumission doit cibler **API 36** (Android 16). Le projet est aligné :
 `compileSdk` et `targetSdk` valent 36. Cette contrainte se renouvelle chaque année à la fin août —
 il faudra remonter d'un niveau annuellement pour continuer à publier des mises à jour.
 
-## 8. Licences des données
+## 10. Licences des données
 
 Les catalogues embarqués proviennent du bornage du réseau routier national (Licence Ouverte), de
 WikiSara (CC BY-SA) et d'OpenStreetMap (ODbL). L'attribution est affichée dans l'écran « Sources et

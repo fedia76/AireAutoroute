@@ -108,6 +108,8 @@ enum class CategorieEnseigne(val libelle: String) {
 data class LienAireEnseigne(
     val aireId: String,
     val enseigneId: String,
+    /** Session ayant publié le lien. Vide pour les liens du jeu de données livré. */
+    val auteurId: String = "",
     /** `false` pour les liens issus du jeu de données livré, `true` pour ceux ajoutés par l'utilisateur. */
     val ajoutParUtilisateur: Boolean = false,
 )
@@ -172,6 +174,11 @@ data class DeclarationEquipement(
     val critere: Critere,
     val presence: Presence,
     val auteur: String = "Moi",
+    /**
+     * Session ayant publié la contribution. Vide tant que la contribution n'est pas partie :
+     * l'identifiant est posé par le service, pas par l'application.
+     */
+    val auteurId: String = "",
     /** Date ISO-8601 (UTC). */
     val date: String,
 )
@@ -187,6 +194,11 @@ data class Notation(
     val note: Int,
     val commentaire: String? = null,
     val auteur: String = "Moi",
+    /**
+     * Session ayant publié la contribution. Vide tant que la contribution n'est pas partie :
+     * l'identifiant est posé par le service, pas par l'application.
+     */
+    val auteurId: String = "",
     /** Date ISO-8601 (UTC). */
     val date: String,
 )
@@ -201,3 +213,44 @@ data class DonneesUtilisateur(
     /** Enseignes créées par l'utilisateur quand elle n'existait pas dans le catalogue livré. */
     val enseignes: List<Enseigne> = emptyList(),
 )
+
+/**
+ * Motif d'un signalement.
+ *
+ * La liste reste courte : un choix long décourage le signalement, et le tri fin se fait de
+ * toute façon à la lecture du commentaire.
+ */
+@Serializable
+enum class MotifSignalement(val libelle: String) {
+    INJURIEUX("Propos injurieux ou haineux"),
+    PERSONNEL("Contient des informations personnelles"),
+    INEXACT("Information fausse"),
+    HORS_SUJET("Hors sujet ou publicité"),
+    AUTRE("Autre"),
+}
+
+/**
+ * Écarte tout ce qu'ont publié les sessions masquées.
+ *
+ * Le filtrage porte sur l'ensemble des contributions, pas sur les seuls commentaires : masquer
+ * quelqu'un en laissant ses notes peser sur les moyennes et ses déclarations sur les consensus
+ * serait cosmétique. Deux lecteurs peuvent donc voir des moyennes différentes — c'est le prix
+ * d'un masquage qui fait ce qu'il annonce.
+ *
+ * Fonction pure : c'est ce qui la rend vérifiable sans appareil ni réseau.
+ */
+fun DonneesUtilisateur.sansAuteurs(masques: Set<String>): DonneesUtilisateur {
+    // Un identifiant vide désigne une contribution créée localement et pas encore publiée :
+    // le service ne lui a pas encore attribué de session. Ni elle ni un masque vide ne doivent
+    // entrer dans la comparaison, sous peine d'effacer ce que l'utilisateur vient d'écrire.
+    val effectifs = masques.filterTo(HashSet()) { it.isNotBlank() }
+    if (effectifs.isEmpty()) return this
+
+    fun masque(auteurId: String) = auteurId.isNotBlank() && auteurId in effectifs
+
+    return copy(
+        notations = notations.filterNot { masque(it.auteurId) },
+        declarations = declarations.filterNot { masque(it.auteurId) },
+        liensEnseignes = liensEnseignes.filterNot { masque(it.auteurId) },
+    )
+}

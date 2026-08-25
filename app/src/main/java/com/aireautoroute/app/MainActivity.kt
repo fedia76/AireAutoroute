@@ -106,7 +106,13 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
         }
 
         composable(Routes.SOURCES) {
-            EcranSources(onRetour = { navController.popBackStack() })
+            val masques by vm.auteursMasques.collectAsStateWithLifecycle()
+            EcranSources(
+                onRetour = { navController.popBackStack() },
+                onSupprimerContributions = vm::supprimerMesContributions,
+                nombreAuteursMasques = masques.size,
+                onDemasquerTous = vm::demasquerTousLesAuteurs,
+            )
         }
 
         composable(Routes.DETAIL) { entree ->
@@ -118,6 +124,9 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
                 onNoter = { navController.navigate(Routes.notation(aireId)) },
                 onAjouterEnseigne = { nom -> vm.ajouterEnseigne(aireId, nom) },
                 onRetirerEnseigne = { enseigneId -> vm.retirerEnseigne(aireId, enseigneId) },
+                onSignaler = vm::signaler,
+                onSignalerContributeur = vm::signalerContributeur,
+                onMasquerContributeur = vm::masquerAuteur,
             )
         }
 
