@@ -17,9 +17,12 @@ l'autoroute et les **noter**, en particulier quand on voyage avec des enfants.
    d'âge, commentaires, enseignes (qu'on peut compléter), et un formulaire de contribution.
 4. **Une vue carte** pose les aires en pastilles cliquables sur un vrai fond cartographique :
    littoral, fleuves, réseau routier et noms de villes. L'itinéraire courant s'y détache, et la
-   portion qui reste à parcourir se distingue de celle qui est derrière. Le fond est **embarqué
-   dans l'application** — **aucune tuile n'est téléchargée**, ni au premier lancement ni ensuite,
-   donc la carte fonctionne sans réseau, ce qui est la moindre des choses en voiture.
+   portion qui reste à parcourir se distingue de celle qui est derrière. Comme la liste, la carte
+   s'en tient à la chaussée empruntée : les deux aires qui se font face de part et d'autre de
+   l'autoroute partagent les mêmes coordonnées, et les montrer toutes les deux ne donnerait que
+   des pastilles superposées. Le fond est **embarqué dans l'application** — **aucune tuile n'est
+   téléchargée**, ni au premier lancement ni ensuite, donc la carte fonctionne sans réseau, ce qui
+   est la moindre des choses en voiture.
 
 ### Trois habillages au choix
 
@@ -225,7 +228,9 @@ aurait expiré au bout de quelques semaines.
 Les glyphes de police, eux, sont versionnés une fois pour toutes dans
 `app/src/main/assets/fond/glyphes/` : deux graisses de Noto Sans sur trois plages Unicode, 560 Ko.
 Sans eux, MapLibre irait chercher les libellés sur le réseau — et une carte hors-ligne muette
-n'aurait pas grand intérêt.
+n'aurait pas grand intérêt. Ils sont recopiés indépendamment du fond, et le style n'en déclare
+que s'ils sont là : une couche de symboles qui réclame en vain des caractères retient les tuiles
+de sa source, et ce sont alors les pastilles elles-mêmes qui disparaissent avec les libellés.
 
 ### Ce que le fond ajoute au poids de l'application
 
@@ -389,6 +394,7 @@ app/src/main/java/com/aireautoroute/app/
 ├── carte/
 │   ├── FondCarte.kt            recopie du fond vers le stockage, au premier lancement
 │   ├── StyleCarte.kt           style MapLibre du fond, une palette par habillage
+│   ├── CouchesCarte.kt         sources, couches et données de la surcouche
 │   └── CarteMapLibre.kt        itinéraire, pastilles groupées, appui, cadrage
 ├── geo/
 │   ├── LocalisateurPk.kt       GPS → autoroute + PK + sens

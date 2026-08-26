@@ -21,6 +21,7 @@ import com.aireautoroute.app.data.Presence
 import com.aireautoroute.app.data.Sens
 import com.aireautoroute.app.data.SourcePosition
 import com.aireautoroute.app.data.TrancheAge
+import com.aireautoroute.app.data.airesDeLItineraire
 import com.aireautoroute.app.data.detailAire
 import com.aireautoroute.app.data.prochainesAires
 import com.aireautoroute.app.geo.LocalisateurPk
@@ -66,7 +67,7 @@ data class EtatUi(
     val autoroutes: List<Autoroute> = emptyList(),
     val position: PositionUtilisateur? = null,
     val prochainesAires: List<AireResume> = emptyList(),
-    /** Toutes les aires de l'autoroute courante, pour la vue carte. */
+    /** Aires de l'autoroute courante accessibles dans le sens parcouru, pour la vue carte. */
     val airesAutoroute: List<Aire> = emptyList(),
     val localisation: EtatLocalisation = EtatLocalisation(),
 )
@@ -109,7 +110,7 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
                 emptyList()
             },
             airesAutoroute = if (catalogue != null && position != null) {
-                catalogue.aires.filter { it.autorouteId == position.autoroute.id }
+                airesDeLItineraire(catalogue, position)
             } else {
                 emptyList()
             },
