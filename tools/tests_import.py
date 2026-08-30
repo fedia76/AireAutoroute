@@ -3,7 +3,9 @@
 
 import json
 import os
+import re
 import sys
+import tempfile
 import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -14,10 +16,14 @@ lambert93 = import_module("import.lambert93")
 bornes = import_module("import.bornes")
 wikisara = import_module("import.wikisara")
 osm = import_module("import.osm")
+enseignes_icones = import_module("import.enseignes")
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOURCES = os.path.join(RACINE, "donnees", "sources")
 SEED = os.path.join(RACINE, "app", "src", "main", "assets", "seed")
+MODELES = os.path.join(
+    RACINE, "app", "src", "main", "java", "com", "aireautoroute", "app", "data", "Modeles.kt"
+)
 
 
 class TestLambert93(unittest.TestCase):
@@ -132,6 +138,51 @@ class TestFichiersLivres(unittest.TestCase):
         for lien in liens:
             self.assertIn(lien["aireId"], identifiants_aire)
             self.assertIn(lien["enseigneId"], set(identifiants_enseigne))
+
+
+class TestIconesEnseignes(unittest.TestCase):
+    """Le jeu de pictogrammes, et son application au catalogue livré."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.table = enseignes_icones.lire_table(os.path.join(SOURCES, "icones_enseignes.json"))
+        with open(os.path.join(SEED, "enseignes.json"), encoding="utf-8") as fichier:
+            cls.enseignes = json.load(fichier)
+
+    def test_le_jeu_est_celui_de_l_application(self):
+        """Une icône que l'application ne sait pas dessiner ne doit pas entrer dans les données."""
+        source = open(MODELES, encoding="utf-8").read()
+        corps = source.split("enum class IconeEnseigne(val libelle: String) {", 1)[1]
+        corps = corps.split("}", 1)[0]
+        declarees = re.findall(r"^\s{4}([A-Z_]+)\(", corps, re.MULTILINE)
+        self.assertEqual(list(enseignes_icones.ICONES), declarees)
+
+    def test_la_table_ne_range_que_des_enseignes_du_catalogue(self):
+        catalogue = {e["id"] for e in self.enseignes}
+        self.assertEqual([], sorted(set(self.table) - catalogue))
+
+    def test_toute_enseigne_livree_porte_une_icone_connue(self):
+        for enseigne in self.enseignes:
+            self.assertIn("icone", enseigne, enseigne["id"])
+            self.assertIn(enseigne["icone"], enseignes_icones.ICONES, enseigne["id"])
+
+    def test_une_enseigne_hors_table_suit_sa_categorie(self):
+        catalogue = [{"id": "inconnue", "nom": "Inconnue", "categorie": "RESTAURATION"}]
+        enseignes_icones.appliquer(catalogue, {})
+        self.assertEqual("RESTAURANT", catalogue[0]["icone"])
+
+    def test_une_enseigne_que_rien_ne_range_reste_sans_icone(self):
+        catalogue = [{"id": "inconnue", "nom": "Inconnue", "categorie": "AUTRE"}]
+        self.assertEqual([], enseignes_icones.appliquer(catalogue, {}))
+        self.assertNotIn("icone", catalogue[0])
+
+    def test_une_icone_hors_du_jeu_fixe_est_refusee(self):
+        """Le jeu est fixe : une valeur inventée doit arrêter l'import, pas le traverser."""
+        with tempfile.NamedTemporaryFile("w", suffix=".json", encoding="utf-8") as fichier:
+            json.dump({"x": "GARAGE"}, fichier)
+            fichier.flush()
+            with self.assertRaises(ValueError):
+                enseignes_icones.lire_table(fichier.name)
 
 
 class TestOsm(unittest.TestCase):

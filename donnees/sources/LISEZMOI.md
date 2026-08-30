@@ -39,3 +39,16 @@ Référentiel des enseignes tenu à la main. Il sert de liste de saisie dans l'a
 l'import l'augmente des marques relevées dans OpenStreetMap — à partir de trois aires, en deçà
 de quoi une marque est plus probablement une saisie isolée qu'une enseigne. Ce fichier-ci n'est
 jamais réécrit par l'import : c'est le catalogue livré dans `assets/seed/` qui porte l'ajout.
+
+## `icones_enseignes.json`
+
+Pictogramme de chaque enseigne du catalogue, sous la forme `identifiant d'enseigne` →
+`icône`. Le jeu d'icônes est **fixe** : il est défini par l'application (`IconeEnseigne`, dans
+`Modeles.kt`), repris à l'identique dans `tools/import/enseignes.py`, et un test refuse toute
+valeur hors de ce jeu. L'icône dit la nature du commerce — station-service, restaurant,
+boulangerie, supérette… — jamais la marque : aucun logo n'entre dans le catalogue.
+
+Une enseigne absente de la table reçoit l'icône que sa catégorie permet de déduire ; celle dont
+la catégorie ne dit rien (« AUTRE ») reste sans icône, ce qui vaut mieux qu'une image fausse.
+C'est ce qui permet à l'import d'entrer une marque relevée dans OpenStreetMap sans attendre
+qu'on la range à la main.

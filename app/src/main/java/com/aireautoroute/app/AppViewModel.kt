@@ -13,6 +13,7 @@ import com.aireautoroute.app.data.Critere
 import com.aireautoroute.app.data.DeclarationEquipement
 import com.aireautoroute.app.data.DepotDonnees
 import com.aireautoroute.app.data.EtatSynchro
+import com.aireautoroute.app.data.IconeEnseigne
 import com.aireautoroute.app.data.MotifSignalement
 import com.aireautoroute.app.data.Notation
 import com.aireautoroute.app.data.PreferencesUi
@@ -327,9 +328,9 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun ajouterEnseigne(aireId: String, nom: String) {
+    fun ajouterEnseigne(aireId: String, nom: String, icone: IconeEnseigne?) {
         viewModelScope.launch {
-            rendreCompte(depot.ajouterEnseigneAAire(aireId, nom), "Enseigne ajoutée.")
+            rendreCompte(depot.ajouterEnseigneAAire(aireId, nom, icone), "Enseigne ajoutée.")
         }
     }
 

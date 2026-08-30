@@ -2,366 +2,439 @@
   {
     "id": "totalenergies",
     "nom": "TotalEnergies",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "esso",
     "nom": "Esso",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "shell",
     "nom": "Shell",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "bp",
     "nom": "BP",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "avia",
     "nom": "Avia",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "agip",
     "nom": "Agip",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "mcdonalds",
     "nom": "McDonald's",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "burger_king",
     "nom": "Burger King",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "kfc",
     "nom": "KFC",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "paul",
     "nom": "Paul",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "BOULANGERIE"
   },
   {
     "id": "brioche_doree",
     "nom": "Brioche Dorée",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "BOULANGERIE"
   },
   {
     "id": "la_croissanterie",
     "nom": "La Croissanterie",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "BOULANGERIE"
   },
   {
     "id": "starbucks",
     "nom": "Starbucks",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "CAFE"
   },
   {
     "id": "columbus_cafe",
     "nom": "Columbus Café",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "CAFE"
   },
   {
     "id": "marie_blachere",
     "nom": "Marie Blachère",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "BOULANGERIE"
   },
   {
     "id": "le_kiosque_a_pizzas",
     "nom": "Le Kiosque à Pizzas",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "PIZZERIA"
   },
   {
     "id": "autogrill",
     "nom": "Autogrill",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "arche",
     "nom": "L'Arche",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "cote_france",
     "nom": "Côté France",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "relais",
     "nom": "Relais",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "BOUTIQUE"
   },
   {
     "id": "carrefour_express",
     "nom": "Carrefour Express",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "vival",
     "nom": "Vival",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "daily_monop",
     "nom": "Daily Monop'",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "ibis_budget",
     "nom": "Ibis Budget",
-    "categorie": "HOTEL"
+    "categorie": "HOTEL",
+    "icone": "HOTEL"
   },
   {
     "id": "b_and_b",
     "nom": "B&B Hôtels",
-    "categorie": "HOTEL"
+    "categorie": "HOTEL",
+    "icone": "HOTEL"
   },
   {
     "id": "bonjour",
     "nom": "Bonjour",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "BOUTIQUE"
   },
   {
     "id": "eni",
     "nom": "Eni",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "franprix",
     "nom": "Franprix",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "e_leclerc",
     "nom": "E.Leclerc",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "casino_shop",
     "nom": "Casino Shop",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "dyneff",
     "nom": "Dyneff",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "shell_select",
     "nom": "Shell Select",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "BOUTIQUE"
   },
   {
     "id": "pomme_pain",
     "nom": "Pomme de Pain",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "stratto",
     "nom": "Stratto",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "phileas",
     "nom": "Philéas",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "total_access",
     "nom": "Total Access",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "fulli",
     "nom": "Fulli",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "BOUTIQUE"
   },
   {
     "id": "columbus_cafe_co",
     "nom": "Columbus Café & Co",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "CAFE"
   },
   {
     "id": "lunch_grill",
     "nom": "Lunch Grill",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "a_table",
     "nom": "À Table !",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "courtepaille",
     "nom": "Courtepaille",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "casino",
     "nom": "Casino",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "leo_resto",
     "nom": "Leo Resto",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "honiby_market",
     "nom": "Honiby Market",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "territoires_france",
     "nom": "Territoires de France",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "atelier_charal",
     "nom": "L'atelier Charal",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "comptoirs_casino",
     "nom": "Les Comptoirs Casino",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "flunch",
     "nom": "Flunch",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "pizza_hut",
     "nom": "Pizza Hut",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "PIZZERIA"
   },
   {
     "id": "tasty",
     "nom": "Tasty",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "mie_caline",
     "nom": "La Mie Câline",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "BOULANGERIE"
   },
   {
     "id": "deli_by_shell",
     "nom": "Deli by Shell",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "maison_pradier",
     "nom": "Maison Pradier",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "BOULANGERIE"
   },
   {
     "id": "subway",
     "nom": "Subway",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "casino_express",
     "nom": "Casino Express",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "ciao",
     "nom": "Ciao",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "origin_r",
     "nom": "Origin'R",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "casino_everyday",
     "nom": "Casino everyday",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "buffalo_grill",
     "nom": "Buffalo Grill",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "arche_cafeteria",
     "nom": "L'Arche Cafétéria",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "hippopotamus",
     "nom": "Hippopotamus",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "leo",
     "nom": "Léo",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "mezzo_di_pasta",
     "nom": "Mezzo Di Pasta",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "as_24",
     "nom": "AS 24",
-    "categorie": "CARBURANT"
+    "categorie": "CARBURANT",
+    "icone": "CARBURANT"
   },
   {
     "id": "c_ur_ble",
     "nom": "Cœur de Blé",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "BOULANGERIE"
   },
   {
     "id": "mezzoday",
     "nom": "Mezzoday",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "monop",
     "nom": "Monop'",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "proxi",
     "nom": "Proxi",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "SUPERETTE"
   },
   {
     "id": "steak_n_shake",
     "nom": "Steak 'n Shake",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "honiby",
     "nom": "Honiby",
-    "categorie": "BOUTIQUE"
+    "categorie": "BOUTIQUE",
+    "icone": "BOUTIQUE"
   },
   {
     "id": "arche_comptoir",
     "nom": "L'Arche Comptoir",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURANT"
   },
   {
     "id": "go_johnny_go",
     "nom": "Go Johnny Go",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   },
   {
     "id": "crep_eat",
     "nom": "Crep'Eat",
-    "categorie": "RESTAURATION"
+    "categorie": "RESTAURATION",
+    "icone": "RESTAURATION_RAPIDE"
   }
 ]

@@ -122,7 +122,7 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
                 detail = detail,
                 onRetour = { navController.popBackStack() },
                 onNoter = { navController.navigate(Routes.notation(aireId)) },
-                onAjouterEnseigne = { nom -> vm.ajouterEnseigne(aireId, nom) },
+                onAjouterEnseigne = { nom, icone -> vm.ajouterEnseigne(aireId, nom, icone) },
                 onRetirerEnseigne = { enseigneId -> vm.retirerEnseigne(aireId, enseigneId) },
                 onSignaler = vm::signaler,
                 onSignalerContributeur = vm::signalerContributeur,

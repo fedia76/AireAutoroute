@@ -96,8 +96,13 @@ class ServiceContributions(@Suppress("unused") private val contexte: Context) {
         }
     }
 
-    /** Rattache une enseigne à une aire, en la créant au catalogue partagé si elle est nouvelle. */
-    suspend fun rattacherEnseigne(aireId: String, nomEnseigne: String) {
+    /**
+     * Rattache une enseigne à une aire, en la créant au catalogue partagé si elle est nouvelle.
+     *
+     * L'icône n'accompagne que la création : une enseigne déjà connue garde la sienne, comme
+     * elle garde son nom. Le catalogue s'enrichit des ajouts de chacun, personne ne le corrige.
+     */
+    suspend fun rattacherEnseigne(aireId: String, nomEnseigne: String, icone: IconeEnseigne?) {
         val nom = nomEnseigne.trim()
         if (nom.isEmpty()) return
         val auteurId = identifiantContributeur()
@@ -108,7 +113,13 @@ class ServiceContributions(@Suppress("unused") private val contexte: Context) {
 
         val enseigneId = existantes.firstOrNull()?.id
             ?: client.from("enseigne")
-                .insert(EnseigneAEnvoyer(nom = nom)) { select() }
+                .insert(
+                    EnseigneAEnvoyer(
+                        nom = nom,
+                        categorie = (icone?.categorie ?: CategorieEnseigne.AUTRE).name,
+                        icone = icone?.name,
+                    )
+                ) { select() }
                 .decodeSingle<EnseigneLue>()
                 .id
 
@@ -288,17 +299,25 @@ private data class EnseigneLue(
     val id: String,
     val nom: String,
     val categorie: String = "AUTRE",
+    val icone: String? = null,
 ) {
     fun versModele() = Enseigne(
         id = id,
         nom = nom,
         categorie = runCatching { CategorieEnseigne.valueOf(categorie) }
             .getOrDefault(CategorieEnseigne.AUTRE),
+        // Une icône inconnue de cette version de l'application ne vaut pas mieux qu'aucune :
+        // un jeu figé côté écran ne peut pas dessiner ce qu'une version plus récente a nommé.
+        icone = icone?.let { nom -> runCatching { IconeEnseigne.valueOf(nom) }.getOrNull() },
     )
 }
 
 @Serializable
-private data class EnseigneAEnvoyer(val nom: String, val categorie: String = "AUTRE")
+private data class EnseigneAEnvoyer(
+    val nom: String,
+    val categorie: String = "AUTRE",
+    val icone: String? = null,
+)
 
 @Serializable
 private data class LienLu(

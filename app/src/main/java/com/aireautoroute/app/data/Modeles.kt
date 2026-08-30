@@ -92,7 +92,53 @@ data class Enseigne(
     val id: String,
     val nom: String,
     val categorie: CategorieEnseigne = CategorieEnseigne.AUTRE,
+    /**
+     * Pictogramme de l'enseigne, `null` quand personne ne l'a renseigné : l'enseigne s'affiche
+     * alors sous son seul nom, ce qui reste préférable à une image approximative.
+     */
+    val icone: IconeEnseigne? = null,
 )
+
+/**
+ * Jeu — fixe — des pictogrammes d'enseigne.
+ *
+ * Il dit la **nature** du commerce, jamais la marque : aucun logo n'y figure, et deux
+ * contributeurs qui décrivent le même McDonald's doivent poser la même image. Le laisser ouvert
+ * reviendrait à demander à chacun d'inventer sa signalétique, et à n'en obtenir aucune.
+ *
+ * Ce qu'un passager cherche à un kilomètre de la sortie tient en une poignée de catégories :
+ * de quoi faire le plein, de quoi manger, de quoi acheter, de quoi dormir. La liste s'arrête là.
+ */
+@Serializable
+enum class IconeEnseigne(val libelle: String) {
+    CARBURANT("Station-service"),
+    RECHARGE_ELECTRIQUE("Recharge électrique"),
+    RESTAURATION_RAPIDE("Restauration rapide"),
+    RESTAURANT("Restaurant"),
+    BOULANGERIE("Boulangerie"),
+    CAFE("Café"),
+    PIZZERIA("Pizzeria"),
+    SUPERETTE("Supérette"),
+    BOUTIQUE("Boutique"),
+    HOTEL("Hôtel");
+
+    /**
+     * Catégorie que l'icône implique.
+     *
+     * Le pictogramme est plus fin que la catégorie — il distingue la boulangerie du restaurant,
+     * là où le catalogue ne connaît que « restauration ». Le contributeur ne renseigne donc que
+     * l'icône, et la catégorie s'en déduit : deux questions pour un seul renseignement feraient
+     * surtout abandonner la saisie.
+     */
+    val categorie: CategorieEnseigne
+        get() = when (this) {
+            CARBURANT, RECHARGE_ELECTRIQUE -> CategorieEnseigne.CARBURANT
+            RESTAURATION_RAPIDE, RESTAURANT, BOULANGERIE, CAFE, PIZZERIA ->
+                CategorieEnseigne.RESTAURATION
+            SUPERETTE, BOUTIQUE -> CategorieEnseigne.BOUTIQUE
+            HOTEL -> CategorieEnseigne.HOTEL
+        }
+}
 
 @Serializable
 enum class CategorieEnseigne(val libelle: String) {
