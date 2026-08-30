@@ -22,6 +22,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -46,6 +47,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.aireautoroute.app.data.AireDetail
 import com.aireautoroute.app.data.DetailCritere
+import com.aireautoroute.app.data.IconeEnseigne
 import com.aireautoroute.app.data.MotifSignalement
 import com.aireautoroute.app.data.Notation
 import com.aireautoroute.app.data.StatutEquipement
@@ -56,7 +58,7 @@ fun EcranDetail(
     detail: AireDetail?,
     onRetour: () -> Unit,
     onNoter: () -> Unit,
-    onAjouterEnseigne: (String) -> Unit,
+    onAjouterEnseigne: (String, IconeEnseigne?) -> Unit,
     onRetirerEnseigne: (String) -> Unit,
     onSignaler: (String, MotifSignalement) -> Unit,
     onSignalerContributeur: (String, MotifSignalement) -> Unit,
@@ -139,16 +141,32 @@ fun EcranDetail(
                         }
                         FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             detail.enseignes.forEach { enseigne ->
+                                // Le pictogramme dit la nature du commerce ; sans lui, le nom
+                                // seul oblige à connaître l'enseigne pour savoir quoi en attendre.
+                                val icone = enseigne.icone
+                                val picto: @Composable (() -> Unit)? = if (icone == null) {
+                                    null
+                                } else {
+                                    {
+                                        Icon(
+                                            imageVector = icone.vecteur,
+                                            contentDescription = icone.libelle,
+                                            modifier = Modifier.size(18.dp),
+                                        )
+                                    }
+                                }
                                 if (enseigne.id in detail.enseignesAjoutees) {
                                     InputChip(
                                         selected = false,
                                         onClick = { onRetirerEnseigne(enseigne.id) },
                                         label = { Text("${enseigne.nom} ✕") },
+                                        leadingIcon = picto,
                                     )
                                 } else {
                                     AssistChip(
                                         onClick = { },
                                         label = { Text(enseigne.nom) },
+                                        leadingIcon = picto,
                                     )
                                 }
                             }
@@ -176,21 +194,54 @@ fun EcranDetail(
 
     if (dialogueEnseigne) {
         var saisie by remember { mutableStateOf("") }
+        var icone by remember { mutableStateOf<IconeEnseigne?>(null) }
         AlertDialog(
             onDismissRequest = { dialogueEnseigne = false },
             title = { Text("Ajouter une enseigne") },
             text = {
-                OutlinedTextField(
-                    value = saisie,
-                    onValueChange = { saisie = it },
-                    label = { Text("Nom de l'enseigne") },
-                    singleLine = true,
-                )
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    OutlinedTextField(
+                        value = saisie,
+                        onValueChange = { saisie = it },
+                        label = { Text("Nom de l'enseigne") },
+                        singleLine = true,
+                    )
+                    // Le choix reste facultatif : sur le bord de la route, exiger une catégorie
+                    // pour signaler une enseigne ferait surtout renoncer à la signaler.
+                    Text(
+                        "Icône (facultative)",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(6.dp),
+                        verticalArrangement = Arrangement.spacedBy(2.dp),
+                    ) {
+                        IconeEnseigne.entries.forEach { candidate ->
+                            FilterChip(
+                                selected = icone == candidate,
+                                onClick = { icone = if (icone == candidate) null else candidate },
+                                label = {
+                                    Icon(
+                                        imageVector = candidate.vecteur,
+                                        contentDescription = candidate.libelle,
+                                        modifier = Modifier.size(18.dp),
+                                    )
+                                },
+                            )
+                        }
+                    }
+                    Text(
+                        text = icone?.libelle ?: "Aucune icône",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             },
             confirmButton = {
                 TextButton(
                     onClick = {
-                        onAjouterEnseigne(saisie)
+                        onAjouterEnseigne(saisie, icone)
                         dialogueEnseigne = false
                     },
                     enabled = saisie.isNotBlank(),

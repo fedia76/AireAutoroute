@@ -11,6 +11,8 @@ Deux sources ouvertes, toutes deux versionnées dans `donnees/sources/` :
   * `enseignes.json`      — Référentiel des enseignes, tenu à la main : il sert de liste de
                             saisie dans l'application, et s'augmente des marques relevées dans
                             OpenStreetMap.
+  * `icones_enseignes.json` — Pictogramme de chaque enseigne, pris dans un jeu fixe. Ce que la
+                            table ne range pas, la catégorie le range grossièrement.
   * `osm_aires.json`      — Relevé d'OpenStreetMap (ODbL), produit par `tools/scrapper_osm.py`.
                             Facultatif : sans lui, les aires n'annoncent que ce que leur type
                             implique.
@@ -32,6 +34,7 @@ from importlib import import_module
 bornes = import_module("import.bornes")
 wikisara = import_module("import.wikisara")
 construction = import_module("import.construction")
+enseignes_icones = import_module("import.enseignes")
 osm = import_module("import.osm")
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -221,6 +224,17 @@ def main() -> int:
     if os.path.exists(chemin_osm):
         releve = osm.lire_releve(chemin_osm)
         aires, enseignes, liens, rapport_osm = osm.enrichir(aires, traces, releve, enseignes)
+
+    # Les pictogrammes se posent en dernier : ils valent pour le catalogue livré tout entier,
+    # référentiel tenu à la main comme marques entrées par l'import.
+    table_icones = enseignes_icones.lire_table(os.path.join(SOURCES, "icones_enseignes.json"))
+    inutiles = enseignes_icones.appliquer(enseignes, table_icones)
+    if inutiles:
+        print(f"icones_enseignes.json : {len(inutiles)} enseigne(s) inconnue(s) du catalogue "
+              f"({', '.join(inutiles[:5])}…)", file=sys.stderr)
+    sans_icone = [e["nom"] for e in enseignes if "icone" not in e]
+    if sans_icone:
+        print(f"{len(sans_icone)} enseigne(s) sans icône : {', '.join(sans_icone[:5])}")
 
     anomalies = controler(autoroutes, aires)
 

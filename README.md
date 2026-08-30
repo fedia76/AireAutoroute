@@ -45,7 +45,7 @@ en gardant la structure des trois ramps typographiques.
 
 | Critère | Noté | Détail |
 | --- | --- | --- |
-| Enseignes | non | simplement listées, l'utilisateur peut en ajouter |
+| Enseignes | non | simplement listées avec leur pictogramme, l'utilisateur peut en ajouter |
 | Aire de jeux intérieure | 1 à 5 ★ | par tranche d'âge : 0-3 ans, 3-6 ans, 6-12 ans |
 | Aire de jeux extérieure | 1 à 5 ★ | par tranche d'âge : 0-3 ans, 3-6 ans, 6-12 ans |
 | Toilettes | 1 à 5 ★ | |
@@ -101,7 +101,7 @@ comme des tables**, pour que le passage à Room ne touche que `DepotDonnees`.
 | --- | --- | --- |
 | `autoroute` | `assets/seed/autoroutes.json` | id, nom, libellé, terminus de départ et d'arrivée, longueur, géométrie (points GPS + PK) |
 | `aire` | `assets/seed/aires.json` | id, autoroute, nom, PK, sens desservi, type (service/repos), coordonnées, équipements annoncés |
-| `enseigne` | `assets/seed/enseignes.json` | id, nom, catégorie (carburant, restauration, boutique, hôtel) |
+| `enseigne` | `assets/seed/enseignes.json` | id, nom, catégorie (carburant, restauration, boutique, hôtel), icône |
 | `aire_enseigne` | `assets/seed/aire_enseignes.json` | table de liaison **many-to-many** aire ↔ enseigne |
 | `notation` | service partagé | id, aire, critère, tranche d'âge, note 1-5, commentaire, auteur, date |
 | `declaration_equipement` | service partagé | id, aire, critère, présence (oui/non), auteur, date |
@@ -125,6 +125,7 @@ versionnées dans `donnees/sources/` :
 | [WikiSara](https://routes.fandom.com) | CC BY-SA | la liste des aires : nom, sens, type, point kilométrique |
 | [OpenStreetMap](https://www.openstreetmap.org) (API Overpass) | ODbL | les équipements réellement relevés sur le terrain et les enseignes présentes |
 | `donnees/sources/enseignes.json` | — | référentiel de saisie des enseignes, tenu à la main |
+| `donnees/sources/icones_enseignes.json` | — | le pictogramme de chaque enseigne, pris dans un jeu fixe |
 
 Le bornage donne, pour chaque borne, deux abscisses : la distance depuis l'origine du tracé et le
 numéro inscrit sur la borne. Les deux ne coïncident pas — une autoroute peut prolonger le

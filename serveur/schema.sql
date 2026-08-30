@@ -103,8 +103,23 @@ create table if not exists enseigne (
   nom        text not null check (length(trim(nom)) between 2 and 60),
   categorie  text not null default 'AUTRE'
              check (categorie in ('CARBURANT', 'RESTAURATION', 'BOUTIQUE', 'HOTEL', 'AUTRE')),
+  -- Pictogramme, facultatif : le contributeur qui signale une enseigne sur le bord de la route
+  -- n'est pas tenu de la ranger. Le jeu est fixe et écrit en dur, comme les autres domaines de
+  -- valeurs : il change avec le code de l'application, pas avec les données.
+  icone      text constraint enseigne_icone_connue check (icone in (
+               'CARBURANT', 'RECHARGE_ELECTRIQUE', 'RESTAURATION_RAPIDE', 'RESTAURANT',
+               'BOULANGERIE', 'CAFE', 'PIZZERIA', 'SUPERETTE', 'BOUTIQUE', 'HOTEL'
+             )),
   creee_le   timestamptz not null default now()
 );
+
+-- Rattrapage pour une base créée avant l'arrivée des pictogrammes.
+alter table enseigne add column if not exists icone text;
+alter table enseigne drop constraint if exists enseigne_icone_connue;
+alter table enseigne add constraint enseigne_icone_connue check (icone in (
+  'CARBURANT', 'RECHARGE_ELECTRIQUE', 'RESTAURATION_RAPIDE', 'RESTAURANT',
+  'BOULANGERIE', 'CAFE', 'PIZZERIA', 'SUPERETTE', 'BOUTIQUE', 'HOTEL'
+));
 
 -- « McDonald's » et « mcdonalds » doivent désigner la même enseigne.
 create unique index if not exists enseigne_nom_unique on enseigne (lower(trim(nom)));

@@ -160,9 +160,13 @@ class DepotDonnees(
         }
     }
 
-    suspend fun ajouterEnseigneAAire(aireId: String, nomEnseigne: String): Result<Unit> =
+    suspend fun ajouterEnseigneAAire(
+        aireId: String,
+        nomEnseigne: String,
+        icone: IconeEnseigne?,
+    ): Result<Unit> =
         runCatching {
-            service.rattacherEnseigne(aireId, nomEnseigne)
+            service.rattacherEnseigne(aireId, nomEnseigne, icone)
             rafraichir()
         }
 
