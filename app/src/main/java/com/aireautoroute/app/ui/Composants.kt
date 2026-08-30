@@ -52,12 +52,12 @@ fun EtoilesLecture(
     }
 }
 
-/** Étoiles + moyenne chiffrée + nombre d'avis, ou mention « pas encore noté ». */
+/** Étoiles + moyenne chiffrée + nombre d'avis, ou mention « pas encore notée ». */
 @Composable
 fun NoteAvecDetail(note: NoteAgregee?, modifier: Modifier = Modifier) {
     if (note == null) {
         Text(
-            text = "Pas encore noté",
+            text = "Pas encore notée",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = modifier,

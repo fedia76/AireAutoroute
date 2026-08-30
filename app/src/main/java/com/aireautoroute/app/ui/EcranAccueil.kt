@@ -28,6 +28,7 @@ import androidx.compose.material.icons.filled.CloudOff
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Palette
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -48,7 +49,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -219,6 +219,16 @@ private fun CartePosition(
     var menuOuvert by remember { mutableStateOf(false) }
     val theme = LocalThemeApp.current
 
+    fun pkSaisi(): Double? = pkTexte.replace(',', '.').toDoubleOrNull()
+
+    // Changer de sens, c'est demander l'autre liste : la faire attendre un second geste sur le
+    // bouton laisserait à l'écran des aires que l'on vient de dépasser.
+    fun chercher(sensVoulu: Sens) {
+        val choisie = autoroute ?: return
+        val pk = pkSaisi() ?: return
+        onPositionManuelle(choisie, pk, sensVoulu)
+    }
+
     // Une localisation réussie remplit le formulaire manuel, qui reste corrigeable. Un aperçu
     // provisoire, lui, ne recopie rien : il serait remplacé sous les doigts de l'utilisateur.
     LaunchedEffect(etat.position) {
@@ -353,27 +363,30 @@ private fun CartePosition(
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     FilterChip(
                         selected = sens == Sens.CROISSANT,
-                        onClick = { sens = Sens.CROISSANT },
+                        onClick = {
+                            sens = Sens.CROISSANT
+                            chercher(Sens.CROISSANT)
+                        },
                         label = { Text("vers ${choisie.terminusFin}") },
                     )
                     FilterChip(
                         selected = sens == Sens.DECROISSANT,
-                        onClick = { sens = Sens.DECROISSANT },
+                        onClick = {
+                            sens = Sens.DECROISSANT
+                            chercher(Sens.DECROISSANT)
+                        },
                         label = { Text("vers ${choisie.terminusDebut}") },
                     )
                 }
             }
 
-            TextButton(
-                onClick = {
-                    val choisie = autoroute ?: return@TextButton
-                    val pk = pkTexte.replace(',', '.').toDoubleOrNull() ?: return@TextButton
-                    onPositionManuelle(choisie, pk, sens)
-                },
-                enabled = autoroute != null && pkTexte.replace(',', '.').toDoubleOrNull() != null,
-                modifier = Modifier.align(Alignment.End),
+            Button(
+                onClick = { chercher(sens) },
+                enabled = autoroute != null && pkSaisi() != null,
+                modifier = Modifier.fillMaxWidth().height(50.dp),
             ) {
-                Text("Voir les prochaines aires")
+                Icon(Icons.Filled.Search, contentDescription = null, modifier = Modifier.size(18.dp))
+                Text("  Voir les prochaines aires")
             }
 
             etat.localisation.message?.let { texte ->
@@ -665,14 +678,27 @@ private fun Enseignes(enseignes: List<Enseigne>) {
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         enseignes.take(4).forEach { enseigne ->
-            Text(
-                text = enseigne.nom,
-                style = MaterialTheme.typography.labelSmall.copy(fontSize = 12.sp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(3.dp),
                 modifier = Modifier
                     .border(1.dp, MaterialTheme.colorScheme.outline, MaterialTheme.shapes.extraSmall)
                     .padding(horizontal = 7.dp, vertical = 3.dp),
-            )
+            ) {
+                enseigne.icone?.let { icone ->
+                    Icon(
+                        imageVector = icone.vecteur,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(14.dp),
+                    )
+                }
+                Text(
+                    text = enseigne.nom,
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 12.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
     }
 }
