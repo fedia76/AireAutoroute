@@ -6,7 +6,6 @@ import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
-import java.io.FileNotFoundException
 
 /**
  * Fond cartographique embarqué, recopié sur le stockage au premier lancement.
@@ -18,8 +17,8 @@ import java.io.FileNotFoundException
  * style ne mélange pas deux schémas d'URL.
  *
  * Le fond est facultatif. S'il n'a pas été généré (voir `tools/generer_fond.py`),
- * [preparer] renvoie `null` et la carte se dessine sans lui : on garde le tracé
- * de l'autoroute et les aires, simplement sans repères.
+ * [preparer] renvoie un emplacement sans archive et la carte se dessine sans lui :
+ * on garde le tracé de l'autoroute et les aires, simplement sans repères.
  */
 object FondCarte {
 
@@ -29,38 +28,53 @@ object FondCarte {
     private const val ARCHIVE = "fond/france-z8.pmtiles"
     private const val GLYPHES = "fond/glyphes"
 
-    /** Ce que le style a besoin de savoir : deux URL absolues. */
-    data class Emplacement(val urlArchive: String, val motifGlyphes: String)
+    /**
+     * Ce que le style a besoin de savoir. Les deux URL sont indépendantes : les glyphes
+     * servent aux libellés des aires, que le fond soit là ou non.
+     */
+    data class Emplacement(val urlArchive: String?, val motifGlyphes: String?)
 
     /**
-     * Recopie le fond si nécessaire et renvoie ses URL, ou `null` s'il est absent.
+     * Recopie ce qui est disponible et renvoie ses URL, `null` pour ce qui manque.
      *
      * La recopie est ignorée quand le fichier déjà présent a la taille de
      * l'asset : c'est ce qui rend l'appel bon marché à chaque ouverture de la
      * carte, tout en repérant un fond régénéré entre deux versions.
      */
-    suspend fun preparer(context: Context): Emplacement? = withContext(Dispatchers.IO) {
+    suspend fun preparer(context: Context): Emplacement = withContext(Dispatchers.IO) {
+        Emplacement(
+            urlArchive = preparerArchive(context),
+            motifGlyphes = preparerGlyphes(context),
+        )
+    }
+
+    /** URL de l'archive PMTiles, ou `null` si elle n'est ni embarquée ni recopiable. */
+    private fun preparerArchive(context: Context): String? {
         val assets = context.assets
         if (!existe(assets, ARCHIVE)) {
             Log.i(TAG, "Aucun fond embarqué : la carte s'affichera sans repères.")
-            return@withContext null
+            return null
         }
-
-        val racine = context.filesDir
-        val archive = File(racine, ARCHIVE)
-
-        return@withContext try {
+        val archive = File(context.filesDir, ARCHIVE)
+        return try {
             copierSiBesoin(assets, ARCHIVE, archive)
-            copierArborescence(assets, GLYPHES, racine)
-            Emplacement(
-                urlArchive = "pmtiles://file://${archive.absolutePath}",
-                // MapLibre substitue {fontstack} et {range} à la demande.
-                motifGlyphes = "file://${File(racine, GLYPHES).absolutePath}" +
-                    "/{fontstack}/{range}.pbf",
-            )
+            "pmtiles://file://${archive.absolutePath}"
         } catch (erreur: Exception) {
             // Un fond illisible ne doit pas emporter la carte avec lui.
             Log.e(TAG, "Fond inutilisable, la carte s'affichera sans repères.", erreur)
+            null
+        }
+    }
+
+    /** Motif d'URL des glyphes, ou `null` s'ils manquent : la carte se passera de libellés. */
+    private fun preparerGlyphes(context: Context): String? {
+        val racine = context.filesDir
+        return try {
+            copierArborescence(context.assets, GLYPHES, racine)
+            // MapLibre substitue {fontstack} et {range} à la demande.
+            "file://${File(racine, GLYPHES).absolutePath}/{fontstack}/{range}.pbf"
+        } catch (erreur: Exception) {
+            Log.e(TAG, "Glyphes inutilisables, la carte s'affichera sans libellés.", erreur)
             null
         }
     }
@@ -69,7 +83,8 @@ object FondCarte {
         try {
             assets.open(chemin).close()
             true
-        } catch (_: FileNotFoundException) {
+        } catch (_: Exception) {
+            // Absent ou illisible : dans les deux cas, il n'y a pas de fond à poser.
             false
         }
 

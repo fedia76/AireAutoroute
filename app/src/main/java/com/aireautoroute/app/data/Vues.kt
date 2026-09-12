@@ -200,6 +200,20 @@ fun prochainesAires(
         .toList()
 }
 
+/**
+ * Toutes les aires de l'autoroute empruntée, sans condition de distance, pour la vue carte.
+ *
+ * Le filtre sur le sens n'est pas un raffinement : deux aires qui se font face de part et
+ * d'autre de la chaussée portent des noms différents mais partagent les mêmes coordonnées.
+ * Les garder toutes les deux ne montrerait pas deux endroits sur la carte, seulement deux
+ * pastilles superposées — et un groupe « 2 » qui ne se déplie jamais, si loin qu'on zoome.
+ */
+fun airesDeLItineraire(catalogue: Catalogue, position: PositionUtilisateur): List<Aire> =
+    catalogue.aires
+        .filter { it.autorouteId == position.autoroute.id }
+        .filter { it.estAccessibleDans(position.sens) }
+        .sortedBy { it.pk }
+
 fun detailAire(catalogue: Catalogue, donnees: DonneesUtilisateur, aireId: String): AireDetail? {
     val aire = catalogue.aires.firstOrNull { it.id == aireId } ?: return null
     val autoroute = catalogue.autoroutes.firstOrNull { it.id == aire.autorouteId } ?: return null
