@@ -97,16 +97,23 @@ const val ZOOM_MAX_TUILES = 8
 /**
  * Style complet du fond.
  *
- * Quand [emplacement] est `null` — fond non généré —, on renvoie un style réduit
- * au seul aplat de fond : la carte reste utilisable, avec le tracé et les aires,
- * simplement sans repères. C'est volontairement silencieux : une carte sans
- * villes vaut mieux qu'un écran d'erreur au milieu d'un trajet.
+ * Quand l'archive manque — fond non généré —, on renvoie un style réduit au seul
+ * aplat de fond : la carte reste utilisable, avec le tracé et les aires, simplement
+ * sans repères. C'est volontairement silencieux : une carte sans villes vaut mieux
+ * qu'un écran d'erreur au milieu d'un trajet. Les glyphes, eux, sont déclarés dès
+ * qu'ils sont disponibles : ils servent aux libellés des aires, fond ou pas.
  */
-fun styleCarte(emplacement: FondCarte.Emplacement?, palette: PaletteCarte): String {
-    if (emplacement == null) {
+fun styleCarte(emplacement: FondCarte.Emplacement, palette: PaletteCarte): String {
+    // Déclarer des glyphes que l'on n'a pas serait pire que de n'en pas déclarer :
+    // MapLibre les réclamerait en vain et retiendrait les tuiles qui en dépendent.
+    val glyphes = emplacement.motifGlyphes?.let { "\"glyphs\": \"$it\"," }.orEmpty()
+
+    val archive = emplacement.urlArchive
+    if (archive == null) {
         return """
         {
           "version": 8,
+          $glyphes
           "sources": {},
           "layers": [
             { "id": "fond", "type": "background",
@@ -119,11 +126,11 @@ fun styleCarte(emplacement: FondCarte.Emplacement?, palette: PaletteCarte): Stri
     return """
     {
       "version": 8,
-      "glyphs": "${emplacement.motifGlyphes}",
+      $glyphes
       "sources": {
         "fond": {
           "type": "vector",
-          "url": "${emplacement.urlArchive}",
+          "url": "$archive",
           "maxzoom": $ZOOM_MAX_TUILES,
           "attribution": "© OpenStreetMap, Protomaps"
         }

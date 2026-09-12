@@ -61,6 +61,19 @@ data class CouleursTrace(
     val surTrace: String,
 )
 
+/**
+ * Ce que la surcouche doit montrer à l'instant où elle est (ré)installée.
+ *
+ * Les sources naissent avec ces données plutôt que vides : une source de groupes remplie
+ * après coup laisse les tuiles déjà dessinées telles quelles, et les pastilles n'apparaissent
+ * qu'au premier mouvement de caméra qui force leur recalcul.
+ */
+data class DonneesCarte(
+    val position: PositionUtilisateur?,
+    val aires: List<Aire>,
+    val airesNotees: Set<String>,
+)
+
 /** Résultat d'un appui : soit une aire, soit un groupe à ouvrir en zoomant. */
 internal data class Touche(val id: String, val groupe: Boolean)
 
@@ -187,11 +200,24 @@ internal fun cadrage(position: PositionUtilisateur?): LatLngBounds {
 
 // --- Couches ------------------------------------------------------------------
 
-internal fun installerCouches(style: Style, couleurs: CouleursTrace) {
-    style.addSource(GeoJsonSource(SOURCE_ITINERAIRE))
+/**
+ * Pose les sources et les couches de la surcouche sur un style fraîchement chargé.
+ *
+ * [avecLibelles] dit si le style sait charger des glyphes. Sans eux, une couche de symboles
+ * réclame en vain des caractères à MapLibre, et les tuiles de sa source restent en attente :
+ * ce ne sont pas seulement les libellés qui manqueraient à l'écran, mais les pastilles avec.
+ */
+internal fun installerCouches(
+    style: Style,
+    couleurs: CouleursTrace,
+    donnees: DonneesCarte,
+    avecLibelles: Boolean,
+) {
+    style.addSource(GeoJsonSource(SOURCE_ITINERAIRE, traceItineraire(donnees.position)))
     style.addSource(
         GeoJsonSource(
             SOURCE_AIRES,
+            pointsAires(donnees.aires, donnees.airesNotees, donnees.position),
             GeoJsonOptions()
                 .withCluster(true)
                 .withClusterRadius(44)
@@ -200,7 +226,7 @@ internal fun installerCouches(style: Style, couleurs: CouleursTrace) {
                 .withClusterMaxZoom(10),
         ),
     )
-    style.addSource(GeoJsonSource(SOURCE_POSITION))
+    style.addSource(GeoJsonSource(SOURCE_POSITION, pointPosition(donnees.position)))
 
     style.addLayer(
         LineLayer("itineraire-trace", SOURCE_ITINERAIRE).withProperties(
@@ -241,18 +267,20 @@ internal fun installerCouches(style: Style, couleurs: CouleursTrace) {
         },
     )
 
-    style.addLayer(
-        SymbolLayer("aires-groupe-nombre", SOURCE_AIRES).apply {
-            setFilter(Expression.has("point_count"))
-            withProperties(
-                PropertyFactory.textField(Expression.toString(Expression.get("point_count"))),
-                PropertyFactory.textFont(arrayOf("Noto Sans Medium")),
-                PropertyFactory.textSize(13f),
-                PropertyFactory.textColor(couleurs.surTrace.toCouleur()),
-                PropertyFactory.textAllowOverlap(true),
-            )
-        },
-    )
+    if (avecLibelles) {
+        style.addLayer(
+            SymbolLayer("aires-groupe-nombre", SOURCE_AIRES).apply {
+                setFilter(Expression.has("point_count"))
+                withProperties(
+                    PropertyFactory.textField(Expression.toString(Expression.get("point_count"))),
+                    PropertyFactory.textFont(arrayOf("Noto Sans Medium")),
+                    PropertyFactory.textSize(13f),
+                    PropertyFactory.textColor(couleurs.surTrace.toCouleur()),
+                    PropertyFactory.textAllowOverlap(true),
+                )
+            },
+        )
+    }
 
     style.addLayer(
         CircleLayer(COUCHE_PASTILLE, SOURCE_AIRES).apply {
@@ -279,23 +307,25 @@ internal fun installerCouches(style: Style, couleurs: CouleursTrace) {
         },
     )
 
-    style.addLayer(
-        SymbolLayer("aires-libelle", SOURCE_AIRES).apply {
-            setFilter(Expression.not(Expression.has("point_count")))
-            setMinZoom(9.5f)
-            withProperties(
-                PropertyFactory.textField(Expression.get("nom")),
-                PropertyFactory.textFont(arrayOf("Noto Sans Regular")),
-                PropertyFactory.textSize(12f),
-                PropertyFactory.textAnchor("left"),
-                PropertyFactory.textOffset(arrayOf(1.1f, 0f)),
-                PropertyFactory.textMaxWidth(8f),
-                PropertyFactory.textColor(couleurs.devant.toCouleur()),
-                PropertyFactory.textHaloColor(couleurs.surTrace.toCouleur()),
-                PropertyFactory.textHaloWidth(1.4f),
-            )
-        },
-    )
+    if (avecLibelles) {
+        style.addLayer(
+            SymbolLayer("aires-libelle", SOURCE_AIRES).apply {
+                setFilter(Expression.not(Expression.has("point_count")))
+                setMinZoom(9.5f)
+                withProperties(
+                    PropertyFactory.textField(Expression.get("nom")),
+                    PropertyFactory.textFont(arrayOf("Noto Sans Regular")),
+                    PropertyFactory.textSize(12f),
+                    PropertyFactory.textAnchor("left"),
+                    PropertyFactory.textOffset(arrayOf(1.1f, 0f)),
+                    PropertyFactory.textMaxWidth(8f),
+                    PropertyFactory.textColor(couleurs.devant.toCouleur()),
+                    PropertyFactory.textHaloColor(couleurs.surTrace.toCouleur()),
+                    PropertyFactory.textHaloWidth(1.4f),
+                )
+            },
+        )
+    }
 
     style.addLayer(
         CircleLayer("position-halo", SOURCE_POSITION).withProperties(
