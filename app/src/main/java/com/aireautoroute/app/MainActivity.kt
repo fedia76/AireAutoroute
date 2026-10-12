@@ -3,11 +3,13 @@ package com.aireautoroute.app
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
@@ -17,6 +19,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.aireautoroute.app.bulle.BulleService
+import com.aireautoroute.app.bulle.PrerequisBulle
 import com.aireautoroute.app.ui.EcranAccueil
 import com.aireautoroute.app.ui.EcranCarte
 import com.aireautoroute.app.ui.EcranDetail
@@ -65,6 +69,9 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
         if (resultats.values.any { it }) vm.localiser()
     }
 
+    val bulleActive by BulleService.actif.collectAsStateWithLifecycle()
+    val basculerBulle = rememberBasculeBulle()
+
     NavHost(navController = navController, startDestination = Routes.ACCUEIL) {
         composable(Routes.ACCUEIL) {
             EcranAccueil(
@@ -76,6 +83,8 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
                 onAire = { aireId -> navController.navigate(Routes.detail(aireId)) },
                 onSources = { navController.navigate(Routes.SOURCES) },
                 onCarte = { navController.navigate(Routes.CARTE) },
+                bulleActive = bulleActive,
+                onBulle = basculerBulle,
                 onMessageLu = vm::effacerMessageContribution,
                 onLocaliser = {
                     val accordee = ContextCompat.checkSelfPermission(
@@ -143,4 +152,54 @@ private fun Navigation(vm: AppViewModel, themeCourant: ThemeApp) {
             )
         }
     }
+}
+
+/**
+ * Le bouton de la bulle : l'arrête si elle tourne, sinon réunit ce qui lui manque avant de la
+ * lancer — la localisation, l'affichage par-dessus les autres applis, puis les notifications.
+ *
+ * L'autorisation de superposition ne s'obtient pas par une boîte de dialogue : l'utilisateur est
+ * envoyé dans les réglages, et on reprend ici quand il en revient. Un refus de notifications ne
+ * bloque pas la bulle ; le système la laisse tourner, sa notification restant simplement masquée.
+ */
+@Composable
+private fun rememberBasculeBulle(): () -> Unit {
+    val contexte = LocalContext.current
+    val actif by BulleService.actif.collectAsStateWithLifecycle()
+    // Les lanceurs sont déclarés avant la fonction qui les utilise, qu'ils rappellent à leur tour.
+    val suite = remember { mutableStateOf({}) }
+
+    val demandePosition = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions(),
+    ) { resultats -> if (resultats.values.any { it }) suite.value() }
+
+    val demandeSuperposition = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartActivityForResult(),
+    ) { if (Settings.canDrawOverlays(contexte)) suite.value() }
+
+    val demandeNotifications = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { BulleService.demarrer(contexte) }
+
+    suite.value = {
+        when (BulleService.prerequisManquant(contexte)) {
+            PrerequisBulle.POSITION -> demandePosition.launch(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                ),
+            )
+            PrerequisBulle.SUPERPOSITION -> demandeSuperposition.launch(
+                BulleService.intentAutorisationSuperposition(contexte),
+            )
+            PrerequisBulle.PRET ->
+                if (BulleService.notificationsAutorisees(contexte)) {
+                    BulleService.demarrer(contexte)
+                } else {
+                    demandeNotifications.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
+        }
+    }
+
+    return { if (actif) BulleService.arreter(contexte) else suite.value() }
 }

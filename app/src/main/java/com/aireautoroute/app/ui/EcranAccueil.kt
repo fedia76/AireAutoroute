@@ -28,6 +28,7 @@ import androidx.compose.material.icons.filled.CloudOff
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Palette
+import androidx.compose.material.icons.filled.PictureInPictureAlt
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material3.Button
@@ -89,6 +90,8 @@ fun EcranAccueil(
     onLocaliser: () -> Unit,
     onSources: () -> Unit,
     onCarte: () -> Unit,
+    bulleActive: Boolean,
+    onBulle: () -> Unit,
     onMessageLu: () -> Unit,
 ) {
     var dialogueTheme by remember { mutableStateOf(false) }
@@ -162,6 +165,20 @@ fun EcranAccueil(
                     onInverserSens = onInverserSens,
                     onLocaliser = onLocaliser,
                 )
+            }
+
+            item {
+                OutlinedButton(
+                    onClick = onBulle,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .then(if (dense) Modifier.padding(horizontal = 16.dp) else Modifier),
+                ) {
+                    Icon(Icons.Filled.PictureInPictureAlt, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Text(
+                        if (bulleActive) "  Arrêter la bulle" else "  Bulle sur les autres applis",
+                    )
+                }
             }
 
             if (etat.position != null) {

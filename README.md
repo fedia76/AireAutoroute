@@ -24,6 +24,22 @@ l'autoroute et les **noter**, en particulier quand on voyage avec des enfants.
    téléchargée**, ni au premier lancement ni ensuite, donc la carte fonctionne sans réseau, ce qui
    est la moindre des choses en voiture.
 
+### La bulle sur les autres applications
+
+Le bouton « Bulle sur les autres applis » de l'écran d'accueil pose une pastille flottante par-dessus
+l'application de navigation : la distance de la prochaine aire. Un toucher l'ouvre sur les trois
+prochaines aires (nom, note, distance) ; un glissement la déplace.
+
+- Elle s'appuie sur un **service de premier plan** (`bulle/BulleService`) qui lit la position et
+  affiche une notification tant qu'elle tourne. Le service doit être lancé depuis l'application
+  au premier plan : c'est ce qui lui garde l'accès à la position quand on change d'application, sans
+  permission de localisation « en arrière-plan ».
+- Elle exige l'autorisation **« Afficher par-dessus les autres applications »**, accordée par
+  l'utilisateur dans les réglages Android (le bouton l'y envoie).
+- Elle ne lit que le catalogue livré et la copie locale des avis, sans réseau.
+- Elle ne se relance pas seule : après un redémarrage du téléphone ou une fermeture par le système,
+  il faut la réactiver depuis l'application.
+
 ### Trois habillages au choix
 
 L'icône palette, en haut de l'écran d'accueil, ouvre le choix du thème. Le réglage est conservé
