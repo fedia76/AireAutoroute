@@ -45,8 +45,14 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      # Par défaut, l'action installe aussi `tools`, l'ancien paquet « Android SDK Tools »
+      # que Google a retiré de son dépôt à l'automne 2026 : `sdkmanager tools` échoue
+      # depuis. Le build ne s'en est jamais servi. Plateforme et build-tools viennent,
+      # comme avant, du SDK préinstallé sur le runner ou de Gradle.
       - name: Configuration du SDK Android
         uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
 
       - name: Configuration de Gradle
         uses: gradle/actions/setup-gradle@v4

@@ -96,6 +96,18 @@ class DepotDonnees(
     val synchro: StateFlow<EtatSynchro> = _synchro.asStateFlow()
 
     suspend fun charger() {
+        chargerLocalement()
+        rafraichir()
+    }
+
+    /**
+     * Le catalogue livré et la copie locale des contributions, sans toucher au réseau.
+     *
+     * C'est ce que lit la bulle flottante : elle tourne dans un service à part, et un second
+     * dépôt qui réécrirait la copie locale en même temps que celui de l'application risquerait de
+     * la corrompre. Elle se contente donc de lire.
+     */
+    suspend fun chargerLocalement() {
         withContext(Dispatchers.IO) {
             _catalogue.value = Catalogue(
                 autoroutes = lireAsset("seed/autoroutes.json"),
@@ -106,7 +118,6 @@ class DepotDonnees(
             brutes = lireCache()
             publier()
         }
-        rafraichir()
     }
 
     /** Rapatrie les contributions publiées. Sans réseau, on garde la copie locale. */

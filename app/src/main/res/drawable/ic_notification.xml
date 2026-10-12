@@ -1,0 +1,11 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Pin de l'aire de repos sur son sol, en une seule couleur : Android teinte les icônes de
+         notification et n'en garde que la silhouette. -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,2L19,10L5,10ZM12,7L20,15L4,15ZM11,15L13,15L13,19L11,19ZM3,19L21,19L21,21L3,21Z" />
+</vector>
