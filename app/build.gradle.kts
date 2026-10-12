@@ -34,8 +34,8 @@ android {
         targetSdk = 36
         // À incrémenter à chaque téléversement : la Play Console refuse un bundle dont le
         // versionCode a déjà été vu, même retiré depuis. Il ne redescend jamais.
-        versionCode = 3
-        versionName = "0.2.1"
+        versionCode = 4
+        versionName = "0.3.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Coordonnées du service de contributions. La clé est publique par construction :
